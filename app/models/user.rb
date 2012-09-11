@@ -10,5 +10,5 @@ class User < ActiveRecord::Base
   				  :username
   # attr_accessible :title, :body
 
-  validates_presence_of :suername
+  validates_presence_of :username
 end

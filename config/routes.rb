@@ -1,4 +1,6 @@
 LandoYoushaei::Application.routes.draw do
+  get "store/index"
+
   resources :items
 
   devise_for :users
