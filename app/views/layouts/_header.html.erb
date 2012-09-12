@@ -13,7 +13,5 @@
 <div>
 	<% if current_user.role == "tastemaker" %>
 	  <%= link_to "Add something", new_item_path %>
-	<% else %>
-	  <%= link_to "Become a Tastemaker", :controller => "applications", :action => "new" %>
 	<% end %>
 </div>
