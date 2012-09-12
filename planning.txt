@@ -1,0 +1,11 @@
+styles --
+
+formal
+casual
+hipster
+preppy
+
+
+shopping cart question - called skimlinks and they said it's not possible - could ou make a list of links?
+
+hover over squares - expand
