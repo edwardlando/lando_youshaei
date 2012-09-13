@@ -11,7 +11,9 @@
 </div>
 
 <div>
-	<% if current_user.role == "tastemaker" %>
-	  <%= link_to "Add something", new_item_path %>
+	<% unless current_user.nil? %>
+		<% if current_user.role == "tastemaker" %>
+		  <%= link_to "Add something", new_item_path %>
+		<% end %>
 	<% end %>
 </div>
