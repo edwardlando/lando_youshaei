@@ -7,3 +7,9 @@ html, body {
 	height: 100%;
 	width: 1000px;
 }
+
+/* Header */
+
+#session {
+	float: right;
+}

@@ -3,17 +3,28 @@
 <div id="user nav">
 	<% if user_signed_in? %>
 		<strong><%- current_user.email %></strong>
+		 
+		<div>
+			<% unless current_user.nil? %>
+				<% if current_user.role == "tastemaker" %>
+				  <%= link_to "Add something", new_item_path %> |
+				<% end %>
+				<%= link_to "New channel", new_channel_path %> | 
+			<% end %>
+	
 		<%= link_to "Edit profile", edit_user_registration_path %> | <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
+	    </div>
+
+		<br /><br />
+
+		<% unless current_user.channels.nil? %>
+			<% current_user.channels.each do |channel| %>
+				<%= channel.color %> | <%= channel.style %> | <%= channel.price %> | <%= channel.gender %>
+			<% end %>
+		<% end %>
 	<% else %>
 		<%= link_to "Sign up", new_user_registration_path %> | 
 		<%= link_to "Login", new_user_session_path %>
 	<% end %>
 </div>
 
-<div>
-	<% unless current_user.nil? %>
-		<% if current_user.role == "tastemaker" %>
-		  <%= link_to "Add something", new_item_path %>
-		<% end %>
-	<% end %>
-</div>

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Color:</b>
+  <%= @channel.color %>
+</p>
+
+<p>
+  <b>Style:</b>
+  <%= @channel.style %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @channel.price %>
+</p>
+
+<p>
+  <b>Gender:</b>
+  <%= @channel.gender %>
+</p>
+
+
+<%= link_to 'Edit', edit_channel_path(@channel) %> |
+<%= link_to 'Back', channels_path %>

@@ -14,4 +14,5 @@ class User < ActiveRecord::Base
   #validates_presence_of :username
 
   has_many :items #tastemakers
+  has_many :channels
 end
