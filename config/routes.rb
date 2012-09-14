@@ -1,4 +1,8 @@
 LandoYoushaei::Application.routes.draw do
+  get "users/index"
+
+  get "users/show"
+
   resources :channels
 
   get "store/index"
