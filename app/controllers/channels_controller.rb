@@ -13,11 +13,15 @@ class ChannelsController < ApplicationController
   # GET /channels/1
   # GET /channels/1.json
   def show
-    @channel = current_user.channels.first
+    @channel = current_user.channel
+    # filtering has to be much improved
+    @channel_items = @items.find_all { |item| item.color = channel.color, item.style = channel.style
+    item.price = channel.price, item.gender = channel.gender }
+    @current_item = @channel_items.first
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render :json => @channel }
+      format.json { render :json => @current_item }
     end
   end
 
@@ -42,6 +46,11 @@ class ChannelsController < ApplicationController
   def create
     @channel = Channel.new(params[:channel])
     @channel.user_id = current_user.id
+
+    if @channel.save
+      current_user.channel = @channel
+    end
+
 
     respond_to do |format|
       if @channel.save
@@ -94,10 +103,10 @@ class ChannelsController < ApplicationController
 
 
   def next
-    @channel = current_channel
+    @channel = current_user.channel
     @items = Item.all
-    @channel_items = @items.find_all { |item| item.color = channel.color, item.style = channel.style
-    item.price = channel.price, item.gender = channel.gender }
+    @channel_items = @items.find_all { |item| item.color = @channel.color, item.style = @channel.style
+    item.price = @channel.price, item.gender = @channel.gender }
     @next_item = @channel_items.first
 
     respond_to do |format|

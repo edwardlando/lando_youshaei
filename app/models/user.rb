@@ -15,4 +15,5 @@ class User < ActiveRecord::Base
 
   has_many :items #tastemakers
   has_many :channels
+  has_one :channel #current_channel
 end
