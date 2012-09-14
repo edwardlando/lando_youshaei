@@ -13,14 +13,15 @@
 			<% end %>
 	
 		<%= link_to "Edit profile", edit_user_registration_path %> | 
-		<%= link_to "Logout", destroy_user_session_path, :method => :delete %>
+		<%= link_to "Logout", destroy_user_session_path, :method => :delete %> | 
+		<%= link_to "Next", :controller => "channels", :action => "next" %>
 	    </div>
 
 		<br /><br />
 
 		<% unless current_user.channels.nil? %>
 			<% current_user.channels.each do |channel| %>
-				<%= channel.color %> | <%= channel.style %> | <%= channel.price %> | <%= channel.gender %>
+				<%= channel.color %> | <%= channel.style %> | <%= channel.price %> | <%= channel.gender %> <br />
 			<% end %>
 		<% end %>
 	<% else %>

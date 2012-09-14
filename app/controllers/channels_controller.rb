@@ -13,7 +13,7 @@ class ChannelsController < ApplicationController
   # GET /channels/1
   # GET /channels/1.json
   def show
-    @channel = Channel.find(params[:id])
+    @channel = current_user.channels.first
 
     respond_to do |format|
       format.html # show.html.erb
@@ -81,4 +81,34 @@ class ChannelsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  ###########################################################################################
+  ###########################################################################################
+  ###########################################################################################
+
+  # NEXT action to discover items
+
+
+  ##### needs to be refined a lot - if not items fit this searchm give the next best thing
+  ##### also need to take votes into account
+
+
+  def next
+    @channel = current_channel
+    @items = Item.all
+    @channel_items = @items.find_all { |item| item.color = channel.color, item.style = channel.style
+    item.price = channel.price, item.gender = channel.gender }
+    @next_item = @channel_items.first
+
+    respond_to do |format|
+      format.html { redirect_to store_url }
+      format.json { render :json => @next_item }    # Not quite sure what to do here
+    end
+  end
+
+
+
+
+
+
 end
