@@ -15,8 +15,7 @@ class ChannelsController < ApplicationController
   def show
     @channel = current_user.channel
     # filtering has to be much improved
-    @channel_items = @items.find_all { |item| item.color = channel.color, item.style = channel.style
-    item.price = channel.price, item.gender = channel.gender }
+    @channel_items = @channel.channel_items
     @current_item = @channel_items.first
 
     respond_to do |format|
@@ -49,6 +48,7 @@ class ChannelsController < ApplicationController
 
     if @channel.save
       current_user.channel = @channel
+      @current_item = @channel.channel_items[0]
     end
 
 
@@ -104,19 +104,19 @@ class ChannelsController < ApplicationController
 
   def next
     @channel = current_user.channel
-    @items = Item.all
-    @channel_items = @items.find_all { |item| item.color = @channel.color, item.style = @channel.style
-    item.price = @channel.price, item.gender = @channel.gender }
-    @next_item = @channel_items.first
+    @channel_items = @channel.channel_items #array of the items
+
+
+    @next_item = @channel.channel_items[0]
+
+
+    # need a current item method
 
     respond_to do |format|
       format.html { redirect_to store_url }
-      format.json { render :json => @next_item }    # Not quite sure what to do here
+      format.json { render :json => @next_item }   
     end
   end
-
-
-
 
 
 

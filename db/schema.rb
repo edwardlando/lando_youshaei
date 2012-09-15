@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120914013752) do
+ActiveRecord::Schema.define(:version => 20120915232810) do
 
   create_table "channels", :force => true do |t|
     t.string   "color"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20120914013752) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "user_id"
+    t.integer  "item_index"
   end
 
   create_table "items", :force => true do |t|
