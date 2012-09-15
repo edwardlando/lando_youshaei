@@ -13,10 +13,11 @@ class ChannelsController < ApplicationController
   # GET /channels/1
   # GET /channels/1.json
   def show
+    @user = current_user
     @channel = current_user.channel
     # filtering has to be much improved
-    @channel_items = @channel.channel_items
-    @current_item = @channel_items.first
+    @channel_items = @channel.channel_items(@user)
+    @current_item = @channel.channel_items(@user)[@channel.item_index]
 
     respond_to do |format|
       format.html # show.html.erb
@@ -43,12 +44,17 @@ class ChannelsController < ApplicationController
   # POST /channels
   # POST /channels.json
   def create
+    @user = current_user
     @channel = Channel.new(params[:channel])
     @channel.user_id = current_user.id
+    @channel.item_index = 0
 
     if @channel.save
       current_user.channel = @channel
-      @current_item = @channel.channel_items[0]
+      unless @channel.channel_items(@user).nil?
+      @current_item = @channel.channel_items(@user)[@channel.item_index]
+      end 
+      @user.chanel = @channel
     end
 
 
@@ -103,11 +109,11 @@ class ChannelsController < ApplicationController
 
 
   def next
+    @user = current_user
     @channel = current_user.channel
-    @channel_items = @channel.channel_items #array of the items
-
-
-    @next_item = @channel.channel_items[0]
+    @channel_items = @channel.channel_items(@user) #array of the items
+    @channel.item_index += 1
+    @next_item = @channel.channel_items(@user)[@channel.item_index]
 
 
     # need a current item method
