@@ -45,13 +45,14 @@ class ChannelsController < ApplicationController
   # POST /channels.json
   def create
     @user = current_user
+    @channels = Channel.all
     @channel = Channel.new(params[:channel])
     @channel.user_id = current_user.id
     @channel.item_index = 0
 
     if @channel.save
-      Channel.all.each do |channel|
-        channel.current_channel = false
+      @channels.each do |channel|
+        channel.update_attributes(:current_channel => false)
       end
       @channel.current_channel = true
       unless @channel.channel_items.nil?
