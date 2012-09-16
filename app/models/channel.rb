@@ -6,8 +6,7 @@ class Channel < ActiveRecord::Base
   # we'll also sort by best rating
 
   COLOR_OPTIONS = ["ALL", "Blue", "Green", "Red", "Yellow",
-                   "Pink", "White", "Black", "Grey",
-                   "Brown"]
+                   "Pink", "White", "Black", "Grey", "Brown"]
 
   STYLE_OPTIONS = ["ALL", "Elegant", "Casual", "Preppy", "Hipster"]
 
@@ -22,16 +21,16 @@ class Channel < ActiveRecord::Base
     channel_price = self.price
     channel_gender = self.gender
 
-    channel_items = []
+    items = []
     Item.all.each do |item|
-    	if ((item.color == channel_color || item.color == "ALL") &&
-    	    (item.style == channel_style || item.style == "ALL") &&
-    	    (item.price <= channel_price || item.price == "$0.00") &&
-    	    (item.gender == channel_gender || item.gender = "BOTH"))
-    	      channel_items << item
+    	if  (channel_color == item.color || channel_color == "ALL") &&
+    	    (item.style == channel_style || channel_style == "ALL") &&
+    	    (item.price <= channel_price || channel_price == "$0.00") &&
+    	    (item.gender == channel_gender || channel_gender == "BOTH")
+    	      items << item
     	end
     end
-    channel_items
+    items
   end
 
   def current_item_url

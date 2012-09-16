@@ -50,6 +50,9 @@ class ChannelsController < ApplicationController
     @channel.item_index = 0
 
     if @channel.save
+      Channel.all.each do |channel|
+        channel.current_channel = false
+      end
       @channel.current_channel = true
       unless @channel.channel_items.nil?
       @current_item = @channel.channel_items[@channel.item_index]
