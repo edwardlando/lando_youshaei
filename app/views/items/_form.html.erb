@@ -19,24 +19,25 @@
     <%= f.label :url, "Link to where item can be purchased" %><br />
     <%= f.url_field :url %>
   </div>
-  <div class="field">
-    <%= f.label :color, "Color" %><br />
-    <%= f.text_field :color %>
-  </div>
-  <div class="field">
-    <%= f.label :style, "Style" %><br />
-    <%= f.text_field :style %>
-  </div>
-  <div class="field">
-    <%= f.label :price, "Price" %><br />
-    <%= f.text_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :gender, "Gender" %><br />
-    <%= f.text_field :gender %>
-  </div>
 
+  <div class="field">
+    <%= f.label :color %><br />
+    <%= f.select(:color, Channel::COLOR_OPTIONS) %>    
+  </div>
+  <div class="field">
+    <%= f.label :style %><br />
+    <%= f.select(:style, Channel::STYLE_OPTIONS) %>   
+  </div>
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.select(:price, Channel::PRICE_OPTIONS) %>   
+  </div>
+  <div class="field">
+    <%= f.label :gender %><br />
+    <%= f.select(:gender, Channel::GENDER_OPTIONS) %>  
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>

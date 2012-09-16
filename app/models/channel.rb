@@ -24,10 +24,10 @@ class Channel < ActiveRecord::Base
 
     channel_items = []
     Item.all.each do |item|
-    	if (item.color == channel_color &&
-    	   item.style == channel_style &&
-    	   item.price <= channel_price &&
-    	   item.gender == channel_gender) 
+    	if ((item.color == channel_color || item.color == "ALL") &&
+    	    (item.style == channel_style || item.style == "ALL") &&
+    	    (item.price <= channel_price || item.price == "$0.00") &&
+    	    (item.gender == channel_gender || item.gender = "BOTH"))
     	      channel_items << item
     	end
     end
