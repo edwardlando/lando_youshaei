@@ -4,7 +4,7 @@ class Item < ActiveRecord::Base
   belongs_to :user #tastemaker
 
   COLOR_OPTIONS = ["Blue", "Green", "Red", "Yellow",
-                   "Pink", "White", "Black", "Grey", "Brown"]
+                   "Pink", "White", "Black", "Grey", "Brown", "Purple"]
 
   STYLE_OPTIONS = ["Elegant", "Casual", "Preppy", "Hipster"]
 
