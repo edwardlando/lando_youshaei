@@ -5,6 +5,16 @@ class Channel < ActiveRecord::Base
 
   # we'll also sort by best rating
 
+  COLOR_OPTIONS = ["ALL", "Blue", "Green", "Red", "Yellow",
+                   "Pink", "White", "Black", "Grey",
+                   "Brown"]
+
+  STYLE_OPTIONS = ["ALL", "Elegant", "Casual", "Preppy", "Hipster"]
+
+  PRICE_OPTIONS = ["ALL", "Under $50", "Under $70", "Under $100", "Under $200"]
+
+  GENDER_OPTIONS = ["BOTH", "Male", "Female"]
+
 
   def channel_items
     channel_color = self.color
@@ -23,18 +33,6 @@ class Channel < ActiveRecord::Base
     end
     channel_items
   end
-
-=begin
-
-  	Item.where(
-  		:color == channel_color,
-  		:style == channel_style,
-        "price < ?", channel_price,
-        :gender == channel_gender
-        ) 
-  end
-
-=end
 
   def current_item_url
 	channel_items[self.item_index].url

@@ -13,19 +13,27 @@
 
   <div class="field">
     <%= f.label :color %><br />
-    <%= f.text_field :color %>
+    <%= select(:channel, :color, 
+      Channel::COLOR_OPTIONS.collect {|x| [x, Channel::COLOR_OPTIONS.index(x) + 1] }) 
+%>    
   </div>
   <div class="field">
     <%= f.label :style %><br />
-    <%= f.text_field :style %>
+    <%= select(:channel, :style, 
+      Channel::STYLE_OPTIONS.collect {|x| [x, Channel::STYLE_OPTIONS.index(x) + 1] }) 
+%>    
   </div>
   <div class="field">
     <%= f.label :price %><br />
-    <%= f.text_field :price %>
+    <%= select(:channel, :price, 
+      Channel::PRICE_OPTIONS.collect {|x| [x, Channel::PRICE_OPTIONS.index(x) + 1] }) 
+%>    
   </div>
   <div class="field">
     <%= f.label :gender %><br />
-    <%= f.text_field :gender %>
+    <%= select(:channel, :gender, 
+      Channel::GENDER_OPTIONS.collect {|x| [x, Channel::GENDER_OPTIONS.index(x) + 1] }) 
+%>    
   </div>
   <div class="actions">
     <%= f.submit %>
