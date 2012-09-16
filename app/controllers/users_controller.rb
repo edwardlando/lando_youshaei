@@ -43,6 +43,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
 
+    if @user.save
+      @user.role = "general_user"
+    end
+
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, :notice => 'User was successfully created.' }

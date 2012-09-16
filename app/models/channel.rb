@@ -12,6 +12,20 @@ class Channel < ActiveRecord::Base
     channel_price = self.price
     channel_gender = self.gender
 
+    channel_items = []
+    Item.all.each do |item|
+    	if (item.color == channel_color &&
+    	   item.style == channel_style &&
+    	   item.price <= channel_price &&
+    	   item.gender == channel_gender) 
+    	      channel_items << item
+    	end
+    end
+    channel_items
+  end
+
+=begin
+
   	Item.where(
   		:color == channel_color,
   		:style == channel_style,
@@ -20,8 +34,10 @@ class Channel < ActiveRecord::Base
         ) 
   end
 
+=end
+
   def current_item_url
-	channel_items[self.item_index]
+	channel_items[self.item_index].url
   end
 
 

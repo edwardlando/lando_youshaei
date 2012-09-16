@@ -1,9 +1,15 @@
-<h1>Store#index</h1>
 
 
-<% unless current_user.nil? %>
+
+<% if current_user.nil? %>
+    Welcome! 
+<% elsif current_user.current_channel.nil? %>
+	How about we make our first channel together?
+<% elsif current_user.current_channel.channel_items.empty? %>
+	We've run out of things to show you! Come back soon for more!
+<% else %>
 	<div "iframe_div">
-	   <iframe src="<%= current_user.current_channel.current_item_url.url %>" alt="product" id="main_iframe"></iframe>
+	   <iframe src="<%= current_user.current_channel.current_item_url %>" alt="product" id="main_iframe"></iframe>
 	</div>
 <% end %>
 
