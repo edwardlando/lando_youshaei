@@ -15,6 +15,17 @@ class User < ActiveRecord::Base
 
   has_many :items #tastemakers
   has_many :channels
-  has_one :current_channel, :class_name => "Channel" # current_channel
+
+  def current_channel
+    self.channels.each do |channel|
+      if channel.current_channel == true
+        return channel
+      end
+    end
+
+  end
+  
+
+  # has_one :current_channel, :class_name => "Channel" # current_channel
   #  :foreign_key => :owner_id  -- maybe go with foreign_key option
 end

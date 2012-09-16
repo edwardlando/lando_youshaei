@@ -50,11 +50,10 @@ class ChannelsController < ApplicationController
     @channel.item_index = 0
 
     if @channel.save
-      current_user.current_channel = @channel
+      @channel.current_channel = true
       unless @channel.channel_items.nil?
       @current_item = @channel.channel_items[@channel.item_index]
-      end 
-      @user.current_channel = @channel
+      end
     end
 
 
@@ -115,8 +114,6 @@ class ChannelsController < ApplicationController
     @channel.item_index += 1
     @next_item = @channel.channel_items[@channel.item_index]
 
-
-   
 
     respond_to do |format|
       format.html { redirect_to store_url }
