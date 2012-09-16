@@ -15,9 +15,13 @@ class ChannelsController < ApplicationController
   def show
     @user = current_user
     @channel = current_user.current_channel
-    # filtering has to be much improved
     @channel_items = @channel.channel_items
-    @current_item = @channel.channel_items[@channel.item_index]
+
+    if params[:next] == "true"
+      @current_item = @channel.channel_items[@channel.item_index + 1]
+    else
+      @current_item = @channel.channel_items[@channel.item_index]
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -111,20 +115,22 @@ class ChannelsController < ApplicationController
   ##### also need to take votes into account
 
 
+=begin
+
   def next
     @user = current_user
     @channel = current_user.current_channel
-    @channel_items = @channel.channel_items # array of the items
-    @channel.item_index += 1
+    @channel_items = @channel.channel_items
+    @channel.item_index = @channel.item_index + 1
     @next_item = @channel.channel_items[@channel.item_index]
 
+    @channel.save
 
     respond_to do |format|
-      format.html { redirect_to store_url }
-      format.json { render :json => @next_item }   
+      format.html # show.html.erb
+      format.json { render :json => @next_item }
     end
   end
-
-
+=end
 
 end
