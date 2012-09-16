@@ -54,7 +54,7 @@ class ChannelsController < ApplicationController
       unless @channel.channel_items(@user).nil?
       @current_item = @channel.channel_items(@user)[@channel.item_index]
       end 
-      @user.chanel = @channel
+      @user.channel = @channel
     end
 
 

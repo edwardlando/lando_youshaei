@@ -21,7 +21,7 @@
 
 		<% unless current_user.channels.nil? %>
 			<% current_user.channels.each do |channel| %>
-				<%= channel.color %> | <%= channel.style %> | <%= channel.price %> | <%= channel.gender %> <br />
+				<%= channel.color %> | <%= channel.style %> | <%= number_to_currency(channel.price) %> | <%= channel.gender %> <br />
 			<% end %>
 		<% end %>
 	<% else %>

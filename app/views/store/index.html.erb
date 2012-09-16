@@ -1,7 +1,9 @@
 <h1>Store#index</h1>
 
-<div "iframe_div">
-	<iframe src="http://www.ralphlauren.com/shop/index.jsp?categoryId=2885938" alt="product" id="main_iframe">
-	</iframe>
-</div>
+
+<% unless current_user.nil? %>
+	<div "iframe_div">
+	   <iframe src="<%= current_user.current_channel.current_item_url.url %>" alt="product" id="main_iframe"></iframe>
+	</div>
+<% end %>
 

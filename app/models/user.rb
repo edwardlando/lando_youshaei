@@ -15,5 +15,6 @@ class User < ActiveRecord::Base
 
   has_many :items #tastemakers
   has_many :channels
-  has_one :channel #current_channel
+  has_one :current_channel, :class_name => "Channel" # current_channel
+  #  :foreign_key => :owner_id  -- maybe go with foreign_key option
 end

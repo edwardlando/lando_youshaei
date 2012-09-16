@@ -20,3 +20,5 @@ Maybe use memcache or some other thing to load a bunch of items.
 Pull them 5 at a time or whatever when the user starts clicking, or run it as a background process. Already start pulling the next one.
 
 background process - look at ruby task queue - background job
+
+error with the current_channel
