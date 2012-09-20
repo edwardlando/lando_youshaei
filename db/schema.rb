@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120916171232) do
+ActiveRecord::Schema.define(:version => 20120916225659) do
 
   create_table "channels", :force => true do |t|
     t.string   "color"

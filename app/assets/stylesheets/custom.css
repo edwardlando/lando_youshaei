@@ -13,3 +13,15 @@ html, body {
 #session {
 	float: right;
 }
+
+#header {
+	height: 100px;
+	width: 100%;
+	background-color: lightblue;
+	font-family: "Helvetica Neue";
+	font-size: 20px;
+}
+
+#header a {
+	text-decoration: none;
+};

@@ -22,3 +22,89 @@ Pull them 5 at a time or whatever when the user starts clicking, or run it as a 
 background process - look at ruby task queue - background job
 
 error with the current_channel
+
+
+
+
+JJ - Advice
+
+what matters on Stack Overflow is Karma
+rewards getting you sales - public profiles with karma
+get money and karma on 2 levels (amount of item they sell, and number of items they are selling)
+weight how much their items show up - how popular their stuff has been 
+
+differnet metrics for genuionely good articles of clothing - number of sales, amount of time spent on the page.
+don't conflate these 2 metrics.
+
+try to do some research into what pandora actually does for their algorithm. wasting potential if not learning about individual product.
+
+mashup of stumbleupon and pandora
+
+build a user profile - channels are just filters.
+
+WHAT HE WOULD DO
+
+	come up with as many possible categories for each item - gather as many metrics as you can early on - even if you don't use it, collect it
+	look up academic papers on pandora 
+	maybe for each user profile, keep track of percentage - have a tree of conditional probabilities.
+	keep track of what they buy, versus what they say they like
+	keep exact track of which exact item each user is interacting with - that way if we need to regenerate the whole thing, we can - don't miss out on user actions.
+
+
+	-------------- GIVE SURVEY AFTER A FEW QUESTIONS
+
+similar questions to those on hunch
+Where do you live - in a city, suburb, rural
+Are you introverted or extroverted? (find better way to say this)
+Should gay marriage be legalized?
+Which living room design do you prefer?
+
+
+
+
+
+	3 main options to not rely as much on tastemakers
+		1 - plug in a much as we can with the individual retailer - API's of Ralph Lauren, etc.
+		2 - scraping as much as possible: feasible on getting clothing info, as long as we limit it to one site at a time. understand how retailer pages work
+
+
+		user presenting what color - user picks info at the top
+		write javascript overlays for the frame - click on the raph lauren site and say they want red - site keeps track of what they do - that's cool
+
+		3 - hire cheap labor in india. purchasing end, to start off. person made purchase order. don't give them your user's credit card. you give them your credit card and you monitor them carefully.
+		have tastemakers upload and someone in india review it. 
+
+		generally, could be better to crowdsource.
+
+		you should already be protected - might as well open up to everyone.
+
+		want to put yourself in a position where you're ready to scale.
+		go look at other types of stumble upon things - see what actually works. really look at pandora and see what they do. 
+
+		payments - 
+		stripe takes a cut - that's a problem
+		call stripe and ask what they think - since we know them
+		find a way to do it where somebody does not take a cut
+		start talking to retailers - what can you do to make it easier for us to give you money?
+		- they are not going to be opposed to that
+
+		how does the fancy do their cart thing?
+		this idea is big - you have to go for the big deals
+
+		maybe you develop a sophisticated product, but only support 2 or 3 retailers
+		max shopping cart size
+
+		if we go through the route of being a universal shopping cart, let people make boxes to drag clothing items - work on an outfit - put the items of clothing together (huge added value that does not exist - what's nice is that it's just additional front end)
+
+
+
+
+
+		AUTOFILL PAYMENT INFO? Possible? last pass - do this in a safe way
+		talk to a cis professor about transaction safety
+		
+
+
+
+
+
