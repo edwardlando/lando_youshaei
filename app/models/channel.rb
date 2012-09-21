@@ -33,6 +33,10 @@ class Channel < ActiveRecord::Base
     items
   end
 
+  def current_item
+  channel_items[self.item_index] unless channel_items[self.item_index].nil?
+  end
+
   def current_item_url
 	channel_items[self.item_index].url unless channel_items[self.item_index].nil?
   end

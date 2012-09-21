@@ -1,9 +1,16 @@
 LandoYoushaei::Application.routes.draw do
+  
+  devise_for :users
+
   get "users/index"
 
   get "users/show"
 
+  get "users/add_to_wishlist"
+
   resources :channels
+
+  get "channels/index"
 
   get "channels/show"
 
@@ -11,7 +18,11 @@ LandoYoushaei::Application.routes.draw do
 
   resources :items
 
-  devise_for :users
+  resources :wishlists
+
+  get "wishlists/show"
+
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

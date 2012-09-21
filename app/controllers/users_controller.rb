@@ -43,6 +43,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
 
+    # Create wishlist when create user
+    @user.wishlist = Wishlist.new(:user_id => @user.id)
+
     if @user.save
       @user.role = "general_user"
     end
@@ -85,4 +88,23 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  ########################################################################################
+  ########################################################################################
+
+  def add_to_wishlist
+    @user = current_user
+    @channel = current_user.current_channel
+    @item = @channel.current_item
+
+    @user.add_to_wishlist(@item)
+
+    @user.save
+  
+    respond_to do |format|
+      format.html 
+      format.json {render :json => @user }
+    end
+  end
+
 end

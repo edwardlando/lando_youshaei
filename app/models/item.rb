@@ -2,6 +2,7 @@ class Item < ActiveRecord::Base
   attr_accessible :title, :url, :color, :style, :price, :gender
 
   belongs_to :user #tastemaker
+  has_and_belongs_to_many :wishlists
 
   COLOR_OPTIONS = ["Blue", "Green", "Red", "Yellow",
                    "Pink", "White", "Black", "Grey", "Brown", "Purple"]

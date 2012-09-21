@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
 
   has_many :items #tastemakers
   has_many :channels
+  has_one :wishlist
 
   def current_channel
     self.channels.each do |channel|
@@ -23,6 +24,10 @@ class User < ActiveRecord::Base
       end
     end
 
+  end
+
+  def add_to_wishlist(item)
+    self.wishlist.items << item unless self.wishlist.items.include?(item)
   end
   
 
