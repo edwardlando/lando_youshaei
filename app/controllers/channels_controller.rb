@@ -17,22 +17,15 @@ class ChannelsController < ApplicationController
     @channel = current_user.current_channel
     @channel_items = @channel.channel_items
 
-    @channel.item_index = params[:item_index]
+    @channel.item_index = params[:index]
+    @channel.save
     
 
-    #if params[:next] == "true"
-      #@current_item = @channel.channel_items[@channel.item_index + 1]
-    #else
-    
       @current_item = @channel.channel_items[@channel.item_index]
- 
-    #end
-
-    
 
     respond_to do |format|
-      format.html            
-      format.json { render :json => @current_item }
+      format.html { redirect_to root_path }        
+      format.json  #render :json => @current_item}
     end
   end
 

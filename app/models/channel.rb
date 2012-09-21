@@ -34,7 +34,7 @@ class Channel < ActiveRecord::Base
   end
 
   def current_item_url
-	channel_items[self.item_index].url
+	channel_items[self.item_index].url unless channel_items[self.item_index].nil?
   end
 
 

@@ -2,39 +2,37 @@
 
 
 <div class="top" style="padding-top:0px; margin-top:0px;">
-<div class="container" style="padding-top:30px;">
-<div id="user nav">
-	<% if user_signed_in? %>
-		<strong><%- current_user.email %></strong>
+	<div class="container" style="padding-top:30px; margin-top: 0px;">
+	<div id="user nav">
+		<% if user_signed_in? %>
+			<strong><%- current_user.email %></strong>
+			 
+
+			<p class="title"><%= link_to "AVEECE", root_path %></p>
+				<% unless current_user.nil? %>
+					<% if current_user.role == "tastemaker" %>
+					<p class="add"><%= link_to "Add something", new_item_path %></p>
+					<% end %>
+					<p class="add"><%= link_to "New channel", new_channel_path %></p> 
+				<% end %>
 		 
+			<p class="logout"> <%= link_to "Logout", destroy_user_session_path, :method => :delete %></p>
+			<p class="next"> <%= link_to "Reset", {:controller => "channels", :action => "show", :index => 0 } %></p>
+			<p class="next"> <%= link_to "Next", {:controller => "channels", :action => "show", :index => current_user.current_channel.item_index+1 } %></p>
+		  
 
-		<p class="title">AVEECE</p>
-			<% unless current_user.nil? %>
-				<% if current_user.role == "tastemaker" %>
-				<p class="add"><%= link_to "Add something", new_item_path %></p>
+
+	        <div class="channel_list" style="visibility:hidden;">
+				<% unless current_user.channels.nil? %>
+					<% current_user.channels.each do |channel| %>
+						<%= channel.color %> | <%= channel.style %> | <%= number_to_currency(channel.price) %> | <%= channel.gender %> <br />
+					<% end %>
 				<% end %>
-				<p class="add"><%= link_to "New channel", new_channel_path %></p> 
-			<% end %>
-	 
-		<p class="logout"> <%= link_to "Logout", destroy_user_session_path, :method => :delete %></p>
-		<p class="next"> <%= link_to "Next", {:controller => "channels", :action => "show", :item_index => current_user.current_channel.item_index+1 } %></p>
-	  
-
-
-        <div class="channel_list">
-			<% unless current_user.channels.nil? %>
-				<% current_user.channels.each do |channel| %>
-					<%= channel.color %> | <%= channel.style %> | <%= number_to_currency(channel.price) %> | <%= channel.gender %> <br />
-				<% end %>
-			<% end %>
-	    </div>
-	<% else %>
-		<%= link_to "Sign up", new_user_registration_path %> | 
-		<%= link_to "Login", new_user_session_path %>
-	<% end %>
-</div>
-
-
-		
-		</div>
+		    </div>
+		<% else %>
+			<%= link_to "Sign up", new_user_registration_path %> | 
+			<%= link_to "Login", new_user_session_path %>
+		<% end %>
 	</div>
+	</div>
+</div>

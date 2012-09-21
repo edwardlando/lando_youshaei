@@ -8,8 +8,8 @@
 <% elsif current_user.current_channel.channel_items.empty? %>
 	We've run out of things to show you! Come back soon for more!
 <% else %>
-	<div "iframe_div">
-	   <iframe src="<%= current_user.current_channel.current_item_url %>" alt="product" id="main_iframe"></iframe>
-	</div>
+	 <div "iframe_div">
+	    <iframe src="<%= current_user.current_channel.current_item_url %>" alt="product" id="main_iframe"></iframe>
+	 </div>
 <% end %>
 
