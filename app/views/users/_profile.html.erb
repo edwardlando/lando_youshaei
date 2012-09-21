@@ -2,4 +2,6 @@
 <%= @user.channels %>
 
 <p class="profile_label">My wishlist</p>
-<%= @user.wishlist %>
+<% @user.wishlist.items.each do |item| %>
+	<%= item.title %>
+<% end %>

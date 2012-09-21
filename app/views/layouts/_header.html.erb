@@ -16,7 +16,7 @@
 					<% end %>
 					<p class="add"><%= link_to "New channel", new_channel_path %></p>
 					<p class="add"><%= link_to "Add to Wishlist", {:controller => "users", :action => "add_to_wishlist" } %></p>
-					<p class="add"><%= link_to "My wishlist", {:controller => "users", :action => "show" } %></p>
+					<p class="add"><%= link_to "My wishlist", {:controller => "users", :action => "show", :id => current_user.id } %></p>
 				<% end %>
 		 
 			<p class="logout"> <%= link_to "Logout", destroy_user_session_path, :method => :delete %></p>
