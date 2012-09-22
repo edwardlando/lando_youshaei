@@ -1,33 +1,34 @@
-<%= form_for(@channel) do |f| %>
-  <% if @channel.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@channel.errors.count, "error") %> prohibited this channel from being saved:</h2>
+  <%= form_for(current_user.current_channel) do |f| %>
+    <% if current_user.current_channel.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(current_user.current_channel.errors.count, "error") %> prohibited this channel from being saved:</h2>
 
-      <ul>
-      <% @channel.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @channel.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :color %><br />
+      <%= f.select(:color, Channel::COLOR_OPTIONS) %>    
+    </div>
+    <div class="field">
+      <%= f.label :style %><br />
+      <%= f.select(:style, Channel::STYLE_OPTIONS) %>   
+    </div>
+    <div class="field">
+      <%= f.label :price %><br />
+      <%= f.select(:price, Channel::PRICE_OPTIONS) %>   
+    </div>
+    <div class="field">
+      <%= f.label :gender %><br />
+      <%= f.select(:gender, Channel::GENDER_OPTIONS) %>  
+    </div>
+    <div class="actions">
+      <%= f.submit %>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :color %><br />
-    <%= f.select(:color, Channel::COLOR_OPTIONS) %>    
-  </div>
-  <div class="field">
-    <%= f.label :style %><br />
-    <%= f.select(:style, Channel::STYLE_OPTIONS) %>   
-  </div>
-  <div class="field">
-    <%= f.label :price %><br />
-    <%= f.select(:price, Channel::PRICE_OPTIONS) %>   
-  </div>
-  <div class="field">
-    <%= f.label :gender %><br />
-    <%= f.select(:gender, Channel::GENDER_OPTIONS) %>  
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>

@@ -14,21 +14,22 @@ a {
 	text-decoration: none;
 }
 
-
-
 .header {
 	font-weight:bold;
 	width:100%;
 	border-bottom:1px solid #e3e3e3;
 	margin-top: 0px;
 	padding-bottom: 5px;
-	font-size:15px;	
+	font-size:15px;
+
+}
+
+.notice, .alert {
+	margin: 0;
 }
 
 .container {
-	width:100%;
 	margin:auto;
-	height:940px;
 	padding-bottom:30px;
 }
 
@@ -37,12 +38,38 @@ a {
 	height:940px;
 }
 
-.top {
-	padding-bottom:80px;
-	margin-bottom:30px;
+.new_channel_container {
+	border: 1px solid black;
+	z-index: 100;
+	color: black;
+	background: white;
+	position: absolute;
+	top: 32px;
+	display: none;
+}
+
+#header {
 	border-bottom:3px solid #999;
 	border-top:3px solid #999;
 	background-color:#559FC1;
+}
+
+#new_channel {
+	position: relative;
+}
+
+#header-container {
+	margin: 0 auto;
+	width: 900px;
+}
+
+#new_channel:hover .new_channel_container {
+	display: block;
+}
+
+.top {
+	padding-bottom:80px;
+	margin-bottom:30px;
 	height:20px;
 }
 
@@ -140,9 +167,5 @@ a:hover {
 .footer {
 	text-align: center;
 }
-
-
-
-
 
 

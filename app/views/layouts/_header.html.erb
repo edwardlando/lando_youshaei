@@ -7,16 +7,15 @@
 		<% if user_signed_in? %>
 			<strong><%- current_user.email %></strong>
 			 
-
 			<p class="title"><%= link_to "AVEECE", root_path %></p>
 
 				<% unless current_user.nil? %>
 					<% if current_user.role == "tastemaker" %>
-					<p class="add"><%= link_to "Add something", new_item_path %></p>
+					<div class="add"><%= link_to "Add something", new_item_path %></div>
 					<% end %>
-					<p class="add"><%= link_to "New channel", new_channel_path %></p>
-					<p class="add"><%= link_to "Add to Wishlist", {:controller => "users", :action => "add_to_wishlist" } %></p>
-					<p class="add"><%= link_to "My wishlist", {:controller => "users", :action => "show", :id => current_user.id } %></p>
+					<div class="add" id="new_channel">New Channel<div class="new_channel_container"><%= render :partial => "channels/form" %></div></div>
+					<div class="add"><%= link_to "Add to Wishlist", {:controller => "users", :action => "add_to_wishlist" } %></div>
+					<div class="add"><%= link_to "My wishlist", {:controller => "users", :action => "show", :id => current_user.id } %></div>
 				<% end %>
 		 
 			<p class="logout"> <%= link_to "Logout", destroy_user_session_path, :method => :delete %></p>
@@ -25,13 +24,16 @@
 		  
 
 
-	        <div class="channel_list" style="visibility:hidden;">
+	        <div class="channel_list" style="visibility:hidden; display:none;">
 				<% unless current_user.channels.nil? %>
 					<% current_user.channels.each do |channel| %>
 						<%= channel.color %> | <%= channel.style %> | <%= number_to_currency(channel.price) %> | <%= channel.gender %> <br />
 					<% end %>
 				<% end %>
 		    </div>
+
+
+
 		<% else %>
 			<%= link_to "Sign up", new_user_registration_path %> | 
 			<%= link_to "Login", new_user_session_path %>
