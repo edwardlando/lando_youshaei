@@ -97,11 +97,22 @@ Which living room design do you prefer?
 		if we go through the route of being a universal shopping cart, let people make boxes to drag clothing items - work on an outfit - put the items of clothing together (huge added value that does not exist - what's nice is that it's just additional front end)
 
 
-
-
-
 		AUTOFILL PAYMENT INFO? Possible? last pass - do this in a safe way
 		talk to a cis professor about transaction safety
+
+
+
+
+		Stefan advice --
+			Adding the item is the most important part - should scan the page, get all the info and add to your database
+			Information has to be extracted from the page.
+			You need some map: upper clothing - sweater, sweater - color
+			Need to bind several characteristics together.
+			Have different algorithms that extract the information, for each website - that's what I want, know more about what's on the page.
+			Cart - 
+
+
+
 		
 
 
