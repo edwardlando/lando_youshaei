@@ -29,7 +29,6 @@ class User < ActiveRecord::Base
   def add_to_wishlist(item)
     self.wishlist.items << item unless self.wishlist.items.include?(item)
   end
-  
 
   # has_one :current_channel, :class_name => "Channel" # current_channel
   #  :foreign_key => :owner_id  -- maybe go with foreign_key option

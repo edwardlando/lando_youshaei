@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+
+<p class="profile_label">My channels</p>
+<% unless current_user.channels.nil? %>
+    <% current_user.channels.each do |channel| %>
+      <%= channel.color %>
+      <br/>
+    <% end %>
+<% end %>
+
+<p class="profile_label">My wishlist</p>
+<% current_user.wishlist.items.each do |item| %>
+	<%= item.title %> 
+<% end %>
+
+<%= link_to 'Edit', edit_user_registration_path(@user) %> |
+<%= link_to 'Back', users_index_path %>

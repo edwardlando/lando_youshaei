@@ -39,7 +39,7 @@ a {
 	height:940px;
 }
 
-.new_channel_container {
+.hover_container {
 	border: 1px solid black;
 	z-index: 100;
 	color: black;
@@ -62,7 +62,7 @@ a {
 }
 
 
-#new_channel {
+#new_channel, #new_item, #my_profile {
 	position: relative;
 }
 
@@ -71,7 +71,15 @@ a {
 	width: 900px;
 }
 
-#new_channel:hover .new_channel_container {
+#new_channel:hover .hover_container {
+	display: block;
+}
+
+#new_item:hover .hover_container {
+	display: block;
+}
+
+#my_profile:hover .hover_container {
 	display: block;
 }
 
