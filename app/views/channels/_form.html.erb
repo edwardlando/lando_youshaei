@@ -1,16 +1,5 @@
-  <%= form_for(current_user.current_channel) do |f| %>
-    <% if current_user.current_channel.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(current_user.current_channel.errors.count, "error") %> prohibited this channel from being saved:</h2>
-
-        <ul>
-        <% @channel.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-
+  <%= form_for(Channel.new) do |f| %>
+    
     <div class="field">
       <%= f.label :color %><br />
       <%= f.select(:color, Channel::COLOR_OPTIONS) %>    

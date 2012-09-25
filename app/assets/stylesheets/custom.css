@@ -184,4 +184,12 @@ a:hover {
 	text-align: center;
 }
 
+.authentification {
+	text-align: center;
+}
+
+.sign_up, .login {
+	display: inline-block;
+}
+
 

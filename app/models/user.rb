@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
         return channel
       end
     end
-
+    return self.channels.first #When the user is created, he does not have a current channel
   end
 
   def add_to_wishlist(item)

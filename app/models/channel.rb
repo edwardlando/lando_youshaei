@@ -30,7 +30,7 @@ class Channel < ActiveRecord::Base
     	      items << item
     	end
     end
-    items
+    items 
   end
 
   def current_item

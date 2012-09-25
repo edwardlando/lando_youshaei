@@ -101,8 +101,6 @@ Which living room design do you prefer?
 		talk to a cis professor about transaction safety
 
 
-
-
 		Stefan advice --
 			Adding the item is the most important part - should scan the page, get all the info and add to your database
 			Information has to be extracted from the page.
@@ -110,6 +108,19 @@ Which living room design do you prefer?
 			Need to bind several characteristics together.
 			Have different algorithms that extract the information, for each website - that's what I want, know more about what's on the page.
 			Cart - 
+
+		Daniel advice - 
+			For forms: Pass the variable 
+			Create insrance variable: could create before_filter in apllicaitonation controller 
+			@user = User.new
+			@item -> add it to controlleer where you need them
+
+			Need to store information about their credit card - that's very hard
+			Look PCI compliance
+			Could autofill address and not card info
+			Start with something simpler and then figure out best solution I can get
+			Look at what else I have to do, and prioritize - do it later
+
 
 
 

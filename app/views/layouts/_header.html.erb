@@ -8,7 +8,6 @@
 			<strong><%- current_user.email %></strong>
 			 
 			<p class="title"><%= link_to "AVEECE", root_path %></p>
-
 				<% unless current_user.nil? %>
 					<% if current_user.role == "tastemaker" %>
 					<div class="add" id="new_item">Add something<div class="hover_container"><%= render :partial => "items/form", :item => @item  %></div></div>
@@ -27,8 +26,10 @@
 		  
 
 		<% else %>
-			<%= link_to "Sign up", new_user_registration_path %> | 
-			<%= link_to "Login", new_user_session_path %>
+			<div class="authentification">
+				<div class="sign_up"> <%= link_to "Sign up", new_user_registration_path %></div> | 
+				<div class="login"><%= link_to "Login", new_user_session_path %></div>
+			</div>
 		<% end %>
 	</div>
 	</div>

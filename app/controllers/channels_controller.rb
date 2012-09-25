@@ -20,8 +20,7 @@ class ChannelsController < ApplicationController
     @channel.item_index = params[:index]
     @channel.save
     
-
-      @current_item = @channel.channel_items[@channel.item_index]
+    @current_item = @channel.channel_items[@channel.item_index]
 
     respond_to do |format|
       format.html { redirect_to root_path }        
@@ -64,11 +63,10 @@ class ChannelsController < ApplicationController
       end
     end
 
-
     respond_to do |format|
       if @channel.save
-        format.html { redirect_to @channel, :notice => 'Channel was successfully created.' }
-        format.json { render :json => @channel, :status => :created, :location => @channel }
+        format.html { redirect_to root_path, :notice => 'Channel was successfully created.' }
+        format.json { }#render :json => @channel, :status => :created, :location => @channel }
       else
         format.html { render :action => "new" }
         format.json { render :json => @channel.errors, :status => :unprocessable_entity }

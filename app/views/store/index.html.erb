@@ -2,7 +2,6 @@
 
 
 <% if current_user.nil? %>
-    Welcome! 
 <% elsif current_user.current_channel.nil? %>
 	How about we make our first channel together?
 <% elsif current_user.current_channel.channel_items.empty? %>

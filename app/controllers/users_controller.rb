@@ -45,10 +45,9 @@ class UsersController < ApplicationController
 
     # Create wishlist when create user
     @user.wishlist = Wishlist.new(:user_id => @user.id)
-
-    if @user.save
-      @user.role = "general_user"
-    end
+    # Initial chanel for the user
+    @channel = Channel.new(:color => "ALL", :style => "ALL", :price => "ALL", :gender => "BOTH")
+    @channel.current_channel = true
 
     respond_to do |format|
       if @user.save

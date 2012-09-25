@@ -1,7 +1,0 @@
-<% unless current_user.channels.nil? %>
-    <% current_user.channels.each do |channel| %>
-      <%= link_to "
-      <%= channel.color %> | <%= channel.style %> | <%= number_to_currency(channel.price) %> | <%= channel.gender %>", show_channels_path %>
-      <br/>
-    <% end %>
-<% end %>
