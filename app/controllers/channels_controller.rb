@@ -20,7 +20,7 @@ class ChannelsController < ApplicationController
     @channel.item_index = params[:index]
     @channel.save
     
-    @current_item = @channel.channel_items[@channel.item_index]
+    @current_item = @channel.channel_items[@channel.item_index] #problem if new channel with no items
 
     respond_to do |format|
       format.html { redirect_to root_path }        

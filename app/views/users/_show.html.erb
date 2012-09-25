@@ -2,7 +2,7 @@
 <p class="profile_label">My channels</p>
 <% unless current_user.channels.nil? %>
     <% current_user.channels.each do |channel| %>
-      <%= channel.color %>
+      <%= link_to "#{channel.name}", root_path, :switch_channel => "true", :channel_id => "#{channel.id}" %>
       <br/>
     <% end %>
 <% end %>

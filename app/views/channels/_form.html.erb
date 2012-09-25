@@ -1,6 +1,10 @@
   <%= form_for(Channel.new) do |f| %>
     
     <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, :placeholder => "Name your channel!" %>    
+    </div>
+    <div class="field">
       <%= f.label :color %><br />
       <%= f.select(:color, Channel::COLOR_OPTIONS) %>    
     </div>

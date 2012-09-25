@@ -1,6 +1,5 @@
 
 
-
 <% if current_user.nil? %>
 <% elsif current_user.current_channel.nil? %>
 	How about we make our first channel together?
@@ -8,7 +7,7 @@
 	We've run out of things to show you! Come back soon for more!
 <% else %>
 	 <div "iframe_div">
-	    <iframe src="<%= current_user.current_channel.current_item_url %>" alt="product" id="main_iframe"></iframe>
+	    <iframe src="<%= @item_url %>" alt="product" id="main_iframe"></iframe>
 	 </div>
 <% end %>
 
