@@ -2,7 +2,7 @@ class StoreController < ApplicationController
   def index
   	@user = current_user
   	if params[:switch_channel] == "true"
-  		@channel = Channel.find_by_id(:channel_id)
+  		@channel = Channel.find_by_id(params[:channel_id])
   	else
        @channel = @user.current_channel
   	end

@@ -1,10 +1,8 @@
 
 
 <% if current_user.nil? %>
-<% elsif current_user.current_channel.nil? %>
-	How about we make our first channel together?
 <% elsif current_user.current_channel.channel_items.empty? %>
-	We've run out of things to show you! Come back soon for more!
+	<div class="no_more_items">We've run out of things to show you! Come back soon for more!</div>
 <% else %>
 	 <div "iframe_div">
 	    <iframe src="<%= @item_url %>" alt="product" id="main_iframe"></iframe>

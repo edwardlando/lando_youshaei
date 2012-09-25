@@ -195,4 +195,15 @@ a:hover {
 	display: inline-block;
 }
 
+.no_more_items {
+	text-align: center;
+}
+
+#new_channel_container, #new_item_container {
+	width: 200px;
+}
+
+#profile_container {
+	width: 150px;
+}
 
