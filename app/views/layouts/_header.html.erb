@@ -3,34 +3,34 @@
 
 <div class="top" style="padding-top:0px; margin-top:0px;">
 	<div class="container" style="padding-top:30px; margin-top: 0px;">
-	<div id="user nav">
-		<% if user_signed_in? %>
-			<strong><%- current_user.email %></strong>
-			 
-			<p class="title"><%= link_to "AVEECE", root_path %></p>
-				<% unless current_user.nil? %>
-					<% if current_user.role == "tastemaker" %>
-					<div class="add" id="new_item">Add something<div class="hover_container" id="new_item_container"><%= render :partial => "items/form", :item => @item  %></div></div>
+		<div id="user nav">
+			<% if user_signed_in? %>
+				<strong><%- current_user.email %></strong>
+				 
+				<p class="title"><%= link_to "AVEECE", root_path %></p>
+					<% unless current_user.nil? %>
+						<% if current_user.role == "tastemaker" %>
+							<div class="add" id="new_item">Add something<div class="hover_container" id="new_item_container"><%= render :partial => "items/form", :item => @item %></div></div>
+						<% end %>
+						<div class="add" id="new_channel">New Channel<div class="hover_container" id="new_channel_container"><%= render :partial => "channels/form" %></div></div>
+						<div class="add"><%= link_to "Add to Wishlist", {:controller => "users", :action => "add_to_wishlist" } %></div>
+						<div class="add" id="my_profile">My Profile<div class="hover_container" id="profile_container"><%= render :partial => "users/show", :id => current_user.id %></div></div>
 					<% end %>
-					<div class="add" id="new_channel">New Channel<div class="hover_container" id="new_channel_container"><%= render :partial => "channels/form" %></div></div>
-					<div class="add"><%= link_to "Add to Wishlist", {:controller => "users", :action => "add_to_wishlist" } %></div>
-					<div class="add" id="my_profile">My Profile<div class="hover_container" id="profile_container"><%= render :partial => "users/show", :id => current_user.id %></div></div>
+			 
+				<p class="logout"> <%= link_to "Logout", destroy_user_session_path, :method => :delete %></p>
+				<p class="next"> <%= link_to "Reset", {:controller => "store", :action => "index", :index => 0 } %></p>
+
+				<% unless current_user.current_channel.nil? || current_user.current_channel.item_index.nil?  %>
+					<p class="next"> <%= link_to "Next", {:controller => "store", :action => "index", :index => current_user.current_channel.item_index+1 } %></p>
 				<% end %>
-		 
-			<p class="logout"> <%= link_to "Logout", destroy_user_session_path, :method => :delete %></p>
-			<p class="next"> <%= link_to "Reset", {:controller => "channels", :action => "show", :index => 0 } %></p>
+			  
 
-			<% unless current_user.current_channel.nil? || current_user.current_channel.item_index.nil?  %>
-				<p class="next"> <%= link_to "Next", {:controller => "channels", :action => "show", :index => current_user.current_channel.item_index+1 } %></p>
+			<% else %>
+				<div class="authentification">
+					<div class="sign_up"> <%= link_to "Sign up", new_user_registration_path %></div> | 
+					<div class="login"><%= link_to "Login", new_user_session_path %></div>
+				</div>
 			<% end %>
-		  
-
-		<% else %>
-			<div class="authentification">
-				<div class="sign_up"> <%= link_to "Sign up", new_user_registration_path %></div> | 
-				<div class="login"><%= link_to "Login", new_user_session_path %></div>
-			</div>
-		<% end %>
-	</div>
+		</div>
 	</div>
 </div>

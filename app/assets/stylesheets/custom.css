@@ -199,6 +199,10 @@ a:hover {
 	text-align: center;
 }
 
+.channel_name {
+	text-align: center;
+}
+
 #new_channel_container, #new_item_container {
 	width: 200px;
 }
