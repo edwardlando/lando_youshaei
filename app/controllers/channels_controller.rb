@@ -13,6 +13,7 @@ class ChannelsController < ApplicationController
   # GET /channels/1
   # GET /channels/1.json
   def show
+    # The show logic is now implemented in the store#index
     @user = current_user
     @channel = current_user.current_channel
     @channel_items = @channel.channel_items
