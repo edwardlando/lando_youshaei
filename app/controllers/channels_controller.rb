@@ -103,33 +103,7 @@ class ChannelsController < ApplicationController
     end
   end
 
-  ###########################################################################################
-  ###########################################################################################
-  ###########################################################################################
-
-  # NEXT action to discover items
 
 
-  ##### needs to be refined a lot - if not items fit this searchm give the next best thing
-  ##### also need to take votes into account
-
-
-=begin
-
-  def next
-    @user = current_user
-    @channel = current_user.current_channel
-    @channel_items = @channel.channel_items
-    @channel.item_index = @channel.item_index + 1
-    @next_item = @channel.channel_items[@channel.item_index]
-
-    @channel.save
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render :json => @next_item }
-    end
-  end
-=end
 
 end

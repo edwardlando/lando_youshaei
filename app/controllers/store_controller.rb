@@ -3,13 +3,15 @@ class StoreController < ApplicationController
     if current_user.nil?
     else
     	@user = current_user
+      @channels = @user.channels
 
       # Determines which channel we're on
       if params[:switch_channel] == "true"
-        @old_current_channel = @user.current_channel
-        @old_current_channel.current_channel = false
         @channel = Channel.find_by_id(params[:channel_id])
-        @channel.current_channel = true
+        @channels.each do |channel|
+          channel.update_attributes(:current_channel => false)
+        end
+      @channel.current_channel = true
       else
          @channel = @user.current_channel
       end
@@ -25,10 +27,9 @@ class StoreController < ApplicationController
       @user.save
     end
    
-
   respond_to do |format|
-      format.html {}# index.html.erb
-      format.json {}
+      format.html # index.html.erb
+      format.json { render :json => @channel }
   end
  end
 end
