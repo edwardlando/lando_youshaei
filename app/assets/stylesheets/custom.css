@@ -210,3 +210,56 @@ a:hover {
 	width: 150px;
 }
 
+.selected:hover #picker{
+	display: block;
+}
+
+#picker {
+	top: 19px;
+	position: absolute;
+	height: 100px;
+	width: 100px;
+	border: 1px solid black;
+	background: white;
+}
+
+.option, .selected {
+	height: 18px;
+	width: 18px;
+	border: 1px solid black;
+	margin: 1px;
+	float: left;
+	cursor: pointer;
+	position: relative;
+}
+
+.option:hover {
+	border: 1px solid lightblue;
+}
+
+#red {
+	background: red;
+}
+
+#Blue {
+	background: blue;
+}
+
+#channel_color {
+	display: none;
+}
+
+.inner {
+	height: 70px;
+	width: 100%;
+	border-bottom: 1px solid white;
+}
+
+.inner li {
+	display: inline-block;
+	list-style-type: none;
+}
+
+#channel_form {
+	color: white	;
+}
