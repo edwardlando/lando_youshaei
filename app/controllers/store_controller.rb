@@ -12,6 +12,17 @@ class StoreController < ApplicationController
           channel.update_attributes(:current_channel => false)
         end
       @channel.current_channel = true
+
+      # When a user has just created his/her account
+      elsif @user.current_channel.nil?
+        @channel = Channel.new(:color => "ALL", :style => "ALL", :price => "ALL", :gender => "BOTH",
+          :name => "My first channel")
+        @channel.user_id = @user.id
+        @channel.current_channel = true
+        @user.wishlist = Wishlist.new(:user_id => @user.id)
+        @user.role = "standard"
+
+      # When a user stays on the same channel
       else
          @channel = @user.current_channel
       end

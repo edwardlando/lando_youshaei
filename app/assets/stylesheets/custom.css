@@ -1,11 +1,11 @@
 html, body {
-	background-color: lightgrey;
+	background-color: #2F2F2F;
 }
 
 body {
 	margin:0;
 	padding:0;
-	font-family:Gotham, Gotham HTF, Helvetica Neue, Arial;
+	font-family:'Proxima Nova Regular','Helvetica Neue',Sans-serif;
 	padding-bottom:60px;
 }
 
@@ -55,13 +55,12 @@ a {
 #header {
 	border-bottom:2px solid white;
 	border-top:2px solid white;
-	background-color: transparent;
-	opacity: 0.6;
+	background-color: #2F2F2F;
 }
 
 .title a, .title a:visited{
-	color: black;
-	font-family: Arial;
+	color: rgba(255, 255, 255, 0.8);
+	font-family: 'Proxima Nova Regular','Helvetica Neue',Sans-serif;
 }
 
 
@@ -103,7 +102,7 @@ p .notice {
 }
 
 .add {
-	background-color: lightblue;
+	background-color: gray;
 	width: 96px;
 	height: 21px;
 	margin: 0;
@@ -125,7 +124,7 @@ p .notice {
 }
 
 .logout, .next {
-	background-color: lightblue;
+	background-color: gray;
 	width: 44px;
 	height: 21px;
 	margin: 0;

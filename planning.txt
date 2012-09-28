@@ -121,6 +121,20 @@ Which living room design do you prefer?
 			Start with something simpler and then figure out best solution I can get
 			Look at what else I have to do, and prioritize - do it later
 
+		John Collison & Jon Youshaei talk -
+			programming intelligence - oreilly
+			some good libraries
+			clothing recommendations - create a few different buckets of people 
+			http://www.amazon.com/Programming-Collective-Intelligence-Building-Applications/dp/0596529325
+			don't overthink - see how people use it
+
+			add the credit card cost to the shipping cost
+			decrease the light on the page except fot eh item that's being featured. Have a lamp button like on Famocracy
+
+
+
+
+
 
 
 

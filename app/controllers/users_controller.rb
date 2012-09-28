@@ -40,6 +40,8 @@ class UsersController < ApplicationController
 
   # POST /users
   # POST /users.json
+  
+  # This is not being used because of devise so the logic is the same in store#index
   def create
     @user = User.new(params[:user])
 
