@@ -51,7 +51,9 @@ class ChannelsController < ApplicationController
     @user = current_user
     @channels = Channel.all
     @channel = Channel.new(params[:channel])
-    @channel.user_id = current_user.id
+    @channel.user_id = User.find(1).id
+
+   # @channel.user_id = current_user.id   ################################
     @channel.item_index = 0
 
     if @channel.save

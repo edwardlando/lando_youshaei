@@ -216,11 +216,8 @@ a:hover {
 
 #picker {
 	top: 19px;
-	position: absolute;
-	height: 100px;
+	height: 70px;
 	width: 100px;
-	border: 1px solid black;
-	background: white;
 }
 
 .option, .selected {
@@ -250,7 +247,6 @@ a:hover {
 }
 
 .inner {
-	height: 70px;
 	width: 100%;
 	border-bottom: 1px solid white;
 }
@@ -258,8 +254,18 @@ a:hover {
 .inner li {
 	display: inline-block;
 	list-style-type: none;
+	vertical-align: top;
+	width: 19%;
 }
 
 #channel_form {
-	color: white	;
+	color: white;
+	padding: 0px;
+}
+
+.inner .actions input{
+	background-color: #3AAACF;
+	border: 1px solid transparent;
+	width: 100%;
+	border-radius: 5px;
 }
