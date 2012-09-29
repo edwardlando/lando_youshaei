@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class UsersController < Devise::RegistrationsController
   # GET /users
   # GET /users.json
   def index
@@ -43,6 +43,8 @@ class UsersController < ApplicationController
   
   # This is not being used because of devise so the logic is the same in store#index
   def create
+    super
+
     @user = User.new(params[:user])
 
     # Create wishlist when create user
@@ -53,11 +55,11 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, :notice => 'User was successfully created.' }
-        format.json { render :json => @user, :status => :created, :location => @user }
+        format.html { }#redirect_to root_path, :notice => 'User was successfully created.' }
+        format.json { }#render :json => @user, :status => :created, :location => @user }
       else
-        format.html { render :action => "new" }
-        format.json { render :json => @user.errors, :status => :unprocessable_entity }
+        format.html { }#render :action => "new" }
+        format.json { }#render :json => @user.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -65,6 +67,8 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.json
   def update
+    super
+
     @user = User.find(params[:id])
 
     respond_to do |format|
