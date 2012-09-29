@@ -58,9 +58,30 @@ a {
 	background-color: #2F2F2F;
 }
 
+.title {
+	float:left;
+	padding-right:30px;
+	color: white;
+	font-size:26px;
+	text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.4);
+	font-weight:bold;
+	padding-top:0px;
+	margin-top:6px;
+	margin-left: 24px;
+	
+}
+
 .title a, .title a:visited{
-	color: rgba(255, 255, 255, 0.8);
-	font-family: 'Proxima Nova Regular','Helvetica Neue',Sans-serif;
+	/*color: rgba(255, 255, 255, 0.8);
+	font-family: 'Proxima Nova Regular','Helvetica Neue',Sans-serif; */
+	color: rgba(204,204,204,0.8);
+	font-family: 'Futura';
+}
+
+
+.title a:hover {
+	color: rgba(238,238,238,0.8);
+	background-color: #2F2F2F;
 }
 
 
@@ -145,24 +166,8 @@ p .notice {
 	text-decoration: none !important;
 }
 
-a:hover {
- 	background-color: transparent !important;
- 	color: black !important;
-}
 
 
-.title {
-	float:left;
-	padding-right:30px;
-	color: white;
-	font-size:26px;
-	text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.4);
-	font-weight:bold;
-	padding-top:0px;
-	margin-top:0px;
-	margin-left: 24px;
-	
-}
 
 .channel_list {
 	background-color: #23759B;
@@ -210,11 +215,11 @@ a:hover {
 	width: 150px;
 }
 
-.selected:hover #picker{
+.selected:hover .picker{
 	display: block;
 }
 
-#picker {
+.picker {
 	top: 19px;
 	height: 70px;
 	width: 100px;
@@ -234,15 +239,94 @@ a:hover {
 	border: 1px solid lightblue;
 }
 
-#red {
+#ALL {
+
+}
+
+#White {
+	background: white;
+}
+
+#Black {
+	background: black;
+}
+
+#Red {
 	background: red;
+}
+
+#Green {
+	background: green;
 }
 
 #Blue {
 	background: blue;
 }
 
+#Yellow {
+	background: yellow;
+}
+
+#Pink {
+	background: pink;
+}
+
+#Grey {
+	background: grey;
+}
+
+#Brown {
+	background: brown;
+}
+
+#Purple {
+	background: purple;
+}
+
+#Orange {
+	background: orange;
+}
+
+#ALL {
+   
+}
+
+#Elegant {
+
+}
+
+#Casual {
+
+}
+
+#Preppy {
+
+}
+
+#Hipster {
+
+}
+
+.option {
+	font-size: 10px;
+	width: 40px;
+	height: 40px;
+}
+
+
 #channel_color {
+	display: none;
+}
+
+#channel_style {
+	display: none;
+}
+
+#channel_price {
+	display: none;
+}
+
+#channel_gender {
 	display: none;
 }
 
@@ -256,6 +340,8 @@ a:hover {
 	list-style-type: none;
 	vertical-align: top;
 	width: 19%;
+	padding: 0;
+	margin: 0;
 }
 
 #channel_form {
@@ -268,4 +354,15 @@ a:hover {
 	border: 1px solid transparent;
 	width: 100%;
 	border-radius: 5px;
+}
+
+#create_channel {
+	width: 100%;
+	height: 30px;
+	background-color: #39AECF;
+	border-radius: 3px;
+	text-align: center;
+	color: black;
+	padding-top: 5px;
+	font-size: 14px;
 }

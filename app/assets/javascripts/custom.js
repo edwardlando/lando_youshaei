@@ -5,7 +5,7 @@ $(document).ready(function() {
 	// The [0] is only needed because a bunch of elements match
 	var colorInput = $(".field select")[0];
 
-	$("#picker .option").on("click", function(event){
+	$(".picker .option").on("click", function(event){
 		// this = option clicked
 		// index of item relative to other children
 		var i = $(this).index();
@@ -16,12 +16,19 @@ $(document).ready(function() {
 		//selected.attr("id", $(this).attr("id")); // here we set the id of the selected element to the id of the clicked element
 	});
 
+    // Allows us to make top disappeat
+	var wantToCreate = false;
+
 	$("#new_channel").on("click", function(event) {
-		$(".inner").show(500);
+		wantToCreate = !wantToCreate;
+		if (wantToCreate == true) {
+			$(".inner").show(500);
+		} else {
+			$(".inner").hide(500);
+		};
 	})
 
 	$("#create_channel").on("click", function(event) {
-		console.log("hi");
 		data = {
 		"channel_name": $("#channel_name").val(),
 		"channel_color": $("#channel_color").val(),

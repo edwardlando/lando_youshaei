@@ -5,8 +5,8 @@ class Channel < ActiveRecord::Base
 
   # we'll also sort by best rating
 
-  COLOR_OPTIONS = ["ALL", "Blue", "Green", "Red", "Yellow",
-                   "Pink", "White", "Black", "Grey", "Brown", "Purple"]
+  COLOR_OPTIONS = ["ALL", "White", "Black", "Red", "Green", "Blue", "Yellow",
+                   "Pink", "Grey", "Brown", "Purple", "Orange"]
 
   STYLE_OPTIONS = ["ALL", "Elegant", "Casual", "Preppy", "Hipster"]
 
