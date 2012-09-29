@@ -10,7 +10,7 @@
 				<p class="title"><%= link_to "AVEECE", root_path %></p>
 				<% unless current_user.nil? %>
 					<% if current_user.role == "tastemaker" %>
-						<div class="add" id="new_item">Add something</div>
+						<div class="add" id="new_item"><%= link_to "Add something", :controller => "items", :action => "new" %></div>
 					<% end %>
 						<div class="add" id="new_channel">New Channel</div>
 						<div class="add"><%= link_to "Add to Wishlist", {:controller => "users", :action => "add_to_wishlist" } %></div>

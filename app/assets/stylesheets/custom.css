@@ -42,16 +42,6 @@ a {
 	height:940px;
 }
 
-.hover_container {
-	border: 1px solid black;
-	z-index: 100;
-	color: black;
-	background: white;
-	position: absolute;
-	top: 32px;
-	display: none;
-}
-
 #header {
 	background-color: #2F2F2F;
 }
@@ -92,17 +82,7 @@ a {
 	width: 900px;
 }
 
-#new_channel:hover .hover_container {
-	display: block;
-}
 
-#new_item:hover .hover_container {
-	display: block;
-}
-
-#my_profile:hover .hover_container {
-	display: block;
-}
 
 .top {
 	padding-bottom:80px;
@@ -163,9 +143,9 @@ p .notice {
 	color: black !important;
 	text-decoration: none !important;
 }
-
-
-
+.logout a:hover, .next a:hover, .add a:hover {
+	background-color: transparent;
+}
 
 .channel_list {
 	background-color: #23759B;

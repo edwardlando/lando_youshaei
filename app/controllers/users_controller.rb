@@ -25,12 +25,7 @@ class UsersController < Devise::RegistrationsController
   # GET /users/new
   # GET /users/new.json
   def new
-    @user = User.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render :json => @user }
-    end
+    super
   end
 
   # GET /users/1/edit
@@ -43,15 +38,16 @@ class UsersController < Devise::RegistrationsController
   
   # This is not being used because of devise so the logic is the same in store#index
   def create
-    super
-
     @user = User.new(params[:user])
-
+    @user.role = "standard"
     # Create wishlist when create user
     @user.wishlist = Wishlist.new(:user_id => @user.id)
+    @user.save
     # Initial chanel for the user
-    @channel = Channel.new(:color => "ALL", :style => "ALL", :price => "ALL", :gender => "BOTH")
+    @channel = Channel.new(:color => "ALL", :style => "ALL", :price => "ALL", :gender => "BOTH",
+    :user_id => @user.id, :item_index => 0)
     @channel.current_channel = true
+    @channel.save
 
     respond_to do |format|
       if @user.save
@@ -68,7 +64,7 @@ class UsersController < Devise::RegistrationsController
   # PUT /users/1.json
   def update
     super
-
+=begin
     @user = User.find(params[:id])
 
     respond_to do |format|
@@ -80,6 +76,7 @@ class UsersController < Devise::RegistrationsController
         format.json { render :json => @user.errors, :status => :unprocessable_entity }
       end
     end
+=end
   end
 
   # DELETE /users/1

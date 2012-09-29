@@ -1,12 +1,13 @@
 
 
-<!--if current_user.nil? -->
-<!--  elsif current_user.current_channel.channel_items.empty? -->
-	<!--<div class="no_more_items">We've run out of things to show you! Come back soon for more!</div>-->
+<% if @user.nil? %> 
+    <div class="welcome_message">Welcome</div>
+<% elsif @channel.channel_items.empty? %>
+	<div class="no_more_items">We've run out of things to show you! Come back soon for more!</div>
+<% else %>
 	 <div "iframe_div">
-	    <iframe src="http://www.ralphlauren.com/product/index.jsp?productId=4373780&parentPage=family" alt="product" id="main_iframe"></iframe>
+	    <iframe src=<%= @item_url %> alt="product" id="main_iframe"></iframe>
 	 </div>
-<!--end -->
+<% end %>
 
-<!-- @item_url -->
 
