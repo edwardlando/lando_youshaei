@@ -6,7 +6,6 @@
 		<div id="user nav">
 			<% if user_signed_in? %>
 				<strong><%- current_user.email %></strong>
-				 
 				<p class="title"><%= link_to "AVEECE", root_path %></p>
 				<% unless current_user.nil? %>
 					<% if current_user.role == "tastemaker" %>

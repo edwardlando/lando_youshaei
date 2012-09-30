@@ -1,4 +1,4 @@
-class UsersController < Devise::RegistrationsController
+class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
@@ -38,6 +38,7 @@ class UsersController < Devise::RegistrationsController
   
   # This is not being used because of devise so the logic is the same in store#index
   def create
+    super
     @user = User.new(params[:user])
     @user.role = "standard"
     # Create wishlist when create user
@@ -51,7 +52,7 @@ class UsersController < Devise::RegistrationsController
 
     respond_to do |format|
       if @user.save
-        format.html { }#redirect_to root_path, :notice => 'User was successfully created.' }
+        format.html { redirect_to root_path }#redirect_to root_path, :notice => 'User was successfully created.' }
         format.json { }#render :json => @user, :status => :created, :location => @user }
       else
         format.html { }#render :action => "new" }

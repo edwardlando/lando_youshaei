@@ -1,6 +1,6 @@
 LandoYoushaei::Application.routes.draw do
   
-  devise_for :users, :controllers => { :registrations => "users" }
+  devise_for :users, :controllers => { :registrations => "registrations" }
 
   get "users/index"
 
@@ -23,7 +23,6 @@ LandoYoushaei::Application.routes.draw do
   get "wishlists/show"
 
   
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
