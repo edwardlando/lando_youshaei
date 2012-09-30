@@ -1,6 +1,5 @@
 class StoreController < ApplicationController
   def index
-=begin
     if current_user.nil?
     else
     	@user = current_user
@@ -37,6 +36,5 @@ class StoreController < ApplicationController
       format.html # index.html.erb
       format.json { render :json => @channel }
   end
-=end
  end
 end
