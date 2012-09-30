@@ -48,7 +48,7 @@ class ChannelsController < ApplicationController
   # POST /channels
   # POST /channels.json
   def create
-    @user = current_user
+   # @user = current_user
     @channels = Channel.all
     @channel = Channel.new(params[:channel])
     @channel.user_id = User.find(1).id
@@ -56,6 +56,9 @@ class ChannelsController < ApplicationController
    # @channel.user_id = current_user.id   ################################
     @channel.item_index = 0
 
+     
+    logger.debug(params[:channel])
+    
     if @channel.save
       @channels.each do |channel|
         channel.update_attributes(:current_channel => false)

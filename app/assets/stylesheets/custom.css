@@ -200,7 +200,7 @@ p .notice {
 .picker {
 	top: 19px;
 	height: 70px;
-	width: 100px;
+	width: 150px;
 }
 
 .option, .selected {
@@ -311,6 +311,7 @@ p .notice {
 .inner {
 	width: 100%;
 	border-bottom: 1px solid white;
+	display: none;
 }
 
 .inner li {

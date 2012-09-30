@@ -1,13 +1,15 @@
 
-
-<% if @user.nil? %> 
+<!--
+ @user.nil? 
     <div class="welcome_message">Welcome</div>
-<% elsif @channel.channel_items.empty? %>
+ @channel.channel_items.empty? 
 	<div class="no_more_items">We've run out of things to show you! Come back soon for more!</div>
-<% else %>
+
 	 <div "iframe_div">
 	    <iframe src=<%= @item_url %> alt="product" id="main_iframe"></iframe>
 	 </div>
-<% end %>
+
+-->
 
 
+<iframe src="http://www.jcrew.com/mens_feature/NewArrivals/sportcoatsandvests/PRDOVR~99158/99158.jsp" alt="product" id="main_iframe"></iframe>
