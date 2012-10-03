@@ -50,14 +50,14 @@ class ChannelsController < ApplicationController
   def create
    # @user = current_user
     @channels = Channel.all
-    @channel = Channel.new(params[:channel])
-    @channel.user_id = User.find(1).id
+    #@channel = Channel.new(params[:channel])
+    @channel.color = data["channel_color"]       #### how to you receive the data?
+    @channel.user_id = current_user.id
 
-   # @channel.user_id = current_user.id   ################################
     @channel.item_index = 0
 
      
-    logger.debug(params[:channel])
+    #logger.debug(params[:channel])
     
     if @channel.save
       @channels.each do |channel|

@@ -18,6 +18,10 @@ a {
 	text-decoration: none;
 }
 
+.welcome_message {
+	text-align: center;
+}
+
 .header {
 	font-weight:bold;
 	width:100%;

@@ -4,26 +4,31 @@ class RegistrationsController < Devise::RegistrationsController
 	end
 
 	def create
-		@user = User.new(params[:user])
-	    @user.role = "standard"
+		super
+		# @user = User.new(params[:user])
+	    # @user.role = "standard"
+	    resource.role = "standard"
+	    resource.wishlist = Wishlist.new(:user_id => resource.id)
+	    resource.save
+
 	    # Create wishlist when create user
-	    @user.wishlist = Wishlist.new(:user_id => @user.id)
-	    @user.save
+	    # @user.wishlist = Wishlist.new(:user_id => @user.id)
+	    # @user.save
 	    # Initial chanel for the user
 	    @channel = Channel.new(:color => "ALL", :style => "ALL", :price => "ALL", :gender => "BOTH",
-	    :user_id => @user.id, :item_index => 0)
+	    :user_id => resource.id, :item_index => 0, :name => "My first channel")
 	    @channel.current_channel = true
 	    @channel.save
+	
+		respond_to do |format|
+	      if @user.save
+	        format.html { }#redirect_to root_path, :notice => 'User was successfully created.' }
+	        format.json { }#render :json => resource } #render :json => @user, :status => :created, :location => @user }
+	      else
+	        format.html { render :action => "new" }
+	        format.json { }#render :json => @user.errors, :status => :unprocessable_entity }
+	      end
+	    end
 	end
-
-	respond_to do |format|
-      if @user.save
-        format.html { redirect_to root_path }#redirect_to root_path, :notice => 'User was successfully created.' }
-        format.json { render :json => @user, :status => :created, :location => @user }
-      else
-        format.html { }#render :action => "new" }
-        format.json { }#render :json => @user.errors, :status => :unprocessable_entity }
-      end
-    end
 
 end

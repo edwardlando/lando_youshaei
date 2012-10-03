@@ -13,6 +13,8 @@
   <%= f.password_field :password_confirmation %></div>
 
   <div><%= f.submit "Sign up" %></div>
+       <%= link_to "Sign up baby!", :controller => "registrations", :action => "create" %>
+
 <% end %>
 
 <%= render "devise/shared/links" %>
