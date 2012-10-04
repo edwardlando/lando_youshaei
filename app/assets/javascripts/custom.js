@@ -17,6 +17,13 @@ $(document).ready(function() {
 	});
 
 
+    // Stops Devise from signing out user when Ajax POST request is made
+    $.ajaxSetup({
+	    beforeSend: function(xhr) {
+	        xhr.setRequestHeader('X-CSRF-Token',
+	                             $('meta[name="csrf-token"]').attr('content'));
+	    }
+    });
 
     // CHANNELS
 
