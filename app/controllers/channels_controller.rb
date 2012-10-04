@@ -51,13 +51,16 @@ class ChannelsController < ApplicationController
    # @user = current_user
     @channels = Channel.all
     #@channel = Channel.new(params[:channel])
-    @channel.color = data["channel_color"]       #### how to you receive the data?
+    @channel = Channel.new(params)
+
+    #@channel = Channel.new(:name => data["channel_name"], :color => data["channel_color"],
+    #:style => data["channel_style"], :price => data["channel_price"], :gender => data["channel_gender"])
+
     @channel.user_id = current_user.id
 
     @channel.item_index = 0
-
      
-    #logger.debug(params[:channel])
+    logger.debug(params[:channel])
     
     if @channel.save
       @channels.each do |channel|

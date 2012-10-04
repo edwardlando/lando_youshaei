@@ -1,7 +1,22 @@
-<p class="profile_label">My channels</p>
-<%= @user.channels %>
+<div class="user_profile_partial">
 
-<p class="profile_label">My wishlist</p>
-<% @user.wishlist.items.each do |item| %>
-	<%= item.title %>
-<% end %>
+	<div class="user_name">
+		<%= @user.username ||= @user.email %>
+	</div>
+
+	<div class="my_channels">
+		My channels
+		<% @user.channels.each do |channel| %>
+			<li><%= channel.name %></li>
+		<% end %>
+	</div>
+
+
+	<div class="my_profile">
+		My wishlist
+		<% @user.wishlist.items.each do |item| %>
+			<li><%= item.title %></li>
+		<% end %>
+	</div>
+
+</div>

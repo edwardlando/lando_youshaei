@@ -16,6 +16,10 @@ $(document).ready(function() {
 		//selected.attr("id", $(this).attr("id")); // here we set the id of the selected element to the id of the clicked element
 	});
 
+
+
+    // CHANNELS
+
     // Allows us to make top disappear
 	var wantToCreate = false;
 	$("#new_channel_button").on("click", function(event) {
@@ -38,15 +42,32 @@ $(document).ready(function() {
 		console.log(data);
 		$.ajax({
 			type: 'POST',
-			url: "http://localhost:3000/channels",
+			url: "http://localhost:3000/channels.json",
 			data: data,
+			dataType: "json",
 			success: function(data) {
-				console.log(data);
+				onsole.log(data);
 				$(".inner").hide(500);
-			},
-			dataType: "html"
+			}
 		});
 	})
+
+	// USER PROFILE
+
+    var wantToSeeProfile = false;
+	$("#my_profile").on("click", function(event) {
+		wantToSeeProfile = !wantToSeeProfile;
+		if (wantToSeeProfile == true) {
+			$(".inner_user").show(500);
+		} else {
+			$(".inner_user").hide(500);
+		};
+	})
+	
+
+
+
+
 
 
 });

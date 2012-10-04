@@ -9,8 +9,9 @@ LandoYoushaei::Application.routes.draw do
   get "users/add_to_wishlist"
 
   resources :channels
-
-  get "channels/index"
+ 
+  match '/channels' => 'channels#create', :via => :post
+  match '/channels' => 'channels#index', :via => :get
 
   get "channels/show"
 

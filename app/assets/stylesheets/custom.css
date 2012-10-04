@@ -327,6 +327,25 @@ p .notice {
 	margin: 0;
 }
 
+.inner_user {
+	width: 100%;
+	border-bottom: 1px solid white;
+	display: none;
+}
+
+.inner_user li {
+	display: inline-block;
+	list-style-type: none;
+	vertical-align: top;
+	padding: 0;
+	margin: 0;
+}
+
+.user_profile_partial {
+	color: white !important;
+}
+
+
 #channel_form {
 	color: white;
 	padding: 0px;
