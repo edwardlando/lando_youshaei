@@ -21,7 +21,7 @@ $(document).ready(function() {
     $.ajaxSetup({
 	    beforeSend: function(xhr) {
 	        xhr.setRequestHeader('X-CSRF-Token',
-	                             $('meta[name="csrf-token"]').attr('content'));
+	        $('meta[name="csrf-token"]').attr('content'));
 	    }
     });
 
@@ -53,7 +53,7 @@ $(document).ready(function() {
 			data: data,
 			dataType: "json",
 			success: function(data) {
-				onsole.log(data);
+				console.log(data);
 				$(".inner").hide(500);
 			}
 		});
@@ -71,8 +71,6 @@ $(document).ready(function() {
 		};
 	})
 	
-
-
 
 
 
