@@ -52,10 +52,9 @@ class ChannelsController < ApplicationController
   def create
 
     @channels = Channel.all
-    @channel = Channel.new(params[:channel])
+    @channel = Channel.new(:name => params["name"], :color => params["color"], 
+      :style => params["style"], :price => params["price"], :gender => params["gender"])
     
-    #@channel = Channel.new(:name => "channel_name", :color => data["channel_color"],
-    #:style => data["channel_style"], :price => data["channel_price"], :gender => data["channel_gender"])
     @channel.user_id = current_user.id
     @channel.item_index = 0
      
