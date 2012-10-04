@@ -48,15 +48,14 @@ class ChannelsController < ApplicationController
   # POST /channels
   # POST /channels.json
   def create
-   # @user = current_user
+    @user = current_user
     @channels = Channel.all
-    #@channel = Channel.new(params[:channel])
-    @channel = Channel.new(params)
-
-    #@channel = Channel.new(:name => data["channel_name"], :color => data["channel_color"],
+    @channel = Channel.new(params[:channel])
+    
+    #@channel = Channel.new(:name => "channel_name", :color => data["channel_color"],
     #:style => data["channel_style"], :price => data["channel_price"], :gender => data["channel_gender"])
 
-    @channel.user_id = current_user.id
+    @channel.user_id = User.find(1).id
 
     @channel.item_index = 0
      
@@ -74,6 +73,18 @@ class ChannelsController < ApplicationController
 
     respond_to do |format|
       if @channel.save
+        format.html { redirect_to @channel, :notice => 'Channel was successfully created.' }
+        format.json { render :json => @channel, :status => :created, :location => @channel }
+      else
+        format.html { render :action => "new" }
+        format.json { render :json => @channel.errors, :status => :unprocessable_entity }
+      end
+    end
+
+=begin
+
+    respond_to do |format|
+      if @channel.save
         format.html { redirect_to root_path, :notice => 'Channel was successfully created.' }
         format.json { }#render :json => @channel, :status => :created, :location => @channel }
       else
@@ -81,6 +92,8 @@ class ChannelsController < ApplicationController
         format.json { render :json => @channel.errors, :status => :unprocessable_entity }
       end
     end
+
+=end
   end
 
   # PUT /channels/1

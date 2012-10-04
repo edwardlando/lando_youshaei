@@ -1,3 +1,7 @@
+<% if current_user.nil? %>
+
+<% else %>
+
 <div class="user_profile_partial">
 
 	<div class="user_name">
@@ -18,5 +22,6 @@
 			<li><%= item.title %></li>
 		<% end %>
 	</div>
-
 </div>
+
+<% end %>

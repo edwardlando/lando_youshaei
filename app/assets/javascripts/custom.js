@@ -33,11 +33,11 @@ $(document).ready(function() {
 
 	$("#create_channel").on("click", function(event) {
 		var data = {
-		"channel_name": $("#channel_name").val(),
-		"channel_color": $("#channel_color").val(),
-		"channel_style": $("#channel_style").val(),
-		"channel_price": $("#channel_price").val(),
-		"channel_gender": $("#channel_gender").val(),
+		"name": $("#channel_name").val(),
+		"color": $("#channel_color").val(),
+		"style": $("#channel_style").val(),
+		"price": $("#channel_price").val(),
+		"gender": $("#channel_gender").val(),
 		};
 		console.log(data);
 		$.ajax({
