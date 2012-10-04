@@ -5,23 +5,26 @@
 <div class="user_profile_partial">
 
 	<div class="user_name">
-		<%= @user.username ||= @user.email %>
+		<%= current_user.username ||= current_user.email %>
 	</div>
 
 	<div class="my_channels">
 		My channels
-		<% @user.channels.each do |channel| %>
-			<li><%= channel.name %></li>
-		<% end %>
+		<% current_user.channels.each do |channel| %>
+        <li><%= link_to "#{channel.name}", :controller => "store", :action => "index", :channel_id => "#{channel.id}", :switch_channel => "true" %>
+        </li> | 
+    <% end %>
 	</div>
 
 
 	<div class="my_profile">
 		My wishlist
-		<% @user.wishlist.items.each do |item| %>
-			<li><%= item.title %></li>
+		<% unless current_user.wishlist.nil? || current_user.wishlist.items.nil? %>
+		    <% current_user.wishlist.items.each do |item| %>
+				<li><%= item.title %></li> |
+		    <% end %>
 		<% end %>
-	</div>
-</div>
+		</div>
+    </div>
 
 <% end %>
