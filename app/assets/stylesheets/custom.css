@@ -86,7 +86,9 @@ a {
 	width: 900px;
 }
 
-
+.my_profile li a{
+	color: #39AECF;
+}
 
 .top {
 	padding-bottom:80px;
