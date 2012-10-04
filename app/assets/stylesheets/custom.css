@@ -22,6 +22,11 @@ a {
 	text-align: center;
 }
 
+.new_registration, .new_session {
+	padding-left: 150px;
+}
+
+
 .header {
 	font-weight:bold;
 	width:100%;
