@@ -105,6 +105,21 @@ class UsersController < ApplicationController
     @user.save
   
     respond_to do |format|
+      format.html {redirect_to root_path} 
+      format.json {}
+    end
+  end
+
+  def add_to_cart
+    @user = current_user
+    @channel = current_user.current_channel
+    @item = @channel.current_item
+
+    @user.add_to_cart(@item)
+
+    @user.save
+  
+    respond_to do |format|
       format.html 
       format.json {render :json => @user }
     end

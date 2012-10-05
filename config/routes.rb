@@ -1,5 +1,9 @@
 LandoYoushaei::Application.routes.draw do
   
+  resources :line_items
+
+  resources :carts
+
   devise_for :users, :controllers => { :registrations => "registrations" }
 
   get "users/index"
@@ -7,6 +11,7 @@ LandoYoushaei::Application.routes.draw do
   get "users/show"
 
   get "users/add_to_wishlist"
+  get "users/add_to_cart"
 
   resources :channels
  

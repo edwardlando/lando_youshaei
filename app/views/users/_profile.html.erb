@@ -16,12 +16,19 @@
     <% end %>
 	</div>
 
+	<div class="my_profile">
+		My cart
+		<% current_user.cart.line_items do |line_item| %>
+	        <li><%= line_item %></li> | 
+	    <% end %>
+	</div>
+
 
 	<div class="my_profile">
 		My wishlist
 		<% unless current_user.wishlist.nil? || current_user.wishlist.items.nil? %>
 		    <% current_user.wishlist.items.each do |item| %>
-				<li><%= item.title %></li> |
+				<li><%= link_to "#{item.title}", "#{item.url}" %></li> |
 		    <% end %>
 		<% end %>
 		</div>

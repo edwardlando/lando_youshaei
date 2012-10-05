@@ -9,10 +9,11 @@
 				<strong><%- current_user.email %></strong>
 				<% unless current_user.nil? %>
 					<% if current_user.role == "tastemaker" %>
-						<div class="add" id="new_item"><%= link_to "Add something", :controller => "items", :action => "new" %></div>
+						<div class="add" id="new_item"><%= link_to "+ Item", :controller => "items", :action => "new" %></div>
 					<% end %>
 						<div class="add" id="new_channel_button">+ Channel</div>
 						<% unless current_user.current_channel.channel_items.empty? %>
+							<div class="add"><%= link_to "+ Cart", {:controller => "users", :action => "add_to_cart" } %></div>
 							<div class="add"><%= link_to "+ Wishlist", {:controller => "users", :action => "add_to_wishlist" } %></div> 
 						<% end %>
 						<div class="add" id="my_profile">Profile</div>

@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   has_many :items #tastemakers
   has_many :channels
   has_one :wishlist
+  has_one :cart
 
   def current_channel
     self.channels.each do |channel|
@@ -27,6 +28,10 @@ class User < ActiveRecord::Base
 
   def add_to_wishlist(item)
     self.wishlist.items << item unless self.wishlist.items.include?(item)
+  end
+
+  def add_to_cart(item)
+    self.cart.line_items << item 
   end
 
   # has_one :current_channel, :class_name => "Channel" # current_channel

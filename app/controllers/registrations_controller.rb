@@ -8,6 +8,7 @@ class RegistrationsController < Devise::RegistrationsController
 		# @user = User.new(params[:user])
 	    # @user.role = "standard"
 	    resource.role = "standard"
+	    resource.cart = Cart.new(:user_id => resource.id)
 	    resource.wishlist = Wishlist.new(:user_id => resource.id)
 	    resource.save
 
