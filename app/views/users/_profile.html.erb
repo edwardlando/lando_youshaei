@@ -18,8 +18,8 @@
 
 	<div class="my_profile">
 		My cart
-		<% current_user.cart.line_items do |line_item| %>
-	        <li><%= line_item %></li> | 
+		<% current_user.cart.line_items.each do |line_item| %>
+	        <li><%= line_item.item.title %></li> | 
 	    <% end %>
 	</div>
 

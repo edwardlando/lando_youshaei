@@ -1,45 +1,47 @@
-<% @item = Item.new %>
 
-<%= form_for(@item) do |f| %>
-  <% if @item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(Item.new.errors.count, "error") %> prohibited this item from being saved:</h2>
+  <% @item = Item.new %>
 
-      <ul>
-      <% @item.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+  <%= form_for(@item) do |f| %>
+    <% if @item.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(Item.new.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+        <ul>
+        <% @item.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :title, "Name this item!" %><br />
+      <%= f.text_field :title %>
     </div>
+    <div class="field">
+      <%= f.label :url, "Link to where item can be purchased" %><br />
+      <%= f.url_field :url %>
+    </div>
+
+    <div class="field">
+      <%= f.label :color %><br />
+      <%= f.select(:color, Channel::COLOR_OPTIONS) %>    
+    </div>
+    <div class="field">
+      <%= f.label :style %><br />
+      <%= f.select(:style, Channel::STYLE_OPTIONS) %>   
+    </div>
+    <div class="field">
+      <%= f.label :price %><br />
+      <%= f.select(:price, Channel::PRICE_OPTIONS) %>   
+    </div>
+    <div class="field">
+      <%= f.label :gender %><br />
+      <%= f.select(:gender, Channel::GENDER_OPTIONS) %>  
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
   <% end %>
 
-  <div class="field">
-    <%= f.label :title, "Name this item!" %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :url, "Link to where item can be purchased" %><br />
-    <%= f.url_field :url %>
-  </div>
-
-  <div class="field">
-    <%= f.label :color %><br />
-    <%= f.select(:color, Channel::COLOR_OPTIONS) %>    
-  </div>
-  <div class="field">
-    <%= f.label :style %><br />
-    <%= f.select(:style, Channel::STYLE_OPTIONS) %>   
-  </div>
-  <div class="field">
-    <%= f.label :price %><br />
-    <%= f.select(:price, Channel::PRICE_OPTIONS) %>   
-  </div>
-  <div class="field">
-    <%= f.label :gender %><br />
-    <%= f.select(:gender, Channel::GENDER_OPTIONS) %>  
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-
-<% end %>

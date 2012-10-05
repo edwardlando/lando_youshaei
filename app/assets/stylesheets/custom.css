@@ -367,3 +367,11 @@ p .notice {
 	padding-top: 5px;
 	font-size: 14px;
 }
+
+.new_item {
+	padding-left: 150px;
+}
+
+.new_item h1 {
+	padding-left: 150px;
+}

@@ -114,14 +114,16 @@ class UsersController < ApplicationController
     @user = current_user
     @channel = current_user.current_channel
     @item = @channel.current_item
+    @cart = @user.cart
+    @line_item = LineItem.new(:item_id => @item.id, :cart_id => @cart.id)
 
-    @user.add_to_cart(@item)
+    @user.add_to_cart(@line_item)
 
     @user.save
   
     respond_to do |format|
-      format.html 
-      format.json {render :json => @user }
+      format.html { redirect_to root_path }
+      format.json {}
     end
   end
 
