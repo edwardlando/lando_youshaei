@@ -105,7 +105,7 @@ class UsersController < ApplicationController
     @user.save
   
     respond_to do |format|
-      format.html {redirect_to root_path} 
+      format.html { redirect_to root_path } 
       format.json {}
     end
   end
@@ -115,10 +115,16 @@ class UsersController < ApplicationController
     @channel = current_user.current_channel
     @item = @channel.current_item
     @cart = @user.cart
-    @line_item = LineItem.new(:item_id => @item.id, :cart_id => @cart.id)
-
-    @user.add_to_cart(@line_item)
-
+    @existing_line_item = LineItem.find_by_item_id_and_cart_id(@item.id, @cart.id)
+    
+    if @cart.line_items.include?(@existing_line_item)
+      @existing_line_item.quantity += 1
+      @cart.save
+    else 
+      @line_item = LineItem.new(:item_id => @item.id, :cart_id => @cart.id)
+      @cart.line_items << @line_item 
+    end
+    
     @user.save
   
     respond_to do |format|

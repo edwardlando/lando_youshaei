@@ -30,10 +30,6 @@ class User < ActiveRecord::Base
     self.wishlist.items << item unless self.wishlist.items.include?(item)
   end
 
-  def add_to_cart(line_item)
-    self.cart.line_items << line_item 
-  end
-
   # has_one :current_channel, :class_name => "Channel" # current_channel
   #  :foreign_key => :owner_id  -- maybe go with foreign_key option
 end
