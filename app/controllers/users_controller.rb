@@ -119,6 +119,7 @@ class UsersController < ApplicationController
     
     if @cart.line_items.include?(@existing_line_item)
       @existing_line_item.quantity += 1
+      @existing_line_item.save
       @cart.save
     else 
       @line_item = LineItem.new(:item_id => @item.id, :cart_id => @cart.id)
