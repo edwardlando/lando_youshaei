@@ -1,12 +1,17 @@
 html, body {
-	background-color: #2F2F2F;
+	/* background-color: #2F2F2F; */
+	background-image: url(../images/pattern.jpeg) repeat;
+
 }
 
 body {
 	margin:0;
 	padding:0;
-	font-family: 'Proxima Nova Regular','Helvetica Neue',Sans-serif;
 	padding-bottom: 60px;
+}
+
+body, p, ol, ul {
+	font-family: 'Helvetica Neue';
 }
 
 p { font-size:12px;
@@ -39,6 +44,7 @@ a {
 
 .notice, .alert {
 	margin: 0;
+	padding: 0;
 }
 
 .container {
@@ -52,7 +58,9 @@ a {
 }
 
 #header {
-	background-color: #2F2F2F;
+	background-image: url("pattern1.jpg");
+	background-image: url("denim.png");
+	background-repeat: repeat-x repeat-y;
 }
 
 .title {
@@ -112,15 +120,17 @@ p .notice {
 }
 
 .add {
-	background-color: gray;
+	background-color: transparent; ;
 	width: 78px;
 	height: 21px;
 	margin: 0;
 	padding: 0;
-	border-radius: 4px;
 	float: left;
 	padding: 3px;
-	color: black;
+	color: lightblue;
+	border-bottom: 1px dotted white;
+	border-top: 1px dotted white;
+	font-size: 12px !important;
 	text-align: center;
 	padding-top: 8px;
 	text-shadow: none;
@@ -134,15 +144,16 @@ p .notice {
 }
 
 .logout, .next {
-	background-color: gray;
+	background-color: transparent;
 	width: 44px;
 	height: 21px;
 	margin: 0;
 	padding: 0;
-	border-radius: 4px;
 	float: left;
 	padding: 3px;
 	color: white;
+	border-bottom: 1px dotted white;
+	border-top: 1px dotted white;
 	text-align: center;
 	padding-top: 8px;
 	text-shadow: none;
@@ -151,7 +162,7 @@ p .notice {
 }
 
 .add a, .logout a, .next a {
-	color: black !important;
+	color: lightblue !important;
 	text-decoration: none !important;
 }
 .logout a:hover, .next a:hover, .add a:hover {
