@@ -3,7 +3,6 @@
 <% else %>
 
 	<ul class="user_profile_partial">
-
 		<li class="user_name">
 			<p class="profile_subtitle"> Information </p>
 			<%= current_user.username ||= current_user.email %>
@@ -11,9 +10,8 @@
 		<li class="my_profile">
 			<p class="profile_subtitle"> My channels </p>
 			<% current_user.channels.each do |channel| %>
-	        <%= link_to "#{channel.name}", :controller => "store", :action => "index", :channel_id => "#{channel.id}", :switch_channel => "true" %> <br />
-	         
-	    <% end %>
+		        <%= link_to "#{channel.name}", :controller => "store", :action => "index", :channel_id => "#{channel.id}", :switch_channel => "true" %> <br />
+	        <% end %>
 		</li>
 		<li class="my_profile">
 			<p class="profile_subtitle"> My cart </p>

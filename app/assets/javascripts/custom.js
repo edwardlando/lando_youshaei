@@ -70,9 +70,40 @@ $(document).ready(function() {
 			$(".inner_user").hide(500);
 		};
 	})
+
+	// ITEMS
+
+	var wantToCreateItem = false;
+	$("#new_item_button").on("click", function(event) {
+		wantToCreateItem = !wantToCreateItem;
+		if (wantToCreateItem == true) {
+			$(".inner_item").show(500);
+		} else {
+			$(".inner_item").hide(500);
+		};
+	})
+
+	$("#create_item").on("click", function(event) {
+		var data = {
+		"title": $("#item_title").val(),
+		"url": $("#item_url").val(),
+		"color": $("item_color").val(),
+		"style": $("#item_style").val(),
+		"price": $("#item_price").val(),
+		"gender": $("#item_gender").val(),
+		};
+		console.log(data);
+		$.ajax({
+			type: 'POST',
+			url: "http://localhost:3000/items.json",
+			data: data,
+			dataType: "json",
+			success: function(data) {
+				console.log(data);
+				$(".inner_item").hide(500);
+			}
+		});
+	})
 	
-
-
-
 
 });
