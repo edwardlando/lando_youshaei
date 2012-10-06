@@ -2,36 +2,33 @@
 
 <% else %>
 
-<div class="user_profile_partial">
+	<ul class="user_profile_partial">
 
-	<div class="user_name">
-		<%= current_user.username ||= current_user.email %>
-	</div>
-
-	<div class="my_profile">
-		My channels
-		<% current_user.channels.each do |channel| %>
-        <li><%= link_to "#{channel.name}", :controller => "store", :action => "index", :channel_id => "#{channel.id}", :switch_channel => "true" %>
-        </li> | 
-    <% end %>
-	</div>
-
-	<div class="my_profile">
-		My cart
-		<% current_user.cart.line_items.each do |line_item| %>
-	        <li><%= line_item.item.title %> (<%= line_item.quantity %>) </li> | 
+		<li class="user_name">
+			<p class="profile_subtitle"> Information </p>
+			<%= current_user.username ||= current_user.email %>
+		</li>
+		<li class="my_profile">
+			<p class="profile_subtitle"> My channels </p>
+			<% current_user.channels.each do |channel| %>
+	        <%= link_to "#{channel.name}", :controller => "store", :action => "index", :channel_id => "#{channel.id}", :switch_channel => "true" %> <br />
+	         
 	    <% end %>
-	</div>
-
-
-	<div class="my_profile">
-		My wishlist
-		<% unless current_user.wishlist.nil? || current_user.wishlist.items.nil? %>
-		    <% current_user.wishlist.items.each do |item| %>
-				<li><%= link_to "#{item.title}", "#{item.url}" %></li> |
+		</li>
+		<li class="my_profile">
+			<p class="profile_subtitle"> My cart </p>
+			<% current_user.cart.line_items.each do |line_item| %>
+		        <%= line_item.item.title %> (<%= line_item.quantity %>) <br />
 		    <% end %>
-		<% end %>
-		</div>
-    </div>
+		</li>
+		<li class="my_profile">
+			<p class="profile_subtitle"> My wishlist </p>
+			<% unless current_user.wishlist.nil? || current_user.wishlist.items.nil? %>
+			    <% current_user.wishlist.items.each do |item| %>
+					<%= link_to "#{item.title}", "#{item.url}" %> <br />
+			    <% end %>
+			<% end %>
+		</li>
+    </ul>
 
 <% end %>

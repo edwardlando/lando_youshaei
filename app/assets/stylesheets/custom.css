@@ -1,6 +1,8 @@
 html, body {
 	/* background-color: #2F2F2F; */
-	background-image: url(../images/pattern.jpeg) repeat;
+	background-image: url("pattern1.jpg");
+	background-image: url("denim.png");
+	background-repeat: repeat-x repeat-y;
 
 }
 
@@ -11,7 +13,7 @@ body {
 }
 
 body, p, ol, ul {
-	font-family: 'Helvetica Neue';
+	font-family: 'Helvetica Neue' !important;
 }
 
 p { font-size:12px;
@@ -103,6 +105,10 @@ a {
 	color: #39AECF;
 }
 
+.my_profile {
+	width: 19%;
+}
+
 .top {
 	padding-bottom:80px;
 	margin-bottom:30px;
@@ -127,9 +133,7 @@ p .notice {
 	padding: 0;
 	float: left;
 	padding: 3px;
-	color: lightblue;
-	border-bottom: 1px dotted white;
-	border-top: 1px dotted white;
+	color: white;
 	font-size: 12px !important;
 	text-align: center;
 	padding-top: 8px;
@@ -152,8 +156,6 @@ p .notice {
 	float: left;
 	padding: 3px;
 	color: white;
-	border-bottom: 1px dotted white;
-	border-top: 1px dotted white;
 	text-align: center;
 	padding-top: 8px;
 	text-shadow: none;
@@ -162,11 +164,16 @@ p .notice {
 }
 
 .add a, .logout a, .next a {
-	color: lightblue !important;
+	color: white !important;
 	text-decoration: none !important;
 }
 .logout a:hover, .next a:hover, .add a:hover {
 	background-color: transparent;
+}
+
+.logout:hover, .next:hover, .add:hover {
+	background-color: transparent;
+	border-top: 1px dotted white;
 }
 
 .channel_list {
@@ -189,6 +196,7 @@ p .notice {
 
 .footer {
 	text-align: center;
+	color: white;
 }
 
 .authentification {
@@ -218,9 +226,10 @@ p .notice {
 }
 
 .option, .selected {
-	height: 18px;
-	width: 18px;
-	border: 1px solid black;
+    font-size: 10px;
+	width: 40px;
+	height: 40px;
+	border: 1px solid white;
 	margin: 1px;
 	float: left;
 	cursor: pointer;
@@ -278,33 +287,82 @@ p .notice {
 #Orange {
 	background: orange;
 }
+#ALL { 
+}
 
-#ALL {
-   
+#ALL_STYLES { 
+   height: 60px;
+   width: 60px;
 }
 
 #Elegant {
+   height: 60px;
+   width: 60px;
 
 }
 
 #Casual {
-
+   height: 60px;
+   width: 60px;
 }
 
 #Preppy {
-
+   height: 60px;
+   width: 60px;
 }
 
 #Hipster {
+   height: 60px;
+   width: 60px;
+}
 
+#BOTH {
+   height: 60px;
+   width: 60px;
+}
+
+#Male {
+   height: 60px;
+   width: 60px;
+}
+
+#Female {
+   height: 60px;
+   width: 60px;
+}
+
+#ALL {
+   height: 60px;
+   width: 60px;
+}
+
+#Under50 {
+   height: 60px;
+   width: 60px;
+}
+
+#Under70 {
+   height: 60px;
+   width: 60px;
+}
+
+#Under100 {
+   height: 60px;
+   width: 60px;
+}
+
+#Under200 {
+height: 60px;
+   width: 60px;
 }
 
 .option {
-	font-size: 10px;
-	width: 40px;
-	height: 40px;
+	
 }
 
+#channel_name {
+	width: 80%;
+}
 
 #channel_color {
 	display: none;
@@ -321,6 +379,8 @@ p .notice {
 #channel_gender {
 	display: none;
 }
+
+
 
 .inner {
 	width: 100%;
@@ -347,6 +407,7 @@ p .notice {
 	display: inline-block;
 	list-style-type: none;
 	vertical-align: top;
+	width: 24.5%;
 	padding: 0;
 	margin: 0;
 }
@@ -355,15 +416,24 @@ p .notice {
 	color: white !important;
 }
 
+.user_profile_partial li a {
+	color: #39AECF;
+}
+
+.profile_subtitle {
+	color: white;
+}
+
 
 #channel_form {
 	color: white;
 	padding: 0px;
 }
 
+
 .inner .actions input{
 	background-color: #3AAACF;
-	border: 1px solid transparent;
+	border: 1px solid white;
 	width: 100%;
 	border-radius: 5px;
 }
@@ -374,7 +444,9 @@ p .notice {
 	background-color: #39AECF;
 	border-radius: 3px;
 	text-align: center;
-	color: black;
+	color: white;
+	font-weight: bold;
+	font-size: 16px !important;
 	padding-top: 5px;
 	font-size: 14px;
 }

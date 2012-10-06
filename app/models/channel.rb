@@ -5,12 +5,12 @@ class Channel < ActiveRecord::Base
 
   # we'll also sort by best rating
 
-  COLOR_OPTIONS = ["ALL", "White", "Black", "Red", "Green", "Blue", "Yellow",
+  COLOR_OPTIONS = ["ALL_COLORS", "White", "Black", "Red", "Green", "Blue", "Yellow",
                    "Pink", "Grey", "Brown", "Purple", "Orange"]
 
-  STYLE_OPTIONS = ["ALL", "Elegant", "Casual", "Preppy", "Hipster"]
+  STYLE_OPTIONS = ["ALL_STYLES", "Elegant", "Casual", "Preppy", "Hipster"]
 
-  PRICE_OPTIONS = ["ALL", "Under $50", "Under $70", "Under $100", "Under $200"]
+  PRICE_OPTIONS = ["ALL", "Under50", "Under70", "Under100", "Under200"]
 
   GENDER_OPTIONS = ["BOTH", "Male", "Female"]
 
