@@ -1,5 +1,8 @@
  <% if @user.nil? %>
-    <div class="welcome_message">Welcome</div>
+    <div class="welcome_message">
+    	<h1>AVEECE</h1>
+    </div>
+    <%= render :partial => "users/form" %>
  <% elsif @channel.channel_items.empty? %>
 	<div class="no_more_items">We've run out of things to show you! Come back soon for more!</div>
  <% else %>

@@ -27,7 +27,14 @@ a {
 
 .welcome_message {
 	text-align: center;
-	color: white;
+}
+
+.welcome_message h1 {
+	color: rgba(204,204,204,0.8);
+	font-family: 'Futura';
+	text-align: center;
+	font-size: 48px;
+	padding-top: 100px;
 }
 
 .new_registration, .new_session {
