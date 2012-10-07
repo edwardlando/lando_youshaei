@@ -49,6 +49,10 @@ a {
 	font-size: 24px;
 }
 
+.no_more_items {
+	color: white;
+}
+
 
 
 .header {
@@ -64,6 +68,7 @@ a {
 .notice, .alert {
 	margin: 0;
 	padding: 0;
+	color: white;
 }
 
 .container {
@@ -190,7 +195,7 @@ p .notice {
 
 .logout:hover, .next:hover, .add:hover {
 	background-color: transparent;
-	border-top: 1px dotted white;
+	border-bottom: 1px solid white;
 }
 
 .channel_list {
