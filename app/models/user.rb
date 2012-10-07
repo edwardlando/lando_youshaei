@@ -30,6 +30,14 @@ class User < ActiveRecord::Base
     self.wishlist.items << item unless self.wishlist.items.include?(item)
   end
 
+  def total_cart_price
+    total = 0
+    self.cart.line_items.each do |line_item|
+      total += (line_item.item.price * line_item.quantity)
+    end
+    total
+  end
+
   # has_one :current_channel, :class_name => "Channel" # current_channel
   #  :foreign_key => :owner_id  -- maybe go with foreign_key option
 end

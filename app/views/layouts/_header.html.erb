@@ -17,6 +17,7 @@
 							<div class="add"><%= link_to "+ Wishlist", {:controller => "users", :action => "add_to_wishlist" } %></div> 
 						<% end %>
 						<div class="add" id="my_profile">Profile</div>
+						<div class="add" id="my_cart">Cart</div>
 				<% end %>
 			 
 				<p class="logout"> <%= link_to "Logout", destroy_user_session_path, :method => :delete %></p>

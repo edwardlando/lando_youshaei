@@ -110,6 +110,20 @@ $(document).ready(function() {
 		});
 	})
 
+	// CART
+
+	var wantToSeeCart = false;
+	$("#my_cart").on("click", function(event) {
+		wantToSeeCart = !wantToSeeCart;
+		if (wantToSeeCart == true) {
+			$(".inner_cart").show(500);
+		} else {
+			$(".inner_cart").hide(500);
+		};
+	})
+
+
+
 	// LANDING PAGE 
 
     $("#want_to_join").on("click", function(event) {

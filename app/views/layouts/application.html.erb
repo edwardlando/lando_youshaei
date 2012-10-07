@@ -16,6 +16,9 @@
       <% unless current_user.nil? %>
       	<div id="header">
           <div id="header-container">
+            <div class="inner_cart">
+              <%= render 'carts/cart' %>
+            </div>
             <div class="inner">
               <%= render 'channels/form' %>
             </div>
