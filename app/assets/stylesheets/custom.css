@@ -319,9 +319,6 @@ p .notice {
 
 /* Highlighting is taken care of in the js file */
 
-#ALL {
-
-}
 
 #White {
 	background: white;
@@ -366,10 +363,8 @@ p .notice {
 #Orange {
 	background: #E7600D;
 }
-#ALL { 
-}
 
-#ALL_STYLES { 
+#All_styles { 
    height: 60px;
    width: 60px;
 }
@@ -410,7 +405,7 @@ p .notice {
    width: 60px;
 }
 
-#UnderALL {
+#UnderAll_prices {
    height: 60px;
    width: 60px;
 }

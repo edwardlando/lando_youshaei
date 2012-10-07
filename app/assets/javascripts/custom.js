@@ -92,7 +92,7 @@ $(document).ready(function() {
 		var data = {
 		"title": $("#item_title").val(),
 		"url": $("#item_url").val(),
-		"color": $("item_color").val(),
+		"color": $("#item_color").val(),
 		"style": $("#item_style").val(),
 		"price": $("#item_price").val(),
 		"gender": $("#item_gender").val(),

@@ -37,6 +37,7 @@ class UsersController < ApplicationController
   # POST /users.json
   
   # This is not being used because of devise so the logic is the same in store#index
+  # USER CREATED IN REGISTRATIONS CONTROLLER
   def create
     super
     @user = User.new(params[:user])
@@ -45,7 +46,7 @@ class UsersController < ApplicationController
     @user.wishlist = Wishlist.new(:user_id => @user.id)
     
     # Initial chanel for the user
-    @channel = Channel.new(:color => "ALL", :style => "ALL", :price => "ALL", :gender => "BOTH",
+    @channel = Channel.new(:color => "All_colors", :style => "All_prices", :price => "All_prices", :gender => "Unisex",
     :user_id => @user.id, :item_index => 0)
     @channel.current_channel = true
     @channel.save

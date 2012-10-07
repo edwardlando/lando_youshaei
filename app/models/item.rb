@@ -7,12 +7,12 @@ class Item < ActiveRecord::Base
 
   before_destroy :ensure_not_referenced_by_any_line_item
 
-  COLOR_OPTIONS = ["Blue", "Green", "Red", "Yellow",
-                   "Pink", "White", "Black", "Grey", "Brown", "Purple"]
+  COLOR_OPTIONS = ["White", "Black", "Red", "Green", "Blue", "Yellow",
+                   "Pink", "Grey", "Brown", "Purple", "Orange"]
 
   STYLE_OPTIONS = ["Elegant", "Casual", "Preppy", "Hipster"]
 
-  PRICE_OPTIONS = ["Under $50", "Under $70", "Under $100", "Under $200"]
+  PRICE_OPTIONS = ["50", "100", "200"]
 
   GENDER_OPTIONS = ["Male", "Female"]
 
