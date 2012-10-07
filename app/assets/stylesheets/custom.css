@@ -27,6 +27,7 @@ a {
 
 .welcome_message {
 	text-align: center;
+	color: white;
 }
 
 .new_registration, .new_session {
@@ -88,7 +89,7 @@ a {
 
 .title a:hover {
 	color: rgba(238,238,238,0.8);
-	background-color: #2F2F2F;
+	background-color: transparent;
 }
 
 
@@ -199,8 +200,9 @@ p .notice {
 	color: white;
 }
 
-.authentification {
+.authentification, .authentification a, .authentification a:visited {
 	text-align: center;
+	color: white;
 }
 
 .sign_up, .login {
