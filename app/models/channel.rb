@@ -10,7 +10,7 @@ class Channel < ActiveRecord::Base
 
   STYLE_OPTIONS = ["ALL_STYLES", "Elegant", "Casual", "Preppy", "Hipster"]
 
-  PRICE_OPTIONS = ["ALL", "Under50", "Under70", "Under100", "Under200"]
+  PRICE_OPTIONS = ["ALL", "50", "100", "200"]
 
   GENDER_OPTIONS = ["BOTH", "Male", "Female"]
 
@@ -23,9 +23,9 @@ class Channel < ActiveRecord::Base
 
     items = []
     Item.all.each do |item|
-    	if  (channel_color == item.color || channel_color == "ALL") &&
-    	    (item.style == channel_style || channel_style == "ALL") &&
-    	    (item.price <= channel_price || channel_price == "$0.00") &&
+    	if  (channel_color == item.color || channel_color == "ALL_COLORS") &&
+    	    (item.style == channel_style || channel_style == "ALL_STYLES") &&
+    	    (item.price <= channel_price || channel_price.to_s == "0.0") &&
     	    (item.gender == channel_gender || channel_gender == "BOTH")
     	      items << item
     	end

@@ -258,6 +258,10 @@ p .notice {
 	border: none;
 }
 
+.registration_button:hover, .authentification_button:hover {
+	background-color: rgba(238,238,238,0.8);
+}
+
 .devise_links {
 	color: white;
 }
@@ -404,17 +408,12 @@ p .notice {
    width: 60px;
 }
 
-#ALL {
+#UnderALL {
    height: 60px;
    width: 60px;
 }
 
 #Under50 {
-   height: 60px;
-   width: 60px;
-}
-
-#Under70 {
    height: 60px;
    width: 60px;
 }

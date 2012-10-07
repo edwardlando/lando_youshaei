@@ -27,7 +27,7 @@
         <%= f.select(:price, Channel::PRICE_OPTIONS) %>  
         <div class="picker">
             <% Channel::PRICE_OPTIONS.each do |price| %>
-           <div class="option" id="<%=price%>"> <%= price %> </div>
+           <div class="option" id="Under<%=price%>"> <%= price %> </div>
           <% end %>
         </div> 
       </li>

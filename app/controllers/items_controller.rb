@@ -41,7 +41,8 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
-    @item = Item.new(params[:item])
+    @item = Item.new(:title => params["title"], :url => params[:url], :color => params["color"], 
+      :style => params["style"], :price => params["price"], :gender => params["gender"])
 
     respond_to do |format|
       if @item.save
