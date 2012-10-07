@@ -565,7 +565,7 @@ height: 60px;
 #checkout {
 	width: 100%;
 	height: 30px;
-	background-color: #B764D4;
+	background-color: #FE3F44;
 	border-radius: 3px;
 	text-align: center;
 	color: white;
@@ -575,12 +575,7 @@ height: 60px;
 	font-size: 14px;
 }
 
-.cart_partial ul {
-	padding: 0;
-	margin: 0;
-	width: 100%;
-	-webkit-padding-start: 0px !important;
-}
+
 
 
 
