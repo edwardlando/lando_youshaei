@@ -39,6 +39,7 @@ a {
 
 .welcome_message h1 a:hover {
 	background-color: transparent;
+	color: rgba(238,238,238,0.8);
 }
 
 .welcome_message h2 {
@@ -239,14 +240,11 @@ p .notice {
 
 .registration_field, .authentification_field {
 	height: 32px;
-}
-
-.registration {
-	padding-top: 5px;
+	width: 100%;
 }
 
 .registration_button, .authentification_button {
-	width: 100px;
+	width: 100%;
 	background-color: rgba(204,204,204,0.8);
 	color: white;
 	font-size: 14px;
@@ -272,7 +270,9 @@ p .notice {
 	color: white;
 }
 
-
+.devise_links:hover {
+	background-color: transparent !important;
+}
 
 
 .no_more_items {
