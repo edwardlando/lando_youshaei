@@ -1,5 +1,6 @@
-    <ul class="user_profile_partial">
-		<h1>My Profile</h1>
+<div class="user_profile_partial">
+    <h1>My Profile</h1>
+    <ul>
 		<li class="user_name">
 			<p class="profile_subtitle"> Information </p>
 			<%= current_user.username ||= current_user.email %>
@@ -18,5 +19,9 @@
 			    <% end %>
 			<% end %>
 		</li>
-    </ul>
+		<li class="my_profile"> 
+			<p class="profile_subtitle"> <%= link_to "Logout", destroy_user_session_path, :method => :delete %></p>
+		</li>
+	</ul>
+</div>
 
