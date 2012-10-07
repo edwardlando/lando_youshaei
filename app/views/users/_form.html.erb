@@ -1,18 +1,20 @@
-<h2>Sign up</h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+	<h2>Sign up</h2>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+	  <%= devise_error_messages! %>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+	  <div class="registration"><%= f.email_field :email, :class => "registration_field", :placeholder => "Email" %></div>
 
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
+	  <div class="registration"><%= f.password_field :password, :class => "registration_field", :placeholder => "Password" %></div>
 
-<%= render "devise/shared/links" %>
+	  <div class="registration">
+	  <%= f.password_field :password_confirmation, :class => "registration_field", :placeholder => "Confirm Password"%></div>
+
+	  <div><%= f.submit "Sign up", :class => "registration_button" %></div>
+	<% end %>
+
+
+
+

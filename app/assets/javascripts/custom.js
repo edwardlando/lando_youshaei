@@ -104,6 +104,15 @@ $(document).ready(function() {
 			}
 		});
 	})
+
+	// LANDING PAGE 
+
+    $("#want_to_join").on("click", function(event) {
+    	$(".sign_in_partial").hide(200);
+    	$("#want_to_join").hide();
+    	$(".sign_up_partial").show(200);
+    });
+
 	
 
 });

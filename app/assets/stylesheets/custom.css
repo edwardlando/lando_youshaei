@@ -29,7 +29,7 @@ a {
 	text-align: center;
 }
 
-.welcome_message h1 {
+.welcome_message h1, .welcome_message h1 a  {
 	color: rgba(204,204,204,0.8);
 	font-family: 'Futura';
 	text-align: center;
@@ -37,9 +37,17 @@ a {
 	padding-top: 100px;
 }
 
-.new_registration, .new_session {
-	padding-left: 150px;
+.welcome_message h1 a:hover {
+	background-color: transparent;
 }
+
+.welcome_message h2 {
+	color: rgba(204,204,204,0.8);
+	font-family: 'Futura';
+	text-align: center;
+	font-size: 24px;
+}
+
 
 
 .header {
@@ -215,6 +223,57 @@ p .notice {
 .sign_up, .login {
 	display: inline-block;
 }
+
+.sign_up_partial, .sign_in_partial {
+	width: 200px;
+	margin-top : 80px;
+	margin-bottom: 50px;
+	color: white;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.sign_up_partial {
+	display: none;
+}
+
+.registration_field, .authentification_field {
+	height: 32px;
+}
+
+.registration {
+	padding-top: 5px;
+}
+
+.registration_button, .authentification_button {
+	width: 100px;
+	background-color: rgba(204,204,204,0.8);
+	color: white;
+	font-size: 14px;
+	font-weight: bold;
+	margin-top: 10px;
+	border: none;
+}
+
+.devise_links {
+	color: white;
+}
+
+.remember_me {
+	margin-top: 8px;
+}
+
+#want_to_join {
+	text-align: center
+}
+
+#want_to_join p {
+	font-size: 16px;
+	color: white;
+}
+
+
+
 
 .no_more_items {
 	text-align: center;
