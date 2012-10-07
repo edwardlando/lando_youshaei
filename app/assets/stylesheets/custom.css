@@ -317,6 +317,8 @@ p .notice {
 	border: 1px solid lightblue;
 }
 
+/* Highlighting is taken care of in the js file */
+
 #ALL {
 
 }

@@ -58,6 +58,11 @@ $(document).ready(function() {
 			}
 		});
 	})
+     
+    // Highlighting selected option
+	$(".option").on("click", function(event) {
+		this.style.border = '1px solid lightblue';
+	});
 
 	// USER PROFILE
 
