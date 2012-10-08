@@ -1,6 +1,6 @@
 html, body {
 	/* background-color: #2F2F2F; */
-	background-image: url("pattern1.jpg");
+	background-image: url("dark_wood.png");
 	background-image: url("denim.png");
 	background-repeat: repeat-x repeat-y;
 
@@ -83,7 +83,6 @@ a {
 }
 
 #header {
-	background-image: url("pattern1.jpg");
 	background-image: url("denim.png");
 	background-repeat: repeat-x repeat-y;
 }
@@ -391,7 +390,7 @@ p .notice {
    width: 60px;
 }
 
-#BOTH {
+#Unisex {
    height: 60px;
    width: 60px;
 }

@@ -4,7 +4,7 @@
 <div class="top" style="padding-top:0px; margin-top:0px;">
 	<div class="container" style="padding-top:30px; margin-top: 0px;">
 		<div id="user nav">
-			<p class="title"><%= link_to "AVEECE", root_path %></p>
+			<p class="title"><%= link_to "AVEECE", {:controller => "store", :action => "index", :index => current_user.current_channel.item_index } %></p>
 			<% if user_signed_in? %>
 				<strong><%- current_user.email %></strong>
 				<% unless current_user.nil? %>
