@@ -7,6 +7,14 @@
   <%= javascript_include_tag "application" %>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="https://js.stripe.com/v1/"></script> <!-- Payments with Stripe -->
+
+  <script type="text/javascript">
+    // this identifies your website in the createToken call below
+    Stripe.setPublishableKey('pk_I3a9U98dUchgscLX0PKEdmZc0bgG3');
+    ...
+</script>
+
 </head>
 <body>
 
