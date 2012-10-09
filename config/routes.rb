@@ -1,5 +1,7 @@
 LandoYoushaei::Application.routes.draw do
   
+  resources :orders
+
   resources :line_items
 
   resources :carts
@@ -27,6 +29,8 @@ LandoYoushaei::Application.routes.draw do
   resources :wishlists
 
   get "wishlists/show"
+
+
 
   
   # The priority is based upon order of creation:

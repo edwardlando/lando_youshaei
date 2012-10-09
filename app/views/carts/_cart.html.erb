@@ -6,9 +6,11 @@
         <br /> 
        </li>
     <% end %>
-    </ul>
-    <h3> Total price = $<%= current_user.total_cart_price %> </h3>
-    <div class="actions">
-      <div id="checkout">Checkout</div>
-    </div>
+  </ul>
+  <h3> Total price = $<%= current_user.total_cart_price %> </h3>
+  <div class="actions">
+    <div class="checkout_button"><%= link_to "Checkout", new_order_path, :method => :get %></div>
+  
+  </div>
 </div>
+
