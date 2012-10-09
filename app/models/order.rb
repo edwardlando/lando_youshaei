@@ -24,9 +24,10 @@ def save_with_payment
 		  :description => email
 		)
 		# save the Customer
-		save_stripe_customer_id(user, customer.id)
+		save_stripe_customer_id(self.user, customer.id)
     else 
     	customer_id = get_stripe_customer_id(user)
+    	self.stipe_customer_token = customer.id    #### suggested in rails tutorial
     end
 	# charge the Customer 
 	Stripe::Charge.create(
