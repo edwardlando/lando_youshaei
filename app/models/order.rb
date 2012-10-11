@@ -26,7 +26,7 @@ def save_with_payment
 		# save the Customer
 		save_stripe_customer_id(self.user, customer.id)
     else 
-    	customer_id = get_stripe_customer_id(user)
+    	customer_id = get_stripe_customer_id(user) # was on the Stripe site
     	self.stipe_customer_token = customer.id    #### suggested in rails tutorial
     end
 	# charge the Customer 
