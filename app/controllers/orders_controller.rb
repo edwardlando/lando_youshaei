@@ -48,8 +48,11 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(params[:order])
-    @order.user_id = current_user.id
+    @user = current_user
+    @order.user_id = @user.id
     @order.add_line_items_from_cart(current_user.cart)
+
+   
 
     respond_to do |format|
       if @order.save_with_payment

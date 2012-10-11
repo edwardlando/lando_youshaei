@@ -13,20 +13,25 @@ class Order < ActiveRecord::Base
     end
   end
 
+  def retrieve_stripe_customer(user)
+    Stripe::Customer.retrieve(user.stripe_customer_token)
+  end
+
 attr_accessor :stripe_card_token
 
 def save_with_payment
   if valid?
-    if get_stripe_customer_id(self.user).nil?
+    #if get_stripe_customer_id(self.user).nil?
+    if retrieve_stripe_customer(self.user).nil?
 		# create a Customer
 		customer = Stripe::Customer.create(
 		  :card => stripe_card_token,
-		  :description => email
+		  :description => self.user.email
 		)
 		# save the Customer
-		save_stripe_customer_id(self.user, customer.id)
+		# save_stripe_customer_id(self.user, customer.id)       ##### is this line necessary?
     else 
-    	customer_id = get_stripe_customer_id(user) # was on the Stripe site
+    	customer_id = retrieve_stripe_customer(self.user) # was on the Stripe site
     	self.stipe_customer_token = customer.id    #### suggested in rails tutorial
     end
 	# charge the Customer 
@@ -35,7 +40,6 @@ def save_with_payment
 	    :currency => "usd",
 	    :customer => customer.id
 	)
-
     save!
   end
 rescue Stripe::InvalidRequestError => e
