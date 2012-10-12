@@ -133,7 +133,12 @@ Which living room design do you prefer?
 
 
 		Alexey -
-			
+			hard problem - universal checkout: tailor it to a few big sites (zappos, etc.) and then expand
+			maybe use squiproxy for the iframe
+			OPIM 411 - data mining
+			professor of decision support systems
+			start off by ordering for them (maybe just take the link)
+			get something out there and iterate
 
 
 

@@ -582,9 +582,18 @@ height: 60px;
 	margin-right: auto;
 }
 
+.order_confirmation_form, .order_confirmation_form p, .order_confirmation_form a {
+	width: 400px;
+	color: white;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 #error_explanation {
 	color: black !important;
 }
+
+
 
 
 

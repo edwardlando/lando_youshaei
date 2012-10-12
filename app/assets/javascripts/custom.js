@@ -131,6 +131,13 @@ $(document).ready(function() {
     	$(".sign_up_partial").show(200);
     });
 
+    // GET CURRENT URL
+
+    function get_current_url() {
+    	var current_url = document.getElementById("main_iframe").src;
+    	return current_url;
+    };
+
   
 
 });
