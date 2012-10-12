@@ -1,5 +1,5 @@
 class Order < ActiveRecord::Base
-  attr_accessible :address, :name
+  attr_accessible :address, :name, :stripe_customer_token, :stripe_card_token
 
   validates :name, :address, :presence => true
 
@@ -9,43 +9,45 @@ class Order < ActiveRecord::Base
   def add_line_items_from_cart(cart)
   	cart.line_items.each do |line_item|
   		self.line_items << line_item
-  		cart.empty_cart
     end
+    cart.empty_cart
   end
 
-  def retrieve_stripe_customer(user)
-    Stripe::Customer.retrieve(user.stripe_customer_token)
-  end
+  
+  attr_accessor :stripe_card_token
 
-attr_accessor :stripe_card_token
-
-def save_with_payment
-  if valid?
-    #if get_stripe_customer_id(self.user).nil?
-    if retrieve_stripe_customer(self.user).nil?
-		# create a Customer
-		customer = Stripe::Customer.create(
-		  :card => stripe_card_token,
-		  :description => self.user.email
-		)
-		# save the Customer
-		# save_stripe_customer_id(self.user, customer.id)       ##### is this line necessary?
-    else 
-    	customer_id = retrieve_stripe_customer(self.user) # was on the Stripe site
-    	self.stipe_customer_token = customer.id    #### suggested in rails tutorial
-    end
-	# charge the Customer 
-	Stripe::Charge.create(
-	    :amount => 1000, # plug in price of the cart
-	    :currency => "usd",
-	    :customer => customer.id
-	)
+ 
+  def create_customer
+    customer = Stripe::Customer.create(
+      :card => stripe_card_token,
+      :description => "#{self.user.email}"
+    )
+    # save the Customer
+    self.user.stripe_customer_token = customer.id
+    self.user.save
     save!
+    return customer 
   end
-rescue Stripe::InvalidRequestError => e
-  logger.error "Stripe error while creating customer: #{e.message}"
-  errors.add :base, "There was a problem with your credit card."
-  false
-end
+
+  def retrieve_customer
+    customer = Stripe::Customer.retrieve(self.user.stripe_customer_token) 
+    return customer
+  end
+
+  def save_with_payment(customer)
+    if valid?    
+  	# charge the Customer 
+  	Stripe::Charge.create(
+  	    :amount => 1000,                                     # plug in price of the cart
+  	    :currency => "usd",
+  	    :customer => customer.id
+  	)
+      save!
+    end
+    rescue Stripe::InvalidRequestError => e
+      logger.error "some error"
+      errors.add :base, "There was a problem with your credit card."
+      false
+  end
 
 end

@@ -570,6 +570,11 @@ height: 60px;
 	font-size: 14px;
 }
 
+.checkout_button a, .checkout_button a:hover {
+	color: white !important;
+	background-color: transparent;
+}
+
 .order_form {
 	width: 400px;
 	color: white;
@@ -577,6 +582,9 @@ height: 60px;
 	margin-right: auto;
 }
 
+#error_explanation {
+	color: black !important;
+}
 
 
 

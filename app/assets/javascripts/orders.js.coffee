@@ -10,7 +10,7 @@ jQuery ->
 order =
   setupForm: ->
     $('#new_order').submit ->
-      $('input[type=submit]').attr('disabled', true)
+      $('input[type=submit]').prop('disabled', true)
       if $('#card_number').length
         order.processCard()
         false
@@ -31,4 +31,4 @@ order =
       $('#new_order')[0].submit()
     else
       $('#stripe_error').text(response.error.message)
-      $('input[type=submit]').attr('disabled', false)
+      $('input[type=submit]').prop('disabled', false)

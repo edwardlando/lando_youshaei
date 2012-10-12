@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, 
-  				  :username, :role
+  				  :username, :role, :stripe_customer_token
             
   # attr_accessible :title, :body
 
@@ -34,6 +34,7 @@ class User < ActiveRecord::Base
     total = 0
     self.cart.line_items.each do |line_item|
       total += (line_item.item.price * line_item.quantity)
+      # add shipping + margin
     end
     total
   end

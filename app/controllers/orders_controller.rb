@@ -52,10 +52,14 @@ class OrdersController < ApplicationController
     @order.user_id = @user.id
     @order.add_line_items_from_cart(current_user.cart)
 
-   
+    if @user.stripe_customer_token.nil?
+      @customer = @order.create_customer 
+    else
+      @customer = @order.retrieve_customer 
+    end
 
     respond_to do |format|
-      if @order.save_with_payment
+      if @order.save_with_payment(@customer)
         current_user.cart.empty_cart
         format.html { redirect_to @order, :notice => 'Thank you for your order!' }
         format.json { render :json => @order, :status => :created, :location => @order }
