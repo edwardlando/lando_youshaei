@@ -97,14 +97,12 @@ $(document).ready(function() {
 		"price": $("#item_price").val(),
 		"gender": $("#item_gender").val(),
 		};
-		console.log(data);
 		$.ajax({
 			type: 'POST',
 			url: "http://localhost:3000/items.json",
 			data: data,
 			dataType: "json",
 			success: function(data) {
-				console.log(data);
 				$(".inner_item").hide(500);
 			}
 		});
@@ -133,10 +131,25 @@ $(document).ready(function() {
 
     // GET CURRENT URL
 
-    function get_current_url() {
+    function getCurrentUrl() {
     	var current_url = document.getElementById("main_iframe").src;
     	return current_url;
     };
+
+    $("#add_to_cart_link").on("click", function(event) {
+    	var data = {
+		"current_url": getCurrentUrl(),
+		};
+		$.ajax({
+			type: 'POST',
+			url: "http://localhost:3000/users/add_to_cart.json",
+			data: data,
+			dataType: "json",
+			success: function(data) {
+				$(".inner_item").show(500);
+			}
+		});
+    });
 
   
 

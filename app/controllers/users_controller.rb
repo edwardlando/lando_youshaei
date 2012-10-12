@@ -117,13 +117,15 @@ class UsersController < ApplicationController
     @item = @channel.current_item
     @cart = @user.cart
     @existing_line_item = LineItem.find_by_item_id_and_cart_id(@item.id, @cart.id)
+    @current_item_url = params["current_url"] # getting it from Ajax post
     
     if @cart.line_items.include?(@existing_line_item)
       @existing_line_item.quantity += 1
       @existing_line_item.save
       @cart.save
     else 
-      @line_item = LineItem.new(:item_id => @item.id, :cart_id => @cart.id)
+      @line_item = LineItem.new(:item_id => @item.id, :cart_id => @cart.id,
+        :current_url => @current_item_url)
       @cart.line_items << @line_item 
     end
     
