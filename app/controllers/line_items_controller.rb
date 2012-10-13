@@ -28,7 +28,7 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render :json => @line_item }
+      format.json { }
     end
   end
 
@@ -40,15 +40,31 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
-    @line_item = LineItem.new(params[:line_item])
+    @user = current_user
+    @channel = current_user.current_channel
+    @item = @channel.current_item
+    @cart = @user.cart
+    @existing_line_item = LineItem.find_by_item_id_and_cart_id(@item.id, @cart.id)
 
+    if @cart.line_items.include?(@existing_line_item)
+      @existing_line_item.quantity += 1
+      @existing_line_item.save
+      @cart.save
+    else 
+      @line_item = LineItem.new(:item_id => @item.id, :cart_id => @cart.id,
+        :current_url => params[:current_url])
+      @line_item.save
+      @cart.line_items << @line_item 
+    end
+    
+    @user.save
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to @line_item, :notice => 'Line item was successfully created.' }
-        format.json { render :json => @line_item, :status => :created, :location => @line_item }
+        format.html { redirect_to :controller => "store", :action => "index", :notice => 'Item successfully added to cart' }
+        format.json { @item }
       else
-        format.html { render :action => "new" }
-        format.json { render :json => @line_item.errors, :status => :unprocessable_entity }
+        format.html { redirect_to :controller => "store", :action => "index", :notice => "There was an error adding the item to your cart" }
+        format.json { }
       end
     end
   end

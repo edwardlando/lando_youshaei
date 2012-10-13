@@ -14,6 +14,7 @@ LandoYoushaei::Application.routes.draw do
 
   get "users/add_to_wishlist"
   get "users/add_to_cart"
+  post "users/add_to_cart"
 
   resources :channels
  

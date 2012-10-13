@@ -132,13 +132,8 @@ $(document).ready(function() {
     // GET CURRENT URL
 
     function getCurrentUrl() {
-    	var current_url = document.getElementById("main_iframe").src;
-    	return current_url;
-    };
-
-    $("#add_to_cart_link").on("click", function(event) {
     	var data = {
-		"current_url": getCurrentUrl(),
+		"current_url": document.getElementById("main_iframe").src,
 		};
 		$.ajax({
 			type: 'POST',
@@ -149,7 +144,7 @@ $(document).ready(function() {
 				$(".inner_item").show(500);
 			}
 		});
-    });
+    };
 
   
 

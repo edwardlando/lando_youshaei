@@ -2,15 +2,15 @@
 	<h1>My cart</h1>
 	<ul>
 	<% current_user.cart.line_items.each do |line_item| %>
-        <li><%= line_item.item.title %> * (<%= line_item.quantity %>) 
+        <li>(<%= line_item.quantity %>) 
         <br /> 
+        <%= line_item.current_url %>
        </li>
     <% end %>
   </ul>
   <h3> Total price = $<%= current_user.total_cart_price %> </h3>
   <div class="actions">
     <div class="checkout_button"><%= link_to "Checkout", new_order_path, :method => :get %></div>
-  
   </div>
 </div>
 
