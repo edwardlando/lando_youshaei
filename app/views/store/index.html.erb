@@ -23,14 +23,14 @@
 	<div class="no_more_items">We've run out of things to show you! Come back soon for more!</div>
  <% else %>
 	 <div "iframe_div">
-	    <!--<iframe src=<%= @item_url %> alt="product" id="main_iframe"></iframe>-->
-	    <div id="output"></div>
-	    
-	    <script>
-	    $.getJSON("http://anyorigin.com/get?url=<%=@item_url%>", function(data){
-		$('#output').html(data.contents);
+	    <iframe src=<%= @item_url %> alt="product" id="main_iframe"></iframe>
+	    <div id="main_iframe"></div>
+	
+	    <!--<script>
+	    $.getJSON("http://anyorigin.com/get?url=<%=h @item_url %>&callback=?", function(data){
+		$('#main_iframe').html(data.contents);
 		});
-	    </script>
+	    </script>-->
 	   
 	 </div>
  <% end %>
