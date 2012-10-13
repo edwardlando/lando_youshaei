@@ -13,20 +13,14 @@
 					<% end %>
 						<div class="add" id="new_channel_button">+ Channel</div>
 						<% unless current_user.current_channel.channel_items.empty? %>
-						     <% @current_url = capture do %>
-							 <%= javascript_tag "return document.getElementById('main_iframe').src;" %> <!-- getting from Ajax post -->
-							 <% end %>
-							<div class="add"><%= link_to "+ Cart", {:controller => "users", :action => "add_to_cart", :current_url => @current_url}%></div>      <!-- might have to combine with controller -->
+							<div class="add"><%= link_to "+ Cart", {:controller => "users", :action => "add_to_cart"} %></div>  
 							<div class="add"><%= link_to "+ Wishlist", {:controller => "users", :action => "add_to_wishlist" } %></div> 
 						<% end %>
 						<div class="add" id="my_profile">Profile</div>
 						<div class="add" id="my_cart">Cart</div>
 				<% end %>
-			 
 				<p class="next"> <%= link_to "Reset", {:controller => "store", :action => "index", :index => 0 } %></p>
-
 				<p class="next"> <%= link_to "Next", {:controller => "store", :action => "index", :index => current_user.current_channel.item_index+1 } %></p>
-			
 			<% else %>
 				<div class="authentification">
 					<div class="sign_up"> <%= link_to "Sign up", new_user_registration_path %></div> | 
