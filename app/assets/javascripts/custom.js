@@ -141,7 +141,7 @@ $(document).ready(function() {
 			data: data,
 			dataType: "json",
 			success: function(data) {
-				$(".inner_item").show(500);
+				$(".inner_cart").show(500);
 			}
 		});
     });

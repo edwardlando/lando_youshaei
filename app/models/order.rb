@@ -16,7 +16,6 @@ class Order < ActiveRecord::Base
   
   attr_accessor :stripe_card_token
 
- 
   def create_customer
     customer = Stripe::Customer.create(
       :card => stripe_card_token,

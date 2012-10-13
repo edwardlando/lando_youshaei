@@ -13,7 +13,7 @@
 					<% end %>
 						<div class="add" id="new_channel_button">+ Channel</div>
 						<% unless current_user.current_channel.channel_items.empty? %>
-							<div class="add"><%= link_to "+ Cart", {:controller => "users", :action => "add_to_cart"} %></div>  
+							<div class="add" id="add_to_cart_link">+ Cart</div>  
 							<div class="add"><%= link_to "+ Wishlist", {:controller => "users", :action => "add_to_wishlist" } %></div> 
 						<% end %>
 						<div class="add" id="my_profile">Profile</div>
