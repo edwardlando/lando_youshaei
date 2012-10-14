@@ -129,6 +129,11 @@ $(document).ready(function() {
     	$(".sign_up_partial").show(200);
     });
 
+    $("#want_to_sign_in").on("click", function(event) {
+    	$(".new_channel_landing_page").hide(200);
+    	$(".sign_in_and_sign_up_partials").show(200);
+    });
+
     // GET CURRENT URL
     $("#add_to_cart_link").on("click", function(event) {
     	alert("gets called");

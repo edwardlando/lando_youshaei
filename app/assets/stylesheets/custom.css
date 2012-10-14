@@ -49,6 +49,15 @@ a {
 	font-size: 24px;
 }
 
+.welcome_message h3 {
+	color: white;
+	font-weight: normal;
+	font-family: verdana, arial, helvetica, sans-serif;
+	text-align: center;
+	font-size: 18px;
+	margin-top: 40px
+}
+
 .no_more_items {
 	color: white;
 }
@@ -240,6 +249,10 @@ p .notice {
 }
 
 .sign_up_partial {
+	display: none;
+}
+
+.sign_in_and_sign_up_partials {
 	display: none;
 }
 
@@ -593,6 +606,22 @@ height: 60px;
 	color: black !important;
 }
 
+
+/* Allowing user to make new channel on the landing page */
+.new_channel_landing_page {
+	width: 80%;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+
+.new_channel_landing_page li {
+	display: inline-block;
+	list-style-type: none;
+	vertical-align: top;
+	width: 19%;
+	padding: 0;
+	margin: 0;
+}
 
 
 
