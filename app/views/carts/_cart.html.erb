@@ -4,7 +4,7 @@
 	<% current_user.cart.line_items.each do |line_item| %>
         <li>(<%= line_item.quantity %>) 
         <br /> 
-        <%= line_item.current_url %>
+        Original link: <%= line_item.current_url %>
        </li>
     <% end %>
   </ul>
