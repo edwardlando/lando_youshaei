@@ -10,8 +10,8 @@
       <p> Items ordered: </p> </br>
       <ul>
 	  <% @order.line_items.each do |item| %>
-		  <li> Original URL: <%= item.current_url %> </li>
-		  <li> Item name: <%= item.name %> </li>
+		  <li> Original URL: <%= link_to item.current_url, item.current_url %> </li>
+		  <li> Item name: <%= item.name %> </li> <br/> <br/>
 	  <% end %>
       </ul>
 
