@@ -1,15 +1,15 @@
 <div class="order_confirmation_form">
-	<p id="notice"><%= notice %></p>
-	<p>
-	  <b>Name:</b>
-	  <%= @order.name %>
-	</p>
+	<% if current_user.role == "standard" %>
+	  Thank you for submitting your order. We'll get back to you soon to confirm the items and prices.
+	<% elsif current_user.role == "admin" %>
 
-	<p>
-	  <b>Address:</b>
-	  <%= @order.address %>
-	</p>
+	  <p>Order Id: @order.id </p>
+	  <p>Customer: @order.user </p>
 
-	<%= link_to 'Edit', edit_order_path(@order) %> |
-	<%= link_to 'Back', orders_path %>
+	  <% @order.line_items.each do |item| %>
+		  <p> Original URL: item.current_url </p>
+		  <p> Item name: item.name </p>
+	  <% end %>
+	<% end %>
+
 </div>

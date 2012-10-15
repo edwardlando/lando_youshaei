@@ -31,6 +31,8 @@ LandoYoushaei::Application.routes.draw do
 
   get "wishlists/show"
 
+  get "orders/show"
+
 
 
   

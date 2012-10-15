@@ -13,7 +13,9 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
-    @order = Order.find(params[:id])
+    @order_id = params[:order_id]
+
+    @order = Order.find_by_id(@order_id)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -61,8 +63,8 @@ class OrdersController < ApplicationController
     respond_to do |format|
       if @order.save_with_payment(@customer)
         current_user.cart.empty_cart
-        format.html { redirect_to @order, :notice => 'Thank you for your order!' }
-        format.json { render :json => @order, :status => :created, :location => @order }
+        format.html { redirect_to @order, :notice => 'Thank you for your order!', :order_id => @order.id }
+        format.json { render :json => @order, :status => :created, :location => @order, :order_id => @order.id }
       else
         format.html { render :action => "new" }
         format.json { render :json => @order.errors, :status => :unprocessable_entity }
@@ -97,4 +99,6 @@ class OrdersController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+ 
 end

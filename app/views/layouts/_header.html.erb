@@ -7,7 +7,7 @@
 			<p class="title"><%= link_to "AVEECE", {:controller => "store", :action => "index", :index => current_user.current_channel.item_index } %></p>
 			<strong><%- current_user.email %></strong>
 			<% unless current_user.nil? %>
-				<% if current_user.role == "tastemaker" %>
+				<% if current_user.role == "tastemaker" || current_user.role == "admin" %>
 					<div class="add" id="new_item_button">+ Item</div>
 				<% end %>
 					<div class="add" id="new_channel_button">+ Channel</div>

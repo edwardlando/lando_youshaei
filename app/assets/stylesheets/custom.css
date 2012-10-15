@@ -656,5 +656,17 @@ p .notice {
 	text-align: center;
 }
 
+.orders {
+	color: white;
+	text-align: center;
+}
+
+.orders a, .orders a:hover {
+	color: lightblue;
+	text-align: center;
+	text-decoration: none;
+	background-color: transparent;
+}
+
 
 
