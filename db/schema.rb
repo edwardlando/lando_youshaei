@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121015051852) do
+ActiveRecord::Schema.define(:version => 20121015054201) do
 
   create_table "carts", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(:version => 20121015051852) do
     t.text     "about"
     t.string   "role"
     t.string   "stripe_customer_token"
+    t.text     "address"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
