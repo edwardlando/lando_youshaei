@@ -7,7 +7,6 @@ class Cart < ActiveRecord::Base
   def empty_cart
   	self.line_items.each do |line_item|
   		line_item.cart_id = nil
-  		line_item.destroy
   	end
   end
 
