@@ -4,7 +4,9 @@ class StoreController < ApplicationController
     else
     	@user = current_user
       @channels = @user.channels
-      @orders = Order.all.sort! { |order| order.created_at }
+      if @user.role == "admin"
+        @orders = Order.all.sort! { |order| order.created_at }
+      end
 
       # When a user stays on the same channel
       @channel = @user.current_channel

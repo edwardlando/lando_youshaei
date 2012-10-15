@@ -5,6 +5,7 @@
 
 	  <p>Order Id: @order.id </p>
 	  <p>Customer: @order.user </p>
+	  <p>Address: @order.user.address </p>
 
 	  <% @order.line_items.each do |item| %>
 		  <p> Original URL: item.current_url </p>
