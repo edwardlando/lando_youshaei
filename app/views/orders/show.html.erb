@@ -7,7 +7,7 @@
 	  <p>Customer: <%= @order.user.email %> </p>
 	  <p>Address: <%= @order.address %> </p>
       
-      <p> Items ordered: </p> </br>
+      <p> Items ordered: </p> 
       <ul>
 	  <% @order.line_items.each do |item| %>
 		  <li> Original URL: <%= link_to item.current_url, item.current_url %> </li>

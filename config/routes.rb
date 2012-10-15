@@ -1,5 +1,7 @@
 LandoYoushaei::Application.routes.draw do
   
+  resources :confirmations
+
   resources :orders
 
   resources :line_items
