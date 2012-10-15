@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   has_many :channels
   has_one :wishlist
   has_one :cart
+  has_many :orders
 
   def current_channel
     self.channels.each do |channel|

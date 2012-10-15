@@ -38,7 +38,7 @@ $(document).ready(function() {
 		};
 	})
 
-	$("#create_channel").on("click", function(event) {
+	$(".create_channel").on("click", function(event) {
 		var data = {
 		"name": $("#channel_name").val(),
 		"color": $("#channel_color").val(),
@@ -61,7 +61,7 @@ $(document).ready(function() {
      
     // Highlighting selected option
 	$(".option").on("click", function(event) {
-		this.style.border = '1px solid lightblue';
+		this.style.border = '1px solid black';
 	});
 
 	// USER PROFILE
@@ -127,11 +127,6 @@ $(document).ready(function() {
     	$(".sign_in_partial").hide(200);
     	$("#want_to_join").hide();
     	$(".sign_up_partial").show(200);
-    });
-
-    $("#want_to_sign_in").on("click", function(event) {
-    	$(".new_channel_landing_page").hide(200);
-    	$(".sign_in_and_sign_up_partials").show(200);
     });
 
     // GET CURRENT URL

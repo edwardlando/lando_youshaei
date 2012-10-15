@@ -1,18 +1,21 @@
 class Channel < ActiveRecord::Base
   attr_accessible :color, :gender, :price, :style, :item_index, :current_channel, :name, :user_id
   belongs_to :user # should be unique, even if the mix is the same  ## maybe belong_to as current_channel
+  validates :name, :color, :style, :price, :gender, :presence => true
+
+
   # due to votes, and products already seen
 
   # we'll also sort by best rating
 
-  COLOR_OPTIONS = ["All_colors", "White", "Black", "Red", "Green", "Blue", "Yellow",
-                   "Pink", "Grey", "Brown", "Purple", "Orange"]
+  COLOR_OPTIONS = ["White", "Grey", "Black", "Red", "Green", "Blue", "Pink", "Brown", "Yellow", "Orange",
+                   "Purple", "All_colors"]
 
-  STYLE_OPTIONS = ["All_styles", "Elegant", "Casual", "Preppy", "Hipster"]
+  STYLE_OPTIONS = ["Elegant", "Casual", "Preppy", "Hipster", "All_styles"]
 
-  PRICE_OPTIONS = ["All_prices", "50", "100", "200"]
+  PRICE_OPTIONS = ["50", "100", "200", "All_prices"]
 
-  GENDER_OPTIONS = ["Unisex", "Male", "Female"]
+  GENDER_OPTIONS = ["Male", "Female", "Unisex"]
 
 
   def channel_items

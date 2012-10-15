@@ -4,6 +4,7 @@ class StoreController < ApplicationController
     else
     	@user = current_user
       @channels = @user.channels
+      @orders = Order.all
 
       # When a user stays on the same channel
       @channel = @user.current_channel

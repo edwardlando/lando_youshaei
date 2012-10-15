@@ -1,6 +1,7 @@
 class ChannelsController < ApplicationController
 
-  before_filter :authenticate_user!
+  # before_filter :authenticate_user!
+
   # GET /channels
   # GET /channels.json
   def index
@@ -55,7 +56,9 @@ class ChannelsController < ApplicationController
     @channel = Channel.new(:name => params["name"], :color => params["color"], 
       :style => params["style"], :price => params["price"], :gender => params["gender"])
     
+    # Users who are logged in
     @channel.user_id = current_user.id
+  
     @channel.item_index = 0
      
     logger.debug(params[:channel])
