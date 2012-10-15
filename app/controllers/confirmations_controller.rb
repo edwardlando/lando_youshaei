@@ -25,6 +25,7 @@ class ConfirmationsController < ApplicationController
   # GET /confirmations/new.json
   def new
     @confirmation = Confirmation.new
+    @order = Order.find(params[:id])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,6 +42,16 @@ class ConfirmationsController < ApplicationController
   # POST /confirmations.json
   def create
     @confirmation = Confirmation.new(params[:confirmation])
+    @user = current_user
+    @order = Order.find(params[:id])
+    @confirmation.order_id = @order.id
+    @confirmation.add_line_items_from_order(@order)
+
+    if @user.stripe_customer_token.nil?
+      @customer = @order.create_customer 
+    else
+      @customer = @order.retrieve_customer 
+    end
 
     respond_to do |format|
       if @confirmation.save
