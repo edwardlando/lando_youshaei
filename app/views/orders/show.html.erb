@@ -3,14 +3,18 @@
 	  Thank you for submitting your order. We'll get back to you soon to confirm the items and prices.
 	<% elsif current_user.role == "admin" %>
 
-	  <p>Order Id: @order.id </p>
-	  <p>Customer: @order.user </p>
-	  <p>Address: @order.user.address </p>
-
+	  <p>Order Id: <%= @order.id %></p>
+	  <p>Customer: <%= @order.user.email %> </p>
+	  <p>Address: <%= @order.address %> </p>
+      
+      <p> Items ordered: </p> </br>
+      <ul>
 	  <% @order.line_items.each do |item| %>
-		  <p> Original URL: item.current_url </p>
-		  <p> Item name: item.name </p>
+		  <li> Original URL: <%= item.current_url %> </li>
+		  <li> Item name: <%= item.name %> </li>
 	  <% end %>
+      </ul>
+
 	<% end %>
 
 </div>

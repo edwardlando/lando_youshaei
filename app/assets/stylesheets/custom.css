@@ -661,7 +661,7 @@ p .notice {
 	text-align: center;
 }
 
-.orders a, .orders a:hover {
+.orders a, .orders a:hover, .orders a:visited {
 	color: lightblue;
 	text-align: center;
 	text-decoration: none;

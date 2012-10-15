@@ -13,9 +13,7 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
-    @order_id = params[:order_id]
-
-    @order = Order.find_by_id(@order_id)
+    @order = Order.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb

@@ -2,7 +2,7 @@
   <h1>Listing orders</h1>
 
   <% @orders.each do |order| %>
-    <%= link_to "Order number" + "#{order.id}", {:controller => "orders", :action => "show"}, :order_id => order.id %> | created_at <%=order.created_at %> </br>  
+    <%= link_to "Order number #{order.id}", {:controller => "orders", :action => "show", :id => order.id }%> | created_at <%=order.created_at %> </br>  
   <% end %>
 </div>
 

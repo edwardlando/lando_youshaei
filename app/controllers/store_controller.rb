@@ -5,7 +5,7 @@ class StoreController < ApplicationController
     	@user = current_user
       @channels = @user.channels
       if @user.role == "admin"
-        @orders = Order.all.sort! { |order| order.created_at }
+        @orders = Order.all.sort_by(&:updated_at)
       end
 
       # When a user stays on the same channel
