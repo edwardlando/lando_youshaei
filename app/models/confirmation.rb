@@ -2,7 +2,7 @@ class Confirmation < ActiveRecord::Base
   attr_accessible :address, :name, :total, :user_id, :order_id
 
   has_many :line_items
-  has_one :order
+  belongs_to :order
 
   def add_line_items_from_order(order)
   	order.line_items.each do |line_item|
@@ -16,7 +16,7 @@ class Confirmation < ActiveRecord::Base
     if valid?    
     # charge the Customer 
     Stripe::Charge.create(
-        :amount => self.total*100, # price of the cart
+        :amount => self.total*100, # price
         :currency => "usd",
         :customer => customer.id
     )
