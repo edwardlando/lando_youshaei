@@ -14,7 +14,7 @@ class ConfirmationsController < ApplicationController
   # GET /confirmations/1.json
   def show
     @confirmation = Confirmation.find(params[:id])
-    @order = @confirmation.order
+    @order = Order.find_by_confir
 
     respond_to do |format|
       format.html # show.html.erb

@@ -55,6 +55,7 @@ class OrdersController < ApplicationController
     @confirmation = Confirmation.new(params[:order]) # confirmation gets created here
     @confirmation.order_id = @order.id
     @confirmation.save
+    @order.confirmation_id = @confirmation.id
 
     if @user.stripe_customer_token.nil?
       @customer = @order.create_customer 
