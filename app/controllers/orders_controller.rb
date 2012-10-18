@@ -14,6 +14,7 @@ class OrdersController < ApplicationController
   # GET /orders/1.json
   def show
     @order = Order.find(params[:id])
+    @confirmation = Confirmation.find_by_order_id(@order.id)
   
     respond_to do |format|
       format.html # show.html.erb
@@ -51,6 +52,9 @@ class OrdersController < ApplicationController
     @user = current_user
     @order.user_id = @user.id
     @order.add_line_items_from_cart(current_user.cart)
+    @confirmation = Confirmation.new(params[:order]) # confirmation does not get created
+    @confirmation.order_id = @order.id
+    @confirmation.save
 
     if @user.stripe_customer_token.nil?
       @customer = @order.create_customer 
