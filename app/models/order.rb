@@ -16,7 +16,6 @@ class Order < ActiveRecord::Base
     save!
   end
 
-  
   attr_accessor :stripe_card_token
 
   def create_customer
@@ -36,7 +35,7 @@ class Order < ActiveRecord::Base
     return customer
   end
 
-  def save_with_payment(customer)
+  def save_with_payment_info(customer)
     if valid?    
   	# charge the Customer 
   	Stripe::Charge.create(

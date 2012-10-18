@@ -52,7 +52,7 @@ class OrdersController < ApplicationController
     @user = current_user
     @order.user_id = @user.id
     @order.add_line_items_from_cart(current_user.cart)
-    @confirmation = Confirmation.new(params[:order]) # confirmation does not get created
+    @confirmation = Confirmation.new(params[:order]) # confirmation gets created here
     @confirmation.order_id = @order.id
     @confirmation.save
 
@@ -63,10 +63,11 @@ class OrdersController < ApplicationController
     end
 
     respond_to do |format|
-      if @order.save_with_payment(@customer)
+      if @order.save_with_payment_info(@customer)
         current_user.cart.empty_cart
-        format.html { redirect_to @order, :notice => 'Thank you for your order!', :order_id => @order.id }
-        format.json { render :json => @order, :status => :created, :location => @order, :order_id => @order.id }
+        format.html { redirect_to @confirmation, :notice => "Thank you for placing this request! We'll soon get back to you to confirm
+          your items and complete the order" }
+        format.json { render :json => @confirmation, :status => :created, :location => @confirmation }
       else
         format.html { render :action => "new" }
         format.json { render :json => @order.errors, :status => :unprocessable_entity }

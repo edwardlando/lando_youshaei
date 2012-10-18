@@ -12,4 +12,20 @@ class Confirmation < ActiveRecord::Base
     save!
   end
 
+  def save_and_make_payment(customer)
+    if valid?    
+    # charge the Customer 
+    Stripe::Charge.create(
+        :amount => self.total*100, # price of the cart
+        :currency => "usd",
+        :customer => customer.id
+    )
+      save!
+    end
+    rescue Stripe::InvalidRequestError => e
+      logger.error "some error"
+      errors.add :base, "There was a problem with your credit card."
+      false
+  end
+
 end
