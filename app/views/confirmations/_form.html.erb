@@ -3,11 +3,13 @@
     Thank you for submitting your order. We'll get back to you soon to confirm the items and prices.
   <% elsif current_user.role == "admin" %>
 
+    <h1>Order summary</h1>
+
     <p>Order Id: <%= @order.id %></p>
-    <p>Customer: <%= @order.user.email %> </p>
+    <p>Customer: <%= @order.user.email %></p>
     <p>Address: <%= @order.address %> </p>
       
-      <p> Items ordered: </p> 
+      <p> Items requested by the customer: </p> 
       <ul>
       <% @order.line_items.each do |item| %>
         <li> Original URL: <%= link_to item.current_url, item.current_url %> </li>
@@ -17,36 +19,37 @@
 
       <!-- going to confirm items and amounts with users --> 
 
-      <%= form_for(@confirmation) do |f| %>
-      <% if @confirmation.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@confirmation.errors.count, "error") %> prohibited this confirmation from being saved:</h2>
-
-        <ul>
-        <% @confirmation.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+    <%= form_for(@confirmation) do |f| %>
+        <% if @confirmation.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@confirmation.errors.count, "error") %> prohibited this confirmation from being saved:</h2>
+            <ul>
+            <% @confirmation.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
         <% end %>
-        </ul>
-      </div>
-    <% end %>
 
-    <%= f.hidden_field :user_id %>
-    <%= f.hidden_field :name %>
-    <%= f.hidden_field :address %>
+    <%= f.hidden_field :order_id, :value => @order.id %>
+    <%= f.hidden_field :address, :value => @order.address %>
+    <%= f.hidden_field :user_id, :value => @user.id %>
 
     <!-- nested form -->
-    <%= f.fields_for :line_items do |builder| %> 
+
+    <p> Updating information for items based on actual information on merchant site </p>
+    <%= f.fields_for @confirmation.line_items do |builder| %> 
       <%= builder.hidden_field :id %>
       <p>
-        <%= builder.label :name %> <br />
+        <%= builder.label :name, "Actual Item name" %> <br />
         <%= builder.text_field :name %>
       </p>
       <p>
-        <%= builder.label :current_url %> <br />
+        <%= builder.label :current_url, "Actual item URL" %> <br />
         <%= builder.text_field :current_url %>
       </p>
       <p>
-        <%= builder.label :price %> <br />
+        <%= builder.label :price, "Item price" %> <br />
         <%= builder.text_field :price %>
       </p>
     <% end %>
@@ -57,12 +60,11 @@
     </div>
 
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit "Send confirmation to customer" %>
     </div>
   <% end %>
 
 
-
-  <% end %>
+<% end %>
 
 </div>

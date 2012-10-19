@@ -52,10 +52,7 @@ class OrdersController < ApplicationController
     @user = current_user
     @order.user_id = @user.id
     @order.add_line_items_from_cart(current_user.cart)
-    @confirmation = Confirmation.new(:name => @order.name, :address => @order.address, :user_id => @user.id) # confirmation gets created here
-    @confirmation.order_id = @order.id
-    @confirmation.save
-
+    
     if @user.stripe_customer_token.nil?
       @customer = @order.create_customer 
     else

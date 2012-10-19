@@ -27,9 +27,10 @@ class ConfirmationsController < ApplicationController
   # GET /confirmations/new.json
   def new
     @order = Order.find(params[:id])
+    @confirmation = Confirmation.new(:order_id => @order.id)
+    @confirmation.add_line_items_from_order(@order) # adding line items here
     @user = @order.user
-    @confirmation = @order.confirmation
-
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @confirmation }
@@ -45,10 +46,12 @@ class ConfirmationsController < ApplicationController
   # POST /confirmations.json
   def create
     @user = current_user
-    @order = Order.find(params[:id])
-    @confirmation = @order.confirmation
+    @confirmation = Confirmation.new(params[:confirmation])
+    @order = @confirmation.order
+
     @confirmation.order_id = @order.id
-    @confirmation.add_line_items_from_order(@order)
+    @order.confirmation_id = @confirmation.id
+    
     @confirmation.total = params[:total]
 
     @confirmation.line_items.each do |item|
@@ -58,7 +61,6 @@ class ConfirmationsController < ApplicationController
         item.price == params[:price]
       end
     end
-
 
     @customer = @order.retrieve_customer 
 
@@ -76,22 +78,7 @@ class ConfirmationsController < ApplicationController
   # PUT /confirmations/1
   # PUT /confirmations/1.json
   def update
-    #@confirmation = Confirmation.find(params[:id])
-    @user = current_user
-    @order = Order.find(params[:id])
-    @confirmation = @order.confirmation
-    @confirmation.order_id = @order.id
-    @confirmation.add_line_items_from_order(@order)
-    @confirmation.total = params[:total]
-
-    @confirmation.line_items.each do |item|
-      if params[:id] == item.id
-        item.name == params[:name]
-        item.current_url == params[:current_url]
-        item.price == params[:price]
-      end
-    end
-
+    @confirmation = Confirmation.find(params[:id])
     respond_to do |format|
       if @confirmation.update_attributes(params[:confirmation])
         format.html { redirect_to @confirmation, :notice => 'Confirmation was successfully updated.' }
