@@ -52,7 +52,10 @@ class ConfirmationsController < ApplicationController
     @confirmation.total = params[:total]
 
     @confirmation.line_items.each do |item|
-      item
+      if params[:line_item_id] == item.id
+        item.name == params[:line_item_name]
+        item.price == params[:line_item_price]
+      end
     end
 
 
