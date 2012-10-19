@@ -14,7 +14,8 @@ class ConfirmationsController < ApplicationController
   # GET /confirmations/1.json
   def show
     @confirmation = Confirmation.find(params[:id])
-    @order = Order.find_by_confir
+    @order = @confirmation.order
+
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,6 +27,7 @@ class ConfirmationsController < ApplicationController
   # GET /confirmations/new.json
   def new
     @order = Order.find(params[:id])
+    @user = @order.user
     @confirmation = @order.confirmation
 
     respond_to do |format|
@@ -53,7 +55,7 @@ class ConfirmationsController < ApplicationController
     respond_to do |format|
       if @confirmation.save
         format.html { redirect_to @confirmation, :notice => 'Confirmation was successfully created.' }
-        format.json { render :json => @confirmation, :status => :created, :location => @confirmation }
+        format.json { render :json => @confirmation, :status => :created, :location => @confirmation, :id => @confirmation.id }
       else
         format.html { render :action => "new" }
         format.json { render :json => @confirmation.errors, :status => :unprocessable_entity }
