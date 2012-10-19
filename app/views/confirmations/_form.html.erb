@@ -30,12 +30,13 @@
       </div>
     <% end %>
 
-    <%= f.hidden_field :user_id, @user.id %>
-    <%= f.hidden_field :name, @order.name %>
-    <%= f.hidden_field :address, @order.address %>
+    <%= f.hidden_field :user_id %>
+    <%= f.hidden_field :name %>
+    <%= f.hidden_field :address %>
 
-    <% @order.line_items.each do |item| %>
-       <%= f.hidden_field :line_item_id, @line_item.id %>
+    <% @confirmation.line_items.each do |item| %>
+       <!-- NEED TO PASS IN ITEM ID -->
+       <!-- find other way to pas data -->
        <div class="field">
         <%= f.label :line_item_name %><br />
         <%= f.text_field :line_item_name %>
