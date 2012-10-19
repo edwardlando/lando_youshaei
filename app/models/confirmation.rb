@@ -4,6 +4,8 @@ class Confirmation < ActiveRecord::Base
   has_many :line_items
   belongs_to :order
 
+  accepts_nested_attributes_for :line_items
+
   def add_line_items_from_order(order)
   	order.line_items.each do |line_item|
       line_item.order_id = self.id

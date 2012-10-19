@@ -34,17 +34,20 @@
     <%= f.hidden_field :name %>
     <%= f.hidden_field :address %>
 
-    <% @confirmation.line_items.each do |item| %>
-       <!-- NEED TO PASS IN ITEM ID -->
-       <!-- find other way to pas data -->
-       <div class="field">
-        <%= f.label :line_item_name %><br />
-        <%= f.text_field :line_item_name %>
-      </div>
-       <div class="field">
-        <%= f.label :line_item_price %><br />
-        <%= f.text_field :line_item_price %>
-      </div>
+    <!-- nested form -->
+    <%= f.fields_for :line_items do |builder| %> 
+      <p>
+        <%= builder.label :name %> <br />
+        <%= builder.text_field :name %>
+      </p>
+      <p>
+        <%= builder.label :current_url %> <br />
+        <%= builder.text_field :current_url %>
+      </p>
+      <p>
+        <%= builder.label :price %> <br />
+        <%= builder.text_field :price %>
+      </p>
     <% end %>
    
     <div class="field">
