@@ -1,26 +1,31 @@
 <div class="order_confirmation_form">
 	<% if current_user.role == "standard" %>
-	  Thank you for submitting your order. We'll get back to you soon to confirm the items and prices.
+	 Yay! Your order was placed. Your clothes will be shipped shortly
 
 	   <p> Items ordered: </p> 
       <ul>
-	  <% @order.line_items.each do |item| %>
+	  <% @confirmation.line_items.each do |item| %>
 		  <li> Original URL: <%= link_to item.current_url, item.current_url %> </li>
 		  <li> Item name: <%= item.name %> </li> <br/> <br/>
 	  <% end %>
       </ul>
 
+       
+
 	<% elsif current_user.role == "admin" %>
 
+
+
 	  <p>Order Id: <%= @order.id %></p>
-	  <p>confirmation Id: <%= @confirmation.id %></p>
+	  <p>Confirmation Id: <%= @confirmation.id %></p>
+	  <p>Confirmation status: <%= @confirmation.status %></p>
 
 	  <p>Customer email: <%= @order.user.email %> </p>
 	  <p>Address: <%= @order.address %> </p>
       
       <p> Items ordered: </p> 
       <ul>
-	  <% @order.line_items.each do |item| %>
+	  <% @confirmation.line_items.each do |item| %>
 		  <li> Original URL: <%= link_to item.current_url, item.current_url %> </li>
 		  <li> Item name: <%= item.name %> </li> <br/> <br/>
 	  <% end %>

@@ -101,6 +101,7 @@ class ConfirmationsController < ApplicationController
 
     @customer = @order.retrieve_customer 
     @confirmation.save_and_make_payment  # payment is made here
+    @confirmation.status = "payed"
 
     respond_to do |format|
       if @confirmation.save
@@ -112,10 +113,7 @@ class ConfirmationsController < ApplicationController
       end
     end
 
-
   end
-
-
 
 
 
