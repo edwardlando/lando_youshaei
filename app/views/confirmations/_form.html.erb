@@ -30,24 +30,27 @@
       </div>
     <% end %>
 
-     <%= f.hidden_field :user_id, @user.id %>
+    <%= f.hidden_field :user_id, @user.id %>
+    <%= f.hidden_field :name, @order.name %>
+    <%= f.hidden_field :address, @order.address %>
 
-    <div class="field">
-      <%= f.label :name %><br />
-      <%= f.text_field :name %>
-    </div>
-    <div class="field">
-      <%= f.label :address %><br />
-      <%= f.text_area :address %>
-    </div>
-    <div class="field">
-      <%= f.label :user_id %><br />
-      <%= f.number_field :user_id %>
-    </div>
+    <% @order.line_items.each do |item| %>
+       <%= f.hidden_field :line_item_id, @line_item.id %>
+       <div class="field">
+        <%= f.label :line_item_name %><br />
+        <%= f.text_field :line_item_name %>
+      </div>
+       <div class="field">
+        <%= f.label :line_item_price %><br />
+        <%= f.text_field :line_item_price %>
+      </div>
+    <% end %>
+   
     <div class="field">
       <%= f.label :total %><br />
       <%= f.text_field :total %>
     </div>
+
     <div class="actions">
       <%= f.submit %>
     </div>

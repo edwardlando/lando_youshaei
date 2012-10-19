@@ -49,6 +49,12 @@ class ConfirmationsController < ApplicationController
     @confirmation = @order.confirmation
     @confirmation.order_id = @order.id
     @confirmation.add_line_items_from_order(@order)
+    @confirmation.total = params[:total]
+
+    @confirmation.line_items.each do |item|
+      item
+    end
+
 
     @customer = @order.retrieve_customer 
 
