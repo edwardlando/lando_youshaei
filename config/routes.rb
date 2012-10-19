@@ -35,6 +35,8 @@ LandoYoushaei::Application.routes.draw do
 
   get "orders/show"
 
+  get "confirmations/accept_to_pay"
+
 
 
   

@@ -9,10 +9,10 @@
       
       <p> Items ordered: </p> 
       <ul>
-    <% @order.line_items.each do |item| %>
-      <li> Original URL: <%= link_to item.current_url, item.current_url %> </li>
-      <li> Item name: <%= item.name %> </li> <br/> <br/>
-    <% end %>
+      <% @order.line_items.each do |item| %>
+        <li> Original URL: <%= link_to item.current_url, item.current_url %> </li>
+        <li> Item name: <%= item.name %> </li> <br/> <br/>
+      <% end %>
       </ul>
 
       <!-- going to confirm items and amounts with users --> 
