@@ -90,4 +90,33 @@ class ConfirmationsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  #################################################################################
+  #################################################################################
+
+  def accept_to_pay
+    @user = current_user
+    @order = Order.find(params[:id])
+    @confirmation = @order.confirmation
+
+    @customer = @order.retrieve_customer 
+    @confirmation.save_and_make_payment  # payment is made here
+
+    respond_to do |format|
+      if @confirmation.save
+        format.html { redirect_to @confirmation, :notice => 'Yay! Your order was placed. Your clothes will be shipped shortly' }
+        format.json { render :json => @confirmation, :id => @confirmation.id }
+      else
+        format.html { render :action => "new" }
+        format.json { render :json => @confirmation.errors, :status => :unprocessable_entity }
+      end
+    end
+
+
+  end
+
+
+
+
+
 end
