@@ -36,6 +36,7 @@
 
     <!-- nested form -->
     <%= f.fields_for :line_items do |builder| %> 
+      <%= builder.hidden_field :id %>
       <p>
         <%= builder.label :name %> <br />
         <%= builder.text_field :name %>

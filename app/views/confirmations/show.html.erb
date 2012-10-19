@@ -20,7 +20,8 @@
       <p>Items requested:</p> 
       <ul>
 	  <% @confirmation.line_items.each do |item| %>
-		  <li> Item name: <%= line_item.name %> (<%= line_item.price %>) <p>X</p></li> <br/> <br/>
+		  <li> Item name: <%= line_item.name %> (<%= line_item.price %>) <p>X</p> 
+		       Item URL: <%= line_item.current_url %> </li> <br/> <br/>
 	  <% end %>
       </ul>
 
