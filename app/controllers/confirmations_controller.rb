@@ -57,6 +57,7 @@ class ConfirmationsController < ApplicationController
     
     @confirmation.total = params[:total]
 
+    # not sure if this part works
     @confirmation.line_items.each do |item|
       if params[:id] == item.id
         item.name == params[:name]
@@ -83,6 +84,7 @@ class ConfirmationsController < ApplicationController
   def update
     @confirmation = Confirmation.find(params[:id])
     respond_to do |format|
+    @confirmation.save
       if @confirmation.update_attributes(params[:confirmation])
         format.html { redirect_to @confirmation, :notice => 'Confirmation was successfully updated.' }
         format.json { head :no_content }
