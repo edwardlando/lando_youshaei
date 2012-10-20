@@ -34,11 +34,13 @@
     <%= f.hidden_field :order_id, :value => @order.id %>
     <%= f.hidden_field :address, :value => @order.address %>
     <%= f.hidden_field :user_id, :value => @user.id %>
+    <%= f.hidden_field :id, :value => @confirmation.id %>
 
     <!-- nested form -->
 
-    <p> Updating information for items based on actual information on merchant site </p>
-    <%= f.fields_for @confirmation.line_items do |builder| %> 
+    <h1>Input actual item names, URLS, <br /> and prices + total </h1>
+
+    <%= f.fields_for :line_items do |builder| %> 
       <%= builder.hidden_field :id %>
       <p>
         <%= builder.label :name, "Actual Item name" %> <br />

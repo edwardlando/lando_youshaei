@@ -14,8 +14,8 @@ class ConfirmationsController < ApplicationController
   # GET /confirmations/1.json
   def show
     @confirmation = Confirmation.find(params[:id])
+    @confirmation.total = @confirmation.calculate_total
     @order = @confirmation.order
-
 
     respond_to do |format|
       format.html # show.html.erb
@@ -27,9 +27,12 @@ class ConfirmationsController < ApplicationController
   # GET /confirmations/new.json
   def new
     @order = Order.find(params[:id])
-    @confirmation = Confirmation.new(:order_id => @order.id)
+    @confirmation = Confirmation.new()
+    @confirmation.order_id = @order.id
+    @line_items = @confirmation.line_items
     @confirmation.add_line_items_from_order(@order) # adding line items here
     @user = @order.user
+    @confirmation.save
     
     respond_to do |format|
       format.html # new.html.erb

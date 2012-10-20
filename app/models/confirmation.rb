@@ -1,5 +1,5 @@
 class Confirmation < ActiveRecord::Base
-  attr_accessible :address, :name, :total, :user_id, :order_id
+  attr_accessible :address, :name, :total, :user_id, :order_id, :line_items_attributes
 
   has_many :line_items
   belongs_to :order
@@ -8,10 +8,18 @@ class Confirmation < ActiveRecord::Base
 
   def add_line_items_from_order(order)
   	order.line_items.each do |line_item|
-      line_item.order_id = self.id
+      line_item.confirmation_id = self.id
   		self.line_items << line_item
     end
     save!
+  end
+
+  def calculate_total
+    total = 0
+    self.line_items.each do |line_item|
+      total += line_item.price 
+    end
+    total
   end
 
   def save_and_make_payment(customer)
