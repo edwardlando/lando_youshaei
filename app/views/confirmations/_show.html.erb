@@ -1,0 +1,54 @@
+<div class="order_confirmation_form">
+
+	<!-- STANDARD USER PAYED-->
+	<% if ((current_user.role == "standard" || current_user.role == "tastemaker") && @confirmation.status == "payed")  %>
+	  Yay! Your order was placed. Your clothes will be shipped shortly
+
+	  <p>Items ordered:</p> 
+      <ul>
+	  <% @confirmation.line_items.each do |item| %>
+		  <li> Item name: <%= line_item.name %> (<%= line_item.price %>) </li> <br/> <br/>
+	  <% end %>
+      </ul>
+
+      <p>Total: <%= number_to_currency(@confirmation.total) %></p>
+
+    <!-- STANDARD USER NOT PAYED-->
+    <% elsif ((current_user.role == "standard" || current_user.role == "tastemaker") && @confirmation.status == "not_payed")  %>
+      
+      Hey! Here's the list of items we've compiled from your request. 
+      <p>Items requested:</p> 
+      <ul>
+	  <% @confirmation.line_items.each do |item| %>
+		  <li> Item name: <%= item.name %> (<%= number_to_currency(item.price) %>) <br/> 
+		       Item URL: <%= link_to item.current_url, item.current_url %> </li> <br/> <br/>
+	  <% end %>
+      </ul>
+
+      <p>Total: <%= number_to_currency(@confirmation.total) %></p>
+
+      <div class="checkout_button"><%= link_to "Confirm checkout", {:controller => "confirmations", :action => "accept_to_pay", :id => @order.id }%></div>
+
+  
+    <!-- ADMIN -->
+	<% elsif current_user.role == "admin" %>
+	  <p>Order Id: <%= @order.id %></p>
+	  <p>Confirmation Id: <%= @confirmation.id %></p>
+	  <p>Confirmation status: <%= @confirmation.status %></p>
+
+	  <p>Customer email: <%= @order.user.email %> </p>
+	  <p>Address: <%= @order.address %> </p>
+      
+      <p>Items ordered:</p> 
+      <ul>
+	  <% @confirmation.line_items.each do |item| %>
+		  <li> Item name: <%= item.name %> (<%= number_to_currency(item.price) %>) <br/> 
+		       Item URL: <%= link_to item.current_url, item.current_url %> </li> <br/> <br/>
+	  <% end %>
+      </ul>
+
+      <p>Total: <%= number_to_currency(@confirmation.total) %></p>
+
+	<% end %>
+
+</div>

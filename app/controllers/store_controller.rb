@@ -5,11 +5,15 @@ class StoreController < ApplicationController
     	@user = current_user
       @channels = @user.channels
       if @user.role == "admin"
-        @orders = Order.all.sort_by(&:updated_at)
+        @orders = Order.all.sort_by(&:updated_at) # will want to sort by paid and unpaid
       end
 
       # When a user stays on the same channel
       @channel = @user.current_channel
+
+      # Handling orders and confirmations
+      @confirmation = Confirmation.find_by_user_id_and_status(@user.id, "not_payed")  # might need an index
+      @order = @confirmation.order
 
       # Determines which channel we're on
       if params[:switch_channel] == "true"

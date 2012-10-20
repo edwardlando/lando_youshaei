@@ -17,6 +17,8 @@
        <%= render :partial => "orders/index" %>
  <% elsif @channel.channel_items.empty? %>
 	<div class="no_more_items">We've run out of things to show you! Come back soon for more!</div>
+ <% elsif @confirmation.nil? == false %>
+       <%= render :partial => "confirmations/show" %>
  <% else %>
 	 <div "iframe_div">
 	    <iframe src=<%= @item_url %> alt="product" id="main_iframe"></iframe>
