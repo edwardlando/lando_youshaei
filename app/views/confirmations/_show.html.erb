@@ -13,6 +13,8 @@
 
       <p>Total: <%= number_to_currency(@confirmation.total) %></p>
 
+      <%= link_to "Continue shopping", {:controller => "store", :action => "index", :confirmation_status => "payed_and_aknowledged"} %>
+
     <!-- STANDARD USER NOT PAYED-->
     <% elsif ((current_user.role == "standard" || current_user.role == "tastemaker") && @confirmation.status == "sent_to_customer")  %>
       

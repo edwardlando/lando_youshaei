@@ -14,6 +14,10 @@ class StoreController < ApplicationController
       unless (@orders.nil? || @orders.empty? || @confirmations.nil? || @confirmations.empty? )
         @confirmation = Confirmation.find_by_user_id(@user.id)  # might need an index
         @order = @confirmation.order 
+        if params[:confirmation_status]
+          @confirmation.status = params[:confirmation_status]
+          @confirmation.save
+        end
       end 
 
       # Determines which channel we're on
