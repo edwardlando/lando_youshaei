@@ -106,7 +106,7 @@ class UsersController < ApplicationController
     @user.save
   
     respond_to do |format|
-      format.html { redirect_to root_path } 
+      format.html { redirect_to root_path, :notice => "Item successfully added to your wishlist" } 
       format.json {}
     end
   end
@@ -117,7 +117,7 @@ class UsersController < ApplicationController
     @item = @channel.current_item
     @cart = @user.cart
     @existing_line_item = LineItem.find_by_item_id_and_cart_id(@item.id, @cart.id) # have to identify line_items in other ways now
-    @current_url = params["current_url"]
+    @current_url = @item.url
 
     
     #if @cart.line_items.include?(@existing_line_item)
@@ -135,7 +135,7 @@ class UsersController < ApplicationController
     @user.save
   
     respond_to do |format|
-      format.html { redirect_to root_path }
+      format.html { redirect_to root_path, :notice => "Item successfully added to your cart" }
       format.json { render :json => @channel }
     end
   end

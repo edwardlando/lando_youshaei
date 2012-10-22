@@ -28,7 +28,7 @@ class Channel < ActiveRecord::Base
     Item.all.each do |item|
     	if  (channel_color == item.color || channel_color == "All_colors") &&
     	    (item.style == channel_style || channel_style == "All_styles") &&
-    	    (item.price <= channel_price || channel_price.to_s == "0.0") &&
+    	    (item.price <= channel_price || channel_price.to_s == "0.0" || channel_price.to_s == "0") &&
     	    (item.gender == channel_gender || channel_gender == "Unisex")
     	      items << item
     	end

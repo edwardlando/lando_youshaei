@@ -130,6 +130,7 @@ $(document).ready(function() {
     });
 
     // GET CURRENT URL
+    /*
     $("#add_to_cart_link").on("click", function(event) {
     	var data = {
 		"current_url": document.getElementById("main_iframe").src,
@@ -144,6 +145,7 @@ $(document).ready(function() {
 			}
 		});
     });
+    */
 
   
 

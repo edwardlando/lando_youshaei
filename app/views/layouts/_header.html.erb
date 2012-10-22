@@ -12,8 +12,8 @@
 				<% end %>
 					<div class="add" id="new_channel_button">+ Channel</div>
 					<% unless current_user.current_channel.channel_items.empty? %>
-						<div class="add" id="add_to_cart_link">+ Cart</div>  
-						<div class="add"><%= link_to "+ Wishlist", {:controller => "users", :action => "add_to_wishlist" } %></div> 
+						<div class="add" id="add_to_cart_link"><%= link_to "+ Cart", {:controller => "users", :action => "add_to_cart", :remote => true} %></div>  
+						<div class="add"><%= link_to "+ Wishlist", {:controller => "users", :action => "add_to_wishlist", :remote => true } %></div> 
 					<% end %>
 					<div class="add" id="my_profile">Profile</div>
 					<div class="add" id="my_cart">Cart</div>

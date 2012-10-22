@@ -39,9 +39,11 @@ class LineItemsController < ApplicationController
 
   # POST /line_items
   # POST /line_items.json
+
+  # ADDING TO THE CART IS DONE IN THE USERS CONTROLLER
   def create
     @user = current_user
-    @channel = current_user.current_channel
+    @channel = @user.current_channel
     @item = @channel.current_item
     @cart = @user.cart
     @existing_line_item = LineItem.find_by_item_id_and_cart_id(@item.id, @cart.id)
@@ -52,7 +54,7 @@ class LineItemsController < ApplicationController
       @cart.save
     else 
       @line_item = LineItem.new(:item_id => @item.id, :cart_id => @cart.id,
-        :current_url => params[:current_url])
+        :current_url => @item.url)
       @line_item.save
       @cart.line_items << @line_item 
     end

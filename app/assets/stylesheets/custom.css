@@ -680,4 +680,9 @@ p .notice {
 	list-style: none
 }
 
+.cart_line_item li {
+	width:200px;
+	font-size: 100%;
+}
+
 
