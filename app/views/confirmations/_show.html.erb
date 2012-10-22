@@ -7,7 +7,7 @@
 	  <p>Items ordered:</p> 
       <ul>
 	  <% @confirmation.line_items.each do |item| %>
-		  <li> Item name: <%= line_item.name %> (<%= line_item.price %>) </li> <br/> <br/>
+		  <li> Item name: <%= item.name %> (<%= item.price %>) </li> <br/> <br/>
 	  <% end %>
       </ul>
 
@@ -27,7 +27,7 @@
 
       <p>Total: <%= number_to_currency(@confirmation.total) %></p>
 
-      <div class="checkout_button"><%= link_to "Confirm checkout", {:controller => "confirmations", :action => "accept_to_pay", :confirmation_id => @confirmation.id }%></div>
+      <div class="checkout_button"><%= link_to "Confirm checkout", {:controller => "confirmations", :action => "accept_to_pay", :id => @confirmation.id }%></div>
 
   
     <!-- ADMIN -->

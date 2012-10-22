@@ -31,7 +31,11 @@ LandoYoushaei::Application.routes.draw do
 
   resources :wishlists
 
-  resources :confirmations
+  resources :confirmations do
+    member do
+      get :accept_to_pay
+    end
+  end
 
   get "wishlists/show"
 
@@ -39,7 +43,6 @@ LandoYoushaei::Application.routes.draw do
 
   get "confirmations/show"
 
-  get "confirmations/accept_to_pay"
 
 
 

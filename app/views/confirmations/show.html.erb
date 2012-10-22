@@ -7,7 +7,7 @@
 	  <p>Items ordered:</p> 
       <ul>
 	  <% @confirmation.line_items.each do |item| %>
-		  <li> Item name: <%= line_item.name %> (<%= line_item.price %>) </li> <br/> <br/>
+		  <li> Item name: <%= item.name %> (<%= item.price %>) </li> <br/> <br/>
 	  <% end %>
       </ul>
 

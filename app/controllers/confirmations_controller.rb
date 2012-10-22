@@ -32,7 +32,6 @@ class ConfirmationsController < ApplicationController
     @line_items = @confirmation.line_items
     @confirmation.add_line_items_from_order(@order) # adding line items here
     @user = @order.user
-    @confirmation.save
     
     respond_to do |format|
       format.html # new.html.erb
@@ -59,13 +58,13 @@ class ConfirmationsController < ApplicationController
     @confirmation.total = @confirmation.calculate_total
 
     # not sure if this part works
-    @confirmation.line_items.each do |item|
-      if params[:id] == item.id
-        item.name == params[:name]
-        item.current_url == params[:current_url]
-        item.price == params[:price]
-      end
-    end
+    #@confirmation.line_items.each do |item|
+      #if params[:id] == item.id
+        #item.name == params[:name]
+        #item.current_url == params[:current_url]
+        #item.price == params[:price]
+      #end
+    #end
 
     @customer = @order.retrieve_customer 
 
@@ -84,6 +83,27 @@ class ConfirmationsController < ApplicationController
   # PUT /confirmations/1.json
   def update
     @confirmation = Confirmation.find(params[:id])
+    @confirmation.update_attributes(params[:confirmation])
+
+    @confirmation.status = "sent_to_customer"
+    @order = @confirmation.order
+
+    @confirmation.order_id = @order.id
+    @order.confirmation_id = @confirmation.id
+    
+    @confirmation.total = @confirmation.calculate_total
+
+    # not sure if this part works
+    #@confirmation.line_items.each do |item|
+      #if params[:id] == item.id
+        #item.name = params[:name]
+        #item.current_url = params[:current_url]
+        #item.price = params[:price]
+      #end
+    #end
+
+    @customer = @order.retrieve_customer 
+
     respond_to do |format|
     @confirmation.save
       if @confirmation.update_attributes(params[:confirmation])
@@ -112,17 +132,17 @@ class ConfirmationsController < ApplicationController
   #################################################################################
 
   def accept_to_pay
-    @confirmation = Confirmation.find(params[:confirmation_id])
+    @confirmation = Confirmation.find(params[:id])
     @order = @confirmation.order
 
     @customer = @order.retrieve_customer 
-    @confirmation.save_and_make_payment  # payment is made here
+    @confirmation.save_and_make_payment(@customer)  # payment is made here
+    @confirmation.status = "payed"
    
     respond_to do |format|
       if @confirmation.save
-        @confirmation.status = "payed"
-        format.html { redirect_to @confirmation, :notice => 'Yay! Your order was placed. Your clothes will be shipped shortly' }
-        format.json { render :json => @confirmation, :confirmation_id => @confirmation.id }
+        format.html { redirect_to root_path, :notice => 'Yay! Your order was placed. Your clothes will be shipped shortly' }
+        format.json { render :json => @confirmation, :id => @confirmation.id }
       else
         format.html { render :action => "new" }
         format.json { render :json => @confirmation.errors, :status => :unprocessable_entity }
