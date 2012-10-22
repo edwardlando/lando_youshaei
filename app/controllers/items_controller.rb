@@ -44,6 +44,8 @@ class ItemsController < ApplicationController
     @item = Item.new(:title => params["title"], :url => params[:url], :color => params["color"], 
       :style => params["style"], :price => params["price"], :gender => params["gender"])
 
+    @item.user_id = current_user.id
+
     respond_to do |format|
       if @item.save
         format.html { redirect_to @item, :notice => 'Item was successfully created.' }

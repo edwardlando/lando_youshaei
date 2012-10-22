@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121022184057) do
+ActiveRecord::Schema.define(:version => 20121022184952) do
 
   create_table "carts", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(:version => 20121022184057) do
     t.string   "gender"
     t.string   "style"
     t.integer  "rating"
+    t.integer  "user_id"
   end
 
   create_table "items_wishlists", :id => false, :force => true do |t|
