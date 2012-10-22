@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+  <div>Please enter your payment information below. We'll go over the items you've added, and we'll get back to you and ask you to confirm your purchase before we charge you.</div> <br/> <br/>
+
   <%= f.hidden_field :stripe_card_token %>
 
   <div class="field">
@@ -41,8 +43,13 @@
 <div id="stripe_error">
   <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
 </div>
+<br/><br/>
   <div class="actions">
-    <%= f.submit "Place my order" %>
+    <%= f.submit "Place my request", :class => "request_button" %>
   </div>
+  <div class="agree_to_terms">
+  <%= label_tag :agree, "I agree to the terms and conditions" %>:
+  <%= check_box_tag :agree %> <br />
+</div>
 <% end %>
 

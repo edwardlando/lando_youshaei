@@ -612,6 +612,21 @@ p .notice {
 	font-size: 14px;
 }
 
+.request_button {
+	width: 80%;
+	height: 30px;
+	background-color: #FE3F44;
+	border-radius: 3px;
+	text-align: center;
+	color: white;
+	font-weight: bold;
+	font-size: 16px !important;
+	padding-top: 5px;
+	font-size: 14px;
+	margin: 0px;
+	border: 0px;
+}
+
 .checkout_button a, .checkout_button a:hover {
 	color: white !important;
 	background-color: transparent;
@@ -622,6 +637,10 @@ p .notice {
 	color: white;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.order_form a { 
+	color: white !important;
 }
 
 .order_confirmation_form, .order_confirmation_form p, .order_confirmation_form a {
