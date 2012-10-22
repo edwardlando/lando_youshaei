@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121022051740) do
+ActiveRecord::Schema.define(:version => 20121022184057) do
 
   create_table "carts", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -88,11 +88,12 @@ ActiveRecord::Schema.define(:version => 20121022051740) do
   create_table "orders", :force => true do |t|
     t.string   "name"
     t.text     "address"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
     t.string   "stripe_customer_token"
     t.integer  "user_id"
     t.integer  "confirmation_id"
+    t.boolean  "agree",                 :default => false
   end
 
   create_table "rs_evaluations", :force => true do |t|

@@ -1,7 +1,9 @@
 class Order < ActiveRecord::Base
-  attr_accessible :address, :name, :stripe_customer_token, :stripe_card_token, :confirmation_id
+  attr_accessible :address, :name, :stripe_customer_token, :stripe_card_token, :confirmation_id, :agree
 
   validates :name, :address, :presence => true
+
+  before_create :ensure_agrees_to_terms
 
   has_many :line_items, :dependent => :destroy
   has_one :confirmation
@@ -49,6 +51,15 @@ class Order < ActiveRecord::Base
       logger.error "some error"
       errors.add :base, "There was a problem with your credit card."
       false
+  end
+
+
+  def ensure_agrees_to_terms
+    if self.agree == true
+      return true
+    else
+      return false
+    end
   end
 
 end
