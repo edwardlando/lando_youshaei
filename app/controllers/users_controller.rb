@@ -111,33 +111,4 @@ class UsersController < ApplicationController
     end
   end
 
-  def add_to_cart
-    @user = current_user
-    @channel = current_user.current_channel
-    @item = @channel.current_item
-    @cart = @user.cart
-    @existing_line_item = LineItem.find_by_item_id_and_cart_id(@item.id, @cart.id) # have to identify line_items in other ways now
-    @current_url = @item.url
-
-    
-    #if @cart.line_items.include?(@existing_line_item)
-     # @existing_line_item.quantity += 1
-      #@existing_line_item.save
-      #@cart.save
-    #else 
-      @line_item = LineItem.new(:item_id => @item.id, :cart_id => @cart.id,
-        :current_url => @current_url)
-      @line_item.save
-      @cart.line_items << @line_item 
-      @cart.save
-    #end
-    
-    @user.save
-  
-    respond_to do |format|
-      format.html { redirect_to root_path, :notice => "Item successfully added to your cart" }
-      format.json { render :json => @channel }
-    end
-  end
-
 end

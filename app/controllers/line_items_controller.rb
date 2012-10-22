@@ -40,26 +40,22 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
 
-  # ADDING TO THE CART IS DONE IN THE USERS CONTROLLER
   def create
     @user = current_user
-    @channel = @user.current_channel
+    @channel = current_user.current_channel
     @item = @channel.current_item
     @cart = @user.cart
-    @existing_line_item = LineItem.find_by_item_id_and_cart_id(@item.id, @cart.id)
+    @existing_line_item = LineItem.find_by_item_id_and_cart_id(@item.id, @cart.id) # have to identify line_items in other ways now
+    @current_url = @item.url
 
     if @cart.line_items.include?(@existing_line_item)
-      @existing_line_item.quantity += 1
-      @existing_line_item.save
-      @cart.save
+      @line_item = @existing_line_item
+      @line_item.quantity += 1
     else 
       @line_item = LineItem.new(:item_id => @item.id, :cart_id => @cart.id,
-        :current_url => @item.url)
-      @line_item.save
-      @cart.line_items << @line_item 
+        :current_url => @item.url, :name => params[:name])
     end
     
-    @user.save
     respond_to do |format|
       if @line_item.save
         format.html { redirect_to :controller => "store", :action => "index", :notice => 'Item successfully added to cart' }

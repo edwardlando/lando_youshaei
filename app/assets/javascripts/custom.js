@@ -130,24 +130,9 @@ $(document).ready(function() {
     });
 
    
-    // GET CURRENT URL
-    /*
     $("#add_to_cart_link").on("click", function(event) {
-    	var data = {
-		"current_url": document.getElementById("main_iframe").src,
-		};
-		$.ajax({
-			type: 'POST',
-			url: "http://localhost:3000/users/add_to_cart.json",
-			data: data,
-			dataType: "json",
-			success: function(data) {
-				$(".inner_cart").show(500);
-			}
-		});
+		$(".inner_add_to_cart").show(500);
     });
-    */
-
-  
+    
 
 });

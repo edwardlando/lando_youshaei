@@ -1,33 +1,15 @@
-<!-- not being used -->
 
+  <%= form_for(LineItem.new()) do |f| %>
+    
+    <p class="create_line_item_text">We can't track what you're doing on the merchant's site. Please enter the name of the item you'd like to add to your cart.</p>
 
-
-<%= form_for(@line_item) do |f| %>
-  <% if @line_item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@line_item.errors.count, "error") %> prohibited this line_item from being saved:</h2>
-
-      <ul>
-      <% @line_item.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+    <div class="field">
+      <%= f.label :name, :class => "create_line_item_text" %><br />
+      <%= f.text_field :name %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Add Item to Cart", :class => "create_line_item" %>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :item_id %><br />
-    <%= f.number_field :item_id %>
-  </div>
-  <div class="field">
-    <%= f.label :cart_id %><br />
-    <%= f.number_field :cart_id %>
-  </div>
-  <% @current_item_url = capture do %>
-   <%= javascript_tag "document.getElementById('main_iframe').src;" %> <!-- getting from Ajax post -->
-  <% end %>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
 
