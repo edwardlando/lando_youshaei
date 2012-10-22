@@ -27,8 +27,14 @@ LandoYoushaei::Application.routes.draw do
 
   get "store/index"
 
-  resources :items
+  root :to => 'store#index'
 
+  resources :items do
+    member do
+      post :vote
+    end
+  end
+  
   resources :wishlists
 
   resources :confirmations do
@@ -98,7 +104,7 @@ LandoYoushaei::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'store#index'
+  
 
   # See how all your routes lay out with "rake routes"
 
