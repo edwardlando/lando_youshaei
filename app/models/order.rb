@@ -3,8 +3,6 @@ class Order < ActiveRecord::Base
 
   validates :name, :address, :presence => true
 
-  before_create :ensure_agrees_to_terms
-
   has_many :line_items, :dependent => :destroy
   has_one :confirmation
   belongs_to :user
@@ -52,14 +50,4 @@ class Order < ActiveRecord::Base
       errors.add :base, "There was a problem with your credit card."
       false
   end
-
-
-  def ensure_agrees_to_terms
-    if self.agree == true
-      return true
-    else
-      return false
-    end
-  end
-
 end

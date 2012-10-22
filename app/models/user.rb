@@ -11,7 +11,8 @@ class User < ActiveRecord::Base
             
   # attr_accessible :title, :body
 
-  #validates_presence_of :username
+  # validates_presence_of :username
+  # validate :agree_to_terms
 
   has_many :items #tastemakers
   has_many :channels
@@ -48,5 +49,5 @@ class User < ActiveRecord::Base
   def can_vote_for?(item)
     item_votes.build(value: 1, item: item).valid?
   end
-
+  
 end

@@ -13,6 +13,10 @@
 	  <%= f.password_field :password_confirmation, :class => "registration_field", :placeholder => "Confirm Password"%></div>
 
 	  <div><%= f.submit "Sign up", :class => "registration_button" %></div>
+	  <div class="agree_to_terms">
+		  <%= label_tag :agree, "I agree to the terms and conditions" %>:
+		  <%= check_box_tag :agree %> <br />
+	  </div>
 	<% end %>
 
 

@@ -27,7 +27,7 @@
 		<div class="contributed_by">
 			<br/><br/>
 			<% unless current_user.current_channel.current_item.nil? && current_user.nil? %>
-			  Fashion consultant for this item: <%= current_user.current_channel.current_item.user.email %> 
+			  Fashion consultant for this item: <%= current_user.email %> 
 			<% end %> 
 		</div>
 	</div>

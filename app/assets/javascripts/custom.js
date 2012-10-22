@@ -129,6 +129,9 @@ $(document).ready(function() {
     	$(".sign_up_partial").show(200);
     });
 
+    
+
+
     // GET CURRENT URL
     /*
     $("#add_to_cart_link").on("click", function(event) {
