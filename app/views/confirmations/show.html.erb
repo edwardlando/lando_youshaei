@@ -14,7 +14,7 @@
       <p>Total: <%= number_to_currency(@confirmation.total) %></p>
 
     <!-- STANDARD USER NOT PAYED-->
-    <% elsif current_user.role == "standard" && @confirmation.status == "not_payed" %>
+    <% elsif current_user.role == "standard" && @confirmation.status == "send_to_customer" %>
       
       Hey! Here's the list of items we've compiled from your request. 
       <p>Items requested:</p> 

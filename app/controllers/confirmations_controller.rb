@@ -50,6 +50,7 @@ class ConfirmationsController < ApplicationController
   def create
     @user = current_user
     @confirmation = Confirmation.new(params[:confirmation])
+    @confirmation.status = "sent_to_customer"
     @order = @confirmation.order
 
     @confirmation.order_id = @order.id
@@ -116,10 +117,10 @@ class ConfirmationsController < ApplicationController
 
     @customer = @order.retrieve_customer 
     @confirmation.save_and_make_payment  # payment is made here
-    @confirmation.status = "payed"
-
+   
     respond_to do |format|
       if @confirmation.save
+        @confirmation.status = "payed"
         format.html { redirect_to @confirmation, :notice => 'Yay! Your order was placed. Your clothes will be shipped shortly' }
         format.json { render :json => @confirmation, :confirmation_id => @confirmation.id }
       else
