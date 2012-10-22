@@ -13,7 +13,7 @@ class ConfirmationsController < ApplicationController
   # GET /confirmations/1
   # GET /confirmations/1.json
   def show
-    @confirmation = Confirmation.find(params[:confirmation_id])
+    @confirmation = Confirmation.find(params[:id])
     @confirmation.total = @confirmation.calculate_total
     @order = @confirmation.order
 
@@ -82,7 +82,7 @@ class ConfirmationsController < ApplicationController
   # PUT /confirmations/1
   # PUT /confirmations/1.json
   def update
-    @confirmation = Confirmation.find(params[:confirmation_id])
+    @confirmation = Confirmation.find(params[:id])
     respond_to do |format|
     @confirmation.save
       if @confirmation.update_attributes(params[:confirmation])
@@ -98,7 +98,7 @@ class ConfirmationsController < ApplicationController
   # DELETE /confirmations/1
   # DELETE /confirmations/1.json
   def destroy
-    @confirmation = Confirmation.find(params[:confirmation_id])
+    @confirmation = Confirmation.find(params[:id])
     @confirmation.destroy
 
     respond_to do |format|
