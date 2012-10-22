@@ -13,20 +13,20 @@ class ConfirmationsController < ApplicationController
   # GET /confirmations/1
   # GET /confirmations/1.json
   def show
-    @confirmation = Confirmation.find(params[:id])
+    @confirmation = Confirmation.find(params[:confirmation_id])
     @confirmation.total = @confirmation.calculate_total
     @order = @confirmation.order
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render :json => @confirmation }
+      format.json { render :json => @confirmation, :id => @confirmation.id }
     end
   end
 
   # GET /confirmations/new
   # GET /confirmations/new.json
   def new
-    @order = Order.find(params[:id])
+    @order = Order.find(params[:order_id])
     @confirmation = Confirmation.new()
     @confirmation.order_id = @order.id
     @line_items = @confirmation.line_items
@@ -42,7 +42,7 @@ class ConfirmationsController < ApplicationController
 
   # GET /confirmations/1/edit
   def edit
-    @confirmation = Confirmation.find(params[:id])
+    @confirmation = Confirmation.find(params[:confirmation_id])
   end
 
   # POST /confirmations
@@ -55,7 +55,7 @@ class ConfirmationsController < ApplicationController
     @confirmation.order_id = @order.id
     @order.confirmation_id = @confirmation.id
     
-    @confirmation.total = params[:total]
+    @confirmation.total = @confirmation.calculate_total
 
     # not sure if this part works
     @confirmation.line_items.each do |item|
@@ -82,7 +82,7 @@ class ConfirmationsController < ApplicationController
   # PUT /confirmations/1
   # PUT /confirmations/1.json
   def update
-    @confirmation = Confirmation.find(params[:id])
+    @confirmation = Confirmation.find(params[:confirmation_id])
     respond_to do |format|
     @confirmation.save
       if @confirmation.update_attributes(params[:confirmation])
@@ -98,7 +98,7 @@ class ConfirmationsController < ApplicationController
   # DELETE /confirmations/1
   # DELETE /confirmations/1.json
   def destroy
-    @confirmation = Confirmation.find(params[:id])
+    @confirmation = Confirmation.find(params[:confirmation_id])
     @confirmation.destroy
 
     respond_to do |format|
@@ -111,9 +111,8 @@ class ConfirmationsController < ApplicationController
   #################################################################################
 
   def accept_to_pay
-    @user = current_user
-    @order = Order.find(params[:id])
-    @confirmation = @order.confirmation
+    @confirmation = Confirmation.find(params[:confirmation_id])
+    @order = @confirmation.order
 
     @customer = @order.retrieve_customer 
     @confirmation.save_and_make_payment  # payment is made here
@@ -122,7 +121,7 @@ class ConfirmationsController < ApplicationController
     respond_to do |format|
       if @confirmation.save
         format.html { redirect_to @confirmation, :notice => 'Yay! Your order was placed. Your clothes will be shipped shortly' }
-        format.json { render :json => @confirmation, :id => @confirmation.id }
+        format.json { render :json => @confirmation, :confirmation_id => @confirmation.id }
       else
         format.html { render :action => "new" }
         format.json { render :json => @confirmation.errors, :status => :unprocessable_entity }

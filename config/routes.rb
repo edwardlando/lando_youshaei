@@ -31,9 +31,13 @@ LandoYoushaei::Application.routes.draw do
 
   resources :wishlists
 
+  resources :confirmations
+
   get "wishlists/show"
 
   get "orders/show"
+
+  get "confirmations/show"
 
   get "confirmations/accept_to_pay"
 
