@@ -84,12 +84,12 @@ class ItemsController < ApplicationController
   end
 
   def vote
-    value = params[:type] == "up" ? 1 : -1
-    @item = Item.find(params[:id])
-    @item.add_or_update_evaluation(:votes, value, current_user)
-    redirect_to :back, notice: "Thanks for your feedback.
-    This helps us show you items you'll like!"
+    vote = current_user.item_votes.new(value: params[:value], item_id: params[:id])
+    if vote.save
+      redirect_to :back, notice: "Thanks for voting. Your feedback allows us to show you things you'll love."
+    else
+      redirect_to :back, alert: "Unable to vote, perhaps you already did."
+    end
   end
-
 
 end

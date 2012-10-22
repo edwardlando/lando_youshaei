@@ -5,8 +5,7 @@ class Item < ActiveRecord::Base
   has_and_belongs_to_many :wishlists
   has_many :line_items
   has_many :orders, :through => :line_items
-
-  has_reputation :votes, source: :user, aggregated_by: :sum
+  has_many :item_votes
 
   before_destroy :ensure_not_referenced_by_any_line_item
 
@@ -18,6 +17,16 @@ class Item < ActiveRecord::Base
   PRICE_OPTIONS = ["50", "100", "200"]
 
   GENDER_OPTIONS = ["Male", "Female"]
+
+  def self.by_votes
+    select('items.*, coalesce(value, 0) as votes').
+    joins('left join item_votes on item_id=item.id').
+    order('votes desc')
+  end
+
+  def votes
+    read_attribute(:votes) || item_votes.sum(:value)
+  end
 
   private
 

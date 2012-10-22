@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   has_one :wishlist
   has_one :cart
   has_many :orders
+  has_many :item_votes
 
   def current_channel
     self.channels.each do |channel|
@@ -40,6 +41,12 @@ class User < ActiveRecord::Base
     total
   end
 
-  # has_one :current_channel, :class_name => "Channel" # current_channel
-  #  :foreign_key => :owner_id  -- maybe go with foreign_key option
+  def total_votes
+    ItemVote.joins(:item).where(items: {user_id: self.id}).sum('value')
+  end
+
+  def can_vote_for?(item)
+    item_votes.build(value: 1, item: item).valid?
+  end
+
 end

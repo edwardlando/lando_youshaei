@@ -27,8 +27,6 @@ gem 'devise', '>= 1.3.4'
 
 gem 'stripe'
 
-gem 'activerecord-reputation-system', require: 'reputation_system'
-
 gem 'mysql2'
 
 
