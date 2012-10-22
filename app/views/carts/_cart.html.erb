@@ -3,13 +3,8 @@
 	<ul class="cart_line_item">
 	<% current_user.cart.line_items.each do |line_item| %>
         <li>
-        <% if line_item.name.nil? %>
-        <strong> Original item URL: </strong>
-        <%= line_item.current_url %> (<strong>Quantity: </strong> <%= line_item.quantity %>) 
-        <% else %>
         <strong> Original item name: </strong>
         <%= line_item.name %> (<strong>Quantity: </strong> <%= line_item.quantity %>) 
-        <% end %>
        </li>
     <% end %>
   </ul>

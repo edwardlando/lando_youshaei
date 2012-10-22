@@ -524,7 +524,7 @@ p .notice {
 	display: inline-block;
 	list-style-type: none;
 	vertical-align: top;
-	width: 40%;
+	width: 100% !important;
 	padding: 0;
 	margin: 0;
 }
