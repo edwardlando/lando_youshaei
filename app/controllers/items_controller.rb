@@ -82,4 +82,14 @@ class ItemsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def vote
+    value = params[:type] == "up" ? 1 : -1
+    @item = Item.find(params[:id])
+    @item.add_or_update_evaluation(:votes, value, current_user)
+    redirect_to :back, notice: "Thanks for your feedback.
+    This helps us show you items you'll like!"
+  end
+
+
 end

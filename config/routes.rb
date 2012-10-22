@@ -27,7 +27,9 @@ LandoYoushaei::Application.routes.draw do
 
   get "store/index"
 
-  resources :items
+  resources :items do
+    member { post :vote }
+  end
 
   resources :wishlists
 
