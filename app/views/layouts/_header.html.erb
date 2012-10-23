@@ -4,35 +4,41 @@
 <div class="top" style="padding-top:0px; margin-top:0px;">
 	<div class="container" style="padding-top:30px; margin-top: 0px;">
 		<div id="user nav">
-			<p class="title"><%= link_to "AVEECE", {:controller => "store", :action => "index", :index => @channel.item_index } %></p>
-			<strong><%- current_user.email %></strong>
-			<% unless current_user.nil? %>
-				<% if current_user.role == "tastemaker" || current_user.role == "admin" %>
-					<div class="add" id="new_item_button">+ Item</div>
+			<% if @channel %>
+				<p class="title"><%= link_to "AVEECE", {:controller => "store", :action => "index", :index => @channel.item_index } %></p>
+				<strong><%- current_user.email %></strong>
+				<% unless current_user.nil? %>
+					<% if current_user.role == "tastemaker" || current_user.role == "admin" %>
+						<div class="add" id="new_item_button">+ Item</div>
+					<% end %>
+						<div class="add" id="new_channel_button">+ Channel</div>
+						<% unless @channel.channel_items.empty? %>
+							<div class="add" id="add_to_cart_link">+ Cart</div>  
+							<div class="add"><%= link_to "+ Wishlist", {:controller => "users", :action => "add_to_wishlist", :remote => true } %></div> 
+						<% end %>
+						<div class="add" id="my_profile">Profile</div>
+						<div class="add" id="my_cart">Cart</div>
+						<% if current_user.can_vote_for?(@channel.current_item) && !(@channel.current_item.nil?) %>
+							<div class="add" id="upvote"><%= link_to "+", vote_item_path(@channel.current_item.id, value: 1), method: "post" %></div>
+							<div class="add" id="downvote"><%= link_to "-", vote_item_path(@channel.current_item.id, value: -1), method: "post" %></div>
+						<% end %>
 				<% end %>
-					<div class="add" id="new_channel_button">+ Channel</div>
-					<% unless @channel.channel_items.empty? %>
-						<div class="add" id="add_to_cart_link">+ Cart</div>  
-						<div class="add"><%= link_to "+ Wishlist", {:controller => "users", :action => "add_to_wishlist", :remote => true } %></div> 
+				<p class="next"> 
+					<% if !(@channel.channel_items[@channel.item_index+1].nil?) %>
+						<%= link_to "Next", {:controller => "store", :action => "index", :index => @channel.item_index+1 } %>
 					<% end %>
-					<div class="add" id="my_profile">Profile</div>
-					<div class="add" id="my_cart">Cart</div>
-					<% if current_user.can_vote_for?(@channel.current_item) && !(@channel.current_item.nil?) %>
-						<div class="add" id="upvote"><%= link_to "+", vote_item_path(@channel.current_item.id, value: 1), method: "post" %></div>
-						<div class="add" id="downvote"><%= link_to "-", vote_item_path(@channel.current_item.id, value: -1), method: "post" %></div>
-					<% end %>
+				</p>
+			<% else %>
+				<p class="title"><%= link_to "AVEECE", root_path %></p>
 			<% end %>
-			<p class="next"> 
-				<% if !(@channel.channel_items[@channel.item_index+1].nil?) %>
-					<%= link_to "Next", {:controller => "store", :action => "index", :index => @channel.item_index+1 } %>
-				<% end %>
-			</p>
 		</div>
+		<% if @channel %>
 		<div class="contributed_by">
 			<br/><br/>
 			<% unless @channel.current_item.nil? || current_user.nil? %>
 			  Fashion consultant for this item: <a href src="<%=current_user.email%>"><%= current_user.email %></a>
 			<% end %> 
 		</div>
+		<% end %>
 	</div>
 </div>
