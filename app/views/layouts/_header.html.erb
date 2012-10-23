@@ -30,8 +30,8 @@
 		</div>
 		<div class="contributed_by">
 			<br/><br/>
-			<% unless @channel.current_item.nil? && current_user.nil? %>
-			  Fashion consultant for this item: <%= current_user.email %> 
+			<% unless @channel.current_item.nil? || current_user.nil? %>
+			  Fashion consultant for this item: <a href src="<%=current_user.email%>"><%= current_user.email %></a>
 			<% end %> 
 		</div>
 	</div>

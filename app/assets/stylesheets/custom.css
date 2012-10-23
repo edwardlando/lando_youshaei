@@ -1,6 +1,6 @@
 html, body {
 	/* background-color: #2F2F2F; */
-	background-image: url("denim.png");
+	background-image: url("classy_fabric.png");
 	background-repeat: repeat-x repeat-y;
 
 }
@@ -91,7 +91,7 @@ a {
 }
 
 #header {
-	background-image: url("denim.png");
+	background-image: url("classy_fabric.png");
 	background-repeat: repeat-x repeat-y;
 }
 
@@ -724,6 +724,22 @@ p .notice {
 
 .contributed_by {
 	color: white;
+	font-style: italic;
 }
+
+.contributed_by a, .contributed_by a:visited {
+	color: lightblue;
+}
+
+a:hover {
+	color: lightpink !important;
+	background-color: transparent !important;
+	text-decoration: none;
+}
+
+
+
+
+
 
 

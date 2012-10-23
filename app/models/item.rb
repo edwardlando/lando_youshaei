@@ -18,6 +18,8 @@ class Item < ActiveRecord::Base
 
   GENDER_OPTIONS = ["Male", "Female"]
 
+  SIZE_OPTIONS = ["Extra Small", "Small", "Medium", "Large", "Extra Large"]
+
   def self.by_votes
     select('items.*, coalesce(value, 0) as votes').
     joins('left join item_votes on item_id=item.id').
