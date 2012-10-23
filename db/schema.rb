@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(:version => 20121022191033) do
   create_table "channels", :force => true do |t|
     t.string   "color"
     t.string   "style"
-    t.decimal  "price",           :precision => 10, :scale => 0
+    t.decimal  "price"
     t.string   "gender"
-    t.datetime "created_at",                                     :null => false
-    t.datetime "updated_at",                                     :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.integer  "user_id"
     t.integer  "item_index"
     t.boolean  "current_channel"
@@ -36,30 +36,33 @@ ActiveRecord::Schema.define(:version => 20121022191033) do
     t.string   "name"
     t.text     "address"
     t.integer  "user_id"
-    t.decimal  "total",      :precision => 10, :scale => 0
-    t.datetime "created_at",                                                   :null => false
-    t.datetime "updated_at",                                                   :null => false
+    t.decimal  "total"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.integer  "order_id"
-    t.string   "status",                                    :default => "new"
+    t.string   "status",     :default => "new"
   end
 
   create_table "item_votes", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
     t.integer  "item_id"
     t.integer  "user_id"
     t.integer  "value"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
+
+  add_index "item_votes", ["item_id"], :name => "index_item_votes_on_item_id"
+  add_index "item_votes", ["user_id"], :name => "index_item_votes_on_user_id"
 
   create_table "items", :force => true do |t|
     t.string   "title"
-    t.datetime "created_at",                                 :null => false
-    t.datetime "updated_at",                                 :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.text     "description"
     t.string   "url"
     t.string   "image_url"
     t.string   "color"
-    t.decimal  "price",       :precision => 10, :scale => 0
+    t.decimal  "price"
     t.string   "gender"
     t.string   "style"
     t.integer  "rating"
@@ -76,14 +79,14 @@ ActiveRecord::Schema.define(:version => 20121022191033) do
   create_table "line_items", :force => true do |t|
     t.integer  "item_id"
     t.integer  "cart_id"
-    t.datetime "created_at",                                                    :null => false
-    t.datetime "updated_at",                                                    :null => false
-    t.integer  "quantity",                                       :default => 1
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.integer  "quantity",        :default => 1
     t.integer  "order_id"
     t.string   "current_url"
     t.string   "name"
     t.integer  "confirmation_id"
-    t.decimal  "price",           :precision => 10, :scale => 0
+    t.decimal  "price"
   end
 
   create_table "orders", :force => true do |t|
