@@ -5,7 +5,7 @@ gem 'rails', '3.2.3'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+#gem 'sqlite3'
 
 gem 'json'
 
@@ -27,7 +27,7 @@ gem 'devise', '>= 1.3.4'
 
 gem 'stripe'
 
-gem 'mysql2'
+gem 'pg'
 
 
 # To use ActiveModel has_secure_password
