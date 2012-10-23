@@ -17,4 +17,4 @@
 # Ignore Stripe key file
 /initializers/stripe.rb
 
-/locales/database.yml
+/locales/*.yml
