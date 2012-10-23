@@ -731,11 +731,16 @@ p .notice {
 	color: lightblue;
 }
 
+.footer a {
+    color: lightblue !important;
+}
+
 a:hover {
 	color: lightpink !important;
 	background-color: transparent !important;
 	text-decoration: none;
 }
+
 
 
 

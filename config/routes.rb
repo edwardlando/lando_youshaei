@@ -49,6 +49,9 @@ LandoYoushaei::Application.routes.draw do
 
   get "confirmations/show"
 
+  get "static_pages/about"
+  get "static_pages/terms"
+
 
   
   # The priority is based upon order of creation:
