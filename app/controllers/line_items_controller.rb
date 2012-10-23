@@ -47,13 +47,14 @@ class LineItemsController < ApplicationController
     @cart = @user.cart
     @existing_line_item = LineItem.find_by_item_id_and_cart_id(@item.id, @cart.id) # have to identify line_items in other ways now
     @current_url = @item.url
+    @name = params[:name]
 
     if @cart.line_items.include?(@existing_line_item)
       @line_item = @existing_line_item
       @line_item.quantity += 1
     else 
       @line_item = LineItem.new(:item_id => @item.id, :cart_id => @cart.id,
-        :current_url => @item.url, :name => params[:name])
+        :current_url => @item.url, :name => @name)
     end
     
     respond_to do |format|
