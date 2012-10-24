@@ -5,7 +5,6 @@ $(document).ready(function() {
 	$(".picker .option").on("click", function(event){
 		// this = option clicked
 		// index of item relative to other children
-		
 		var $input = $(this).parent().parent().children("select");
 		var i = $(this).index();
 		// sets the actual form value

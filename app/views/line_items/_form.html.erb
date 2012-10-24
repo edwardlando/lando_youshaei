@@ -6,11 +6,11 @@
 
   <div class="field">
     <%= f.label :name, "Exact name of the item", :class => "create_line_item_text" %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :id => "line_item_name" %>
   </div>
-  <div class="field" id="line_item_size">
+  <div class="field">
     <%= f.label :size, :class => "create_line_item_text" %><br />
-    <%= f.select(:size, Item::SIZE_OPTIONS) %>
+    <%= f.select(:size, Item::SIZE_OPTIONS, :id => "line_item_size") %>
   </div>
   <div class="actions">
     <div class="create_line_item">Add Item to Cart</div>
