@@ -39,6 +39,7 @@ class UsersController < ApplicationController
   # This is not being used because of devise so the logic is the same in store#index
   # USER CREATED IN REGISTRATIONS CONTROLLER
   def create
+=begin
     super
     @user = User.new(params[:user])
     @user.role = "standard"
@@ -60,6 +61,7 @@ class UsersController < ApplicationController
         format.json { render :json => @user.errors, :status => :unprocessable_entity }
       end
     end
+=end
   end
 
   # PUT /users/1

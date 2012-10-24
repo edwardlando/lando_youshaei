@@ -250,7 +250,12 @@ p .notice {
 }
 
 .sign_up_partial {
-	display: none;
+	/* display: none; */
+}
+
+#want_to_join a {
+	color: white;
+	font-size: 16px;
 }
 
 
@@ -740,6 +745,9 @@ a:hover {
 	background-color: transparent !important;
 	text-decoration: none;
 }
+
+
+
 
 
 

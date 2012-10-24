@@ -7,11 +7,8 @@
     <div class="sign_in_partial">
 	    <%= render :partial => "devise/sessions/new" %>
 	</div>
-	<div class="sign_up_partial">
-	    <%= render :partial => "users/form" %>
-	</div>
     <div id="want_to_join">
-    	<p>Join Aveece</p>
+        <%= link_to "Join Aveece", :controller => "registrations", :action => "new" %>
     </div>
  <% elsif @user.role == "admin" %>
        <%= render :partial => "orders/index" %>

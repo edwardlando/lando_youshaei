@@ -7,12 +7,13 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, 
-  				  :username, :role, :stripe_customer_token
+  				  :username, :role, :stripe_customer_token, :terms
             
   # attr_accessible :title, :body
 
   # validates_presence_of :username
-  # validate :agree_to_terms
+  validates_acceptance_of :terms, :allow_nil => false,
+  :message => "You must accept the terms of use", :on => :create
 
   has_many :items #tastemakers
   has_many :channels
