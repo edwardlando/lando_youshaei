@@ -19,8 +19,8 @@
 						<div class="add" id="my_profile">Profile</div>
 						<div class="add" id="my_cart">Cart</div>
 						<% if current_user.can_vote_for?(@channel.current_item) && !(@channel.current_item.nil?) %>
+						    <div class="add" id="downvote"><%= link_to "-", vote_item_path(@channel.current_item.id, value: -1), method: "post" %></div>
 							<div class="add" id="upvote"><%= link_to "+", vote_item_path(@channel.current_item.id, value: 1), method: "post" %></div>
-							<div class="add" id="downvote"><%= link_to "-", vote_item_path(@channel.current_item.id, value: -1), method: "post" %></div>
 						<% end %>
 				<% end %>
 				<p class="next"> 
