@@ -121,22 +121,34 @@ $(document).ready(function() {
 	})
 
 
-	// LANDING PAGE 
+    // CREATING A LINE ITEM
 
-	/*
+    var wantToAddToCart = false;
+	$("#add_to_cart_link").on("click", function(event) {
+		wantToAddToCart = !wantToAddToCart ;
+		if (wantToAddToCart  == true) {
+			$(".inner_add_to_cart").show(500);
+		} else {
+			$(".inner_add_to_cart").hide(500);
+		};
+	})
 
-    $("#want_to_join").on("click", function(event) {
-    	$(".sign_in_partial").hide(200);
-    	$("#want_to_join").hide();
-    	$(".sign_up_partial").show(200);
-    });
+	$(".create_line_item").on("click", function(event) {
+		var data = {
+		"name": $("#line_item_name").val(),
+		"size": $("#line_item_size").val()
+		};
+		$.ajax({
+			type: 'POST',
+			url: "http://localhost:3000/line_items.json",
+			data: data,
+			dataType: "json",
+			success: function(data) {
+				$(".inner_add_to_cart").hide(500);
+			}
+		});
+	})
 
-    */
 
-   
-    $("#add_to_cart_link").on("click", function(event) {
-		$(".inner_add_to_cart").show(500);
-    });
-    
 
 });

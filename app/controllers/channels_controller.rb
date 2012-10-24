@@ -60,9 +60,7 @@ class ChannelsController < ApplicationController
     @channel.user_id = current_user.id
   
     @channel.item_index = 0
-     
-    logger.debug(params[:channel])
-    
+       
     if @channel.save
       @channels.each do |channel|
         channel.update_attributes(:current_channel => false)

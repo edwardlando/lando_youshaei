@@ -1,21 +1,20 @@
 
-  <%= form_for(LineItem.new) do |f| %>
-    
-    <p class="create_line_item_text">
-      We can't track what you're doing on the merchant's site. Please enter the name and size of the item you'd like to add to your cart. <br/> Make sure to use the same name as on the merchant's site, so we can find it! :)
-    </p>
+<%= form_for(LineItem.new) do |f| %>
+  <p class="create_line_item_text">
+    We can't track what you're doing on the merchant's site. Please enter the name and size of the item you'd like to add to your cart. <br/> Make sure to use the same name as on the merchant's site, so we can find it! :)
+  </p>
 
-    <div class="field">
-      <%= f.label :name, "Exact name of the item", :class => "create_line_item_text" %><br />
-      <%= f.text_field :name %>
-    </div>
-    <div class="field">
-      <%= f.label :size, :class => "create_line_item_text" %><br />
-      <%= f.select(:size, Item::SIZE_OPTIONS) %>%>
-    </div>
-    <div class="actions">
-      <%= f.submit "Add Item to Cart", :class => "create_line_item" %>
-    </div>
-  <% end %>
+  <div class="field">
+    <%= f.label :name, "Exact name of the item", :class => "create_line_item_text" %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field" id="line_item_size">
+    <%= f.label :size, :class => "create_line_item_text" %><br />
+    <%= f.select(:size, Item::SIZE_OPTIONS) %>
+  </div>
+  <div class="actions">
+    <div class="create_line_item">Add Item to Cart</div>
+ </div>
+<% end %>
 
 
