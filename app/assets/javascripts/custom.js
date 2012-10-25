@@ -37,7 +37,7 @@ $(document).ready(function() {
 		};
 	})
 
-	$(".create_channel").on("click", function(event) {
+	$(".make_channel").on("click", function(event) {
 		var data = {
 		"name": $("#channel_name").val(),
 		"color": $("#channel_color").val(),
@@ -45,14 +45,12 @@ $(document).ready(function() {
 		"price": $("#channel_price").val(),
 		"gender": $("#channel_gender").val(),
 		};
-		console.log(data);
 		$.ajax({
 			type: 'POST',
 			url: "http://localhost:3000/channels.json",
 			data: data,
 			dataType: "json",
 			success: function(data) {
-				console.log(data);
 				$(".inner").hide(500);
 			}
 		});
@@ -87,7 +85,7 @@ $(document).ready(function() {
 		};
 	})
 
-	$("#create_item").on("click", function(event) {
+	$("#make_item").on("click", function(event) {
 		var data = {
 		"title": $("#item_title").val(),
 		"url": $("#item_url").val(),
@@ -96,15 +94,19 @@ $(document).ready(function() {
 		"price": $("#item_price").val(),
 		"gender": $("#item_gender").val(),
 		};
+		console.log("click");
+		
 		$.ajax({
 			type: 'POST',
 			url: "http://localhost:3000/items.json",
 			data: data,
 			dataType: "json",
 			success: function(data) {
+				console.log("success");
 				$(".inner_item").hide(500);
 			}
 		});
+
 	})
 
 	// CART
@@ -132,7 +134,8 @@ $(document).ready(function() {
 		};
 	})
 
-	$(".create_line_item").on("click", function(event) {
+
+	$(".make_line_item").on("click", function(event) {
 		var data = {
 		"name": $("#line_item_name").val(),
 		"size": $("#line_item_size").val()
@@ -147,7 +150,4 @@ $(document).ready(function() {
 			}
 		});
 	})
-
-
-
 });

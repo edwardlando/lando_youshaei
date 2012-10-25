@@ -35,7 +35,7 @@ class StoreController < ApplicationController
       else
       @channel.item_index = 0
       end
-      unless @channel.channel_items.empty?
+      unless @channel.channel_items.empty? 
         @channel_items = @channel.channel_items 
         @current_item = @channel.channel_items[@channel.item_index]
         @item_url = @channel.current_item_url

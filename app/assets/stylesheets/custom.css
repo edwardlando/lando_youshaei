@@ -565,7 +565,7 @@ p .notice {
 	width: 100%;
 }
 
-.create_channel {
+.make_channel {
 	width: 100%;
 	height: 30px;
 	background-color: #39AECF;
@@ -591,7 +591,7 @@ p .notice {
 	font-size: 14px;
 }
 
-#create_item {
+#make_item {
 	width: 100%;
 	height: 30px;
 	background-color: #38E156;
@@ -604,7 +604,7 @@ p .notice {
 	font-size: 14px;
 }
 
-.create_line_item {
+.make_line_item {
 	width: 100%;
 	height: 30px;
 	background-color: #FF8C00;
@@ -618,7 +618,7 @@ p .notice {
 	border: none;
 }
 
-.create_line_item_text {
+.make_line_item_text {
 	color: white !important;
 }
 
@@ -675,6 +675,19 @@ p .notice {
 
 #error_explanation {
 	color: black !important;
+	border: 2px solid lightblue !important;
+	width: 250px !important;
+	display: inline-block;
+}
+
+#error_explanation h2 {
+	color: black !important;
+	background-color: lightblue !important;
+}
+
+.field_with_errors {
+	background-color: lightblue !important;
+	display: inline-block;
 }
 
 
@@ -745,6 +758,7 @@ a:hover {
 	background-color: transparent !important;
 	text-decoration: none;
 }
+
 
 
 
