@@ -134,7 +134,7 @@ $(document).ready(function() {
 		};
 	})
 
-
+    /*
 	$(".make_line_item").on("click", function(event) {
 		var data = {
 		"name": $("#line_item_name").val(),
@@ -147,7 +147,10 @@ $(document).ready(function() {
 			dataType: "json",
 			success: function(data) {
 				$(".inner_add_to_cart").hide(500);
+				console.log(data);
 			}
 		});
+	
 	})
+    */
 });

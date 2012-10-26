@@ -53,7 +53,8 @@ class LineItemsController < ApplicationController
       @line_item.quantity += 1
     else 
       @line_item = LineItem.new(:item_id => @item.id, :cart_id => @cart.id,
-        :current_url => @item.url, :name => params["name"], :size => params["size"])
+        :current_url => @item.url, :name => params[:name], :size => params[:size])
+      @line_item.quantity = 1
     end
     
     respond_to do |format|
