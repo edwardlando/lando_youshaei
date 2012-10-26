@@ -47,7 +47,7 @@ $(document).ready(function() {
 		};
 		$.ajax({
 			type: 'POST',
-			url: "http://localhost:3000/channels.json",
+			url: "/channels.json",
 			data: data,
 			dataType: "json",
 			success: function(data) {
@@ -98,7 +98,7 @@ $(document).ready(function() {
 		
 		$.ajax({
 			type: 'POST',
-			url: "http://localhost:3000/items.json",
+			url: "/items.json",
 			data: data,
 			dataType: "json",
 			success: function(data) {
