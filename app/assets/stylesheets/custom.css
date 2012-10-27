@@ -602,6 +602,7 @@ p .notice {
 	font-size: 16px !important;
 	padding-top: 5px;
 	font-size: 14px;
+	border: none;
 }
 
 .make_line_item {

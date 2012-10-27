@@ -41,14 +41,17 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
-    @item = Item.new(:title => params["title"], :url => params[:url], :color => params["color"], 
-      :style => params["style"], :price => params["price"], :gender => params["gender"])
+    p "****************************************"
+    p params
+    @item = Item.new(:title => params["item"]["title"], :url => params["item"][:url], :color => params["item"]["color"], 
+      :style => params["item"]["style"], :price => params["item"]["price"], :gender => params["item"]["gender"])
 
     @item.user_id = current_user.id
 
     respond_to do |format|
       if @item.save
         format.html { redirect_to @item, :notice => 'Item was successfully created.' }
+        format.js
         format.json { render :json => @item, :status => :created, :location => @item }
       else
         format.html { render :action => "new" }

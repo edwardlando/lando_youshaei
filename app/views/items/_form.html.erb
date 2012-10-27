@@ -1,4 +1,4 @@
-  <%= form_for(Item.new) do |f| %>
+  <%= form_for(Item.new, :remote => true) do |f| %>
     <ul id="item_form">
       <li class="field">
         <%= f.label :title %><br />
@@ -38,7 +38,7 @@
       </li>
    </ul>
    <div class="actions">
-      <div id="make_item">Add this item</div>
+      <%= f.submit "Make this item", :id => "make_item" %>
    </div>
   <% end %>
 

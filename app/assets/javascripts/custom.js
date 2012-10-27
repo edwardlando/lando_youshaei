@@ -85,7 +85,9 @@ $(document).ready(function() {
 		};
 	})
 
+	/*
 	$("#make_item").on("click", function(event) {
+		console.log("********************************")
 		var data = {
 		"title": $("#item_title").val(),
 		"url": $("#item_url").val(),
@@ -94,7 +96,7 @@ $(document).ready(function() {
 		"price": $("#item_price").val(),
 		"gender": $("#item_gender").val(),
 		};
-		console.log("click");
+		console.log("click??");
 		
 		$.ajax({
 			type: 'POST',
@@ -108,6 +110,8 @@ $(document).ready(function() {
 		});
 
 	})
+
+    */
 
 	// CART
 
