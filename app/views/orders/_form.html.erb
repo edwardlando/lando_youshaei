@@ -15,6 +15,11 @@
 
   <%= f.hidden_field :stripe_card_token %>
 
+  <% if current_user.stripe_customer_token.present? %>
+    Welcome back 
+    <%= f.hidden_field :name, :value => current_user.username %>
+    <%= f.hidden_field :address , :value => current_user.address %>
+  <% else %>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name, :size => 40 %>
@@ -23,9 +28,6 @@
     <%= f.label :address %><br />
     <%= f.text_area :address, :rows => 3, :cols => 40 %>
   </div>
-  <% if @order.stripe_card_token.present? %>
-    Credit card has been provided.
-  <% else %>
     <div class="field">
       <%= label_tag :card_number, "Credit Card Number" %>
       <%= text_field_tag :card_number, nil, :name => nil %>
