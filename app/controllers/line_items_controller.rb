@@ -41,6 +41,8 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
 
   def create
+    p "***************************************************"
+    p params
     @user = current_user
     @channel = current_user.current_channel
     @item = @channel.current_item
@@ -53,7 +55,8 @@ class LineItemsController < ApplicationController
       @line_item.quantity += 1
     else 
       @line_item = LineItem.new(:item_id => @item.id, :cart_id => @cart.id,
-        :current_url => @item.url, :name => params[:name], :size => params[:size])
+        :current_url => @item.url, :name => params["line_item"]["name"],
+        :size => params["line_item"]["size"])
       @line_item.quantity = 1
     end
     

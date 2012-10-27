@@ -497,6 +497,10 @@ p .notice {
 	display: none;
 }
 
+.inner_add_to_cart .field {
+    display: inline-block;
+}
+
 .inner li {
 	display: inline-block;
 	list-style-type: none;
@@ -759,6 +763,11 @@ a:hover {
 	background-color: transparent !important;
 	text-decoration: none;
 }
+
+.create_line_item_text {
+	color: white !important;
+}
+
 
 
 
