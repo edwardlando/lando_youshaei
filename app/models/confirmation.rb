@@ -29,7 +29,7 @@ class Confirmation < ActiveRecord::Base
     total_cents = self.total * 100
     # charge the Customer 
     Stripe::Charge.create(
-        :amount => total_cents.to_i, # price
+        :amount => total_cents.to_i, # price in cents
         :currency => "usd",
         :customer => customer.id
     )

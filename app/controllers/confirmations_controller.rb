@@ -124,8 +124,9 @@ class ConfirmationsController < ApplicationController
     @confirmation.save_and_make_payment(@customer)
    
     respond_to do |format|
-        format.html { redirect_to root_path }
-        format.json { render :json => @confirmation, :id => @confirmation.id }
+        format.html { redirect_to root_path, :notice => "Yay! Thanks for your order! We hope you'll love your new
+          clothes. You will shortly receive a confirmation email :)" }
+        format.json { }#}render :json => @confirmation, :id => @confirmation.id }
     end
 
   end

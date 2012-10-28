@@ -13,7 +13,15 @@
   <%= f.hidden_field :stripe_card_token %>
 
   <% if current_user.stripe_customer_token.present? %>
-    Welcome back 
+    Welcome back <%= current_user.username %>! <br /> <br/>
+
+    You've expressed interest in buying the following items. <br/> We'll go over your request once you submit it and get back to you with a confirmation. <br /><br />
+
+    <% @cart.line_items.each do |item| %>
+      <li> <%= item.name %> (Quantity: <%= item.quantity %>) </li>
+    <% end %>
+
+
     <%= f.hidden_field :name, :value => current_user.username %>
     <%= f.hidden_field :address , :value => current_user.address %>
   <% else %>

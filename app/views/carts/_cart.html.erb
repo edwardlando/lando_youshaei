@@ -3,8 +3,7 @@
 	<ul class="cart_line_item">
 	<% current_user.cart.line_items.each do |line_item| %>
         <li>
-        <strong> Original item name: </strong>
-        <%= line_item.name %> (<strong>Quantity: </strong> <%= line_item.quantity %>) 
+        <%= line_item.name %> (Quantity: <%= line_item.quantity %>) 
        </li>
     <% end %>
   </ul>

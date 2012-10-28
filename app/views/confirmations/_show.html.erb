@@ -18,7 +18,7 @@
     <!-- STANDARD USER NOT PAYED-->
     <% elsif ((current_user.role == "standard" || current_user.role == "tastemaker") && @confirmation.status == "sent_to_customer")  %>
       
-      Hey! Here's the list of items we've compiled from your request. 
+      <h2>Hello there!</h2> <br/>Here's the list of items we've compiled from your recent request. 
       <p>Items requested:</p> 
       <ul>
 	  <% @confirmation.line_items.each do |item| %>

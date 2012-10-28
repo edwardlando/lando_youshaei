@@ -35,7 +35,7 @@
 		<% if @channel %>
 		<div class="contributed_by">
 			<br/><br/>
-			<% unless @channel.current_item.nil? || current_user.nil? %>
+			<% unless @channel.current_item.nil? || current_user.nil? || current_user.role == "admin"  %>
 			  Fashion consultant for this item: <a href src="#"><%= @channel.current_item.user.email %></a>
 			<% end %> 
 		</div>
