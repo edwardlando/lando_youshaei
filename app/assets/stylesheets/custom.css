@@ -569,7 +569,7 @@ p .notice {
 	width: 100%;
 }
 
-.make_channel {
+#make_channel {
 	width: 100%;
 	height: 30px;
 	background-color: #39AECF;
@@ -580,6 +580,7 @@ p .notice {
 	font-size: 16px !important;
 	padding-top: 5px;
 	font-size: 14px;
+	border: none;
 }
 
 #landing_create {

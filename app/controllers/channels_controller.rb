@@ -53,8 +53,9 @@ class ChannelsController < ApplicationController
   def create
 
     @channels = Channel.all
-    @channel = Channel.new(:name => params["name"], :color => params["color"], 
-      :style => params["style"], :price => params["price"], :gender => params["gender"])
+    @channel = Channel.new(:name => params["channel"]["name"], :color => params["channel"]["color"], 
+      :style => params["channel"]["style"], :price => params["channel"]["price"],
+      :gender => params["channel"]["gender"])
     
     # Users who are logged in
     @channel.user_id = current_user.id
@@ -74,6 +75,7 @@ class ChannelsController < ApplicationController
     respond_to do |format|
       if @channel.save
         format.html { redirect_to @channel, :notice => 'Channel was successfully created.' }
+        format.js
         format.json { render :json => @channel, :status => :created, :location => @channel }
       else
         format.html { render :action => "new" }
