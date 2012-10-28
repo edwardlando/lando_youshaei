@@ -41,8 +41,6 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
 
   def create
-    p "***************************************************"
-    p params
     @user = current_user
     @channel = current_user.current_channel
     @item = @channel.current_item

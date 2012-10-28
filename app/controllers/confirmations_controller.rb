@@ -57,15 +57,6 @@ class ConfirmationsController < ApplicationController
     
     @confirmation.total = @confirmation.calculate_total
 
-    # not sure if this part works
-    #@confirmation.line_items.each do |item|
-      #if params[:id] == item.id
-        #item.name == params[:name]
-        #item.current_url == params[:current_url]
-        #item.price == params[:price]
-      #end
-    #end
-
     @customer = @order.retrieve_customer 
 
     respond_to do |format|
@@ -92,15 +83,6 @@ class ConfirmationsController < ApplicationController
     @order.confirmation_id = @confirmation.id
     
     @confirmation.total = @confirmation.calculate_total
-
-    # not sure if this part works
-    #@confirmation.line_items.each do |item|
-      #if params[:id] == item.id
-        #item.name = params[:name]
-        #item.current_url = params[:current_url]
-        #item.price = params[:price]
-      #end
-    #end
 
     @customer = @order.retrieve_customer 
 
@@ -134,19 +116,16 @@ class ConfirmationsController < ApplicationController
   def accept_to_pay
     @confirmation = Confirmation.find(params[:id])
     @order = @confirmation.order
-
     @customer = @order.retrieve_customer 
-    @confirmation.save_and_make_payment(@customer)  # payment is made here
-    @confirmation.status = "payed"
+    p @customer
+    p "CASHED OUT *******************************************"
+    # @confirmation.save_and_make_payment(@customer)  # payment is made here
+    # @confirmation.status = "payed"
+    @confirmation.save_and_make_payment(@customer)
    
     respond_to do |format|
-      if @confirmation.save
-        format.html { redirect_to root_path, :notice => 'Yay! Your order was placed. Your clothes will be shipped shortly' }
+        format.html { redirect_to root_path }
         format.json { render :json => @confirmation, :id => @confirmation.id }
-      else
-        format.html { render :action => "new" }
-        format.json { render :json => @confirmation.errors, :status => :unprocessable_entity }
-      end
     end
 
   end

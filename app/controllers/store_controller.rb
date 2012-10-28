@@ -12,8 +12,8 @@ class StoreController < ApplicationController
 
       # Handling orders and confirmations
       unless (@orders.nil? || @orders.empty? || @confirmations.nil? || @confirmations.empty? )
-        @confirmation = Confirmation.find_by_user_id(@user.id)  # might need an index
-        @order = @confirmation.order 
+        @confirmation = Confirmation.find_by_user_id_and_status(@user.id, "sent_to_customer")  # might need an index
+        @order = @confirmation.order unless @confirmation.nil?
         if params[:confirmation_status]
           @confirmation.status = params[:confirmation_status]
           @confirmation.save

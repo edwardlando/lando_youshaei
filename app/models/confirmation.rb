@@ -24,12 +24,16 @@ class Confirmation < ActiveRecord::Base
 
   def save_and_make_payment(customer)
     if valid?    
+    p self.total
+    self.status = "payed"
+    total_cents = self.total * 100
     # charge the Customer 
     Stripe::Charge.create(
-        :amount => self.total*100, # price
+        :amount => total_cents.to_i, # price
         :currency => "usd",
         :customer => customer.id
     )
+    p "INFO: charge made without error"
       save!
     end
     rescue Stripe::InvalidRequestError => e

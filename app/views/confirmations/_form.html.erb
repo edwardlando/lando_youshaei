@@ -1,8 +1,4 @@
 <div class="order_confirmation_form">
-  <% if current_user.role == "standard" %>
-    Thank you for submitting your order. We'll get back to you soon to confirm the items and prices.
-  <% elsif current_user.role == "admin" %>
-
     <h1>Order summary</h1>
 
     <p>Order Id: <%= @order.id %></p>
@@ -37,7 +33,7 @@
   
     <!-- nested form -->
 
-    <h1>Input actual item names, URLS, <br /> and prices + total </h1>
+    <h2>Input actual item names, URLs and prices </h2>
 
     <%= f.fields_for :line_items do |builder| %> 
       <%= builder.hidden_field :id %>
@@ -59,8 +55,4 @@
       <%= f.submit "Send confirmation to customer" %>
     </div>
   <% end %>
-
-
-<% end %>
-
 </div>
