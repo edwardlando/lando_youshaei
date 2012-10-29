@@ -54,6 +54,7 @@ class ConfirmationsController < ApplicationController
 
     @confirmation.order_id = @order.id
     @order.confirmation_id = @confirmation.id
+    @order.save
     
     @confirmation.total = @confirmation.calculate_total
 

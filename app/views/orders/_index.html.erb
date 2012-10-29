@@ -2,7 +2,17 @@
   <h1>Listing orders</h1>
 
   <% @orders.each do |order| %>
-    <%= link_to "Order number #{order.id}", {:controller => "confirmations", :action => "new", :order_id => order.id }%> | created_at <%= order.created_at %> </br>  
+    <% unless order.confirmation.nil? %>
+	    <% if order.confirmation.status == "sent_to_customer" %> 
+		    <%= link_to "SENT TO CUSTOMER | Order #{order.id}", {:controller => "confirmations", :action => "show", :id => order.confirmation.id } %> | <%= order.created_at.in_time_zone("Eastern Time (US & Canada)") %>
+		    <br/>  
+		<% elsif order.confirmation.status == "payed" || order.confirmation.status == "payed_and_aknowledged" %> 
+		    <%= link_to "PAYED | Order #{order.id}", {:controller => "confirmations", :action => "show", :id => order.confirmation.id } %> | <%= order.created_at.in_time_zone("Eastern Time (US & Canada)") %>
+    <% end %>
+    <% else %>
+	    <%= link_to "REQUESTED | Order number #{order.id}", {:controller => "confirmations", :action => "new", :order_id => order.id }%> | <%= order.created_at.in_time_zone("Eastern Time (US & Canada)") %>
+	    </br>  
+    <% end %>
   <% end %>
 </div>
 
