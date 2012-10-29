@@ -3,7 +3,9 @@
 	<ul class="cart_line_item">
 	<% current_user.cart.line_items.each do |line_item| %>
         <li>
-        <%= line_item.name %> (Quantity: <%= line_item.quantity %>) 
+        <%= line_item.name %> (<%= line_item.quantity %>) &nbsp &nbsp 
+        <%= link_to "remove", line_item, :method => :delete,
+          :remote => true  %>
        </li>
     <% end %>
   </ul>

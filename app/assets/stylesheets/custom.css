@@ -29,7 +29,7 @@ a {
 }
 
 .welcome_message h1, .welcome_message h1 a  {
-	color: rgba(204,204,204,0.8);
+	color: #59b4ae;
 	font-family: 'Futura';
 	text-align: center;
 	font-size: 48px;
@@ -111,7 +111,7 @@ a {
 .title a, .title a:visited{
 	/*color: rgba(255, 255, 255, 0.8);
 	font-family: 'Proxima Nova Regular','Helvetica Neue',Sans-serif; */
-	color: rgba(204,204,204,0.8);
+	color: #59b4ae; /*rgba(204,204,204,0.8) */
 	font-family: 'Futura';
 }
 
