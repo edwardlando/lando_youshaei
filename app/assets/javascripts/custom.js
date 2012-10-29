@@ -40,7 +40,8 @@ $(document).ready(function() {
  
     // Highlighting selected option
 	$(".option").on("click", function(event) {
-		this.style.border = '1px solid black';
+		/* this.style.border = '1px solid black'; */
+		this.style.color = 'lightblue';
 	});
 
 	// USER PROFILE

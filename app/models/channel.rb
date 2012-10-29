@@ -9,13 +9,13 @@ class Channel < ActiveRecord::Base
   # we'll also sort by best rating
 
   COLOR_OPTIONS = ["White", "Grey", "Black", "Red", "Green", "Blue", "Pink", "Brown", "Yellow", "Orange",
-                   "Purple", "All_colors"]
+                   "Purple", "All"]
 
-  STYLE_OPTIONS = ["Elegant", "Casual", "Preppy", "Hipster", "All_styles"]
+  STYLE_OPTIONS = ["Elegant", "Casual", "Preppy", "Hipster", "All"]
 
-  PRICE_OPTIONS = ["50", "100", "200", "All_prices"]
+  PRICE_OPTIONS = ["50", "100", "200", "All"]
 
-  GENDER_OPTIONS = ["Male", "Female", "Unisex"]
+  GENDER_OPTIONS = ["Female", "Male", "Unisex"]
 
 
   def channel_items
@@ -26,8 +26,8 @@ class Channel < ActiveRecord::Base
 
     items = []
     Item.all.each do |item|
-    	if  (channel_color == item.color || channel_color == "All_colors") &&
-    	    (item.style == channel_style || channel_style == "All_styles") &&
+    	if  (channel_color == item.color || channel_color == "All") &&
+    	    (item.style == channel_style || channel_style == "All") &&
     	    (item.price <= channel_price || channel_price.to_s == "0.0" || channel_price.to_s == "0") &&
     	    (item.gender == channel_gender || channel_gender == "Unisex")
     	      items << item

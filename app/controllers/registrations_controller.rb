@@ -16,7 +16,7 @@ class RegistrationsController < Devise::RegistrationsController
 	    resource.wishlist = Wishlist.new(:user_id => resource.id)
 	    
 	    # Initial channel for the user
-	    @channel = Channel.new(:color => "All_colors", :style => "All_styles", :price => "All_prices", :gender => "Unisex",
+	    @channel = Channel.new(:color => "All", :style => "All", :price => "All", :gender => "Unisex",
     :user_id => resource.id, :item_index => 0, :name => "My first channel")
 	    @channel.current_channel = true
 	    @channel.save

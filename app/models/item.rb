@@ -16,7 +16,7 @@ class Item < ActiveRecord::Base
 
   PRICE_OPTIONS = ["50", "100", "200"]
 
-  GENDER_OPTIONS = ["Male", "Female"]
+  GENDER_OPTIONS = ["Female", "Male"]
 
   SIZE_OPTIONS = ["Extra Small", "Small", "Medium", "Large", "Extra Large"]
 

@@ -336,131 +336,160 @@ p .notice {
 
 /* Highlighting is taken care of in the js file */
 
-#All_colors {
+#ColorAll {
 	width: 60px;
 	height: 60px;
 	border: none;
 	color: white;
 }
 
-#White {
+#ColorWhite {
 	background: white;
 }
 
-#Black {
+#ColorBlack {
 	background: black;
 }
 
-#Red {
+#ColorRed {
 	background: #FE3F44;
 }
 
-#Green {
+#ColorGreen {
 	background: #38E156;
 }
 
-#Blue {
+#ColorBlue {
 	background: #39AECF;
 }
 
-#Yellow {
+#ColorYellow {
 	background: #FFD200;
 }
 
-#Pink {
+#ColorPink {
 	background: #E439A1;
 }
 
-#Grey {
+#ColorGrey {
 	background: #777;
 }
 
-#Brown {
+#ColorBrown {
 	background: #563416;
 }
 
-#Purple {
+#ColorPurple {
 	background: #8106A9;
 }
 
-#Orange {
+#ColorOrange {
 	background: #FF7400;
 }
 
-#All_styles { 
-   height: 60px;
-   width: 60px;
+#StyleAll { 
+   position: relative;
+   font-size: 14px;
+   height: 40px;
+   width: 200px;
+   color: white;
    border: none;
-   color: white;
 }
 
-#Elegant {
-   height: 60px;
-   width: 60px;
+#StyleElegant {
+   position: relative;
+   font-size: 14px;
+   height: 40px;
+   width: 200px;
    color: white;
-
+   border: none;
 }
 
-#Casual {
-   height: 60px;
-   width: 60px;
+#StyleCasual {
    color: white;
+   font-size: 14px;
+   height: 40px;
+   width: 200px;
+   border: none;
 }
 
-#Preppy {
-   height: 60px;
-   width: 60px;
+#StylePreppy {
    color: white;
+   font-size: 14px;
+   height: 40px;
+   width: 200px;
+   border: none;
 }
 
-#Hipster {
-   height: 60px;
-   width: 60px;
+#StyleHipster {
    color: white;
+   font-size: 14px;
+   height: 40px;
+   width: 200px;
+   border: none;
 }
 
 #Unisex {
-   height: 60px;
-   width: 60px;
-   border: none;
+   position: relative;
+   font-size: 14px;
+   height: 40px;
+   width: 200px;
    color: white;
+   border: none;
 }
 
 #Male {
-   height: 60px;
-   width: 60px;
+   position: relative;
+   font-size: 14px;
+   height: 40px;
+   width: 200px;
    color: white;
+   border: none;
 }
 
 #Female {
-   height: 60px;
-   width: 60px;
+   position: relative;
+   font-size: 14px;
+   height: 40px;
+   width: 200px;
    color: white;
+   border: none;
 }
 
-#UnderAll_prices {
-   height: 60px;
-   width: 60px;
-   border: none;
+#UnderAll {
+   position: relative;
+   font-size: 14px;
+   height: 40px;
+   width: 200px;
    color: white;
+   border: none;
 }
 
 #Under50 {
-   height: 60px;
-   width: 60px;
+   position: relative;
+   font-size: 14px;
+   height: 40px;
+   width: 200px;
    color: white;
+   border: none;
 }
 
 #Under100 {
-   height: 60px;
-   width: 60px;
+   position: relative;
+   font-size: 14px;
+   height: 40px;
+   width: 200px;
    color: white;
+   border: none;
 }
 
 #Under200 {
-   height: 60px;
-   width: 60px;
+   position: relative;
+   font-size: 14px;
+   height: 40px;
+   width: 200px;
    color: white;
+   border: none;
 }
 
 #channel_name, #item_title {
