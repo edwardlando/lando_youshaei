@@ -27,11 +27,11 @@
   <% else %>
   <div>Please enter your payment information below. We'll go over the items you've added, and we'll get back to you and ask you to confirm your purchase before we charge you.</div> <br/> <br/>
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name, "Your Name" %><br />
     <%= f.text_field :name, :size => 40 %>
   </div>
   <div class="field">
-    <%= f.label :address %><br />
+    <%= f.label :address, "Shipping Address" %><br />
     <%= f.text_area :address, :rows => 3, :cols => 40 %>
   </div>
     <div class="field">

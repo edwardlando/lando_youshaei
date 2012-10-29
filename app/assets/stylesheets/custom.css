@@ -132,7 +132,7 @@ a {
 }
 
 .my_profile li a{
-	color: #39AECF;
+	color: #59B4AE;
 }
 
 .my_profile {
@@ -331,7 +331,7 @@ p .notice {
 }
 
 .option:hover {
-	border: 1px solid lightblue;
+	border: 1px solid #59B4AE;
 }
 
 /* Highlighting is taken care of in the js file */
@@ -573,7 +573,7 @@ p .notice {
 }
 
 .user_profile_partial li a, .cart_partial li a {
-	color: #39AECF;
+	color: #59B4AE;
 }
 
 .profile_subtitle {
@@ -710,18 +710,18 @@ p .notice {
 
 #error_explanation {
 	color: black !important;
-	border: 2px solid lightblue !important;
+	border: 2px solid #59B4AE !important;
 	width: 250px !important;
-	display: inline-block;
+	display: inline-block; 
 }
 
 #error_explanation h2 {
 	color: black !important;
-	background-color: lightblue !important;
+	background-color: #59B4AE !important;
 }
 
 .field_with_errors {
-	background-color: lightblue !important;
+	background-color: #59B4AE !important;
 	display: inline-block;
 }
 
@@ -754,14 +754,14 @@ p .notice {
 }
 
 .orders a, .orders a:hover, .orders a:visited {
-	color: lightblue;
+	color: #59B4AE;
 	text-align: center;
 	text-decoration: none;
 	background-color: transparent;
 }
 
 .order_confirmation_form a, .order_confirmation_form a:hover, .order_confirmation_form a:visited {
-	color: lightblue;
+	color: #59B4AE;
 	text-decoration: none;
 	background-color: transparent;
 }
@@ -781,11 +781,11 @@ p .notice {
 }
 
 .contributed_by a, .contributed_by a:visited {
-	color: lightblue;
+	color: #59B4AE;
 }
 
 .footer a {
-    color: lightblue !important;
+    color: #59B4AE !important;
 }
 
 a:hover {
