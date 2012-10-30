@@ -31,17 +31,30 @@ $(document).ready(function() {
 	$("#new_channel_button").on("click", function(event) {
 		wantToCreate = !wantToCreate;
 		if (wantToCreate == true) {
-			$(".inner").show(500);
+			$(".inner").slideDown(500);
 		} else {
-			$(".inner").hide(500);
+			$(".inner").slideUp(500);
 		};
 	})
 
  
     // Highlighting selected option
+
+    var colorOptions = ["ColorWhite", "ColorGrey", "ColorBlack", "ColorRed", "ColorGreen", "ColorBlue",
+    "ColorPink", "ColorBrown", "ColorYellow", "ColorOrange", "ColorPurple", "ColorAll"]
+
+    var styleOptions = ["StyleElegant", "StyleCasual", "StylePreppy", "StyleHipster", "StyleAll"]
+
+    var priceOptions = ["Under50", "Under100", "Under200", "UnderAll"]
+
+    var genderOptions = ["Female", "Male", "Unisex"]
+
+
+    var optionSelected = false;
+    var optionCount = 0;
 	$(".option").on("click", function(event) {
-		/* this.style.border = '1px solid black'; */
-		this.style.color = '#59B4AE';
+		optionCount ++;
+			this.style.color = '#59B4AE';
 	});
 
 	// USER PROFILE
@@ -50,9 +63,9 @@ $(document).ready(function() {
 	$("#my_profile").on("click", function(event) {
 		wantToSeeProfile = !wantToSeeProfile;
 		if (wantToSeeProfile == true) {
-			$(".inner_user").show(500);
+			$(".inner_user").slideDown(500);
 		} else {
-			$(".inner_user").hide(500);
+			$(".inner_user").slideUp(500);
 		};
 	})
 
@@ -62,9 +75,9 @@ $(document).ready(function() {
 	$("#new_item_button").on("click", function(event) {
 		wantToCreateItem = !wantToCreateItem;
 		if (wantToCreateItem == true) {
-			$(".inner_item").show(500);
+			$(".inner_item").slideDown(500);
 		} else {
-			$(".inner_item").hide(500);
+			$(".inner_item").slideUp(500);
 		};
 	})
 
@@ -75,9 +88,9 @@ $(document).ready(function() {
 	$("#my_cart").on("click", function(event) {
 		wantToSeeCart = !wantToSeeCart;
 		if (wantToSeeCart == true) {
-			$(".inner_cart").show(500);
+			$(".inner_cart").slideDown(500);
 		} else {
-			$(".inner_cart").hide(500);
+			$(".inner_cart").slideUp(500);
 		};
 	})
 
@@ -88,9 +101,9 @@ $(document).ready(function() {
 	$("#add_to_cart_link").on("click", function(event) {
 		wantToAddToCart = !wantToAddToCart ;
 		if (wantToAddToCart  == true) {
-			$(".inner_add_to_cart").show(500);
+			$(".inner_add_to_cart").slideDown(500);
 		} else {
-			$(".inner_add_to_cart").hide(500);
+			$(".inner_add_to_cart").slideUp(500);
 		};
 	})
 
