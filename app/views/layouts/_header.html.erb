@@ -9,37 +9,34 @@
 				<strong><%- current_user.email %></strong>
 				<% unless current_user.nil? %>
 					<% if current_user.role == "tastemaker" || current_user.role == "admin" %>
-						<div class="add" id="new_item_button">+ Item</div>
+						<div class="add" id="new_item_button">+item</div>
 					<% end %>
-						<div class="add" id="new_channel_button">+ Channel</div>
+						<div class="add" id="new_channel_button">+channel</div>
 						<% unless @channel.channel_items.empty? %>
-							<div class="add" id="add_to_cart_link">+ Cart</div>  
-							<div class="add"><%= link_to "+ Wishlist", {:controller => "users", :action => "add_to_wishlist", :remote => true } %></div> 
+							<div class="add" id="add_to_cart_link">+cart</div>  
+							<div class="add"><%= link_to "+wishlist", {:controller => "users", :action => "add_to_wishlist", :remote => true } %></div> 
 						<% end %>
 						<div id="verticaldivider"><%= image_tag("bar_light_verticaldivider.png")%></div>
-						<div class="add" id="my_profile"><%= image_tag("bar_profile_icon.png")%></div>
-						<div class="add" id="my_cart"><%= image_tag("bar_shoppingbag_icon.png")%></div>
+						<div class="header_icon" id="my_profile"><%= image_tag("bar_profile_icon.png")%></div>
+						<div class="header_icon" id="my_cart"><%= image_tag("bar_shoppingbag_icon.png")%></div>
 						<% if current_user.can_vote_for?(@channel.current_item) && !(@channel.current_item.nil?) %>
-						    <div class="add" id="downvote"><%= link_to image_tag("bar_thumbsdown_icon.png"), vote_item_path(@channel.current_item.id, value: -1), method: "post" %></div>
-							<div class="add" id="upvote"><%= link_to image_tag("bar_thumbsup_icon.png"), vote_item_path(@channel.current_item.id, value: 1), method: "post" %></div>
+						    <div class="header_icon"id="downvote"><%= link_to image_tag("bar_thumbsdown_icon.png"), vote_item_path(@channel.current_item.id, value: -1), method: "post" %></div>
+							<div class="header_icon"id="upvote"><%= link_to image_tag("bar_thumbsup_icon.png"), vote_item_path(@channel.current_item.id, value: 1), method: "post" %></div>
 						<% end %>
 				<% end %>
-				<p class="next"> 
 					<% if !(@channel.channel_items[@channel.item_index+1].nil?) %>
-						<div id="next_icon"><%= link_to image_tag("bar_next_icon.png"), {:controller => "store", :action => "index", :index => @channel.item_index+1 } %></div>
+						<div class ="header_icon" id="next_icon"><%= link_to image_tag("bar_next_icon.png"), {:controller => "store", :action => "index", :index => @channel.item_index+1 } %></div>
 					<% end %>
-				</p>
 			<% else %>
 				<p class="title"><%= link_to "AVEECE", root_path %></p>
 			<% end %>
-		</div>
-		<% if @channel %>
-		<div class="contributed_by">
-			<br/><br/>
-			<% unless @channel.current_item.nil? || current_user.nil? || current_user.role == "admin"  %>
-			  Fashion consultant for this item: <a href src="#"><%= @channel.current_item.user.email %></a>
-			<% end %> 
-		</div>
+			<% if @channel %>
+		    <div class="contributed_by">
+				<% unless @channel.current_item.nil? || current_user.nil? || current_user.role == "admin"  %>
+				  Fashion consultant for this item: <a href src="#"><%= @channel.current_item.user.email %></a>
+				<% end %> 
+		    </div>
 		<% end %>
+		</div>
 	</div>
 </div>
