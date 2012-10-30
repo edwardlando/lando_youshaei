@@ -140,6 +140,17 @@ Which living room design do you prefer?
 			start off by ordering for them (maybe just take the link)
 			get something out there and iterate
 
+		Youshaei feedback v1 - 
+			see email
+			make arrow flat
+			tastemakers should not have the same interface
+			landing page should prompt user to make a channel
+			thumbs up is add to wishlist
+			have color of the top bar match the inside of the buttons
+			thumbs up thumbs down are too compressed
+			
+
+
 
 
 

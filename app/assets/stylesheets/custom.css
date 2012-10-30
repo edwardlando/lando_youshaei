@@ -5,6 +5,18 @@ html, body {
 
 }
 
+@font-face {
+    font-family:'poiret_oneregular';
+    src: url('poiretone-regular-webfont.eot');
+    src: url('poiretone-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('poiretone-regular-webfont.woff') format('woff'),
+         url('poiretone-regular-webfont.ttf') format('truetype'),
+         url('poiretone-regular-webfont.svg#poiret_oneregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 body {
 	margin:0;
 	padding:0;
@@ -43,7 +55,8 @@ a {
 
 .welcome_message h2 {
 	color: rgba(204,204,204,0.8);
-	font-family: 'Futura';
+	font-family: 'poiret_oneregular';
+	font-weight: italic;
 	text-align: center;
 	font-size: 24px;
 }
@@ -127,9 +140,11 @@ a {
 }
 
 #my_profile img, #my_cart img, #downvote img, #upvote img, #next_icon img {
-	width: 23px;
-	height: 23px;
+	width: 22px;
+	height: 25px;
 }
+
+
 
 #verticaldivider img {
 	height: 23px;
@@ -166,7 +181,9 @@ p .notice {
 }
 
 .add {
-	background-color: transparent; ;
+	background-color: transparent;
+	font-family: 'poiret_oneregular' !important;
+	font-size: 13px !important;
 	width: 56px;
 	height: 21px;
 	margin: 0;
@@ -199,6 +216,7 @@ p .notice {
 
 .contributed_by {
 	color: white;
+	font-family: 'poiret_oneregular';
 	font-style: italic;
 	font-size: 11.5px;
 	width: 120px;
@@ -836,10 +854,13 @@ a:hover {
 }
 
 .splashpage_flourish {
-	margin-top: 30px;
-	text-align: center;
+	margin-top: 50px;
+	margin: 0 auto;
 }
 
+.splashpage_flourish img {
+	width: 340px;
+}
 
 
 
