@@ -7,6 +7,12 @@ vevey/vevey-webfont.svg: vevey/vevey-webfont-b850ad04ffdda003b1a9dd4963a4f8cb.sv
 vevey/vevey-webfont.ttf: vevey/vevey-webfont-6ff32661b8d89e458a56f4b185e9e0eb.ttf
 vevey/vevey-webfont.woff: vevey/vevey-webfont-f925953fbd801c55681a4f4fbad66e1a.woff
 all.png: all-a1d9e80c2b06f3b19bd23354cbc2b587.png
+bar_light_verticaldivider.png: bar_light_verticaldivider-46367d3319fb942a72681267e5f19212.png
+bar_next_icon.png: bar_next_icon-024be8d0295c31f00b16fd774345b7d3.png
+bar_profile_icon.png: bar_profile_icon-fd4d9d58be6fc0eaa14f33fc569fb81f.png
+bar_shoppingbag_icon.png: bar_shoppingbag_icon-b6b75ba93f5ea1da4f02b67b08dbe6c8.png
+bar_thumbsdown_icon.png: bar_thumbsdown_icon-651420d9afd50da3bb1dfacc3acbcc9d.png
+bar_thumbsup_icon.png: bar_thumbsup_icon-9131662d921b842e3f9bdbf5a23133ba.png
 classy_fabric.png: classy_fabric-0e4c3c151c922748dfe43a179509e3f7.png
 dark_Tire.png: dark_Tire-4d401379dde56106320a12aadc0740bf.png
 dark_wood.png: dark_wood-2e12f47377e42f9fec15ff0566735d96.png
@@ -17,7 +23,8 @@ noisy_net.png: noisy_net-a3577764b40dadd220477793cd4f60d7.png
 pattern1.jpg: pattern1-e6fc2c6abdf9d71468fba80484628e37.jpg
 rails.png: rails-be8732dac73d845ac5b142c8fb5f9fb0.png
 random_grey_variations.png: random_grey_variations-0f27cdf80c89bd1a7ae950d96c4b72fb.png
+splashpage_flourish.png: splashpage_flourish-fca65ede2ce1893a299895eceee08be3.png
 subtle_carbon.png: subtle_carbon-b053a1f110f750d58d090f7cc7b9c30b.png
 txture.png: txture-900a4e6de1be9cc65aab31cc1ebc0c9a.png
 application.js: application-ab2433af3aa26b38b983f92564cbe0ee.js
-application.css: application-cb9d09c6574fc00aab01418c7c7c80a9.css
+application.css: application-91d6c85367e8fd583c87a20e1593766f.css
