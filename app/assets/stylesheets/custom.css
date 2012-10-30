@@ -126,6 +126,16 @@ a {
 	position: relative;
 }
 
+#my_profile img, #my_cart img, #downvote img, #upvote img, #next_icon img {
+	width: 23px;
+	height: 23px;
+}
+
+#verticaldivider img {
+	height: 23px;
+}
+
+
 #header-container {
 	margin: 0 auto;
 	width: 900px;
@@ -798,7 +808,10 @@ a:hover {
 	color: white !important;
 }
 
-
+.splashpage_flourish {
+	margin-top: 30px;
+	text-align: center;
+}
 
 
 

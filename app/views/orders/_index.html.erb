@@ -8,6 +8,7 @@
 		    <br/>  
 		<% elsif order.confirmation.status == "payed" || order.confirmation.status == "payed_and_aknowledged" %> 
 		    <%= link_to "PAYED | Order #{order.id}", {:controller => "confirmations", :action => "show", :id => order.confirmation.id } %> | <%= order.created_at.in_time_zone("Eastern Time (US & Canada)") %>
+		    <br/> 
     <% end %>
     <% else %>
 	    <%= link_to "REQUESTED | Order number #{order.id}", {:controller => "confirmations", :action => "new", :order_id => order.id }%> | <%= order.created_at.in_time_zone("Eastern Time (US & Canada)") %>
