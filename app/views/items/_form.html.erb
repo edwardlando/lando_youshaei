@@ -23,7 +23,7 @@
         <%= f.select(:style, Item::STYLE_OPTIONS) %>   
         <div class="picker">
             <% Item::STYLE_OPTIONS.each do |style| %>
-           <div class="option" id="Style<%=style%>"> <%= style %> </div>
+           <div class="option" id="Style<%=style%>"><%= style %> </div>
           <% end %>
         </div>
       </li>

@@ -182,8 +182,8 @@ a {
 	position: relative;
 }
 
-#new_channel {
-	float: left;
+form label {
+	font-weight: 600;
 }
 
 #my_cart img, #next_icon img, #share_icon img, #downvote img, #upvote img{
@@ -427,32 +427,52 @@ p .notice {
 .picker {
 	top: 19px;
 	height: 70px;
+	width: 200px;
+}
+
+#item_color + .picker, #channel_color + .picker {
 	width: 150px;
 }
 
-.option, .selected {
+/* Highlighting is taken care of in the js file */
+
+.picker span:hover {
+	color: rgb(89, 180, 174);
+}
+
+.picker > .option {
+	color: white;
+   	font-size: 14px;
+   	font-family: 'poiret_oneregular' !important;
+   	height: auto;
+   	width: auto;
+   	border: none;
+   	margin-top: 5px;
+}
+
+#item_color + .picker > .option, #channel_color + .picker > .option, .selected {
     font-size: 10px;
 	width: 40px;
 	height: 40px;
 	border: 1px solid white;
 	margin: 1px;
-	float: left;
 	cursor: pointer;
 	position: relative;
 	color: transparent;
+	float: left;
 }
 
-.option:hover {
+#channel_color + .picker > .option:hover {
 	border: 1px solid #59B4AE;
 }
-
-/* Highlighting is taken care of in the js file */
 
 #ColorAll {
 	width: 60px;
 	height: 60px;
-	border: none;
-	color: white;
+	border: none !important;
+	color: white !important;
+	text-align: center;
+	line-height: 42px;
 }
 
 #ColorWhite {
@@ -499,111 +519,6 @@ p .notice {
 	background: #FF7400;
 }
 
-#StyleAll { 
-   position: relative;
-   font-size: 14px;
-   height: 40px;
-   width: 200px;
-   color: white;
-   border: none;
-}
-
-#StyleElegant {
-   position: relative;
-   font-size: 14px;
-   height: 40px;
-   width: 200px;
-   color: white;
-   border: none;
-}
-
-#StyleCasual {
-   color: white;
-   font-size: 14px;
-   height: 40px;
-   width: 200px;
-   border: none;
-}
-
-#StylePreppy {
-   color: white;
-   font-size: 14px;
-   height: 40px;
-   width: 200px;
-   border: none;
-}
-
-#StyleHipster {
-   color: white;
-   font-size: 14px;
-   height: 40px;
-   width: 200px;
-   border: none;
-}
-
-#Unisex {
-   position: relative;
-   font-size: 14px;
-   height: 40px;
-   width: 200px;
-   color: white;
-   border: none;
-}
-
-#Male {
-   position: relative;
-   font-size: 14px;
-   height: 40px;
-   width: 200px;
-   color: white;
-   border: none;
-}
-
-#Female {
-   position: relative;
-   font-size: 14px;
-   height: 40px;
-   width: 200px;
-   color: white;
-   border: none;
-}
-
-#UnderAll {
-   position: relative;
-   font-size: 14px;
-   height: 40px;
-   width: 200px;
-   color: white;
-   border: none;
-}
-
-#Under50 {
-   position: relative;
-   font-size: 14px;
-   height: 40px;
-   width: 200px;
-   color: white;
-   border: none;
-}
-
-#Under100 {
-   position: relative;
-   font-size: 14px;
-   height: 40px;
-   width: 200px;
-   color: white;
-   border: none;
-}
-
-#Under200 {
-   position: relative;
-   font-size: 14px;
-   height: 40px;
-   width: 200px;
-   color: white;
-   border: none;
-}
-
 #channel_name, #item_title {
 	width: 80%;
 	height: 35px;
@@ -630,7 +545,9 @@ p .notice {
 	display: none;
 }
 
-
+.cart_partial h1 {
+	padding-left: 20px;
+}
 
 .inner, .inner_item, .inner_user, .inner_cart, .inner_add_to_cart {
 	width: 100%;
@@ -695,7 +612,7 @@ p .notice {
 
 #channel_form, #item_form {
 	color: white;
-	padding: 0px;
+	padding: 20px;
 }
 
 
@@ -704,6 +621,10 @@ p .notice {
 	border: 1px solid white;
 	width: 100%;
 	border-radius: 5px;
+}
+
+.actions {
+	padding: 20px;
 }
 
 #inner_item .inner_item {

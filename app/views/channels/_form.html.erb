@@ -9,7 +9,7 @@
         <%= f.select(:color, Channel::COLOR_OPTIONS) %>
         <div class="picker">
             <% Channel::COLOR_OPTIONS.each do |color| %>
-           <div class="option" id="Color<%=color%>"></div>
+           <div class="option" id="Color<%=color%>"><%= color%></div>
           <% end %>
         </div>
       </li> 
@@ -18,7 +18,7 @@
         <%= f.select(:style, Channel::STYLE_OPTIONS) %>   
         <div class="picker" id="style_picker">
             <% Channel::STYLE_OPTIONS.each do |style| %>
-           <div class="option" id="Style<%=style%>"> <%= style %> </div>
+           <div class="option" id="Style<%=style%>"><span><%= style %></span></div>
           <% end %>
         </div>
       </li>
@@ -27,7 +27,7 @@
         <%= f.select(:price, Channel::PRICE_OPTIONS) %>  
         <div class="picker">
             <% Channel::PRICE_OPTIONS.each do |price| %>
-           <div class="option" id="Under<%=price%>"> <%= price %> </div>
+           <div class="option" id="Under<%=price%>"><span><%= price %></span></div>
           <% end %>
         </div> 
       </li>
@@ -36,7 +36,7 @@
         <%= f.select(:gender, Channel::GENDER_OPTIONS) %>  
         <div class="picker">
             <% Channel::GENDER_OPTIONS.each do |gender| %>
-           <div class="option" id="<%=gender%>"> <%= gender %> </div>
+           <div class="option" id="<%=gender%>"><span><%= gender %></span></div>
           <% end %>
         </div> 
       </li>

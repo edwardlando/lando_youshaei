@@ -50,12 +50,32 @@ $(document).ready(function() {
     var genderOptions = ["Female", "Male", "Unisex"]
 
 
-    var optionSelected = false;
-    var optionCount = 0;
-	$(".option").on("click", function(event) {
-		optionCount ++;
+    // Highlight options in the selected element
+    var lightSwitch = function(element_name, border) {
+    	border = typeof border !== undefined ? border : false;
+    	var selected = null;
+	    options = $(element_name + " + .picker > .option");
+		options.on("click", function(event) {
+			if (selected !== null) {
+				if (border) {
+					selected.style.border = "";
+				}
+				selected.style.color = '#FFFFFF';
+			}
+			selected = this;
+			if (border) {
+				this.style.border = "1px solid #59B4AE";
+			}
 			this.style.color = '#59B4AE';
-	});
+		});
+    }
+
+    // TODO: Fix blocking div
+    lightSwitch("#channel_color", true);
+    lightSwitch("#channel_style");
+    lightSwitch("#channel_price");
+    lightSwitch("#channel_gender");
+   
 
 	// USER PROFILE
 
