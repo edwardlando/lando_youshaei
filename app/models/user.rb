@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   validates_acceptance_of :terms, :allow_nil => false,
   :message => "You must accept the terms of use", :on => :create
 
-  has_many :items #tastemakers
+  has_many :items, :dependent => :destroy
   has_many :channels
   has_one :wishlist
   has_one :cart
