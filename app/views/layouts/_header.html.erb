@@ -2,7 +2,7 @@
 
 
 <div class="top" style="padding-top:0px; margin-top:0px;">
-	<div class="container" style="padding-top:15px; margin-top: 0px;">
+	<div class="container">
 		<div class="nav">
 			<% if @channel %>
 				<div class="top_bar">
@@ -34,10 +34,11 @@
 					    <% end %>
 					</div>
 					<div class="bottom_bar_right">
+						<div class="bottom_bar_action" id="share_icon"><%= image_tag("share_icon.svg")%></div>
 					    <div class="bottom_bar_action" id="my_cart"><%= image_tag("bar_shoppingbag_icon.png")%></div>
 					    <% unless @channel.current_item.nil? || current_user.nil? || current_user.role == "admin"  %>
 						    <div class="bottom_bar_action" id="contributed_by">
-								  Contributed by: <a href src="#"><%= @channel.current_item.user.email %></a> Aveece Tastemaker 
+								  Contributed by: <a href src="#"><%= @channel.current_item.user.email %></a><br/> Official Aveece Tastemaker 
 						    </div>
 					    <% end %> 
 					</div>
