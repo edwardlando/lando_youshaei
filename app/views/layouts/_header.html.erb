@@ -7,45 +7,43 @@
 			<% if @channel %>
 				<div class="top_bar">
 					<div class="title"><%= link_to "AVEECE", {:controller => "store", :action => "index", :index => @channel.item_index } %></div>
+					<% unless @channel.current_item.nil? || current_user.nil? || current_user.role == "admin"  %>
+					    <div id="contributed_by">Contributed by: <a href src="#"><%= @channel.current_item.user.email %> </a><br><span>(Official Aveece Tastemaker)</span></div>
+				    <% end %> 
 					<% unless current_user.nil? %>
-						<div class="top_header_icon" id="my_profile"><%= current_user.email %>
-							&nbsp &nbsp<%= image_tag("bar_profile_icon.png")%></div>
+						<div id="actions">
+						    <div class="action bottom_bar_left">
+								<% if current_user.role == "tastemaker" || current_user.role == "admin" %>
+									<div class="bottom_bar_action" id="new_item_button">+item</div>
+								<% end %>
+									<div class="bottom_bar_action" id="new_channel_button">+channel</div>
+							</div>
+							<div class="action bottom_bar_center">
+								<% unless @channel.channel_items.empty? %>
+									<div class="bottom_bar_action" id="add_to_cart_link">+cart</div>  
+								<% end %>
+								<% if current_user.can_vote_for?(@channel.current_item) && !(@channel.current_item.nil?) %>
+								    <div class="bottom_bar_action" id="downvote"><%= link_to image_tag("bar_thumbsdown_icon.png"), vote_item_path(@channel.current_item.id, value: -1), method: "post" %></div>
+									<div class="bottom_bar_action"id="upvote"><%= link_to image_tag("bar_thumbsup_icon.png"), vote_item_path(@channel.current_item.id, value: 1), method: "post" %></div>
+								<% end %>
+								<% unless (@channel.channel_items[@channel.item_index+1].nil?) %>
+									<div class ="bottom_bar_action" id="next_icon"><%= link_to image_tag("bar_next_icon.png"), {:controller => "store", :action => "index", :index => @channel.item_index+1 } %></div>
+							    <% end %>
+							</div>
+							<div class="action bottom_bar_right">
+								<div class="bottom_bar_action" id="share_icon">Share</div>
+							    <div class="bottom_bar_action" id="my_cart"><%= image_tag("bar_shoppingbag_icon.png")%></div>
+							    <% unless current_user.nil? %>
+									<div class="bottom_bar_action top_header_icon" id="my_profile">
+										<%= image_tag("bar_profile_icon.png")%>
+									</div>
+								<% end %>
+							</div>
+						</div>
 					<% end %>
-					<br/> 
-				</div>
-				<div class="bottom_bar">
-				<% unless current_user.nil? %>
-				    <div class="bottom_bar_left">
-						<% if current_user.role == "tastemaker" || current_user.role == "admin" %>
-							<div class="bottom_bar_action" id="new_item_button">+item</div>
-						<% end %>
-							<div class="bottom_bar_action" id="new_channel_button">+channel</div>
-					</div>
-					<div class="bottom_bar_center">
-						<% unless @channel.channel_items.empty? %>
-							<div class="bottom_bar_action" id="add_to_cart_link">+cart</div>  
-						<% end %>
-						<% if current_user.can_vote_for?(@channel.current_item) && !(@channel.current_item.nil?) %>
-						    <div class="bottom_bar_action" id="downvote"><%= link_to image_tag("bar_thumbsdown_icon.png"), vote_item_path(@channel.current_item.id, value: -1), method: "post" %></div>
-							<div class="bottom_bar_action"id="upvote"><%= link_to image_tag("bar_thumbsup_icon.png"), vote_item_path(@channel.current_item.id, value: 1), method: "post" %></div>
-						<% end %>
-						<% unless (@channel.channel_items[@channel.item_index+1].nil?) %>
-							<div class ="bottom_bar_action" id="next_icon"><%= link_to image_tag("bar_next_icon.png"), {:controller => "store", :action => "index", :index => @channel.item_index+1 } %></div>
-					    <% end %>
-					</div>
-					<div class="bottom_bar_right">
-						<div class="bottom_bar_action" id="share_icon"><%= image_tag("share_icon.svg")%></div>
-					    <div class="bottom_bar_action" id="my_cart"><%= image_tag("bar_shoppingbag_icon.png")%></div>
-					    <% unless @channel.current_item.nil? || current_user.nil? || current_user.role == "admin"  %>
-						    <div class="bottom_bar_action" id="contributed_by">
-								  Contributed by: <a href src="#"><%= @channel.current_item.user.email %></a><br/> Official Aveece Tastemaker 
-						    </div>
-					    <% end %> 
-					</div>
-				<% end %>	
-			<% else %>
-				<div class="title"><%= link_to "AVEECE", root_path %></div>
-			<% end %>
+				<% else %>
+					<div class="title"><%= link_to "AVEECE", root_path %></div>
+				<% end %>
 	    </div>
 	</div>
 </div>

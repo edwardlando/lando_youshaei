@@ -59,22 +59,27 @@ $(document).ready(function() {
 			if (selected !== null) {
 				if (border) {
 					selected.style.border = "";
+				} else {
+					selected.style.color = '#FFFFFF';
 				}
-				selected.style.color = '#FFFFFF';
 			}
 			selected = this;
 			if (border) {
 				this.style.border = "1px solid #59B4AE";
+			} else {
+				this.style.color = '#59B4AE';
 			}
-			this.style.color = '#59B4AE';
 		});
     }
 
-    // TODO: Fix blocking div
     lightSwitch("#channel_color", true);
     lightSwitch("#channel_style");
     lightSwitch("#channel_price");
     lightSwitch("#channel_gender");
+
+    lightSwitch("#item_color", true);
+    lightSwitch("#item_style");
+    lightSwitch("#item_gender");
    
 
 	// USER PROFILE
