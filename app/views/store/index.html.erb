@@ -8,7 +8,7 @@
     <div class="sign_in_partial">
 	    <%= render :partial => "devise/sessions/new" %>
 	</div>
-    <div id="want_to_join">
+    <div id="want_to_join" style="visibility:hidden;">
         <%= link_to "Join Aveece", :controller => "registrations", :action => "new" %>
     </div>
  <% elsif @user.role == "admin" %>
