@@ -1,30 +1,32 @@
  <% if @user.nil? %>
-    <div class="welcome_message">
-    	<h1><%= link_to "AVEECE", root_path %></h1>
-    	<h2> the best way to discover and buy clothes </h2>
-    	<br/> 
-    </div>
-    <div class="splashpage_flourish"><%= image_tag('splashpage_flourish.png') %></div>
-    <div class="sign_in_partial">
-	    <%= render :partial => "devise/sessions/new" %>
-	</div>
-    <div class="oauth"><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %></div>
-    <div id="want_to_join" style="visibility:hidden;">
-        <%= link_to "Join Aveece", :controller => "registrations", :action => "new" %>
-    </div>
- <% elsif @user.role == "admin" %>
-       <%= render :partial => "orders/index" %>
- <% elsif @channel.channel_items.empty? %>
-	<div class="no_more_items">We've run out of things to show you! Come back soon for more!</div>
- <% elsif !(@confirmation.nil?) %>
-     <% if (@confirmation.status == "sent_to_customer") || (@confirmation.status == "payed") %>
-           <%= render :partial => "confirmations/show" %>
+    <div class="subtle_background">
+        <div class="welcome_message">
+        	<h1><%= link_to "AVEECE", root_path %></h1>
+        	<h2> the best way to discover and buy clothes </h2>
+        	<br/> 
+        </div>
+        <div class="splashpage_flourish"><%= image_tag('splashpage_flourish.png') %></div>
+        <div class="sign_in_partial">
+    	    <%= render :partial => "devise/sessions/new" %>
+    	</div>
+        <div class="oauth" style="visibility:hidden;"><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %></div>
+        <div id="want_to_join" style="visibility:hidden;">
+            <%= link_to "Join Aveece", :controller => "registrations", :action => "new" %>
+        </div>
+     <% elsif @user.role == "admin" %>
+           <%= render :partial => "orders/index" %>
+     <% elsif @channel.channel_items.empty? %>
+    	<div class="no_more_items">We've run out of things to show you! Come back soon for more!</div>
+     <% elsif !(@confirmation.nil?) %>
+         <% if (@confirmation.status == "sent_to_customer") || (@confirmation.status == "payed") %>
+               <%= render :partial => "confirmations/show" %>
+         <% end %>
+ </div>
+     <% else %>
+    	 <div class="iframe_div">
+    	    <iframe src=<%= @item_url %> alt="product" id="main_iframe"></iframe>
+    	 </div>
      <% end %>
- <% else %>
-	 <div "iframe_div">
-	    <iframe src=<%= @item_url %> alt="product" id="main_iframe"></iframe>
-	 </div>
- <% end %>
 
 
 
