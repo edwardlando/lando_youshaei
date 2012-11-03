@@ -21,7 +21,6 @@
       <li> <%= item.name %> (Quantity: <%= item.quantity %>) </li>
     <% end %>
 
-
     <%= f.hidden_field :name, :value => current_user.username %>
     <%= f.hidden_field :address , :value => current_user.address %>
   <% else %>
@@ -31,22 +30,26 @@
     <%= f.text_field :name, :size => 40 %>
   </div>
   <div class="field">
-    <%= f.label :address, "Shipping Address" %><br />
+    <%= f.label :address, "Billing Address" %><br />
     <%= f.text_area :address, :rows => 3, :cols => 40 %>
   </div>
-    <div class="field">
-      <%= label_tag :card_number, "Credit Card Number" %>
-      <%= text_field_tag :card_number, nil, :name => nil %>
-    </div>
-    <div class="field">
-      <%= label_tag :card_code, "Security Code on Card (CVV)" %>
-      <%= text_field_tag :card_code, nil, :name => nil %>
-    </div>
-    <div class="field">
-      <%= label_tag :card_month, "Card Expiration" %>
-      <%= select_month nil, {:add_month_numbers => true}, {:name => nil, :id => "card_month"} %>
-      <%= select_year nil, {:start_year => Date.today.year, :end_year => Date.today.year+15}, {:name => nil, :id => "card_year"} %>
-    </div>
+   <div class="field">
+    <%= f.label :shipping_address, "Shipping Address" %><br />
+    <%= f.text_area :shipping_address, :rows => 3, :cols => 40 %>
+  </div>
+  <div class="field">
+    <%= label_tag :card_number, "Credit Card Number" %>
+    <%= text_field_tag :card_number, nil, :name => nil %>
+  </div>
+  <div class="field">
+    <%= label_tag :card_code, "Security Code on Card (CVV)" %>
+    <%= text_field_tag :card_code, nil, :name => nil %>
+  </div>
+  <div class="field">
+    <%= label_tag :card_month, "Card Expiration" %>
+    <%= select_month nil, {:add_month_numbers => true}, {:name => nil, :id => "card_month"} %>
+    <%= select_year nil, {:start_year => Date.today.year, :end_year => Date.today.year+15}, {:name => nil, :id => "card_year"} %>
+  </div>
   <% end %>
 <div id="stripe_error">
   <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>

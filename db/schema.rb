@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121025192730) do
+ActiveRecord::Schema.define(:version => 20121103051916) do
 
   create_table "carts", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(:version => 20121025192730) do
     t.string   "stripe_customer_token"
     t.integer  "user_id"
     t.integer  "confirmation_id"
+    t.text     "shipping_address"
   end
 
   create_table "rs_evaluations", :force => true do |t|
@@ -159,6 +160,7 @@ ActiveRecord::Schema.define(:version => 20121025192730) do
     t.string   "role"
     t.string   "stripe_customer_token"
     t.text     "address"
+    t.text     "shipping_address"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

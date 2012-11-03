@@ -55,6 +55,7 @@ class OrdersController < ApplicationController
     @user = current_user
     @user.username = params[:order][:name]
     @user.address = params[:order][:address]
+    @user.shipping_address = params[:order][:shipping_address]
     @user.save
     @order.user_id = @user.id
     @order.add_line_items_from_cart(current_user.cart)
