@@ -23,8 +23,8 @@ body {
 	padding-bottom: 60px;
 }
 
-body, p, ol, ul {
-	font-family: 'Calibri';
+body, p, ol, ul, input {
+	font-family: 'Calibri' !important;
 }
 
 p { font-size:12px;
@@ -264,7 +264,7 @@ p .notice {
     height: 25px;
 }
 
-.header_icon img:hover, .top_header_icon img:hover {
+.header_icon img:hover, .top_header_icon img:hover, .bottom_bar_action:hover {
 	opacity: 0.4;
 }
 
@@ -474,15 +474,15 @@ p .notice {
 }
 
 #ColorRed {
-	background: #FE3F44;
+	background: #F63E62;
 }
 
 #ColorGreen {
-	background: #38E156;
+	background: #006F48;
 }
 
 #ColorBlue {
-	background: #39AECF;
+	background: #071A71;
 }
 
 #ColorYellow {
@@ -589,11 +589,17 @@ p .notice {
 
 .user_profile_partial, .cart_partial {
 	color: white !important;
+	font-size: 14px !important;
 }
 
 .user_profile_partial li a, .cart_partial li a {
 	color: #59B4AE;
 }
+
+.user_profile_partial h1 {
+	padding-left: 20px;
+}
+
 
 .profile_subtitle {
 	color: white;
@@ -603,6 +609,10 @@ p .notice {
 #channel_form, #item_form {
 	color: white;
 	padding: 20px;
+}
+
+#item_form label, #channel_form label {
+	font-size: 18px;
 }
 
 
@@ -624,7 +634,7 @@ p .notice {
 #make_channel {
 	width: 100%;
 	height: 30px;
-	background-color: #39AECF;
+	background-color: #59b4ae;
 	border-radius: 3px;
 	text-align: center;
 	color: white;
@@ -651,7 +661,7 @@ p .notice {
 #make_item {
 	width: 100%;
 	height: 30px;
-	background-color: #38E156;
+	background-color: #AD66D5;
 	border-radius: 3px;
 	text-align: center;
 	color: white;
@@ -683,7 +693,7 @@ p .notice {
 .checkout_button {
 	width: 100%;
 	height: 30px;
-	background-color: #FE3F44;
+	background-color: #F63E62; /*#FE3F44 */
 	border-radius: 3px;
 	text-align: center;
 	color: white;
@@ -696,7 +706,7 @@ p .notice {
 .request_button {
 	width: 80%;
 	height: 30px;
-	background-color: #FE3F44;
+	background-color:#F63E62; 
 	border-radius: 3px;
 	text-align: center;
 	color: white;
@@ -714,10 +724,13 @@ p .notice {
 }
 
 .order_form {
-	width: 400px;
+	width: 500px;
 	color: white;
 	margin-left: auto;
 	margin-right: auto;
+	margin-bottom: 300px;
+	padding-top: 100px;
+	text-align: center;
 }
 
 .order_form a { 
@@ -836,6 +849,10 @@ a:hover {
 
 .fields_for_line_items {
 	padding-left: 20px;
+}
+
+.option span {
+	font-size: 18px;
 }
 
 

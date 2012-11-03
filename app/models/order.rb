@@ -1,7 +1,7 @@
 class Order < ActiveRecord::Base
   attr_accessible :address, :name, :stripe_customer_token, :stripe_card_token, :confirmation_id, :agree
 
-  validates :name, :address, :shipping_address, :presence => true
+  validates :name, :address, :presence => true
 
   has_many :line_items, :dependent => :destroy
   has_one :confirmation
