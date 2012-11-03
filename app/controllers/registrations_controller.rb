@@ -10,7 +10,7 @@ class RegistrationsController < Devise::RegistrationsController
 
 	def create
 		super
-		
+
 	    resource.role = "standard"
 	    resource.cart = Cart.new(:user_id => resource.id)
 	    resource.wishlist = Wishlist.new(:user_id => resource.id)

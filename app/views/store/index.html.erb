@@ -8,6 +8,7 @@
     <div class="sign_in_partial">
 	    <%= render :partial => "devise/sessions/new" %>
 	</div>
+    <div class="oauth"><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %></div>
     <div id="want_to_join" style="visibility:hidden;">
         <%= link_to "Join Aveece", :controller => "registrations", :action => "new" %>
     </div>

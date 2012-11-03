@@ -20,6 +20,9 @@ LandoYoushaei::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
+  TWITTER_CONSUMER_KEY = '21MISMggexG3eSETpZkwjQ'
+  TWITTER_CONSUMER_SECRET = 's6Bygl7wX0qEpdJ6e2lSsO4yyjpibTYWLBo6ySfnk8'
+
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
 

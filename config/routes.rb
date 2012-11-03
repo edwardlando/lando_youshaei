@@ -8,7 +8,8 @@ LandoYoushaei::Application.routes.draw do
 
   resources :carts
 
-  devise_for :users, :controllers => { :registrations => "registrations" }
+  devise_for :users, :controllers => { :registrations => "registrations",
+  :omniauth_callbacks => "omniauth_callbacks" }
 
   get "users/index"
 

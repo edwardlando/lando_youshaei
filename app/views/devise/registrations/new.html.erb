@@ -13,10 +13,12 @@
 
   <div class="registration"><%= f.email_field :email, :class => "registration_field", :placeholder => "Email" %></div>
 
-  <div class="registration"><%= f.password_field :password, :class => "registration_field", :placeholder => "Password" %></div>
+  <% if f.object.password_required? %>
+    <div class="registration"><%= f.password_field :password, :class => "registration_field", :placeholder => "Password" %></div>
 
-  <div class="registration">
-  <%= f.password_field :password_confirmation, :class => "registration_field", :placeholder => "Confirm Password"%></div>
+    <div class="registration">
+    <%= f.password_field :password_confirmation, :class => "registration_field", :placeholder => "Confirm Password"%></div>
+  <% end %>
 
   <div><%= f.submit "Sign up", :class => "registration_button" %></div>
   <div class="agree_to_terms">
