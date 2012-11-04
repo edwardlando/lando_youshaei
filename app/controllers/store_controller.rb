@@ -24,6 +24,7 @@ class StoreController < ApplicationController
         @channels.each do |channel|
           channel.current_channel = false
         end
+        params[:switch_channel] == "false"
         @channel.current_channel = true
       else 
         @channel = @channels.find_by_current_channel(true)
