@@ -30,6 +30,7 @@ gem 'stripe'
 gem 'pg'
 
 gem 'omniauth-twitter'
+gem 'omniauth-facebook'
 
 
 # To use ActiveModel has_secure_password
