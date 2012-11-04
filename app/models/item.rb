@@ -7,6 +7,9 @@ class Item < ActiveRecord::Base
   has_many :orders, :through => :line_items
   has_many :item_votes
 
+  validates_presence_of :title, :url, :color, :style, :price, :gender,
+  :message => "Please make sure to fill in all fields"
+
   before_destroy :ensure_not_referenced_by_any_line_item
 
   COLOR_OPTIONS = ["White", "Black", "Red", "Green", "Blue", "Yellow",

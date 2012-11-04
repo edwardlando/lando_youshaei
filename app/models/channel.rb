@@ -1,7 +1,7 @@
 class Channel < ActiveRecord::Base
   attr_accessible :color, :gender, :price, :style, :item_index, :current_channel, :name, :user_id
   belongs_to :user # should be unique, even if the mix is the same  ## maybe belong_to as current_channel
-  validates :name, :color, :style, :price, :gender, :presence => true
+  validates_presence_of :name, :color, :style, :price, :gender
 
 
   # due to votes, and products already seen

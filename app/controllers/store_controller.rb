@@ -7,8 +7,7 @@ class StoreController < ApplicationController
       @orders = Order.all.sort_by(&:updated_at) # will want to sort by paid and unpaid
       @confirmations = Confirmation.all
 
-      # When a user stays on the same channel
-      @channel = @user.current_channel
+      @channel = Channel.find_by_current_channel(true)
 
       # Handling orders and confirmations
       unless (@orders.nil? || @orders.empty? || @confirmations.nil? || @confirmations.empty? )
@@ -23,18 +22,24 @@ class StoreController < ApplicationController
       # Determines which channel we're on
       if params[:switch_channel] == "true"
         @channel = Channel.find_by_id(params[:channel_id])
+        @channel.item_index = 0 #added this because of no method error
         @channels.each do |channel|
-          channel.update_attributes(:current_channel => false)
+          channel.current_channel = false
         end
-      @channel.current_channel = true
+        @channel.current_channel = true
+        @channel.save
+      else 
+        # Allows us to get the wanted item, thanks to its index
+        if params[:index]
+          @channel.item_index = params[:index]
+        else
+          @channel.item_index = 0
+        end
+          @channel.current_channel = true
+          @channel.save
       end
 
-      # Allows us to get the wanted item, thanks to its index
-      if params[:index]
-      @channel.item_index = params[:index]
-      else
-      @channel.item_index = 0
-      end
+    
       unless @channel.channel_items.empty? 
         @channel_items = @channel.channel_items 
         @current_item = @channel.channel_items[@channel.item_index]
