@@ -28,18 +28,16 @@ class StoreController < ApplicationController
         end
         @channel.current_channel = true
         @channel.save
-      else 
-        # Allows us to get the wanted item, thanks to its index
-        if params[:index]
-          @channel.item_index = params[:index]
-        else
-          @channel.item_index = 0
-        end
-          @channel.current_channel = true
-          @channel.save
       end
 
-    
+      # Allows us to get the wanted item, thanks to its index
+      if params[:index]
+        @channel.item_index = params[:index]
+      else
+        @channel.item_index = 0
+      end
+        @channel.save
+      
       unless @channel.channel_items.empty? 
         @channel_items = @channel.channel_items 
         @current_item = @channel.channel_items[@channel.item_index]
