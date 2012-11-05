@@ -51,35 +51,28 @@ class ChannelsController < ApplicationController
   # POST /channels
   # POST /channels.json
   def create
-
-    @channels = Channel.all
-    @channel = Channel.new(:name => params["channel"]["name"], :color => params["channel"]["color"], 
-      :style => params["channel"]["style"], :price => params["channel"]["price"],
-      :gender => params["channel"]["gender"])
+    @channels = current_user.channels
+    @channel = Channel.new(:name => params[:channel][:name], :color => params[:channel][:color], 
+      :style => params[:channel][:style], :price => params[:channel][:price],
+      :gender => params[:channel][:gender])
     
     # Users who are logged in
     @channel.user_id = current_user.id
-  
     @channel.item_index = 0
-       
-    if @channel.save
-      @channels.each do |channel|
-        channel.update_attributes(:current_channel => false)
-      end
-      @channel.current_channel = true
-      unless @channel.channel_items.nil?
-      @current_item = @channel.channel_items[@channel.item_index]
-      end
+   
+    @channels.each do |channel|
+      channel.current_channel = false
     end
-
+    @channel.current_channel = true
+   
     respond_to do |format|
       if @channel.save
-        format.html { redirect_to root_path, :notice => 'Channel was successfully created.' }
-        format.js
+        format.html { redirect_to :controller => "store", :action => "index", 
+        :switch => "true", :current_channel => @channel.id, :notice => 'Channel was successfully created.' }
         format.json { }#render :json => @channel, :status => :created, :location => @channel }
       else
-        format.html { render :action => "new" }
-        format.json { render :json => @channel.errors, :status => :unprocessable_entity }
+        format.html { redirect_to root_path, :notice => 'Oops' }
+        format.json { }#render :json => @channel.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -111,8 +104,4 @@ class ChannelsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-
-
-
 end

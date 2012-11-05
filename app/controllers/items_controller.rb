@@ -15,6 +15,7 @@ class ItemsController < ApplicationController
   # GET /items/1.json
   def show
     @item = Item.find(params[:id])
+    @item_url = @item.url
 
     respond_to do |format|
       format.html # show.html.erb
@@ -41,8 +42,6 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
-    p "****************************************"
-    p params
     @item = Item.new(:title => params["item"]["title"], :url => params["item"][:url], :color => params["item"]["color"], 
       :style => params["item"]["style"], :price => params["item"]["price"], :gender => params["item"]["gender"])
 

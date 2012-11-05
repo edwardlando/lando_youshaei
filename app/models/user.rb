@@ -23,11 +23,7 @@ class User < ActiveRecord::Base
   has_many :item_votes
 
   def current_channel
-    self.channels.each do |channel|
-      if channel.current_channel == true
-        return channel
-      end
-    end
+    return self.channels.find_by_user_id_and_current_channel(self.id, true)
   end
 
   def add_to_wishlist(item)

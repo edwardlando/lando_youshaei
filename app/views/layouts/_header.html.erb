@@ -5,7 +5,7 @@
 		<div class="nav">
 			<% if @channel %>
 				<div class="top_bar">
-					<div class="title"><%= link_to "AVEECE", {:controller => "store", :action => "index", :index => @channel.item_index } %></div>
+					<div class="title"><%= link_to "AVEECE", {:controller => "store", :action => "index", :current_channel => current_user.current_channel, :index => current_user.current_channel.item_index } %></div>
 					<% unless @channel.current_item.nil? || current_user.nil? || current_user.role == "admin"  %>
 					    <div id="contributed_by">Contributed by: <a href src="#"><%= @channel.current_item.user.email %> </a><br><span>(Official Aveece Tastemaker)</span></div>
 				    <% end %> 
@@ -26,7 +26,7 @@
 									<div class="bottom_bar_action"id="upvote"><%= link_to image_tag("bar_thumbsup_icon.png"), vote_item_path(@channel.current_item.id, value: 1), method: "post" %></div>
 								<% end %>
 								<% unless (@channel.channel_items[@channel.item_index+1].nil?) %>
-									<div class ="bottom_bar_action" id="next_icon"><%= link_to image_tag("bar_next_icon.png"), {:controller => "store", :action => "index", :index => @channel.item_index+1 } %></div>
+									<div class ="bottom_bar_action" id="next_icon"><%= link_to image_tag("bar_next_icon.png"), {:controller => "store", :action => "index", :current_channel => current_user.current_channel, :index => @channel.item_index+1 } %></div>
 							    <% end %>
 							</div>
 							<div class="action bottom_bar_right">
