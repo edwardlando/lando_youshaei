@@ -60,9 +60,8 @@ class ChannelsController < ApplicationController
     @channel.user_id = current_user.id
     @channel.item_index = 0
    
-    @channels.each do |channel|
-      channel.current_channel = false
-    end
+    @old_channel = @channels.find_by_current_channel(true)
+    @old_channel.current_channel = false
     @channel.current_channel = true
    
     respond_to do |format|

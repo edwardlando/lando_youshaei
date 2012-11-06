@@ -18,20 +18,18 @@ class StoreController < ApplicationController
       end 
 
 
-      if params[:current_channel]
+      if params[:current_channel] && params[:switch]
+         @old_channel = @user.current_channel
+         @old_channel.current_channel = false
+         @old_channel.save
          @channel = @channels.find(params[:current_channel])
+         @channel.current_channel = true
+         @channel.item_index = 0
+         @channel.save
       else 
          @channel = @user.current_channel
       end
-
-      if params[:switch] == "true"
-          @channels.each do |channel|
-            channel.current_channel = false
-          end
-          @channel.current_channel = true
-          @channel.item_index = 0
-      end
-      
+          
       # Allows us to get the wanted item, thanks to its index
       if params[:index]
         @index = params[:index]
