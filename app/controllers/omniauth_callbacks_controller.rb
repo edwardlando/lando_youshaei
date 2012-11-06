@@ -1,6 +1,15 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 	def all
 	    user = User.from_omniauth(request.env["omniauth.auth"])
+	    user.role = "standard"
+	    user.cart = Cart.new(:user_id => user.id)
+	    user.wishlist = Wishlist.new(:user_id => user.id)
+	    
+	    # Initial channel for the user
+	    @channel = Channel.new(:color => "All", :style => "All", :price => "All", :gender => "Unisex",
+    :user_id => user.id, :item_index => 0, :name => "My first channel")
+	    @channel.current_channel = true
+	    @channel.save
 	    if user.persisted?
 	      flash.notice = "Signed in!"
 	      sign_in_and_redirect user
