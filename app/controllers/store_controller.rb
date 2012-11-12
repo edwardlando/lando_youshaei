@@ -66,6 +66,7 @@ class StoreController < ApplicationController
 
       @guest_channel.save unless @guest_channel.nil?
       @channel.save unless @channel.nil?
+      
     end
     respond_to do |format|
         format.html # index.html.erb
