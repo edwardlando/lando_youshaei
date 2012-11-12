@@ -53,6 +53,7 @@ LandoYoushaei::Application.routes.draw do
   get "static_pages/about"
   get "static_pages/terms"
 
+  post "application/create_guest_user"
 
   
   # The priority is based upon order of creation:

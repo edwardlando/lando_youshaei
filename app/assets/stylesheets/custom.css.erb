@@ -21,6 +21,8 @@ body {
 	padding-bottom: 60px;
 	background-image: url("classy_fabric.png");
 	background-repeat: repeat-x repeat-y;
+	overflow-x:hidden;
+	overflow-y:scroll;
 }
 
 .subtle_background, .order_form {
@@ -615,12 +617,12 @@ p .notice {
 }
 
 
-#channel_form, #item_form {
+#channel_form, #item_form, #landing_channel_form {
 	color: white;
 	padding: 20px;
 }
 
-#item_form label, #channel_form label {
+#item_form label, #channel_form label, #landing_channel_form {
 	font-size: 18px;
 }
 
@@ -772,14 +774,15 @@ p .notice {
 
 
 /* Allowing user to make new channel on the landing page */
-.new_channel_landing_page {
+
+.channel_landing_partial {
 	width: 80%;
 	margin: 0 auto;
 	margin-top: 30px;
 	border-top: 1px solid white;
 }
 
-.new_channel_landing_page li {
+.channel_landing_partial li {
 	display: inline-block;
 	list-style-type: none;
 	vertical-align: top;
@@ -787,6 +790,8 @@ p .notice {
 	padding: 0;
 	margin: 0;
 }
+
+
 
 .welcome_message p{
 	color: white;

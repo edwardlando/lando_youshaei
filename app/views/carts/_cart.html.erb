@@ -1,7 +1,7 @@
 <div class="cart_partial">
 	<h1>My cart</h1>
 	<ul class="cart_line_item">
-	<% current_user.cart.line_items.each do |line_item| %>
+	<% current_or_guest_user.cart.line_items.each do |line_item| %>
         <li>
         <%= line_item.name %> (<%= line_item.quantity %>) &nbsp &nbsp 
         <%= link_to "remove", line_item, :method => :delete,

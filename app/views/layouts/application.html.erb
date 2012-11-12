@@ -10,7 +10,7 @@
 
 <!-- flash messages -->
 <div id="wrap">
-      <% unless current_user.nil? %>
+      <% unless current_or_guest_user.nil? %>
       	<div id="header">
           <div id="header-container">
             <div class="inner_cart">
