@@ -1,6 +1,6 @@
-	<!-- where are we getting channel from? -->
+	
 
-
+<!-- where are we getting channel from? -->
 <div class="top" style="padding-top:0px; margin-top:0px;">
 	<div class="nav">
 	<% if current_or_guest_user %>
@@ -26,7 +26,7 @@
 					</div>
 					<div class="action bottom_bar_center">
 						<% unless display_channel.channel_items.empty? %>
-							<div class="bottom_bar_action" id="add_to_cart_link">+cart
+							<div class="bottom_bar_action" id="add_to_cart_link">add to cart
 							</div>  
 						<% end %>
 						<% if current_or_guest_user.can_vote_for?(display_channel.current_item) && !(display_channel.current_item.nil?) %>
@@ -45,7 +45,7 @@
 						</div>
 					    <div class="bottom_bar_action" id="my_cart"><%= image_tag("bar_shoppingbag_icon.png")%>
 					    </div>
-					    <% unless current_user.nil? || guest_user.nil? %>
+					    <% unless current_or_guest_user.nil? %>
 							<div class="bottom_bar_action top_header_icon" id="my_profile">
 								<%= image_tag("bar_profile_icon.png")%>
 							</div>
@@ -54,8 +54,10 @@
 				</div>
 			<% end %>
 	<% else %>
-			<div class="title"><%= link_to "AVEECE", root_path %>
-			</div>
+			<div id="landing_sign_in"><h1>Sign in</h1></div>
+	        <div class="sign_in_partial">
+	    	    <%= render :partial => "devise/sessions/new" %>
+	    	</div>
 		</div>
 	<% end %>
 	</div>

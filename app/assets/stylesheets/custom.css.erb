@@ -30,6 +30,7 @@ body {
 	background-repeat: repeat-x repeat-y;
 }
 
+
 body, p, ol, ul, input {
 	font-family: 'Calibri' !important;
 }
@@ -53,6 +54,15 @@ a {
 	text-align: center;
 	font-size: 48px;
 	padding-top: 100px;
+}
+
+#landing_sign_in h1, #landing_sign_in h1 a {
+	color: white !important;
+	font-size: 24px;
+	padding: 0px;
+	text-align: right;
+	padding-right: 100px;
+
 }
 
 .welcome_message h1 a:hover {
@@ -125,6 +135,10 @@ a {
 
 .bottom_bar_center .bottom_bar_action {
 	width: 40px;
+}
+
+#add_to_cart_link { 
+	width: 60px;
 }
 
 .bottom_bar_right {
@@ -358,15 +372,13 @@ p .notice {
 
 .sign_up_partial, .sign_in_partial {
 	width: 200px;
-	margin-top : 80px;
 	margin-bottom: 50px;
 	color: white;
-	margin-left: auto;
-	margin-right: auto;
+	float: right;
 }
 
-.sign_up_partial {
-	/* display: none; */
+.sign_in_partial {
+	display: none;
 }
 
 #want_to_join a {
@@ -617,9 +629,18 @@ p .notice {
 }
 
 
-#channel_form, #item_form, #landing_channel_form {
+#channel_form, #item_form {
 	color: white;
 	padding: 20px;
+	padding-left: 150px;
+	border-top: none;
+	margin: 0 auto;
+}
+
+#landing_channel_form {
+	color: white;
+	border-top: none;
+	margin: 0 auto;
 }
 
 #item_form label, #channel_form label, #landing_channel_form {
@@ -657,11 +678,13 @@ p .notice {
 }
 
 #landing_create {
-	width: 100%;
+	width: 60%;
 	height: 30px;
-	background-color: #39AECF;
+	background-color: #59B4AE;
 	border-radius: 3px;
+	border: none;
 	text-align: center;
+	margin: 0 auto;
 	color: white;
 	font-weight: bold;
 	font-size: 16px !important;
@@ -779,7 +802,6 @@ p .notice {
 	width: 80%;
 	margin: 0 auto;
 	margin-top: 30px;
-	border-top: 1px solid white;
 }
 
 .channel_landing_partial li {
@@ -849,7 +871,7 @@ a:hover {
 }
 
 .splashpage_flourish img {
-	width: 340px;
+	width: 230px;
 }
 
 #actions {
@@ -863,6 +885,7 @@ a:hover {
 
 .fields_for_line_items {
 	padding-left: 20px;
+	text-align: center;
 }
 
 .option span {

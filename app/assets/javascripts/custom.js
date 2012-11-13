@@ -124,13 +124,24 @@ $(document).ready(function() {
 
     var wantToAddToCart = false;
 	$("#add_to_cart_link").on("click", function(event) {
-		wantToAddToCart = !wantToAddToCart ;
+		wantToAddToCart = !wantToAddToCart;
 		if (wantToAddToCart  == true) {
 			$(".inner_add_to_cart").slideDown(500);
 		} else {
 			$(".inner_add_to_cart").slideUp(500);
 		};
 	})
+
+	// LANDING PAGE
+	var wantToSignIn = false;
+	$("#landing_sign_in").on("click", function(event) {
+		wantToSignIn = !wantToSignIn;
+		if (wantToSignIn == true) {
+			$(".sign_in_partial").slideDown(500);
+		} else {
+			$(".sign_in_partial").slideUp(500);
+		};
+	});
 
    
 });
