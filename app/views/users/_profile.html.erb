@@ -20,7 +20,7 @@
 			<% end %>
 		</li>
 		<li class="my_profile"> 
-			<p class="profile_subtitle"> <%= link_to "Logout", {:controller => "sessions", :action => "destroy", :method => :delete} %></p>
+			<p class="profile_subtitle"> <%= link_to "Logout", {:controller => "sessions", :action => "destroy", :method => :get } %></p>
 		</li> <!-- destroy_user_session_path -->
 	</ul>
 </div>

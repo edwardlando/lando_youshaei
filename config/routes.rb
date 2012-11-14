@@ -9,14 +9,19 @@ LandoYoushaei::Application.routes.draw do
   resources :carts
 
   devise_for :users, :controllers => { :registrations => "registrations",
-  :omniauth_callbacks => "omniauth_callbacks", :sessions => "sessions" } do
-    get '/users/sign_out' => 'devise/sessions#destroy'
+  :omniauth_callbacks => "omniauth_callbacks", :sessions => "sessions" } 
+
+  # match '/users/sign_out' => 'sessions#destroy', :via => :get
+
+  devise_scope :user do
+    get "/users/sign_out" => "sessions#destroy"
   end
 
+  match "/application/create_guest_user" =>
+  "application#create_guest_user", :via => :post
+
   get "users/index"
-
   get "users/show"
-
   get "users/add_to_wishlist"
   get "users/add_to_cart"
   post "users/add_to_cart"
@@ -55,7 +60,7 @@ LandoYoushaei::Application.routes.draw do
   get "static_pages/about"
   get "static_pages/terms"
 
-  post "application/create_guest_user"
+ 
 
 
   

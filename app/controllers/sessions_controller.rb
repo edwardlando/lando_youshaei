@@ -9,7 +9,7 @@ class SessionsController < Devise::SessionsController
   end
 	
   def destroy
-    guest_user.destroy
+  	guest_user.destroy unless guest_user.nil?
     cookies.delete :uuid
     super
   end

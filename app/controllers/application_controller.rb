@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
 
   # not creating guest user here...
   def guest_user
-    User.find_by_lazy_id(cookies[:uuid]) #.nil? ? create_guest_user.lazy_id : cookies[:uuid])
+    User.find_by_lazy_id(cookies[:uuid]) unless cookies[:uuid].nil? #.nil? ? create_guest_user.lazy_id : cookies[:uuid])
   end
 
   # called (once) when the user logs in, insert any code your application needs
