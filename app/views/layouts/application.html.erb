@@ -44,7 +44,7 @@
 	        <%= yield %>
 		  </div>
 </div>
-<% unless current_user.nil? %>
+<% unless current_or_guest_user.nil? %>
   <div class="footer">
   	<%= render 'layouts/footer' %>
   </div>

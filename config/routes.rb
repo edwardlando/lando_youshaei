@@ -55,6 +55,8 @@ LandoYoushaei::Application.routes.draw do
 
   post "application/create_guest_user"
 
+  get "sessions/destroy"
+
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

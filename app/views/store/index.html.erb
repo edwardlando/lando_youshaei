@@ -19,10 +19,10 @@
 <% elsif @user && @user.role == "admin" %>
        <%= render :partial => "orders/index" %>
 <% elsif @channel && @channel.channel_items.empty? %>
-        <div class="welcome_message"><h2>No more items for now ;( Come back soon!</h2>
+        <div class="welcome_message no_more_items"><h2>No more items for now ;( Come back soon!</h2>
         </div>
 <% elsif @guest_channel && @guest_channel.channel_items.empty? %>
-        <div class="welcome_message"><h2>Hello guest! No more items for now ;( Come back soon!</h2>
+        <div class="welcome_message no_more_items"><h2>Hello guest! No more items for now ;( Come back soon!</h2>
         </div>
 <% elsif !(@confirmation.nil?) %>
         <% if (@confirmation.status == "sent_to_customer") || (@confirmation.status == "payed") %>

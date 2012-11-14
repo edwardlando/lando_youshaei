@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true, :on => :create, :if => :no_provider
 
   has_many :items, :dependent => :destroy
-  has_many :channels
+  has_many :channels, :dependent => :destroy
   has_one :wishlist
   has_one :cart
   has_many :orders
@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
 
   def current_channel
     if self.lazy_id
-      return Channel.find_by_guest_user_id(self.lazy_id)
+      return Channel.find_by_guest_user_id_and_current_channel(self.lazy_id, true)
     else
       return self.channels.find_by_user_id_and_current_channel(self.id, true)
     end

@@ -90,9 +90,9 @@ class ItemsController < ApplicationController
   def vote
     vote = current_user.item_votes.new(value: params[:value], item_id: params[:id])
     if vote.save
-      redirect_to :back, notice: "Thanks for voting. Your feedback allows us to show you things you'll love."
+      redirect_to :back, flash[:notice] =  "Thanks for voting. Your feedback allows us to show you things you'll love."
     else
-      redirect_to :back, alert: "Unable to vote, perhaps you already did."
+      redirect_to :back, flash[:notice] =  "Unable to vote, perhaps you already did."
     end
   end
 

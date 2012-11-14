@@ -263,10 +263,15 @@ p .notice {
 }
 
 
-#add_to_cart_link, #upvote, #downvote, #next_icon, #share_icon {
+#add_to_cart_link, #upvote, #downvote, #next_icon,
+#share_icon, #sign_up_button  {
 	display: inline-block;
 	vertical-align: top;
 	line-height: 25px;
+}
+
+#sign_up_button a {
+	color: #59B4AE;
 }
 
 .header_icon {
@@ -292,8 +297,13 @@ p .notice {
     height: 25px;
 }
 
-.header_icon img:hover, .top_header_icon img:hover, .bottom_bar_action:hover {
-	opacity: 0.4;
+.header_icon img:hover, .top_header_icon img:hover {
+	opacity: 0.6;
+}
+
+.bottom_bar_action:hover {
+	color: #59B4AE;
+	opacity: 0.8;
 }
 
 #contributed_by {
@@ -358,7 +368,7 @@ p .notice {
 
 .footer {
 	text-align: center;
-	color: white;
+	color: lightgrey;
 }
 
 .authentification, .authentification a, .authentification a:visited {
@@ -374,11 +384,15 @@ p .notice {
 	width: 200px;
 	margin-bottom: 50px;
 	color: white;
-	float: right;
+}
+
+.sign_up_partial {
+	margin: 0 auto;
 }
 
 .sign_in_partial {
 	display: none;
+	float: right;
 }
 
 #want_to_join a {
@@ -689,7 +703,7 @@ p .notice {
 	font-weight: bold;
 	font-size: 16px !important;
 	padding-top: 5px;
-	font-size: 14px;
+	font-size: 18px;
 }
 
 #make_item {
@@ -799,6 +813,7 @@ p .notice {
 /* Allowing user to make new channel on the landing page */
 
 .channel_landing_partial {
+	display: inline-block;
 	width: 80%;
 	margin: 0 auto;
 	margin-top: 30px;
@@ -848,11 +863,16 @@ p .notice {
 }
 
 .footer a {
-    color: #59B4AE !important;
+    color: lightgrey !important;
+}
+
+.footer a:hover {
+	color: #59B4AE !important;
 }
 
 a:hover {
-	color: lightgrey !important;
+	color: #59b4ae !important;
+	opacity: 0.8;
 	background-color: transparent !important;
 	text-decoration: none;
 }

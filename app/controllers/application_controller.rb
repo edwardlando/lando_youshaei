@@ -5,11 +5,12 @@ class ApplicationController < ActionController::Base
   helper_method :guest_user 
 
   # if user is logged in, return current_user, else return guest_user
+=begin
   def current_or_guest_user
     if current_user
       if cookies[:uuid]
         logging_in # Look at this method to see how handing over works
-        guest_user.destroy # Stuff have been handed over. Guest isn't needed anymore.
+        guest_user.destroy unless guest_user.nil? # Stuff have been handed over. Guest isn't needed anymore.
         cookies.delete :uuid # The cookie is also irrelevant now
       end
       current_user
@@ -17,12 +18,26 @@ class ApplicationController < ActionController::Base
       guest_user
     end
   end
+=end
+
+  def current_or_guest_user
+    if current_user
+      if cookies[:uuid]
+        guest_user.destroy
+        cookies.delete :uuid
+      end
+      current_user
+    else
+      guest_user
+    end
+  end
+
   # find guest_user object associated with the current session,
   # creating one as needed
 
   # not creating guest user here...
   def guest_user
-    User.find_by_lazy_id(cookies[:uuid]) #.nil? #? create_guest_user.lazy_id : cookies[:uuid])
+    User.find_by_lazy_id(cookies[:uuid]) #.nil? ? create_guest_user.lazy_id : cookies[:uuid])
   end
 
   # called (once) when the user logs in, insert any code your application needs
@@ -30,7 +45,8 @@ class ApplicationController < ActionController::Base
   def logging_in
 	  @guest_user = guest_user
 	  @user = User.new(params[:user])
-    # What should be done here is take all that belongs to user with lazy_id matching current_user's uuid cookie... then associate them with current_user
+    # What should be done here is take all that belongs to user with lazy_id
+    # matching current_user's uuid cookie... then associate them with current_user
   end    
 
   
