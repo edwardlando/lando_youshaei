@@ -51,13 +51,19 @@ class ChannelsController < ApplicationController
   # POST /channels
   # POST /channels.json
   def create
-    @channels = current_user.channels
+
     @channel = Channel.new(:name => params[:channel][:name], :color => params[:channel][:color], 
       :style => params[:channel][:style], :price => params[:channel][:price],
       :gender => params[:channel][:gender])
-    
-    # Users who are logged in
-    @channel.user_id = current_user.id
+
+    if guest_user
+      @channels = Channel.find_all_by_guest_user_id(guest_user.lazy_id)
+      @channel.guest_user_id = guest_user.lazy_id
+    else
+      @channels = current_user.channels
+      @channel.user_id = current_user.id
+    end
+
     @channel.item_index = 0
    
     @old_channel = @channels.find_by_current_channel(true)

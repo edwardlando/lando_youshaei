@@ -13,15 +13,14 @@ class RegistrationsController < Devise::RegistrationsController
         
         # If the guest user has decided to make an account
 		if guest_user
-			@channel = Channel.find_by_guest_user_id(guest_user.lazy_id)
-			@channel.user_id = resource.id
-			@channel.item_index = 0
-			@channel.save
-			guest_user.destroy
-	        cookies.delete :uuid 
-        # User is registering without having been a guest user
+			@channels = Channel.find_all_by_guest_user_id(guest_user.lazy_id)
+			@channels.each do |c|
+				c.user_id = resource.id
+				c.item_index = 0
+				c.save
+			end
         else
-	        # Initial channel for the user
+	        # Initial channel for the new user
 		    @channel = Channel.new(
 		    :color => "All", :style => "All",
 		    :price => "All", :gender => "Unisex",
