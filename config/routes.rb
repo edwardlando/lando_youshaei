@@ -9,7 +9,9 @@ LandoYoushaei::Application.routes.draw do
   resources :carts
 
   devise_for :users, :controllers => { :registrations => "registrations",
-  :omniauth_callbacks => "omniauth_callbacks" }
+  :omniauth_callbacks => "omniauth_callbacks", :sessions => "sessions" } do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
 
   get "users/index"
 
@@ -55,7 +57,6 @@ LandoYoushaei::Application.routes.draw do
 
   post "application/create_guest_user"
 
-  get "sessions/destroy"
 
   
   # The priority is based upon order of creation:

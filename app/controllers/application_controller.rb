@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
         cookies.delete :uuid
       end
       current_user
-    else
+    elsif guest_user
       guest_user
     end
   end

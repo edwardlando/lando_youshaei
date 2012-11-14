@@ -35,5 +35,9 @@ class RegistrationsController < Devise::RegistrationsController
 	    resource.save
 	    flash[:notice] = "Welcome to Aveece!"
     end
+
+    def destroy
+    	super
+    end
 end
 
