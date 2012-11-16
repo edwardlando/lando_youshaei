@@ -1,6 +1,7 @@
 class ChannelsController < ApplicationController
 
   # before_filter :authenticate_user!
+  before_filter :user_is_admin, :only => [:index]
 
   # GET /channels
   # GET /channels.json
@@ -117,4 +118,13 @@ class ChannelsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private 
+
+  def user_is_admin
+    unless current_user.role == "admin"
+      redirect_to :controller => "store", :action => "index"
+    end
+  end
+  
 end

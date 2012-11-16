@@ -2,6 +2,8 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   before_filter :authenticate_user!, :except => [:index]
+  before_filter :user_is_admin, :only => [:index]
+
   def index
     @items = Item.all
 
@@ -93,6 +95,14 @@ class ItemsController < ApplicationController
       redirect_to :back, flash[:notice] =  "Thanks for voting. Your feedback allows us to show you things you'll love."
     else
       redirect_to :back, flash[:notice] =  "Unable to vote, perhaps you already did."
+    end
+  end
+
+  private 
+
+  def user_is_admin
+    unless current_user.role == "admin"
+      redirect_to :controller => "store", :action => "index"
     end
   end
 

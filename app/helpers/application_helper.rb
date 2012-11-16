@@ -14,4 +14,5 @@ module ApplicationHelper
   def display_channel
   	current_or_guest_user.current_channel
   end
+
 end
