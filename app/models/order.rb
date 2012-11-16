@@ -1,5 +1,6 @@
 class Order < ActiveRecord::Base
-  attr_accessible :address, :name, :stripe_customer_token, :stripe_card_token, :confirmation_id, :agree
+  attr_accessible :address, :name, :stripe_customer_token,
+  :stripe_card_token, :confirmation_id, :agree, :shipping_address
 
   validates :name, :address, :presence => true
 
