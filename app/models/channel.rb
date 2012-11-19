@@ -3,6 +3,9 @@ class Channel < ActiveRecord::Base
   belongs_to :user # should be unique, even if the mix is the same  ## maybe belong_to as current_channel
   validates_presence_of :name, :color, :style, :price, :gender
 
+  extend FriendlyId
+  friendly_id :name
+
   # due to votes, and products already seen
 
   # we'll also sort by best rating
