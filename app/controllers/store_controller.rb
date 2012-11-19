@@ -9,7 +9,7 @@ class StoreController < ApplicationController
       @orders = Order.all.sort_by(&:updated_at) # will want to sort by paid and unpaid
       @confirmations = Confirmation.all
 
-      unless @guest_user # Handling orders and confirmations
+      unless @user.nil? # Handling orders and confirmations
         unless (@orders.nil? || @orders.empty? || @confirmations.nil? || @confirmations.empty? )
           @confirmation = Confirmation.find_by_user_id_and_status(@user.id, "sent_to_customer")  # might need an index
           @order = @confirmation.order unless @confirmation.nil?
