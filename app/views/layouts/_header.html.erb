@@ -6,7 +6,7 @@
 	<% if current_or_guest_user %>
 		<div class="top_bar">
 			<div class="title">
-				<%= link_to "AVEECE", {:controller => "store", :action => "index", :current_channel => current_or_guest_user.current_channel, :index => current_or_guest_user.current_channel.item_index } %>
+				<%= link_to "AVEECE", {:controller => "store", :action => "index", :current_channel => display_channel, :index => display_channel.item_index } %>
 			</div>
 			<% unless display_channel.current_item.nil? || current_or_guest_user.role == "admin"  %>
 			    <div id="contributed_by">Contributed by: <a href src="#"><%= display_channel.current_item.user.email %> </a><br><span>(Official Aveece Tastemaker)</span>
@@ -38,7 +38,7 @@
 							</div>
 						<% end %>
 						<% unless (display_channel.channel_items[display_channel.item_index+1].nil?) %>
-							<div class ="bottom_bar_action" id="next_icon"><%= link_to image_tag("bar_next_icon.png"), {:controller => "store", :action => "index", :current_channel => current_user.current_channel, :index => display_channel.item_index+1 } %>
+							<div class ="bottom_bar_action" id="next_icon"><%= link_to image_tag("bar_next_icon.png"), {:controller => "store", :action => "index", :current_channel => display_channel, :index => display_channel.item_index+1 } %>
 							</div>
 					    <% end %>
 					</div>
