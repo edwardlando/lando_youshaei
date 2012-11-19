@@ -9,15 +9,16 @@ class StoreController < ApplicationController
       @orders = Order.all.sort_by(&:updated_at) # will want to sort by paid and unpaid
       @confirmations = Confirmation.all
 
-       # Handling orders and confirmations
-      unless (@orders.nil? || @orders.empty? || @confirmations.nil? || @confirmations.empty? )
-        @confirmation = Confirmation.find_by_user_id_and_status(@user.id, "sent_to_customer")  # might need an index
-        @order = @confirmation.order unless @confirmation.nil?
-        if params[:confirmation_status]
-          @confirmation.status = params[:confirmation_status]
-          @confirmation.save
-        end
-      end 
+      unless @guest_user # Handling orders and confirmations
+        unless (@orders.nil? || @orders.empty? || @confirmations.nil? || @confirmations.empty? )
+          @confirmation = Confirmation.find_by_user_id_and_status(@user.id, "sent_to_customer")  # might need an index
+          @order = @confirmation.order unless @confirmation.nil?
+          if params[:confirmation_status]
+            @confirmation.status = params[:confirmation_status]
+            @confirmation.save
+          end
+        end 
+      end
 
       if @user
         if params[:current_channel] && params[:switch]
