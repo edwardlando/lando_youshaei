@@ -1,35 +1,46 @@
- <% if @user.nil? %>
+<% if current_or_guest_user.nil? %>
     <div class="subtle_background">
         <div class="welcome_message">
         	<h1><%= link_to "AVEECE", root_path %></h1>
         	<h2> the best way to discover and buy clothes </h2>
         	<br/> 
         </div>
-        <div class="splashpage_flourish"><%= image_tag('splashpage_flourish.png') %></div>
-        <div class="sign_in_partial">
-    	    <%= render :partial => "devise/sessions/new" %>
-    	</div>
+        <div class="splashpage_flourish"><%= image_tag('splashpage_flourish.png') %>
+        </div>
         <div class="oauth" style="visibility:hidden;"><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %>
-            <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></div>
+            <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+        </div>
         <div id="want_to_join" style="visibility:hidden;">
             <%= link_to "Join Aveece", :controller => "registrations", :action => "new" %>
         </div>
-     <% elsif @user.role == "admin" %>
-           <%= render :partial => "orders/index" %>
-     <% elsif @channel.channel_items.empty? %>
-    	<div class="no_more_items">We've run out of things to show you! Come back soon for more!</div>
-     <% elsif !(@confirmation.nil?) %>
-         <% if (@confirmation.status == "sent_to_customer") || (@confirmation.status == "payed") %>
-               <%= render :partial => "confirmations/show" %>
-         <% end %>
- </div>
-     <% else %>
-    	 <div class="iframe_div">
-    	    <div class="iframe_div">
+        <h2 class="landing_greeting"> Welcome! Are you new to Aveece? Try it out. Start surfing! </h2>
+        <div class="channel_landing_partial">
+            <%= render :partial => "channels/landing_page_form" %>
+        </div>
+<% elsif @user && @user.role == "admin" %>
+       <%= render :partial => "orders/index" %>
+<% elsif @channel && @channel.channel_items.empty? %>
+        <div class="welcome_message no_more_items"><h2>No more items for now ;( Come back soon!</h2>
+        </div>
+<% elsif @guest_channel && @guest_channel.channel_items.empty? %>
+        <div class="welcome_message no_more_items"><h2>Hello guest! No more items for now ;( Come back soon!</h2>
+        </div>
+<% elsif !(@confirmation.nil?) %>
+        <% if (@confirmation.status == "sent_to_customer") || (@confirmation.status == "payed") %>
+            <%= render :partial => "confirmations/show" %>
+        <% end %>
+    </div>
+<% else %>
+    <div class="iframe_div">
+        <div class="iframe_div">
+            <% if @item_url %> 
                 <iframe src=<%= @item_url %> alt="product" id="main_iframe"></iframe>
-            </div>
-    	 </div>
-     <% end %>
+            <% elsif @guest_item_url %> 
+                <iframe src=<%= @guest_item_url %> alt="product" id="main_iframe"></iframe>
+            <% end %>
+        </div>
+    </div>
+<% end %>
 
 
 

@@ -1,6 +1,7 @@
 class ChannelsController < ApplicationController
 
   # before_filter :authenticate_user!
+  before_filter :user_is_admin, :only => [:index]
 
   # GET /channels
   # GET /channels.json
@@ -51,16 +52,30 @@ class ChannelsController < ApplicationController
   # POST /channels
   # POST /channels.json
   def create
-    @channels = current_user.channels
+
     @channel = Channel.new(:name => params[:channel][:name], :color => params[:channel][:color], 
       :style => params[:channel][:style], :price => params[:channel][:price],
       :gender => params[:channel][:gender])
-    
-    # Users who are logged in
-    @channel.user_id = current_user.id
+
+    if guest_user
+      @channels = Channel.find_all_by_guest_user_id(guest_user.lazy_id)
+      @channel.guest_user_id = guest_user.lazy_id
+    else
+      @channels = current_user.channels
+      @channel.user_id = current_user.id
+    end
+
     @channel.item_index = 0
-   
-    @old_channel = @channels.find_by_current_channel(true)
+    
+    p '************************************'
+    p @channels
+    
+    @channels.each do |c|
+      if c.current_channel == true
+        @old_channel = c
+      end
+    end
+    # @old_channel = @channels.find_all_by_current_channel(true).first
     @old_channel.current_channel = false
     @channel.current_channel = true
    
@@ -103,4 +118,13 @@ class ChannelsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private 
+
+  def user_is_admin
+    unless current_user.role == "admin"
+      redirect_to :controller => "store", :action => "index"
+    end
+  end
+  
 end

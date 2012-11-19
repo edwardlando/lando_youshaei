@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, 
-  				  :username, :role, :stripe_customer_token, :terms
+  				  :username, :role, :stripe_customer_token, :terms, :lazy_id, :id
             
   # attr_accessible :title, :body
 
@@ -23,14 +23,18 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true, :on => :create, :if => :no_provider
 
   has_many :items, :dependent => :destroy
-  has_many :channels
+  has_many :channels, :dependent => :destroy
   has_one :wishlist
   has_one :cart
   has_many :orders
   has_many :item_votes
 
   def current_channel
-    return self.channels.find_by_user_id_and_current_channel(self.id, true)
+    if self.lazy_id
+      return Channel.find_by_guest_user_id_and_current_channel(self.lazy_id, true)
+    else
+      return self.channels.find_by_user_id_and_current_channel(self.id, true)
+    end
   end
 
   def add_to_wishlist(item)

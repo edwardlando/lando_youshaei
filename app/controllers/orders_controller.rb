@@ -1,4 +1,8 @@
 class OrdersController < ApplicationController
+
+  before_filter :authenticate_user!
+  before_filter :user_is_admin, :only => [:index]
+  
   # GET /orders
   # GET /orders.json
   def index
@@ -69,7 +73,7 @@ class OrdersController < ApplicationController
     respond_to do |format|
       if @order.save
         current_user.cart.empty_cart
-        format.html { redirect_to root_path, :notice => "Thank you for placing this request! We'll soon get back to you to confirm
+        format.html { redirect_to root_path, flash[:notice] = "Thank you for placing this request! We'll soon get back to you to confirm
           your items and complete the order" }
         format.json { }#render :json => @order, :status => :created, :location => @order }
       else
@@ -106,6 +110,13 @@ class OrdersController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
- 
+
+  private 
+
+  def user_is_admin
+    unless current_user.role == "admin"
+      redirect_to :controller => "store", :action => "index"
+    end
+  end
+
 end

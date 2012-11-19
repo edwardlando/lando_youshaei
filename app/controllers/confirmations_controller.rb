@@ -1,4 +1,7 @@
 class ConfirmationsController < ApplicationController
+
+  before_filter :user_is_admin, :only => [:index]
+  
   # GET /confirmations
   # GET /confirmations.json
   def index
@@ -129,9 +132,14 @@ class ConfirmationsController < ApplicationController
           clothes. You will shortly receive a confirmation email :)" }
         format.json { }#}render :json => @confirmation, :id => @confirmation.id }
     end
-
   end
 
+  private 
 
+  def user_is_admin
+    unless current_user.role == "admin"
+      redirect_to :controller => "store", :action => "index"
+    end
+  end
 
 end

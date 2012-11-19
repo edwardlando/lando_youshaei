@@ -3,25 +3,24 @@
     <ul>
 		<li class="user_name">
 			<p class="profile_subtitle"> Information </p>
-			<%= current_user.username ||= current_user.email %>
+			<%= current_or_guest_user.username ||= current_or_guest_user.email %>
 		</li>
 		<li class="my_profile">
 			<p class="profile_subtitle"> My channels </p>
-			<% current_user.channels.each do |channel| %>
+			<% current_or_guest_user.channels.each do |channel| %>
 		        <%= link_to "#{channel.name}", { :controller => "store", :action => "index",  :switch => "true", :current_channel => "#{channel.id}" } %> <br />
 	        <% end %>
 		</li>
 		<li class="my_profile">
 			<p class="profile_subtitle"> My wishlist </p>
-			<% unless current_user.wishlist.nil? || current_user.wishlist.items.nil? %>
-			    <% current_user.wishlist.items.each do |item| %>
+			<% unless current_or_guest_user.wishlist.nil? || current_or_guest_user.wishlist.items.nil? %>
+			    <% current_or_guest_user.wishlist.items.each do |item| %>
 					<%= link_to "#{item.title}", "#{item.url}" %> <br />
 			    <% end %>
 			<% end %>
 		</li>
 		<li class="my_profile"> 
-			<p class="profile_subtitle"> <%= link_to "Logout", destroy_user_session_path, :method => :delete %></p>
-		</li>
+			<p class="profile_subtitle"> <%= link_to "Logout", {:controller => "sessions", :action => "destroy", :method => :get } %></p>
+		</li> <!-- destroy_user_session_path -->
 	</ul>
 </div>
-

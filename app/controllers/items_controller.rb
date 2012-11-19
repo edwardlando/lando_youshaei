@@ -2,6 +2,8 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   before_filter :authenticate_user!, :except => [:index]
+  before_filter :user_is_admin, :only => [:index]
+
   def index
     @items = Item.all
 
@@ -88,11 +90,37 @@ class ItemsController < ApplicationController
   end
 
   def vote
+    p params
+    p "************************************"
     vote = current_user.item_votes.new(value: params[:value], item_id: params[:id])
+    @user = current_or_guest_user
+    @channel = @user.current_channel
+    @item = @channel.current_item
+    @index = @channel.item_index
+
+    # adding to wishlist or skipping to next item
+    if params[:value] == 1
+      @user.add_to_wishlist(@item)
+      
+    elsif params[:value] == -1
+      @index+=1
+      # maybe can't redirect to back then
+    end
+  
     if vote.save
-      redirect_to :back, notice: "Thanks for voting. Your feedback allows us to show you things you'll love."
+      redirect_to :controller => "store", :action => "index", :index => @index
+      flash[:notice] =  "Thanks for voting. Your feedback allows us to show you things you'll love."
     else
-      redirect_to :back, alert: "Unable to vote, perhaps you already did."
+      redirect_to :controller => "store", :action => "index"
+      flash[:notice] =  "Unable to vote, perhaps you already did."
+    end
+  end
+
+  private 
+
+  def user_is_admin
+    unless current_user.role == "admin"
+      redirect_to :controller => "store", :action => "index"
     end
   end
 

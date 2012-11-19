@@ -1,4 +1,7 @@
 class CartsController < ApplicationController
+
+  before_filter :user_is_admin, :only => [:index]
+  
   # GET /carts
   # GET /carts.json
   def index
@@ -78,6 +81,14 @@ class CartsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to carts_url }
       format.json { head :no_content }
+    end
+  end
+
+  private 
+
+  def user_is_admin
+    unless current_user.role == "admin"
+      redirect_to :controller => "store", :action => "index"
     end
   end
 

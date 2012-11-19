@@ -10,5 +10,9 @@ module ApplicationHelper
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
-  
+
+  def display_channel
+  	current_or_guest_user.current_channel
+  end
+
 end

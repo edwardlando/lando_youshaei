@@ -21,12 +21,15 @@ body {
 	padding-bottom: 60px;
 	background-image: url("classy_fabric.png");
 	background-repeat: repeat-x repeat-y;
+	overflow-x:hidden;
+	overflow-y:scroll;
 }
 
 .subtle_background, .order_form {
 	background-image: url("classy_fabric.png");
 	background-repeat: repeat-x repeat-y;
 }
+
 
 body, p, ol, ul, input {
 	font-family: 'Calibri' !important;
@@ -51,6 +54,15 @@ a {
 	text-align: center;
 	font-size: 48px;
 	padding-top: 100px;
+}
+
+#landing_sign_in h1, #landing_sign_in h1 a {
+	color: white !important;
+	font-size: 24px;
+	padding: 0px;
+	text-align: right;
+	padding-right: 100px;
+
 }
 
 .welcome_message h1 a:hover {
@@ -123,6 +135,10 @@ a {
 
 .bottom_bar_center .bottom_bar_action {
 	width: 40px;
+}
+
+#add_to_cart_link { 
+	width: 60px;
 }
 
 .bottom_bar_right {
@@ -247,10 +263,15 @@ p .notice {
 }
 
 
-#add_to_cart_link, #upvote, #downvote, #next_icon, #share_icon {
+#add_to_cart_link, #upvote, #downvote, #next_icon,
+#share_icon, #sign_up_button  {
 	display: inline-block;
 	vertical-align: top;
 	line-height: 25px;
+}
+
+#sign_up_button a {
+	color: #59B4AE;
 }
 
 .header_icon {
@@ -276,8 +297,13 @@ p .notice {
     height: 25px;
 }
 
-.header_icon img:hover, .top_header_icon img:hover, .bottom_bar_action:hover {
-	opacity: 0.4;
+.header_icon img:hover, .top_header_icon img:hover {
+	opacity: 0.6;
+}
+
+.bottom_bar_action:hover {
+	color: #59B4AE;
+	opacity: 0.8;
 }
 
 #contributed_by {
@@ -342,7 +368,7 @@ p .notice {
 
 .footer {
 	text-align: center;
-	color: white;
+	color: lightgrey;
 }
 
 .authentification, .authentification a, .authentification a:visited {
@@ -355,16 +381,21 @@ p .notice {
 }
 
 .sign_up_partial, .sign_in_partial {
-	width: 200px;
-	margin-top : 80px;
+	width: 150px;
 	margin-bottom: 50px;
 	color: white;
-	margin-left: auto;
-	margin-right: auto;
 }
 
 .sign_up_partial {
-	/* display: none; */
+	margin: 0 auto;
+}
+
+.sign_in_partial {
+	position: absolute;
+	top: 48px;
+	right: 0px;
+	display: none;
+	padding-right: 40px;
 }
 
 #want_to_join a {
@@ -618,10 +649,19 @@ p .notice {
 #channel_form, #item_form {
 	color: white;
 	padding: 20px;
+	padding-left: 150px;
+	border-top: none;
+	margin: 0 auto;
 }
 
-#item_form label, #channel_form label {
-	font-size: 18px;
+#landing_channel_form {
+	color: white;
+	border-top: none;
+	margin: 0 auto;
+}
+
+#item_form label, #channel_form label, #landing_channel_form {
+	font-size: 24px;
 }
 
 
@@ -655,16 +695,18 @@ p .notice {
 }
 
 #landing_create {
-	width: 100%;
+	width: 72%;
 	height: 30px;
-	background-color: #39AECF;
+	background-color: #59B4AE;
 	border-radius: 3px;
+	border: none;
 	text-align: center;
+	margin: 0 auto;
 	color: white;
 	font-weight: bold;
 	font-size: 16px !important;
 	padding-top: 5px;
-	font-size: 14px;
+	font-size: 18px;
 }
 
 #make_item {
@@ -772,14 +814,16 @@ p .notice {
 
 
 /* Allowing user to make new channel on the landing page */
-.new_channel_landing_page {
+
+.channel_landing_partial {
+	display: inline-block;
 	width: 80%;
 	margin: 0 auto;
 	margin-top: 30px;
-	border-top: 1px solid white;
+	padding-left: 250px;
 }
 
-.new_channel_landing_page li {
+.channel_landing_partial li {
 	display: inline-block;
 	list-style-type: none;
 	vertical-align: top;
@@ -788,7 +832,13 @@ p .notice {
 	margin: 0;
 }
 
-.welcome_message p{
+
+.welcome_message p {
+	color: white;
+	text-align: center;
+}
+
+.landing_greeting {
 	color: white;
 	text-align: center;
 }
@@ -821,11 +871,16 @@ p .notice {
 }
 
 .footer a {
-    color: #59B4AE !important;
+    color: lightgrey !important;
+}
+
+.footer a:hover {
+	color: #59B4AE !important;
 }
 
 a:hover {
-	color: lightgrey !important;
+	color: #59b4ae !important;
+	opacity: 0.8;
 	background-color: transparent !important;
 	text-decoration: none;
 }
@@ -844,7 +899,7 @@ a:hover {
 }
 
 .splashpage_flourish img {
-	width: 340px;
+	width: 230px;
 }
 
 #actions {
@@ -858,10 +913,13 @@ a:hover {
 
 .fields_for_line_items {
 	padding-left: 20px;
+	text-align: center;
 }
 
 .option span {
-	font-size: 18px;
+	font-size: 22px;
+	font-weight: bold;
+	color: rgba(204, 204, 204, 0.8);
 }
 
 .oauth, .oauth a {
