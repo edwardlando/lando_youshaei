@@ -73,10 +73,11 @@ class ChannelsController < ApplicationController
     @channels.each do |c|
       if c.current_channel == true
         @old_channel = c
+        @old_channel.current_channel = false
+        @old_channel.save
       end
     end
-    # @old_channel = @channels.find_all_by_current_channel(true).first
-    @old_channel.current_channel = false
+ 
     @channel.current_channel = true
    
     respond_to do |format|
