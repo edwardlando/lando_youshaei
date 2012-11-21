@@ -1,24 +1,32 @@
+<div class="welcome_message">
+	<h1><%= link_to "AVEECE", root_path %></h1>
+	<h2> the best way to discover and buy clothes </h2>
+	<br/> 
+</div>
 
-<div class="sign_in_partial">
 <div class="new_session">
-
 	<h2>Sign in</h2>
 
-	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-	  <div><%= f.label :email %><br />
-	  <%= f.email_field :email %></div>
+	<div class="authentication_options">
 
-	  <div><%= f.label :password %><br />
-	  <%= f.password_field :password %></div>
+		<div class="oauth_auth">
+			 <%= button_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter), :class => "twitter_button_auth" %>
+            <%= button_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), :class => "facebook_button_auth" %>
+        </div>
+		<div class="verticalLine"></div>
+		<div class="email_auth"
+			<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+			  <div> <%= f.email_field :email, :class => "authentication_field", :placeholder => "Email" %></div>
+			  <div><%= f.password_field :password, :class => "authentication_field", :placeholder => "Password" %></div>
+			  <% if devise_mapping.rememberable? -%>
+			    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+			  <% end -%>
+			  <div><%= f.submit "Sign in", :class => "authentication_button" %></div>
+			<% end %>
+			<%= render "devise/shared/links" %>
+		</div>
+	</div>
 
-	  <% if devise_mapping.rememberable? -%>
-	    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-	  <% end -%>
-
-	  <div><%= f.submit "Sign in" %></div>
-	<% end %>
-
-	<%= render "devise/shared/links" %>
-
+	
 </div>
-</div>
+

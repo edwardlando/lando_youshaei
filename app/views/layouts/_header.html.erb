@@ -63,9 +63,8 @@
 				</div>
 			<% end %>
 	<% else %>
-			<div id="landing_sign_in"><h1>Sign in</h1></div>
-	        <div class="sign_in_partial">
-	    	    <%= render :partial => "devise/sessions/new" %>
+			<div id="landing_sign_in">
+				<h1><%= link_to "Sign in", :controller => "sessions", :action => "new" %></h1>
 	    	</div>
 		</div>
 	<% end %>
