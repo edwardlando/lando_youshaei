@@ -29,6 +29,8 @@ class User < ActiveRecord::Base
   has_many :orders
   has_many :item_votes
 
+  before_destroy :destroy_guest_channels_if_any
+
   def current_channel
     if self.lazy_id
       return Channel.find_by_guest_user_id_and_current_channel(self.lazy_id, true)
@@ -92,6 +94,18 @@ class User < ActiveRecord::Base
 
   def no_provider
     provider.blank? || provider.nil?
+  end
+
+  def destroy_guest_channels_if_any
+    if Channel.find_by_guest_user_id(self.lazy_id)
+      Channel.find_all_by_guest_user_id(self.lazy_id).each do |c|
+        c.destroy
+      end
+    end
+    if cookies[:uuid]
+      guest_user.destroy
+      cookies.delete :uuid
+    end
   end
 
   
