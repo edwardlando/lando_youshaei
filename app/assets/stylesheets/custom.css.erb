@@ -65,13 +65,48 @@ a {
 
 }
 
+.oauth {
+	width: 100%;
+	height: 60px;
+	text-align: center;
+	padding-left: 272px;                /* FIX CENTERING HERE */
+}
+
+.facebook_button, .twitter_button {
+	color: white;
+	font-size: 16px;
+	font-weight: bold;
+	border: none;
+	width: 250px;
+	height: 30px;
+	border-radius: 3px;
+}
+
+.facebook_button {
+	background-color: #475E8E;
+	float: left;
+	margin-left: 8px;
+	display: inline-block;
+}
+
+.twitter_button {
+	background-color: #52A2D9;
+	float: left;
+	display: inline-block;
+}
+
+.oauth button {
+	color: white !important;
+	text-align: center;
+}
+
 .welcome_message h1 a:hover {
 	background-color: transparent;
-	color: rgba(238,238,238,0.8);
+	color: rgb(238,238,238);
 }
 
 .welcome_message h2 {
-	color: rgba(204,204,204,0.8);
+	color: white;
 	font-family: 'poiret_oneregular' !important;
 	font-weight: italic;
 	text-align: center;
@@ -398,9 +433,16 @@ p .notice {
 	padding-right: 40px;
 }
 
-#want_to_join a {
-	color: white;
+.email {
+	width: 100%;
+	height: 70px;
+	text-align: center
+}
+
+.email a, p {
+	color: white !important;
 	font-size: 16px;
+	font-weight: bold;
 }
 
 
@@ -431,14 +473,6 @@ p .notice {
 	margin-top: 8px;
 }
 
-#want_to_join {
-	text-align: center
-}
-
-#want_to_join p {
-	font-size: 16px;
-	color: white;
-}
 
 .devise_links:hover {
 	background-color: transparent !important;
@@ -450,51 +484,6 @@ p .notice {
 	text-align: center;
 }
 
-.selected:hover .picker{
-	display: block;
-}
-
-.picker {
-	top: 19px;
-	height: 70px;
-	width: 200px;
-}
-
-#item_color + .picker, #channel_color + .picker {
-	width: 150px;
-}
-
-/* Highlighting is taken care of in the js file */
-
-.picker span:hover {
-	color: rgb(89, 180, 174);
-}
-
-.picker > .option {
-	color: white;
-   	font-size: 14px;
-   	font-family: 'poiret_oneregular' !important;
-   	height: auto;
-   	width: auto;
-   	border: none;
-   	margin-top: 5px;
-}
-
-#item_color + .picker > .option, #channel_color + .picker > .option, .selected {
-    font-size: 10px;
-	width: 40px;
-	height: 40px;
-	border: 1px solid white;
-	margin: 1px;
-	cursor: pointer;
-	position: relative;
-	color: transparent;
-	float: left;
-}
-
-#channel_color + .picker > .option:hover, #item_color + .picker > .option:hover {
-	border: 1px solid #59B4AE;
-}
 
 #ColorAll {
 	width: 60px;
@@ -657,7 +646,11 @@ p .notice {
 #landing_channel_form {
 	color: white;
 	border-top: none;
-	margin: 0 auto;
+	border: 2px solid #59B4AE;
+	padding-top: 20px;
+	width: 400px;
+	margin-left: 30px;            /* FIX CENTERING */
+	float: center;
 }
 
 #item_form label, #channel_form label, #landing_channel_form {
@@ -695,13 +688,14 @@ p .notice {
 }
 
 #landing_create {
-	width: 72%;
+	width: 442px;
 	height: 30px;
 	background-color: #59B4AE;
 	border-radius: 3px;
 	border: none;
 	text-align: center;
 	margin: 0 auto;
+	margin-left: 10px;               /* FIX CENTERING */
 	color: white;
 	font-weight: bold;
 	font-size: 16px !important;
@@ -812,26 +806,88 @@ p .notice {
 	display: inline-block;
 }
 
-
-/* Allowing user to make new channel on the landing page */
-
-.channel_landing_partial {
-	display: inline-block;
-	width: 80%;
-	margin: 0 auto;
-	margin-top: 30px;
-	padding-left: 250px;
+.selected:hover .picker{
+	display: block;
 }
 
-.channel_landing_partial li {
-	display: inline-block;
-	list-style-type: none;
-	vertical-align: top;
-	width: 19%;
+.picker {
+	top: 19px;
+	height: 70px;
+	width: 200px;
+}
+
+#item_color + .picker, #channel_color + .picker {
+	width: 600px;
+}
+
+.option span {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.picker span:hover {
+	color: rgb(89, 180, 174);
+}
+
+.picker label {
+	margin-bottom: 50px;
+}
+
+.picker > .option {
+	color: white;
+   	font-size: 14px;
+   	font-family: 'Calibri' !important;
+   	height: auto;
+   	width: auto;
+   	border: none;
+   	margin-top: 5px;
+}
+
+#item_color + .picker > .option, #channel_color + .picker > .option, .selected {
+	width: 25px !important;
+	min-width: 25px !important;
+	border: 1px solid black;
+	height: 25px;
+	border-radius: 14px;
+	padding: 0;
+	overflow: hidden;
+	cursor: pointer;
+	display: block !important;
+
+}
+
+.color {
+	width: 100%;
+	height: 40px;
+	display: block !important;
+}
+
+.style_price_gender {
+	width: 100%;
+	height: 180px;
+	margin-top: 20px;
+	display: block !important;
+	margin-bottom: 0;
+}
+
+.style_price_gender li {
+	width: 120px !important;
 	padding: 0;
 	margin: 0;
 }
 
+#channel_color + .picker > .option:hover, #item_color + .picker > .option:hover {
+	border: 1px solid #59B4AE;
+}
+
+
+/* Allowing user to make new channel on the landing page */
+
+
+.welcome_message {
+	width: 100%;
+	height: 250px;
+}
 
 .welcome_message p {
 	color: white;
@@ -840,6 +896,7 @@ p .notice {
 
 .landing_greeting {
 	color: white;
+	font-weight: bold;
 	text-align: center;
 }
 
@@ -916,16 +973,12 @@ a:hover {
 	text-align: center;
 }
 
-.option span {
-	font-size: 22px;
-	font-weight: bold;
-	color: rgba(204, 204, 204, 0.8);
+.verticalLine {
+	height: 60px;
+    border-left: thin solid white;
 }
 
-.oauth, .oauth a {
-	color: white !important;
-	text-align: center;
-}
+
 
 
 
