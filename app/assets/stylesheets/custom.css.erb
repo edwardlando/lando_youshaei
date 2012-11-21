@@ -65,12 +65,6 @@ a {
 
 }
 
-.oauth {
-	width: 100%;
-	height: 60px;
-	text-align: center;
-	padding-left: 272px;                /* FIX CENTERING HERE */
-}
 
 .facebook_button, .twitter_button {
 	color: white;
@@ -429,18 +423,6 @@ p .notice {
 	margin: 0 auto;
 }
 
-.email {
-	width: 100%;
-	height: 70px;
-	text-align: center
-}
-
-.email a, p {
-	color: white !important;
-	font-size: 16px;
-	font-weight: bold;
-}
-
 
 .registration_field, .authentication_field {
 	height: 32px;
@@ -646,8 +628,16 @@ p .notice {
 	border-radius: 3px;
 	padding-top: 20px;
 	width: 400px;
-	margin-left: 30px;            /* FIX CENTERING */
-	float: center;
+	margin: 0 auto;           /* FIX CENTERING */
+}
+
+#landing_channel_form li {
+	list-style: none;
+	float: left;
+}
+
+#landing_channel_form label {
+	color: #59B4AE;
 }
 
 #item_form label, #channel_form label, #landing_channel_form {
@@ -698,6 +688,10 @@ p .notice {
 	font-size: 16px !important;
 	padding-top: 5px;
 	font-size: 18px;
+}
+
+#create_channel_div {
+	text-align: center;
 }
 
 #make_item {
@@ -850,6 +844,8 @@ p .notice {
 	overflow: hidden;
 	cursor: pointer;
 	display: block !important;
+	float: left;
+	color: transparent;
 
 }
 
@@ -989,19 +985,19 @@ a:hover {
 	text-align: center;
 }
 
-.email_auth {
+.email {
 	float: left;
 }
 
-.oauth_auth {
+.oauth {
 	float: left;
 }
 
-.authentication_options {
+.authentication_options, .registration_options {
 	display: inline-block;
 	margin: 0 auto;
 	width: 500px;
-	height: 300px;
+	height: 200px;
 	padding-left: 222px;          /* FIX CENTERING */
 }
 
@@ -1024,6 +1020,17 @@ a:hover {
 	background-color: #52A2D9;
 	display: inline-block;
 	margin-bottom: 15px;
+}
+
+.new_registration {
+	color: white;
+	margin: 0 auto;
+	width: 100%;
+	margin-bottom: 50px;
+}
+
+.new_registration h2 {
+	text-align: center;
 }
 
 
