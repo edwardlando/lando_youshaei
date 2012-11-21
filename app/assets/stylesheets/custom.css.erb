@@ -968,6 +968,7 @@ a:hover {
 
 .verticalLine {
 	height: 80px;
+	width: 2px;
     border-left: thin solid white;
     float: left;
     margin-left: 20px;
@@ -986,19 +987,25 @@ a:hover {
 }
 
 .email {
+	width: 150px;
+	height: 100px;
 	float: left;
 }
 
 .oauth {
+	width: 250px;
+	height: 100px;
 	float: left;
+	margin-right;
 }
 
 .authentication_options, .registration_options {
-	display: inline-block;
+	display: inline-block !important;
 	margin: 0 auto;
-	width: 500px;
+	text-align: center;
+	width: 800px;
 	height: 200px;
-	padding-left: 222px;          /* FIX CENTERING */
+    padding-left: 185px;       /* FIX CENTERING */
 }
 
 .facebook_button_auth, .twitter_button_auth {
@@ -1013,12 +1020,10 @@ a:hover {
 
 .facebook_button_auth {
 	background-color: #475E8E;
-	display: inline-block;
 }
 
 .twitter_button_auth {
 	background-color: #52A2D9;
-	display: inline-block;
 	margin-bottom: 15px;
 }
 
