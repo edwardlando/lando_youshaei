@@ -1,21 +1,8 @@
-  <%= form_for(Channel.new) do |f| %>
-    <ul id="channel_form">
-      <li class="field">
-        <%= f.label :name, "Channel Name" %><br />
-        <%= f.text_field :name, :placeholder => "Uber cool preppy" %>    
-      </li>
-      <div class="color">
-        <li class="field">
-          <%= f.label :color %><br />
-          <%= f.select(:color, Channel::COLOR_OPTIONS) %>
-          <div class="picker">
-              <% Channel::COLOR_OPTIONS.each do |color| %>
-             <div class="option" id="Color<%=color%>"><%= color%></div>
-            <% end %>
-          </div>
-        </li> 
-      </div>
-      <div class="style_price_gender">
+
+<%= form_for(Channel.new) do |f| %>
+  <ul id="channel_form">
+    <div class="channel_parameters">
+      <div class="style_inner">
         <li class="field">
           <%= f.label :style %><br />
           <%= f.select(:style, Channel::STYLE_OPTIONS) %>   
@@ -25,6 +12,8 @@
             <% end %>
           </div>
         </li>
+      </div>
+      <div class="price_inner">
         <li class="field">
           <%= f.label :price, "Price limit" %><br />
           <%= f.select(:price, Channel::PRICE_OPTIONS) %>  
@@ -34,6 +23,8 @@
             <% end %>
           </div> 
         </li>
+      </div>
+      <div class="gender_inner">
         <li class="field">
           <%= f.label :gender %><br />
           <%= f.select(:gender, Channel::GENDER_OPTIONS) %>  
@@ -44,10 +35,30 @@
           </div> 
         </li>
       </div>
-   </ul>
-   <div class="actions">
+      <div class="color_name">
+        <div class="color_inner">
+          <li class="field">
+            <%= f.label :color %><br />
+            <%= f.select(:color, Channel::COLOR_OPTIONS) %>
+            <div class="picker">
+                <% Channel::COLOR_OPTIONS.each do |color| %>
+               <div class="option" id="Color<%=color%>"><%= color%></div>
+              <% end %>
+            </div>
+          </li> 
+        </div>
+        <div class="name_inner">
+          <li class="field">
+            <%= f.label :name, "Channel Name" %><br />
+            <%= f.text_field :name, :placeholder => "Uber cool preppy" %>    
+          </li>
+        </div>
+      </div>
+    </div>
+  </ul>
+  <div class="actions">
       <%= f.submit "Create this channel", :id => "make_channel" %>
-   </div>
-  <% end %>
+    </div>
+<% end %>
 
 

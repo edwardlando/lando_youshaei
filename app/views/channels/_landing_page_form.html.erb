@@ -12,33 +12,39 @@
         </li> 
         </div>
         <div class="style_price_gender">
-        <li class="field">
-          <%= f.label :style %><br />
-          <%= f.select(:style, Channel::STYLE_OPTIONS) %>   
-          <div class="picker" id="style_picker">
-              <% Channel::STYLE_OPTIONS.each do |style| %>
-             <div class="option" id="Style<%=style%>"><span><%= style %></span></div>
-            <% end %>
+          <div class="style">
+            <li class="field">
+              <%= f.label :style %><br />
+              <%= f.select(:style, Channel::STYLE_OPTIONS) %>   
+              <div class="picker" id="style_picker">
+                  <% Channel::STYLE_OPTIONS.each do |style| %>
+                 <div class="option" id="Style<%=style%>"><span><%= style %></span></div>
+                <% end %>
+              </div>
+            </li>
           </div>
-        </li>
-        <li class="field">
-          <%= f.label :price, "Price limit" %><br />
-          <%= f.select(:price, Channel::PRICE_OPTIONS) %>  
-          <div class="picker">
-              <% Channel::PRICE_OPTIONS.each do |price| %>
-             <div class="option" id="Under<%=price%>"><span><%= price %></span></div>
-            <% end %>
-          </div> 
-        </li>
-        <li class="field">
-          <%= f.label :gender %><br />
-          <%= f.select(:gender, Channel::GENDER_OPTIONS) %>  
-          <div class="picker">
-              <% Channel::GENDER_OPTIONS.each do |gender| %>
-             <div class="option" id="<%=gender%>"><span><%= gender %></span></div>
-            <% end %>
-          </div> 
-        </li>
+          <div class="price">
+            <li class="field">
+              <%= f.label :price, "Price limit" %><br />
+              <%= f.select(:price, Channel::PRICE_OPTIONS) %>  
+              <div class="picker">
+                  <% Channel::PRICE_OPTIONS.each do |price| %>
+                 <div class="option" id="Under<%=price%>"><span><%= price %></span></div>
+                <% end %>
+              </div> 
+            </li>
+          </div>
+          <div class="gender">
+            <li class="field">
+              <%= f.label :gender %><br />
+              <%= f.select(:gender, Channel::GENDER_OPTIONS) %>  
+              <div class="picker">
+                  <% Channel::GENDER_OPTIONS.each do |gender| %>
+                 <div class="option" id="<%=gender%>"><span><%= gender %></span></div>
+                <% end %>
+              </div> 
+            </li>
+          </div>
         </div>
    </ul>
    <div class="actions" id="create_channel_div">

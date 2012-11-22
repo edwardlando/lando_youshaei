@@ -239,8 +239,13 @@ form label {
 	font-weight: 600;
 }
 
-#my_cart img, #next_icon img, #share_icon img, #downvote img, #upvote img{
+#my_cart img, #share_icon img, #downvote img, #upvote img{
 	width: 25px;
+	height: 30px;
+}
+
+#next_icon img {
+	width: 34px;
 	height: 30px;
 }
 
@@ -516,10 +521,16 @@ p .notice {
 	background: #FF7400;
 }
 
-#channel_name, #item_title {
+#item_title {
 	width: 80%;
 	height: 35px;
 }
+
+#channel_name {
+	width: 180px;
+	height: 35px;
+}
+
 
 #item_url, #item_price {
 	width: 80%;
@@ -616,7 +627,7 @@ p .notice {
 #channel_form, #item_form {
 	color: white;
 	padding: 20px;
-	padding-left: 150px;
+	text-align: center;
 	border-top: none;
 	margin: 0 auto;
 }
@@ -626,9 +637,9 @@ p .notice {
 	border-top: none;
 	border: 1px solid white;
 	border-radius: 3px;
-	padding-top: 20px;
-	width: 400px;
-	margin: 0 auto;           /* FIX CENTERING */
+	padding-top: 20px;  /* FIX CENTERING */
+	width: 500px;
+	margin: 0 auto;        
 }
 
 #landing_channel_form li {
@@ -637,6 +648,10 @@ p .notice {
 }
 
 #landing_channel_form label {
+	color: #59B4AE;
+}
+
+#channel_form label {
 	color: #59B4AE;
 }
 
@@ -661,7 +676,7 @@ p .notice {
 }
 
 #make_channel {
-	width: 100%;
+	width: 60%;
 	height: 30px;
 	background-color: #59b4ae;
 	border-radius: 3px;
@@ -849,25 +864,105 @@ p .notice {
 
 }
 
-.color {
-	width: 100%;
-	height: 40px;
-	display: block !important;
-}
-
 .style_price_gender {
 	width: 100%;
-	height: 180px;
-	margin-top: 20px;
+	height: 150px;
+	margin-top: 60px !important;
 	display: block !important;
 	margin-bottom: 0;
 }
+
+.style {
+	width: 150px;
+	height: 100px;
+	float: left;
+}
+
+.price {
+	width: 150px;
+	height: 100px;
+	float: left;
+}
+
+.gender {
+    width: 150px;
+	height: 100px;
+	float: left;
+}
+
+.style_price_gender_and_color_name {
+	width: 100%;
+	height: 150px;
+	margin-top: 20px;
+	float: left;
+	margin-bottom: 0;
+	text-align: left;
+}
+
+.channel_parameters {
+	width: 100%;
+	height: 150px;
+	margin-top: 20px;
+	display: inline-block !important;
+	margin-bottom: 0;
+	text-align: left;
+}
+
+
+.style_inner, .price_inner, .gender_inner {
+	width: 150px;
+	height: 100px;
+	float: left;
+	text-align: left;
+}
+
+.color_name {
+	width: 300px;
+	height: 100px;
+	margin-top: 0;
+	float: left;
+	text-align: left;
+}
+
+.color_inner {
+	width: 300px;
+	height: 50%;
+	display: block !important;
+	text-align: left;
+}
+
+.name_inner {
+    width: 300px;
+	height: 50%;
+	margin-top: 10px;
+	display: block !important;
+	text-align: left;
+}
+
+.color {
+	width: 100%;
+	height: 40px;
+	float:left;
+}
+
+.name {
+	width: 50%;
+	height: 50px;
+	margin-top: 0;
+	float: left;
+}
+
+.master_channel {
+	text-align: center;
+}
+
 
 .style_price_gender li {
 	width: 120px !important;
 	padding: 0;
 	margin: 0;
 }
+
 
 #channel_color + .picker > .option:hover, #item_color + .picker > .option:hover {
 	border: 1px solid #59B4AE;
