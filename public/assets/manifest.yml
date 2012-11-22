@@ -23,10 +23,15 @@ vevey/vevey-webfont.woff: vevey/vevey-webfont-f925953fbd801c55681a4f4fbad66e1a.w
 all.png: all-a1d9e80c2b06f3b19bd23354cbc2b587.png
 bar_light_verticaldivider.png: bar_light_verticaldivider-46367d3319fb942a72681267e5f19212.png
 bar_next_icon.png: bar_next_icon-024be8d0295c31f00b16fd774345b7d3.png
+bar_next_icon2.png: bar_next_icon2-a1a3a015a4b9f0c4793d55416ae9ada9.png
 bar_profile_icon.png: bar_profile_icon-fd4d9d58be6fc0eaa14f33fc569fb81f.png
+bar_profile_icon2.png: bar_profile_icon2-356bbec7a61c23f9b175c80907d2716c.png
 bar_shoppingbag_icon.png: bar_shoppingbag_icon-b6b75ba93f5ea1da4f02b67b08dbe6c8.png
+bar_shoppingbagadd_icon.png: bar_shoppingbagadd_icon-99ac57db0594477f809ac6887e32cba9.png
 bar_thumbsdown_icon.png: bar_thumbsdown_icon-651420d9afd50da3bb1dfacc3acbcc9d.png
+bar_thumbsdown_icon2.png: bar_thumbsdown_icon2-fac8fec6a817546b4d2d2244eea260fd.png
 bar_thumbsup_icon.png: bar_thumbsup_icon-9131662d921b842e3f9bdbf5a23133ba.png
+bar_thumbsup_icon2.png: bar_thumbsup_icon2-e3727db651a3a447ecb52b231be2fbc0.png
 classy_fabric.png: classy_fabric-0e4c3c151c922748dfe43a179509e3f7.png
 dark_Tire.png: dark_Tire-4d401379dde56106320a12aadc0740bf.png
 dark_wood.png: dark_wood-2e12f47377e42f9fec15ff0566735d96.png
@@ -42,4 +47,4 @@ splashpage_flourish.png: splashpage_flourish-fca65ede2ce1893a299895eceee08be3.pn
 subtle_carbon.png: subtle_carbon-b053a1f110f750d58d090f7cc7b9c30b.png
 txture.png: txture-900a4e6de1be9cc65aab31cc1ebc0c9a.png
 application.js: application-bd49ae89b28a07278e3c06df5240d26f.js
-application.css: application-a360d24ec4f50be2dc3653a19b8b17a1.css
+application.css: application-67bd77522bd5e942257e89d998cc7dae.css

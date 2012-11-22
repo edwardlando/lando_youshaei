@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password, :on => :create, :if => :no_provider
   validates :password_confirmation, presence: true, :on => :create, :if => :no_provider
 
-  has_many :items, :dependent => :destroy
+  has_many :items #, :dependent => :destroy
   has_many :channels, :dependent => :destroy
   has_one :wishlist
   has_one :cart
