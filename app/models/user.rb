@@ -15,8 +15,11 @@ class User < ActiveRecord::Base
   :message => "You must accept the terms of use", :on => :create, :if => :no_provider
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
-  uniqueness: { case_sensitive: false }, :if => :no_provider
+  validates :email, presence: true, :if => :no_provider
+  validates :email, format: { with: VALID_EMAIL_REGEX }, :if => :no_provider
+  validates :email, uniqueness: { case_sensitive: false }, :if => :no_provider
+
+
   validates :password, presence: true, length: { minimum: 6 },
   :on => :create, :if => :no_provider
   validates_confirmation_of :password, :on => :create, :if => :no_provider
