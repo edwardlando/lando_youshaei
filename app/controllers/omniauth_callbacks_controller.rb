@@ -1,10 +1,7 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 	def all
 	    user = User.from_omniauth(request.env["omniauth.auth"])
-	    if user.email.nil?
-	    	user.email = "your@email.com"
-	    end
-
+	   
         # not making duplicates
 	    if user.channels.empty? && user.cart.nil? && user.wishlist.nil?
 		    user.role = "standard"
