@@ -144,15 +144,18 @@ $(document).ready(function() {
 	});
 
 	// SOCIAL SHARING
-    $("#share_icon").hover(
-    	function() {
-		    $("#social_icons").style.display = true;
-		},
-		function() {
-		    $("#social_icons").style.display = false;
-		}
-	);
-	$("share_icon.fade").hover(function(){$(this).fadeOut(100);$(this).fadeIn(500);});
+	function toggle(item) {
+	    if (item.style.visibility == 'hidden') { item.style.visibility = 'visible'; }
+    };   
+
+ 
+	$("#share_icon").hover(function () {
+		var icons = document.getElementById('social_icons');
+        toggle(icons);
+	});
+
+
+
 
 	//Facebook
 	var facebook_url_to_share = "http://www.aveece.com/";
