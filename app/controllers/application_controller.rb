@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   def current_or_guest_user
     if current_user
       if cookies[:uuid]
-        guest_user.destroy
+        guest_user.delete
         cookies.delete :uuid
       end
       current_user
