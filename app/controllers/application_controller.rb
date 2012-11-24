@@ -49,11 +49,8 @@ class ApplicationController < ActionController::Base
     # matching current_user's uuid cookie... then associate them with current_user
   end    
 
-  
-  #maybe should make this provate, and not have it as get route
+
 	def create_guest_user
-    p params
-    p "******************************************"
     uuid = rand(36**64).to_s(36)
     temp_email = "guest_#{uuid}@email_address.com"
     u = User.create(:email => temp_email, :lazy_id => uuid)
