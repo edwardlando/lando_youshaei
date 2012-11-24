@@ -143,5 +143,16 @@ $(document).ready(function() {
 		};
 	});
 
+	// SOCIAL SHARING
+    $("#share_icon").hover(
+    	function() {
+		    $("#social_icons").style.display = true;
+		},
+		function() {
+		    $("#social_icons").style.display = false;
+		}
+	);
+
+	$("share_icon.fade").hover(function(){$(this).fadeOut(100);$(this).fadeIn(500);});
    
 });

@@ -8,6 +8,28 @@
 </head>
 <body>
 
+<!-- Facebook sharing -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=556776341004235";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+<!-- Facebook sharing -->
+<!-- Twitter sharing -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+</script>
+<!-- Twitter sharing -->
+<!-- Pinterest sharing -->
+<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
+<!-- Pinterest sharing -->
+<!-- Google plus sharing -->
+<script src="https://apis.google.com/js/plusone.js"></script>
+<!-- Google plus sharing -->
+
 <!-- flash messages -->
 <div id="wrap">
       <% if current_or_guest_user.nil? %>
