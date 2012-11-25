@@ -81,7 +81,7 @@
 	        <%= yield %>
 		  </div>
 </div>
-<% unless current_or_guest_user.nil? %>
+<% unless current_or_guest_user.nil? || current_or_guest_user.role == "admin" %>
   <div class="footer">
   	<%= render 'layouts/footer' %>
   </div>
