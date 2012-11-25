@@ -23,7 +23,7 @@ class RegistrationsController < Devise::RegistrationsController
 	        # Initial channel for the new user
 		    @channel = Channel.new(
 		    :color => "All", :style => "All",
-		    :price => "All", :gender => "Unisex",
+		    :price => "All", :gender => "All",
 	        :user_id => resource.id, :item_index => 0,
 	        :name => "My first channel")
 		    @channel.current_channel = true

@@ -47,7 +47,7 @@ $(document).ready(function() {
 
     var priceOptions = ["Under50", "Under100", "Under200", "UnderAll"]
 
-    var genderOptions = ["Female", "Male", "Unisex"]
+    var genderOptions = ["Female", "Male", "All"]
 
 
     // Highlight options in the selected element

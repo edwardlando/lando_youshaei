@@ -17,7 +17,7 @@ class Channel < ActiveRecord::Base
 
   PRICE_OPTIONS = ["50", "100", "200", "All"]
 
-  GENDER_OPTIONS = ["Female", "Male", "Unisex"]
+  GENDER_OPTIONS = ["Female", "Male", "All"]
 
 
   def channel_items
@@ -31,7 +31,7 @@ class Channel < ActiveRecord::Base
     	if  (channel_color == item.color || channel_color == "All") &&
     	    (item.style == channel_style || channel_style == "All") &&
     	    (item.price <= channel_price || channel_price.to_s == "0.0" || channel_price.to_s == "0") &&
-    	    (item.gender == channel_gender || channel_gender == "Unisex")
+    	    (item.gender == channel_gender || channel_gender == "All" || channel_gender == "Unisex")
     	      items << item
     	end
     end

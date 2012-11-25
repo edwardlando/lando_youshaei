@@ -9,7 +9,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 		    user.wishlist = Wishlist.new(:user_id => user.id)
 		    
 		    # Initial channel for the user
-		    @channel = Channel.new(:color => "All", :style => "All", :price => "All", :gender => "Unisex",
+		    @channel = Channel.new(:color => "All", :style => "All", :price => "All", :gender => "All",
 	    :user_id => user.id, :item_index => 0, :name => "My first channel")
 		    @channel.current_channel = true
 		    @channel.save

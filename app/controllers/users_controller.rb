@@ -47,7 +47,7 @@ class UsersController < ApplicationController
     @user.wishlist = Wishlist.new(:user_id => @user.id)
     
     # Initial chanel for the user
-    @channel = Channel.new(:color => "All_colors", :style => "All_prices", :price => "All_prices", :gender => "Unisex",
+    @channel = Channel.new(:color => "All_colors", :style => "All_prices", :price => "All_prices", :gender => "All",
     :user_id => @user.id, :item_index => 0)
     @channel.current_channel = true
     @channel.save
