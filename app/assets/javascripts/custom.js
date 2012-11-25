@@ -65,7 +65,7 @@ $(document).ready(function() {
 			}
 			selected = this;
 			if (border) {
-				this.style.border = "1px solid #59B4AE";
+				this.style.border = "2px solid #59B4AE";
 			} else {
 				this.style.color = '#59B4AE';
 			}
