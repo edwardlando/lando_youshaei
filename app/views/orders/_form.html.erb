@@ -13,9 +13,9 @@
   <%= f.hidden_field :stripe_card_token %>
 
   <% if current_user.stripe_customer_token.present? %>
-    Welcome back <%= current_user.username %>! <br /> <br/>
+    <div class="order_text"> Welcome back <%= current_user.username %>! <br /> <br/>
 
-    You've expressed interest in buying the following items. <br/> We'll go over your request once you submit it and get back to you with a confirmation. <br /><br />
+    You've expressed interest in buying the following items. <br/> We'll go over your request once you submit it and get back to you with a confirmation. <br /><br /></div>
 
     <% @cart.line_items.each do |item| %>
       <li> <%= item.name %> (Quantity: <%= item.quantity %>) </li>
@@ -24,7 +24,7 @@
     <%= f.hidden_field :name, :value => current_user.username %>
     <%= f.hidden_field :address , :value => current_user.address %>
   <% else %>
-  <div>Please enter your payment information below. We'll go over the items you've added, and we'll get back to you and ask you to confirm your purchase before we charge you.</div> <br/> <br/>
+  <div class="order_text">Please enter your payment information below. <br/> <br/> We'll go over the items you've added, and we'll get back to you and ask you to confirm your purchase before we charge you. <br/> Click <%= link_to "here", '#' %> for more information about ordering items on Aveece. </div> <br/> <br/>
   <div class="field">
     <%= f.label :name, "Your Name" %><br />
     <%= f.text_field :name, :size => 40 %>

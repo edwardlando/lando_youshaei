@@ -64,10 +64,10 @@ class LineItemsController < ApplicationController
     
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to root_path, :notice => 'Item successfully added to cart' }
+        format.html { redirect_to root_path, :notice => 'Yay! Item successfully added to your shopping bag!' }
         format.json { }#render :json => @channel }
       else
-        format.html { redirect_to :controller => "store", :action => "index", :notice => "There was an error adding the item to your cart" }
+        format.html { redirect_to :controller => "store", :action => "index", :notice => "There was an error adding the item to your shopping bag" }
         format.json { }
       end
     end

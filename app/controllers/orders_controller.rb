@@ -33,7 +33,7 @@ class OrdersController < ApplicationController
     @cart = current_user.cart
   
     if @cart.line_items.empty?
-      redirect_to root_path, :notice => "You cart is empty"
+      redirect_to root_path, :notice => "Oh no! Your shopping bag is empty."
       return
     end
 
@@ -73,8 +73,9 @@ class OrdersController < ApplicationController
     respond_to do |format|
       if @order.save
         current_user.cart.empty_cart
-        format.html { redirect_to root_path, flash[:notice] = "Thank you for placing this request! We'll soon get back to you to confirm
-          your items and complete the order" }
+        format.html { redirect_to root_path,
+          :notice => "Yipee! Thank you for placing this request! We'll soon get back to you to confirm
+          your items and complete the order so you can have your nice clothes :-)" }
         format.json { }#render :json => @order, :status => :created, :location => @order }
       else
         format.html { render :action => "new" }
