@@ -12,7 +12,7 @@
 			    <div id="contributed_by">Contributed by: <a href src="#"><%= display_channel.current_item.user.email %> </a><br><span>(Official Aveece Tastemaker)</span>
 			    </div>
 		    <% end %> 
-			<% unless current_or_guest_user.nil? || current_or_guest_user.role == "admin" %>
+			<% unless current_or_guest_user.nil? %>
 				<div id="actions">
 				    <div class="action bottom_bar_left">
 						<% if current_user %>

@@ -74,7 +74,7 @@ class OrdersController < ApplicationController
       if @order.save
         current_user.cart.empty_cart
         format.html { redirect_to root_path,
-          :notice => "Yipee! Thank you for placing this request! We'll soon get back to you to confirm
+          :notice => "Yipee! Request placed! We'll soon get back to you to confirm
           your items and complete the order so you can have your nice clothes :-)" }
         format.json { }#render :json => @order, :status => :created, :location => @order }
       else

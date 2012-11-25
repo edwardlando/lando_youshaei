@@ -12,7 +12,7 @@
 	        <% end %>
 		</li>
 		<li class="my_profile">
-			<p class="profile_subtitle"> My wishlist </p>
+			<p class="profile_subtitle"> My wishlist <br/> <span class="help_notice">(upvote to add to wishlist)</span> </p>
 			<% unless current_or_guest_user.wishlist.nil? || current_or_guest_user.wishlist.items.nil? %>
 			    <% current_or_guest_user.wishlist.items.each do |item| %>
 					<%= link_to "#{item.title}", "#{item.url}" %> <br />

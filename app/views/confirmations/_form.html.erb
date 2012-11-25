@@ -2,7 +2,7 @@
     <h1>Order summary</h1>
 
     <p>Order Id: <%= @order.id %></p>
-    <p>Customer: <%= @order.user.email %></p>
+    <p>Customer: <%= @order.user.email ||= @order.user.username %></p>
     <p>Address: <%= @order.address %> </p>
       
       <p> Items requested by the customer: </p> 
@@ -33,7 +33,7 @@
   
     <!-- nested form -->
 
-    <h2>Input actual item names, URLs and prices </h2>
+    <h2> Data from merchant site </h2>
 
     <%= f.fields_for :line_items do |builder| %> 
       <%= builder.hidden_field :id %>
@@ -46,13 +46,13 @@
         <%= builder.text_field :current_url %>
       </p>
       <p>
-        <%= builder.label :price, "Item price" %> <br />
+        <%= builder.label :price, "Item price (Consider shipping & tax)" %> <br />
         <%= builder.text_field :price %>
       </p>
     <% end %>
    
     <div class="actions">
-      <%= f.submit "Send confirmation to customer" %>
+      <%= f.submit "Send confirmation to customer", :class => "request_button" %>
     </div>
   <% end %>
 </div>

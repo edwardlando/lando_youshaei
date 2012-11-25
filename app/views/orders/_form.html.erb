@@ -13,9 +13,9 @@
   <%= f.hidden_field :stripe_card_token %>
 
   <% if current_user.stripe_customer_token.present? %>
-    <div class="order_text"> Welcome back <%= current_user.username %>! <br /> <br/>
+    <div class="order_text_heading"> Welcome back <%= current_user.username %>!</div> <br /> <br/>
 
-    You've expressed interest in buying the following items. <br/> We'll go over your request once you submit it and get back to you with a confirmation. <br /><br /></div>
+    <div class="order_text"> You've expressed interest in buying the following items. <br/> We'll go over your request once you submit it and get back to you with a confirmation. <br /><br /></div>
 
     <% @cart.line_items.each do |item| %>
       <li> <%= item.name %> (Quantity: <%= item.quantity %>) </li>
