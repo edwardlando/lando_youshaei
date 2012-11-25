@@ -99,16 +99,14 @@ class ItemsController < ApplicationController
     @index = @channel.item_index
 
     # adding to wishlist or skipping to next item
-    if params[:value] == 1
+    if params[:value] == '1'
       @user.add_to_wishlist(@item)
       @user.save
-    elsif params[:value] == -1
+    elsif params[:value] == '-1'
       @index+=1
       # maybe can't redirect to back then
     end
 
-
-  
     if vote.save
       redirect_to :controller => "store", :action => "index", :index => @index
       flash[:notice] =  "Thanks for voting. Your feedback allows us to show you things you'll love."
