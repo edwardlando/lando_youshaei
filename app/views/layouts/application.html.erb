@@ -46,7 +46,7 @@
 <!-- Google plus sharing -->
 
 <!-- flash messages -->
-<div id="wrap">
+<div class="wrapper">
       <% if current_or_guest_user.nil? %>
           <div id="header">
             <div id="header-container">
@@ -80,12 +80,11 @@
 	    <div class="container" id="iframe">
 	        <%= yield %>
 		  </div>
+      <div class="push"></div>
 </div>
-<% unless current_or_guest_user.nil? || current_or_guest_user.role == "admin" %>
-  <div class="footer">
-  	<%= render 'layouts/footer' %>
-  </div>
-<% end %>
+<div class="footer">
+	<%= render 'layouts/footer' %>
+</div>
 
 <!-- Skimlinks -->
 <script type="text/javascript" src="http://s.skimresources.com/js/41891X1089278.skimlinks.js"></script>
