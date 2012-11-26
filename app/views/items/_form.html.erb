@@ -1,45 +1,35 @@
   <%= form_for(Item.new, :remote => true) do |f| %>
-    <ul id="item_form">
-      <li class="field">
-        <%= f.label :title %><br />
-        <%= f.text_field :title, :placeholder => "Uber cool preppy" %>   <br /> <br />
-        <%= f.label :url %><br />
-        <%= f.url_field :url, :placeholder => "Link to where item can be purchased"  %>   
-           <br /> <br /> 
-        <%= f.label :price %><br />
-        <%= f.text_field :price, :placeholder => "i.e. 49.99 (no $ needed)" %>  
-      </li>
-      <li class="field">
-        <%= f.label :color %><br />
-        <%= f.select(:color, Item::COLOR_OPTIONS) %>
-        <div class="picker">
-            <% Item::COLOR_OPTIONS.each do |color| %>
-           <div class="option" id="Color<%=color%>"></div>
-          <% end %>
-        </div>
-      </li> 
-      <li class="field">
-        <%= f.label :style %><br />
-        <%= f.select(:style, Item::STYLE_OPTIONS) %>   
-        <div class="picker">
-            <% Item::STYLE_OPTIONS.each do |style| %>
-           <div class="option" id="Style<%=style%>"><span><%= style %></span></div>
-          <% end %>
-        </div>
-      </li>
-      <li class="field">
-        <%= f.label :gender %><br />
-        <%= f.select(:gender, Item::GENDER_OPTIONS) %>  
-        <div class="picker">
-            <% Item::GENDER_OPTIONS.each do |gender| %>
-           <div class="option" id="<%=gender%>"><span><%= gender %></span></div>
-          <% end %>
-        </div> 
-      </li>
-   </ul>
-   <div class="actions">
-      <%= f.submit "Add this item to Aveece", :id => "make_item" %>
-   </div>
+   <div class="item_parameters">
+      <ul id="item_form">
+        <li class="field" id="item_title">
+          <%= f.label :title %><br />
+          <%= f.text_field :title, :placeholder => "Uber cool preppy", :id => "item_title_input" %> 
+        </li>
+        <li class="field" id="item_url">
+          <%= f.label :url %><br />
+          <%= f.url_field :url, :placeholder => "Link to where item can be purchased", :id => "item_url_input" %>   
+        </li>
+        <li class="field" id="item_price">
+          <%= f.label :price %><br />
+          <%= f.text_field :price, :placeholder => "i.e. 49.99 (no $ needed)", :id => "item_price_input" %>  
+        </li>
+        <li class="field" id="item_color">
+          <%= f.label :color %><br />
+          <%= f.select(:color, Item::COLOR_OPTIONS) %>
+        </li> 
+        <li class="field" id="item_style">
+          <%= f.label :style %><br />
+          <%= f.select(:style, Item::STYLE_OPTIONS) %>   
+        </li>
+        <li class="field" id="item_gender">
+          <%= f.label :gender %><br />
+          <%= f.select(:gender, Item::GENDER_OPTIONS) %>  
+        </li>
+     </ul>
+     <div class="actions">
+        <%= f.submit "Add this item to Aveece", :id => "make_item" %>
+     </div>
+    </div>
   <% end %>
 
 

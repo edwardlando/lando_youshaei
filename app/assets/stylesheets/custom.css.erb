@@ -549,27 +549,16 @@ p .notice {
 	background: #FF7400;
 }
 
-#item_title {
-	width: 80%;
-	height: 35px;
-}
-
 #channel_name {
 	width: 180px;
 	height: 35px;
 }
 
-
-#item_url, #item_price {
-	width: 80%;
-	height: 35px;
-}
-
-#channel_color, #item_color {
+#channel_color {
 	display: none;
 }
 
-#channel_style, #item_style {
+#channel_style  {
 	display: none;
 }
 
@@ -577,7 +566,7 @@ p .notice {
 	display: none;
 }
 
-#channel_gender, #item_gender {
+#channel_gender {
 	display: none;
 }
 
@@ -653,13 +642,70 @@ p .notice {
 }
 
 
-#channel_form, #item_form {
+#channel_form {
 	color: white;
 	padding: 20px;
 	text-align: center;
 	border-top: none;
 	margin: 0 auto;
 	margin-left: 15%;
+}
+
+#item_form {
+	color: white;
+	border-top: none;
+}
+
+/*
+#item_form li {
+	width: 15%;
+}
+*/
+
+#item_form li select {
+	width: 90px !important;
+	display: inline-block;
+}
+
+#item_title {
+	width: 18%;
+}
+
+#item_title_input, #item_url_input, #item_price_input {
+	width: 100%;
+}
+
+#item_url {
+	width: 28%;
+}
+
+#item_price {
+	width: 18%;
+}
+
+#item_color, #item_style, #item_gender {
+	width: 9%;
+}
+
+#item_form li input {
+	display: inline-block;
+}
+
+#item_form li select {
+	display: inline-block;
+	margin-top: 3px;
+	height: 26px;
+}
+
+#item_url, #item_price, #item_title {
+	height: 35px;
+	margin-right: 30px;
+	float: left;
+}
+
+.item_parameters {
+	display: inline-block;
+	width: 100%;
 }
 
 #landing_channel_form {
