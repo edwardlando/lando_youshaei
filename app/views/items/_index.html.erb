@@ -12,6 +12,7 @@
       <th></th>
     <% end %>
     <th>DATE ADDED</th>
+    <th>TASTEMAKER</th>
   </tr>
 
 <% @items.each do |item| %>
@@ -24,6 +25,7 @@
       <td><%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete %></td>
     <% end %>
     <td><%= item.created_at.in_time_zone("Eastern Time (US & Canada)") %></td>
+    <td><%= item.user.email ||= item.user.username unless item.user.nil? %></td>
   </tr>
 <% end %>
 </table>
