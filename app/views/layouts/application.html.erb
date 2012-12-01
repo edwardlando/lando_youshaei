@@ -82,9 +82,11 @@
 		  </div>
       <div class="push"></div>
 </div>
+<% unless current_or_guest_user.role == "admin" %>
 <div class="footer">
 	<%= render 'layouts/footer' %>
 </div>
+<% end %>
 
 <!-- Skimlinks -->
 <script type="text/javascript" src="http://s.skimresources.com/js/41891X1089278.skimlinks.js"></script>

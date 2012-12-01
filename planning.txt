@@ -198,6 +198,26 @@ Which living room design do you prefer?
 			payment form looks a little sketchy 
 				big block for your whole address
 			font is bad
+
+		Meeting Jon, Daniel, Arjan
+			Pre-load items
+			Put items in Excel
+			Browser plugin for tastemakers
+			Different tags: consider the type of item they are looking for, mores styles
+			Define each style (on hover)
+			Gender (once they put it in they automate it)
+			prices ($, $$, $$$, $$$$)
+			add "apparel" category
+			multiple highlight
+			stumbleDNA (stumbleupon)
+			center around tastemaker
+			brands
+			metallic colors
+			color themes
+			personality
+			vibe: http://www.dsanddurga.com/
+			take pride in channels (spotify, pinterest)
+
 			
 
 			

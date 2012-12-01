@@ -15,7 +15,7 @@
             <%= link_to "Join Aveece", :controller => "registrations", :action => "new" %>
         </div>
      <% elsif @user.role == "admin" %>
-           <%= render :partial => "orders/index" %>
+           <%= render :partial => "items/index" %>
      <% elsif @channel.channel_items.empty? %>
     	<div class="no_more_items">We've run out of things to show you! Come back soon for more!</div>
      <% elsif !(@confirmation.nil?) %>

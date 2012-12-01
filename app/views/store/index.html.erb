@@ -42,7 +42,7 @@
             <%= render :partial => "channels/landing_page_form" %>
         </div>
 <% elsif @user && @user.role == "admin" %>
-       <%= render :partial => "orders/index" %>
+       <%= render :partial => "items/index" %>
 <% elsif @channel && @channel.channel_items.empty? %>
         <div class="welcome_message no_more_items"><h2>No more items for now ;( Come back soon!</h2>
         </div>

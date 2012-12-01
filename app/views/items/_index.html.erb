@@ -8,7 +8,9 @@
     <th>ITEM NAME</th>
     <th></th>
     <th></th>
-    <th></th>
+    <% if current_or_guest_user.role == "super_admin" %>
+      <th></th>
+    <% end %>
     <th>DATE ADDED</th>
   </tr>
 
@@ -18,7 +20,9 @@
     <td><%= item.title %></td>
     <td><%= link_to 'Show', item %></td>
     <td><%= link_to 'Edit', edit_item_path(item) %></td>
-    <td><%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% if current_or_guest_user.role == "super_admin" %>
+      <td><%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
     <td><%= item.created_at.in_time_zone("Eastern Time (US & Canada)") %></td>
   </tr>
 <% end %>
@@ -26,8 +30,8 @@
 
 <br />
 
-<div id="admin_new_item">
-  <%= link_to 'New Item', new_item_path %>
+<div id="admin_new_item" style="visibility:hidden;">
+<%= link_to 'New Item', new_item_path %>
 </div>
 
 </div>

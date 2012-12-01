@@ -6,6 +6,7 @@ class StoreController < ApplicationController
     	@user = current_user
       @guest_user = guest_user
       @channels = @user.channels unless @user.nil?
+      @items = Item.all
       @orders = Order.all.sort_by(&:updated_at) # will want to sort by paid and unpaid
       @confirmations = Confirmation.all
 
