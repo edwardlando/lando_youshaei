@@ -82,7 +82,7 @@
 		  </div>
       <div class="push"></div>
 </div>
-<% unless current_or_guest_user.role == "admin" %>
+<% unless current_or_guest_user && current_or_guest_user.role == "admin" %>
 <div class="footer">
 	<%= render 'layouts/footer' %>
 </div>
