@@ -65,9 +65,9 @@ $(document).ready(function() {
 			}
 			selected = this;
 			if (border) {
-				this.style.border = "2px solid #59B4AE";
+				this.style.border = "2px solid #4CBFFF";
 			} else {
-				this.style.color = '#59B4AE';
+				this.style.color = '#4CBFFF';
 			}
 		});
     }
@@ -203,27 +203,7 @@ $(document).ready(function() {
 	// window.location.href does not seem to work
 
 
-	/* FRONT END VALIDATION */ 
 
-	/* CHANNEL FORM VALIDATION */
-
-	$("new_channel").validate({
-		debug: true,
-		rules: {
-			color: {required: true},
-			style: {required: true},
-			price: {required: true},
-			gender: {required: true},
-			name: {required: true}
-		}
-	})
-
-
-	/* ITEM FORM VALIDATION */
-
-	/* USER FORM VALIDATION */
-
-	
 
 
 
