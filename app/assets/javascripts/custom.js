@@ -109,6 +109,7 @@ $(document).ready(function() {
 	
 	// CART
 
+	/*
 	var wantToSeeCart = false;
 	$("#my_cart").on("click", function(event) {
 		wantToSeeCart = !wantToSeeCart;
@@ -118,10 +119,16 @@ $(document).ready(function() {
 			$(".inner_cart").slideUp(500);
 		};
 	})
+    */
+    
+    $("#my_cart").on("click", function(event) {
+		$("#coming_soon").show(400);
+    	$("#coming_soon").delay(1200).hide(400);
+    })
 
 
     // CREATING A LINE ITEM
-
+    /*
     var wantToAddToCart = false;
 	$("#add_to_cart_link").on("click", function(event) {
 		wantToAddToCart = !wantToAddToCart;
@@ -131,7 +138,18 @@ $(document).ready(function() {
 			$(".inner_add_to_cart").slideUp(500);
 		};
 	})
+    */
 
+    function closeComingSoonDiv(){
+		document.getElementById("coming_soon").style.visibility="hidden";
+    }
+
+    $("#add_to_cart_link").on("click", function(event) {
+    	$("#coming_soon").show(400);
+    	$("#coming_soon").delay(1200).hide(400);
+    })
+
+   
 	// LANDING PAGE
 	var wantToSignIn = false;
 	$("#landing_sign_in").on("click", function(event) {
@@ -147,12 +165,18 @@ $(document).ready(function() {
 	function toggle(item) {
 	    if (item.style.visibility == 'hidden') { item.style.visibility = 'visible'; }
     };   
-
- 
+    
+    /*
 	$("#share_icon").hover(function () {
 		var icons = document.getElementById('social_icons');
         toggle(icons);
 	});
+    */
+
+    $("#share_icon").click(function () {
+    	$("#social_icons").show(400);
+    	$("#social_icons").delay(4500).hide(400);
+    });
 
 
 
