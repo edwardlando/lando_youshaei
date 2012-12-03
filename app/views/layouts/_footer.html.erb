@@ -12,12 +12,9 @@
 	&nbsp &nbsp |
 	&nbsp &nbsp
 	<%= link_to "Privacy Policy",{ :controller => "static_pages", :action => "privacy" } %>
-
-
-
 </div>
 <div class="like_aveece">
-    <div class="fb-like" id="like_aveece" data-href="https://www.facebook.com/Aveece" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true"></div>
-    <div id="tweet_aveece"><a href="https://twitter.com/aveece" class="twitter-follow-button" data-show-count="false">Follow @aveece</a></div>
+    <div id="like_aveece"><%= link_to image_tag("facebook_footer.png"), "https://www.facebook.com/Aveece" %></div>
+    <div id="tweet_aveece"><%= link_to image_tag("twitter_footer.png"), "https://twitter.com/aveece" %></div>
 </div>
 

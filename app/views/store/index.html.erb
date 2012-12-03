@@ -10,8 +10,8 @@
 
         <div class="authentication_options">
         <div class="oauth">
+             <%= button_to "Sign up with Facebook", user_omniauth_authorize_path(:facebook), :class => "facebook_button_auth" %>
              <%= button_to "Sign up with Twitter", user_omniauth_authorize_path(:twitter), :class => "twitter_button_auth" %>
-            <%= button_to "Sign up with Facebook", user_omniauth_authorize_path(:facebook), :class => "facebook_button_auth" %>
         </div>
         <div class="verticalLine"></div>
         <div class="email">
@@ -37,10 +37,12 @@
     </div>
 </div>
         
-        <h2 class="landing_greeting"> Not quite seduced? <br/><br/> Go on a test shopping spree </h2>
-        <div class="channel_landing_partial">
-            <%= render :partial => "channels/landing_page_form" %>
-        </div>
+        <div class="guest_user">
+            <h2 class="landing_greeting"> Not quite seduced? <br/><br/> Go on a test shopping spree </h2>
+            <div class="channel_landing_partial">
+                <%= render :partial => "channels/landing_page_form" %>
+            </div>
+        <div>
 <% elsif @user && @user.role == "admin" %>
        <%= render :partial => "items/index" %>
 <% elsif @channel && @channel.channel_items.empty? %>
