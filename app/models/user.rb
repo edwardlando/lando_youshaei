@@ -11,8 +11,8 @@ class User < ActiveRecord::Base
             
   # attr_accessible :title, :body
 
-  validates_acceptance_of :terms, :allow_nil => false,
-  :message => "You must accept the terms of use", :on => :create, :if => :no_provider
+  #validates_acceptance_of :terms, :allow_nil => false,
+  #:message => "You must accept the terms of use", :on => :create, :if => :no_provider
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   #validates :email, presence: true#, :on => :create, :if => :no_provider,
   #format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
