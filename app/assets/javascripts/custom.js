@@ -180,7 +180,6 @@ $(document).ready(function() {
 
 
 
-
 	//Facebook
 	var facebook_url_to_share = "http://www.aveece.com/";
 	var facebook_text = "OMG found this on Aveece";
@@ -202,6 +201,27 @@ $(document).ready(function() {
 	document.getElementById("googleplus_share").setAttribute("href", google_plus_url);
 
 	// window.location.href does not seem to work
+
+
+	/* FRONT END VALIDATION */ 
+
+	/* CHANNEL FORM VALIDATION */
+
+	$("new_channel").validate({
+		debug: true,
+		rules: {
+			color: {required: true},
+			style: {required: true},
+			price: {required: true},
+			gender: {required: true},
+			name: {required: true}
+		}
+	})
+
+
+	/* ITEM FORM VALIDATION */
+
+	/* USER FORM VALIDATION */
 
 	
 
