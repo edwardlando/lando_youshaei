@@ -174,7 +174,6 @@ $(document).ready(function() {
     */
 
     $("#share_icon").click(function () {
-    	alert("hey");
     	$("#social_icons").show(400);
     	$("#social_icons").delay(4500).hide(400);
     });
@@ -182,11 +181,9 @@ $(document).ready(function() {
 
 
 	//Facebook
-	
 	var facebook_url_to_share = window.location.href;
-	alert(document.getElementById("facebook_share").innerHTML);
 	var facebook_text = "OMG found this on Aveece";
-	var facebook = "https://www.facebook.com/sharer.php?u="+facebook_url_to_share+"&p[summary]="+facebook_text;
+	var facebook = "https://www.facebook.com/sharer.php?u="+facebook_url_to_share+"&t="+facebook_text;
 	document.getElementById("facebook_share").setAttribute("href", facebook);
 	
 
