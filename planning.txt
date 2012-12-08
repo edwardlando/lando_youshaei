@@ -218,7 +218,30 @@ Which living room design do you prefer?
 			vibe: http://www.dsanddurga.com/
 			take pride in channels (spotify, pinterest)
 
-			
+		Danny
+			Use key to move forward
+			make awesome browsing discovery
+			load 3 pages in advance
+			create 2 iframes in the background (set their source, width and height to 0, move iframe to the right when user wants to move on - make sure that it expands its width and its height to its natural value. do an animation on 2 iframes. one goes offscreen, one comes onscreen (from and to values in jquery, it interpolates for you) 2 to 3 days work)
+			when you go one right, keep cycle going and load one page into the future
+			swipe using the trackpad
+			float button off bottom of the page (always on top of the iframe)
+			(youtube playlist at the bottom of the screen)
+			to go viral, you need a viral loop - you need every user who is invited to share your website at least once (viral coefficient)
+			per user, how many invites do you send out?
+			VIRAL LOOP -> thumbs up should go to facebook wall, friends who see this taken to your service
+			show up in people's newsfeeds
+			as a result of viewing products, people have stuff also post stuff to their walls
+			want viral coeff >= 1
+			go on growth push when you have an experience set up - proud of showing experience
+			design is male centric
+			change color scheme to something more neutral
+			apply cyclic algorithm
+			jquery.animate, also allows you to do completion - once animation is done, allows you to do callback
+			respond to the completion by loading the next website in the iframe
+
+			get an array of urls for every call, replace most recently used iframe source tage with one with new url from server
+			later on, keep track of which ones i've seen
 
 			
 

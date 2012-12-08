@@ -188,12 +188,10 @@ $(document).ready(function() {
 	
 
 	//Twitter   
-
 	var twitter_data_url = window.location.href;
 	var twitter_data_text = "OMG! Look at what I found on Aveece"
 	document.getElementById("twitter_share").setAttribute("href",
 		"https://twitter.com/intent/tweet?url="+twitter_data_url);
-
 	//Pinterest
 	var pinterest_url = "http://pinterest.com/pin/create/button/?url=" + window.location.href
 	document.getElementById("pinterest_share").setAttribute("href", pinterest_url);
