@@ -174,6 +174,7 @@ $(document).ready(function() {
     */
 
     $("#share_icon").click(function () {
+    	alert("hey");
     	$("#social_icons").show(400);
     	$("#social_icons").delay(4500).hide(400);
     });
@@ -181,30 +182,30 @@ $(document).ready(function() {
 
 
 	//Facebook
-	var facebook_url_to_share = "http://www.aveece.com/";
+	
+	var facebook_url_to_share = window.location.href;
+	alert(document.getElementById("facebook_share").innerHTML);
 	var facebook_text = "OMG found this on Aveece";
 	var facebook = "https://www.facebook.com/sharer.php?u="+facebook_url_to_share+"&p[summary]="+facebook_text;
 	document.getElementById("facebook_share").setAttribute("href", facebook);
+	
 
 	//Twitter   
-	var twitter_data_url = "LOVE this item @" + window.location.href;
+
+	var twitter_data_url = window.location.href;
 	var twitter_data_text = "OMG! Look at what I found on Aveece"
 	document.getElementById("twitter_share").setAttribute("href",
-		"http://twitter.com/share?text="+twitter_data_url+"&url=https://www.aveece.com/&hashtags=aveece");
+		"https://twitter.com/intent/tweet?url="+twitter_data_url);
 
 	//Pinterest
-	var pinterest_url = "http://pinterest.com/pin/create/button/?url=" + window.location.href;
+	var pinterest_url = "http://pinterest.com/pin/create/button/?url=" + window.location.href
 	document.getElementById("pinterest_share").setAttribute("href", pinterest_url);
  
     // Google Plus
-	var google_plus_url = "https://plus.google.com/share?url=" + "http://www.aveece.com/"; 
+	var google_plus_url = "https://plus.google.com/share?url=" + window.location.href; 
 	document.getElementById("googleplus_share").setAttribute("href", google_plus_url);
 
 	// window.location.href does not seem to work
-
-
-
-
 
 
 
