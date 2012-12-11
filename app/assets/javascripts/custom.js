@@ -209,6 +209,52 @@ $(document).ready(function() {
 // http://twitter.com/intent/tweet?source=sharethiscom&text=[TEXT]&url=[URL]
 
 //https://plus.google.com/share?url=http%3A%2F%2Fexample.com
+
+
+
+
+
+	// PRELOAD
+
+	$("#next_icon").on("click", function(event) {
+		var data = {
+		"current_channel": $("#next_icon").data("channel"),
+		"index": $("#next_icon").data("index"),
+		};
+		console.log(data);
+		$.ajax({
+			type: 'POST',
+			url: "/store/index.json",
+			data: data,
+			dataType: "json",
+			success: function(data) {
+				console.log(data);
+				$("#main_iframe").hide(500);
+				$("#next_main_iframe").show(500);  // Need to create cycle here, also use animation
+			}
+		});
+	});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
      
    
    

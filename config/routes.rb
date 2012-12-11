@@ -34,6 +34,7 @@ LandoYoushaei::Application.routes.draw do
   get "channels/show"
 
   get "store/index"
+  post "store/index"
 
   root :to => 'store#index'
 

@@ -38,10 +38,17 @@
 							<div class="bottom_bar_action"id="upvote"><%= link_to image_tag("bar_thumbsup_icon.png"), vote_item_path(display_channel.current_item.id, value: 1), method: "post" %>
 							</div>
 						<% end %>
+						<!-- NEXT -->
 						<% unless (display_channel.channel_items[display_channel.item_index+1].nil?) %>
-							<div class ="bottom_bar_action" id="next_icon"><%= link_to image_tag("bar_next_icon.png"), {:controller => "store", :action => "index", :current_channel => display_channel, :index => display_channel.item_index+1 } %>
+						    <div class ="bottom_bar_action" id="next_icon" data-channel="<%= display_channel %>" data-index="<%=display_channel.item_index+1%>">
+						    	<img src="/assets/bar_next_icon.png"/>
+						    </div>
+						    <!--
+							<div class ="bottom_bar_action" id="next_icon_NOTINUSE!!!!!!!!!"> link_to image_tag("bar_next_icon.png"), {:controller => "store", :action => "index", :current_channel => display_channel, :index => display_channel.item_index+1 }
 							</div>
+						    -->
 					    <% end %>
+					    <!-- END OF NEXT -->
 					</div>
 					<div class="action bottom_bar_right">
 						<div class="bottom_bar_action" id="share_icon">Share

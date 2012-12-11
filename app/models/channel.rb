@@ -47,6 +47,14 @@ class Channel < ActiveRecord::Base
   	channel_items[self.item_index].url unless channel_items[self.item_index].nil?
   end
 
+  def next_item_url
+    channel_items[self.item_index+1].url unless channel_items[self.item_index+1].nil?
+  end
+
+  def next_next_item_url
+    channel_items[self.item_index+2].url unless channel_items[self.item_index+2].nil?
+  end
+
 
  
 end

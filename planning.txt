@@ -199,7 +199,7 @@ Which living room design do you prefer?
 				big block for your whole address
 			font is bad
 
-		Meeting Jon, Daniel, Arjan
+		Meeting Jon, Daniel, Arjan -
 			Pre-load items
 			Put items in Excel
 			Browser plugin for tastemakers
@@ -218,7 +218,7 @@ Which living room design do you prefer?
 			vibe: http://www.dsanddurga.com/
 			take pride in channels (spotify, pinterest)
 
-		Danny
+		Danny -
 			Use key to move forward
 			make awesome browsing discovery
 			load 3 pages in advance
@@ -242,6 +242,10 @@ Which living room design do you prefer?
 
 			get an array of urls for every call, replace most recently used iframe source tage with one with new url from server
 			later on, keep track of which ones i've seen
+
+		Joey - 
+			Collaborative filtering
+			
 
 			
 
