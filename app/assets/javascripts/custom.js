@@ -229,13 +229,9 @@ $(document).ready(function() {
 			dataType: "json",
 			success: function(data) {
 				console.log(data);
-				if ($("#main_iframe").attr("display") == "block") {
-					$("#main_iframe").hide(500);
-					$("#next_main_iframe").animate(
-			            {"right": "+=50px"},
-			            "fast");
-			    }
-
+				if ($("#main_iframe").attr("left") == "0") {
+					$("#main_iframe").left="100%";
+					$("#next_main_iframe").left="0";
 			    // has to be off the screen, and hidden
 			    else if ($("#next_main_iframe").attr("display") != "none") {
 					$("#new_main_iframe").hide(500);
