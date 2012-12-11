@@ -229,13 +229,17 @@ $(document).ready(function() {
 			dataType: "json",
 			success: function(data) {
 				console.log(data);
-				if ($("#main_iframe").attr("display") != "none") {
+				if ($("#main_iframe").attr("display") == "block") {
 					$("#main_iframe").hide(500);
-					$("#next_main_iframe").show(500);  // Need to create cycle here, also use animation
+					$("#next_main_iframe").animate(
+			            {"right": "+=50px"},
+			            "fast");
 			    }
+
+			    // has to be off the screen, and hidden
 			    else if ($("#next_main_iframe").attr("display") != "none") {
-					$("#next_main_iframe").hide(500);
-					$("#next_next_main_iframe").show(500); 
+					$("#new_main_iframe").hide(500);
+					$("#main_iframe").show(500); 
 			    }
 
 			}

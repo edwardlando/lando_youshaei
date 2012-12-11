@@ -68,8 +68,6 @@ class StoreController < ApplicationController
         # Loading next items
           @next_current_item = @channel.channel_items[@channel.item_index+1]
           @next_item_url = @channel.next_item_url
-          @next_next_current_item = @channel.channel_items[@channel.item_index+2]
-          @next_next_item_url = @channel.next_next_item_url
         # End of next items
       end
 
@@ -81,8 +79,6 @@ class StoreController < ApplicationController
         # Loading next items
           @next_guest_current_item = @channel.channel_items[@channel.item_index+1]
           @next_guest_item_url = @channel.next_item_url
-          @next_next_guest_current_item = @channel.channel_items[@channel.item_index+2]
-          @next_next_guest_item_url = @channel.next_next_item_url
         # End of next items
       end
 

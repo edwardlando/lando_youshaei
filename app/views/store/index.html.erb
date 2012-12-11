@@ -59,13 +59,11 @@
     <div class="iframe_div">
         <div class="iframe_div">
             <% if @item_url %> 
-                <iframe src=<%= @item_url %> alt="product" id="main_iframe"></iframe>
-                <iframe src=<%= @next_item_url %> alt="product" id="next_main_iframe"></iframe>
-                <iframe src=<%= @next_next_item_url %> alt="product" id="next_next_main_iframe"></iframe>
+                <iframe src=<%= @item_url %> alt="product" class="aveece_iframe" id="main_iframe"></iframe>
+                <iframe src=<%= @next_item_url %> alt="product" class="aveece_iframe" id="next_main_iframe"></iframe>
             <% elsif @guest_item_url %> 
-                <iframe src=<%= @guest_item_url %> alt="product" id="main_iframe"></iframe>
-                <iframe src=<%= @next_guest_item_url %> alt="product" id="next_main_iframe"></iframe>
-                <iframe src=<%= @next_next_guest_item_url %> alt="product" id="next_next_main_iframe"></iframe>
+                <iframe src=<%= @guest_item_url %> alt="product" class="aveece_iframe" id="main_iframe"></iframe>
+                <iframe src=<%= @next_guest_item_url %> alt="product" class="aveece_iframe" id="next_main_iframe"></iframe>
             <% end %>
         </div>
     </div>
