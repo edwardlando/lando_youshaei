@@ -43,10 +43,11 @@ class StoreController < ApplicationController
         p params["index"]
         p "*****************************************************"
       # Allows us to get the wanted item, thanks to its index
-      if @channel && (params[:index] || params["index"])
+      if @channel && (params[:index] ||  params["index"])
         @index = params[:index] ||= params["index"]
         unless @channel.channel_items[@index.to_i].nil?
           @channel.item_index = params[:index] ||= params["index"]
+          @channel.save #save to try to increment
         end
       end
 
@@ -54,6 +55,7 @@ class StoreController < ApplicationController
         @index = params[:index] ||= params["index"]
         unless @guest_channel.channel_items[@index.to_i].nil?
           @guest_channel.item_index = params[:index] ||= params["index"]
+          @guest_channel.save
         end
       end
 

@@ -229,8 +229,15 @@ $(document).ready(function() {
 			dataType: "json",
 			success: function(data) {
 				console.log(data);
-				$("#main_iframe").hide(500);
-				$("#next_main_iframe").show(500);  // Need to create cycle here, also use animation
+				if ($("#main_iframe").attr("display") != "none") {
+					$("#main_iframe").hide(500);
+					$("#next_main_iframe").show(500);  // Need to create cycle here, also use animation
+			    }
+			    else if ($("#next_main_iframe").attr("display") != "none") {
+					$("#next_main_iframe").hide(500);
+					$("#next_next_main_iframe").show(500); 
+			    }
+
 			}
 		});
 	});
