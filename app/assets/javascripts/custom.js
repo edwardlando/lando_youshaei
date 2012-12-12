@@ -229,14 +229,15 @@ $(document).ready(function() {
 			dataType: "json",
 			success: function(data) {
 				console.log(data);
-				if ($("#main_iframe").attr("left") == "0") {
-					$("#main_iframe").left="100%";
-					$("#next_main_iframe").left="0";
+				//if ($("#main_iframe").css("left") == "0") {
+					$("#next_main_iframe").css({"left": "0"});
+					$("#main_iframe").css({"left": "100%"});
+				//}
 			    // has to be off the screen, and hidden
-			    else if ($("#next_main_iframe").attr("display") != "none") {
-					$("#new_main_iframe").hide(500);
-					$("#main_iframe").show(500); 
-			    }
+			    //else if ($("#next_main_iframe").attr("left") == "0") {
+					//$("#next_main_iframe").css({"left": "100%"});
+					//$("main_iframe").css({"left": "0"});
+				//}
 
 			}
 		});

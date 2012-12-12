@@ -35,7 +35,6 @@ class Channel < ActiveRecord::Base
     	      items << item
     	end
     end
-    items = items.shuffle 
     items 
   end
 
