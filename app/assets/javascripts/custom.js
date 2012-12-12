@@ -216,6 +216,8 @@ $(document).ready(function() {
 
 	// PRELOAD
 
+	
+
 	$("#next_icon").on("click", function(event) {
 		var data = {
 		"current_channel": $("#next_icon").data("channel"),
@@ -229,16 +231,18 @@ $(document).ready(function() {
 			dataType: "json",
 			success: function(data) {
 				console.log(data);
-				//if ($("#main_iframe").css("left") == "0") {
-					$("#next_main_iframe").animate({"left": "0"});
-					$("#main_iframe").css({"left": "100%"});
-				//}
-			    // has to be off the screen, and hidden
-			    //else if ($("#next_main_iframe").attr("left") == "0") {
-					//$("#next_main_iframe").css({"left": "100%"});
-					//$("main_iframe").css({"left": "0"});
-				//}
+				var main = $("#main_iframe");
+				var next = $("#next_main_iframe");
+				var next_next = $("#next_next_main_iframe");
 
+				$("#main_iframe").animate({"left": "-100%"});
+				$("#next_main_iframe").animate({"left": "0"});
+				$("#next_next_main_iframe").css({"left": "100%"});
+				$("#main_iframe").css({"left": "200%"});
+			
+				main.attr({"id": "next_next_main_iframe"}); 
+				next.attr({"id": "main_iframe"});
+				next_next.attr({"id": "next_main_iframe"}); 	
 			}
 		});
 	});

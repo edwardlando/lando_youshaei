@@ -43,10 +43,10 @@ class StoreController < ApplicationController
         p params["index"]
         p "*****************************************************"
       # Allows us to get the wanted item, thanks to its index
-      if @channel && (params[:index] ||  params["index"])
+      if @channel && (params[:index] || params["index"])
         @index = params[:index] ||= params["index"]
         unless @channel.channel_items[@index.to_i].nil?
-          @channel.item_index = params[:index] ||= params["index"]
+          @channel.item_index = @index
           @channel.save #save to try to increment
         end
       end
@@ -54,37 +54,27 @@ class StoreController < ApplicationController
       if @guest_channel && (params[:index] || params["index"])
         @index = params[:index] ||= params["index"]
         unless @guest_channel.channel_items[@index.to_i].nil?
-          @guest_channel.item_index = params[:index] ||= params["index"]
+          @guest_channel.item_index = @index
           @guest_channel.save
         end
       end
 
       unless @channel.nil? || @channel.channel_items.empty? 
         @channel_items = @channel.channel_items 
-
-        @current_item = @channel.channel_items[@channel.item_index]
         @item_url = @channel.current_item_url
-
-        # Loading next items
-          @next_current_item = @channel.channel_items[@channel.item_index+1]
-          @next_item_url = @channel.next_item_url
-        # End of next items
+        @next_item_url = @channel.next_item_url
+        @next_next_item_url = @channel.next_next_item_url
       end
 
       unless @guest_channel.nil? || @guest_channel.channel_items.empty? 
         @guest_channel_items = @guest_channel.channel_items 
-        @guest_current_item = @guest_channel.channel_items[@guest_channel.item_index]
         @guest_item_url = @guest_channel.current_item_url
-
-        # Loading next items
-          @next_guest_current_item = @channel.channel_items[@channel.item_index+1]
-          @next_guest_item_url = @channel.next_item_url
-        # End of next items
+        @next_guest_item_url = @channel.next_item_url
+        @next_next_guest_item_url = @channel.next_next_item_url
       end
 
       @guest_channel.save unless @guest_channel.nil?
       @channel.save unless @channel.nil?
-      
     end
     respond_to do |format|
         format.html # index.html.erb
