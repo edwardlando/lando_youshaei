@@ -230,7 +230,7 @@ $(document).ready(function() {
 			success: function(data) {
 				console.log(data);
 				//if ($("#main_iframe").css("left") == "0") {
-					$("#next_main_iframe").css({"left": "0"});
+					$("#next_main_iframe").animate({"left": "0"});
 					$("#main_iframe").css({"left": "100%"});
 				//}
 			    // has to be off the screen, and hidden
