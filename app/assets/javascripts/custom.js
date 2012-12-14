@@ -222,6 +222,7 @@ $(document).ready(function() {
 		var data = {
 		"current_channel": $("#next_icon").data("channel"),
 		"index": $("#next_icon").data("index"),
+		"next": $("#next_icon").data("next"),
 		};
 		console.log(data);
 		$.ajax({
@@ -243,9 +244,10 @@ $(document).ready(function() {
 				main.attr({"id": "next_next_main_iframe"}); 
 				next.attr({"id": "main_iframe"});
 				next_next.attr({"id": "next_main_iframe"}); 
-				setTimeout(location.reload(), 4000);	
+				//setTimeout(location.reload(), 4000);	
 			}
 		});
+
 	});
 
 

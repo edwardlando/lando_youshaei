@@ -28,7 +28,7 @@
 					<div class="action bottom_bar_center">
 						<% unless display_channel.channel_items.empty? %>
 						    <% if current_user %>
-							<div class="bottom_bar_action" id="add_to_cart_link">add to bag
+							<div class="bottom_bar_action" id="add_to_cart_link">+bag
 							</div>  
 							<% end %>
 						<% end %>
@@ -40,7 +40,7 @@
 						<% end %>
 						<!-- NEXT -->
 						<% unless (display_channel.channel_items[display_channel.item_index+1].nil?) %>
-						    <div class ="bottom_bar_action" id="next_icon" data-channel="<%= display_channel %>" data-index="<%=display_channel.item_index+1%>">
+						    <div class ="bottom_bar_action" id="next_icon" data-channel="<%= display_channel %>" data-index="<%=display_channel.item_index+1%>" data-next="true">
 						    	<img src="/assets/bar_next_icon.png"/>
 						    </div>
 						    <!--

@@ -45,6 +45,7 @@ class StoreController < ApplicationController
       # Allows us to get the wanted item, thanks to its index
       if @channel && (params[:index] || params["index"])
         @index = params[:index] ||= params["index"]
+        @next = params["next"] unless params["next"].nil?
         unless @channel.channel_items[@index.to_i].nil?
           @channel.item_index = @index
           @channel.save #save to try to increment
@@ -53,6 +54,7 @@ class StoreController < ApplicationController
 
       if @guest_channel && (params[:index] || params["index"])
         @index = params[:index] ||= params["index"]
+        @next = params["next"] unless params["next"].nil?
         unless @guest_channel.channel_items[@index.to_i].nil?
           @guest_channel.item_index = @index
           @guest_channel.save
@@ -78,7 +80,8 @@ class StoreController < ApplicationController
     end
     respond_to do |format|
         format.html { } # index.html.erb
-        format.json { render :json => @channel } # or guest channel?
+        format.js { render :layout => "app/views/store/index" }
+        format.json { }#render :json => @channel } # or guest channel?
     end
   end
 end
