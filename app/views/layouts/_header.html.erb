@@ -6,7 +6,7 @@
 	<% if current_or_guest_user %>
 		<div class="top_bar">
 			<div class="title">
-				<%= link_to "AVEECE", {:controller => "store", :action => "index", :current_channel => display_channel, :index => display_channel.item_index } %>
+				<%= link_to "AVEECE", {:controller => "store", :action => "index" } %>
 			</div>
 			<% unless display_channel.current_item.nil? || current_or_guest_user.role == "admin" || display_channel.current_item.user.nil? %>
 			    <!--<div id="contributed_by">Contributed by: <a href src="#">

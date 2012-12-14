@@ -242,7 +242,8 @@ $(document).ready(function() {
 			
 				main.attr({"id": "next_next_main_iframe"}); 
 				next.attr({"id": "main_iframe"});
-				next_next.attr({"id": "next_main_iframe"}); 	
+				next_next.attr({"id": "next_main_iframe"}); 
+				setTimeout(location.reload(), 4000);	
 			}
 		});
 	});

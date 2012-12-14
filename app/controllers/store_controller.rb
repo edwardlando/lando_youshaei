@@ -77,7 +77,7 @@ class StoreController < ApplicationController
       @channel.save unless @channel.nil?
     end
     respond_to do |format|
-        format.html # index.html.erb
+        format.html { } # index.html.erb
         format.json { render :json => @channel } # or guest channel?
     end
   end
