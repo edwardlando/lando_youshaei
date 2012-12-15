@@ -40,13 +40,12 @@
 						<% end %>
 						<!-- NEXT -->
 						<% unless (display_channel.channel_items[display_channel.item_index+1].nil?) %>
-						    <div class ="bottom_bar_action" id="next_icon" data-channel="<%= display_channel %>" data-index="<%=display_channel.item_index+1%>" data-next="true">
+						    <div class ="bottom_bar_action" id="next_icon" data-channel="<%=display_channel%>" data-index="<%=display_channel.item_index+1%>" data-next="true">
 						    	<img src="/assets/bar_next_icon.png"/>
 						    </div>
-						    <!--
-							<div class ="bottom_bar_action" id="next_icon_NOTINUSE!!!!!!!!!"> link_to image_tag("bar_next_icon.png"), {:controller => "store", :action => "index", :current_channel => display_channel, :index => display_channel.item_index+1 }
-							</div>
-						    -->
+							<!--<div class ="bottom_bar_action" id="next_icon_NOTINUSE!!!!!!!!!">link_to image_tag("bar_next_icon.png"), {:controller => "store", :action => "index", :current_channel => display_channel, :index => display_channel.item_index+1 }
+							</div>-->
+						  
 					    <% end %>
 					    <!-- END OF NEXT -->
 					</div>
@@ -68,20 +67,10 @@
 							<img src="/assets/googleplus.png" id="googleplus_icon" alt="Share on G+"/>
 							</a>
 
-
-
-
                             <!-- as on penfm -->
 							<a href="http://pinterest.com/pin/create/button/?url=http://www.pen.fm/read/Mr-Clean-Cleans-Up-City-Crime-PN78c1dc593cdbec54&amp;media=http://www.pen.fm/images/logo_pub.png&amp;description=Mr Clean Cleans Up City Crime: &quot;Horns blared in the busy intersections of Manhattan as the city bussled with activity. Several alleyways lay scene to victim-filled crimes of burglary and old ladies being mugged. &quot;Hand it over!&quot; shouted McJohn, the city's least notorious and least-known criminal, who had made his living snatching purses and selling them on Craigslist. The old lady complied, and held out her Prada satche...&quot;&quot;" target="_blank" class="sM pin"></a>
 							 <!-- as on penfm -->
  
-
-
-
-
-
-
-
 						</div>
 						<% if current_user %>
 					    <div class="bottom_bar_action" id="my_cart"><%= image_tag("bar_shoppingbag_icon.png")%>

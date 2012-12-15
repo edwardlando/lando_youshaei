@@ -6,7 +6,10 @@ class StoreController < ApplicationController
     	@user = current_user
       @guest_user = guest_user
       @channels = @user.channels unless @user.nil?
-      @items = Item.all
+      #@items = Item.page(params[:page]).per(5)   ##### starting kaminari change here
+      @index = params["index"] ||= 0
+      ### need to add params page
+=begin
       @orders = Order.all.sort_by(&:updated_at) # will want to sort by paid and unpaid
       @confirmations = Confirmation.all
 
@@ -19,8 +22,10 @@ class StoreController < ApplicationController
           @confirmation.save
         end
       end 
+=end
     
-
+      ###### CHANGE SWITCHING LATER
+=begin
       if @user
         if params[:current_channel] && params[:switch]
            @old_channel = @user.current_channel
@@ -33,55 +38,44 @@ class StoreController < ApplicationController
         else 
            @channel = @user.current_channel 
         end
-      end
-
-      if @guest_user
+      elsif @guest_user
         @guest_channel = @guest_user.current_channel
       end
-          
-        p "*****************************************************"
-        p params["index"]
-        p "*****************************************************"
-      # Allows us to get the wanted item, thanks to its index
-      if @channel && (params[:index] || params["index"])
-        @index = params[:index] ||= params["index"]
-        @next = params["next"] unless params["next"].nil?
-        unless @channel.channel_items[@index.to_i].nil?
-          @channel.item_index = @index
-          @channel.save #save to try to increment
-        end
+=end
+      @channel = @user.current_channel
+    
+      if @channel 
+        @items = @channel.channel_items # send index in json too let's see if just sending the url works
+        @items = @items[@index..@index+2]
+        @channel.save unless @channel.channel_items[@index.to_i].nil?
+      elsif @guest_channel 
+        @items = @guest_channel.channel_items[@index..index+2]
+        @guest_channel.item_index = @index unless @guest_channel.channel_items[@index.to_i].nil?
+        @guest_channel.save
       end
 
-      if @guest_channel && (params[:index] || params["index"])
-        @index = params[:index] ||= params["index"]
-        @next = params["next"] unless params["next"].nil?
-        unless @guest_channel.channel_items[@index.to_i].nil?
-          @guest_channel.item_index = @index
-          @guest_channel.save
-        end
+      @item_urls = []
+      @items.each do |item|
+        @item_urls << item.url
       end
 
-      unless @channel.nil? || @channel.channel_items.empty? 
-        @channel_items = @channel.channel_items 
-        @item_url = @channel.current_item_url
-        @next_item_url = @channel.next_item_url
-        @next_next_item_url = @channel.next_next_item_url
-      end
+      
 
-      unless @guest_channel.nil? || @guest_channel.channel_items.empty? 
-        @guest_channel_items = @guest_channel.channel_items 
-        @guest_item_url = @guest_channel.current_item_url
-        @next_guest_item_url = @channel.next_item_url
-        @next_next_guest_item_url = @channel.next_next_item_url
-      end
+      p "******************************************"
+      p @item_urls
+      p "******************************************"
 
-      @guest_channel.save unless @guest_channel.nil?
-      @channel.save unless @channel.nil?
     end
     respond_to do |format|
         format.html { } # index.html.erb
-        format.js { render :layout => "app/views/store/index" }
-        format.json { }#render :json => @channel } # or guest channel?
+        #format.js 
+        format.json { render :json => @item_urls } # send index too
+
+        #somewhere else, call items.paginate (will only give you a certain amount of items, say 5)
+        #render json items
+        #allows you to request the next page
+
+
     end
   end
 end

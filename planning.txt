@@ -245,7 +245,18 @@ Which living room design do you prefer?
 
 		Joey - 
 			Collaborative filtering
-			
+
+		Mat - 
+			New reliq add on (go intot the availability monitoring section -a sk it to ping the app every minute)
+			treat it like a pagination (with 3 items per page)
+			as soon as you hit one before the last one, go back and ask the controller for the next pags
+			kaminari gem
+			store index.json (json formatting handler) make a get request, treat it like standard pagination. set that up like a json return, all you have to do in your javascript is keep track of what page you just loaded (keep track in variable) every time you get close to the end, make another get request. put transition code in another function, split into three functions (get request, handing transitions)
+			key listener: handy javascript library lets you take care of that: keypresses by thomas fuchs
+			infinite scroll: jquery infinite scroll -> just fires based on how many times you press the arrow
+
+			-tony xie: rails @ penn
+
 
 			
 

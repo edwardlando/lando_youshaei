@@ -60,6 +60,9 @@ GEM
     json (1.7.5)
     jwt (0.1.5)
       multi_json (>= 1.0)
+    kaminari (0.14.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -151,6 +154,7 @@ DEPENDENCIES
   friendly_id
   jquery-rails
   json
+  kaminari
   omniauth-facebook
   omniauth-twitter
   pg

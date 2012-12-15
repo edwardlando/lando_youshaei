@@ -202,9 +202,6 @@ $(document).ready(function() {
 
 	// window.location.href does not seem to work
 
-
-
-
 // https://www.facebook.com/sharer.php?u=[URL]&t=[TEXT]
 // http://twitter.com/intent/tweet?source=sharethiscom&text=[TEXT]&url=[URL]
 
@@ -214,17 +211,16 @@ $(document).ready(function() {
 
 
 
-	// PRELOAD
+	// Paginating
 
-	
+	var index; 
+	var counter;
+	var items = new Array();
 
-	$("#next_icon").on("click", function(event) {
+	function postIndexToController() {
 		var data = {
-		"current_channel": $("#next_icon").data("channel"),
-		"index": $("#next_icon").data("index"),
-		"next": $("#next_icon").data("next"),
+			"index": index,
 		};
-		console.log(data);
 		$.ajax({
 			type: 'POST',
 			url: "/store/index.json",
@@ -232,23 +228,76 @@ $(document).ready(function() {
 			dataType: "json",
 			success: function(data) {
 				console.log(data);
-				var main = $("#main_iframe");
-				var next = $("#next_main_iframe");
-				var next_next = $("#next_next_main_iframe");
-
-				$("#main_iframe").animate({"left": "-100%"});
-				$("#next_main_iframe").animate({"left": "0"});
-				$("#next_next_main_iframe").css({"left": "100%"});
-				$("#main_iframe").css({"left": "200%"});
-			
-				main.attr({"id": "next_next_main_iframe"}); 
-				next.attr({"id": "main_iframe"});
-				next_next.attr({"id": "next_main_iframe"}); 
-				//setTimeout(location.reload(), 4000);	
 			}
 		});
+	}
 
+	function getNext3Items() {
+		$.ajax({
+			type: 'GET',
+			url: "/store/index.json",
+			dataType: "json",
+			success: function(data) {
+				items.push(data[0], data[1], data[2]);
+			}
+		});
+	}
+
+	function setIframeSrcs(items) {
+		alert("urls");
+		var url1 = items[0];
+		var url2 = items[1];
+		var url3 = items[2];
+		alert(url);
+		$("#main_iframe").attr({"src": url1}); 
+		$("#next_main_iframe").attr({"src": url2}); 
+		$("#next_next_main_iframe").attr({"src": url3}); 
+	}
+
+	function iframeTransition() {
+		var main = $("#main_iframe");
+		var next = $("#next_main_iframe");
+		var next_next = $("#next_next_main_iframe");
+
+		$("#main_iframe").animate({"left": "-100%"});
+		$("#next_main_iframe").animate({"left": "0"});
+		$("#next_next_main_iframe").css({"left": "100%"});
+		$("#main_iframe").css({"left": "200%"});
+	
+		main.attr({"id": "next_next_main_iframe"}); 
+		next.attr({"id": "main_iframe"});
+		next_next.attr({"id": "next_main_iframe"}); 			
+	}
+
+	function timeForNewContent() {
+	    getNext3Items();
+    	setIframeSrcs(items);
+		postIndexToController();
+	}
+
+	
+	$("#next_icon").on("click", function(event) {
+        if (counter == null) counter = 1;
+		else counter+=1;
+
+		if (index == null) index = 0;
+		else index+=1;
+
+		if (counter == 3) {
+			timeForNewContent();
+		}
+
+		iframeTransition();
+		
 	});
+
+	window.onload = setSrcsOnLoad();
+
+    function setSrcsOnLoad() {
+    	if (counter == null) {
+    		timeForNewContent();
+ 	    }
+ 	}
 
 
 

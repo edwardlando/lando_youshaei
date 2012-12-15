@@ -1,0 +1,25 @@
+alert("window partial");
+
+<% if next == "true" %>
+	$('#main_iframe').attr({"src": <%= @next_item_url %>}); 
+	$('#next_main_iframe').attr({"src": <%= @next_item_url %>}); 
+
+	var main = $("#main_iframe");
+	var next = $("#next_main_iframe");
+	var next_next = $("#next_next_main_iframe");
+
+	$("#main_iframe").animate({"left": "-100%"});
+	$("#next_main_iframe").animate({"left": "0"});
+	$("#next_next_main_iframe").css({"left": "100%"});
+	$("#main_iframe").css({"left": "200%"});
+
+	main.attr({"id": "next_next_main_iframe"}); 
+	next.attr({"id": "main_iframe"});
+	next_next.attr({"id": "next_main_iframe"}); 
+
+<% else %>
+<% end %>
+
+$('.iframe_div').html("<%=j render channel %>");
+
+
