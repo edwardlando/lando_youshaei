@@ -215,11 +215,12 @@ $(document).ready(function() {
 
 	window.onload = setSrcsOnLoad();
 
-	var index; 
-	var counter;
+	var index = 0; 
+	var counter = 0;
 	var items = new Array(3);
 
 	function postIndexToController() {
+		alert("tryposting");
 		var data = {
 			"index": index,
 		};
@@ -230,17 +231,23 @@ $(document).ready(function() {
 			dataType: "json",
 			success: function(data) {
 				console.log(data);
+				alert("posting");
 			}
 		});
 	}
 
 	function getNext3Items() {
+		var data = {
+			"index": index,
+		};
 		$.ajax({
 			type: 'GET',
 			url: "/store/index.json",
+			data: data,
 			dataType: "json",
 			success: function(data) {
 				items = data;
+				alert("data "+data);
 
 				var url1 = items[0];
 				var url2 = items[1];
@@ -273,7 +280,9 @@ $(document).ready(function() {
 		$("#main_iframe").animate({"left": "-100%"});
 		$("#next_main_iframe").animate({"left": "0"});
 		$("#next_next_main_iframe").css({"left": "100%"});
+		$("#main_iframe").css({"visibility": "hidden"});
 		$("#main_iframe").css({"left": "200%"});
+		$("#main_iframe").css({"visibility": "visible"});
 	
 		main.attr({"id": "next_next_main_iframe"}); 
 		next.attr({"id": "main_iframe"});
@@ -281,21 +290,20 @@ $(document).ready(function() {
 	}
 
 	function timeForNewContent() {
+		//postIndexToController();
 	    getNext3Items();
     	//setIframeSrcs();
-		//postIndexToController();
+		
 	}
-
 	
 	$("#next_icon").on("click", function(event) {
-        if (counter == null) counter = 1;
-		else counter+=1;
-
-		if (index == null) index = 0;
-		else index+=1;
+		alert(index);
+		counter+=1;
+		index+=1;
 
 		if (counter == 3) {
 			timeForNewContent();
+			counter = 0;
 		}
 
 		iframeTransition();
@@ -303,9 +311,7 @@ $(document).ready(function() {
 	});
 
 	function setSrcsOnLoad() {
-    	if (counter == null) {
-    		timeForNewContent();
- 	    }
+    	timeForNewContent();
  	}
 
 
