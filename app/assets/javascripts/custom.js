@@ -219,23 +219,6 @@ $(document).ready(function() {
 	var counter = 0;
 	var items = new Array(3);
 
-	function postIndexToController() {
-		alert("tryposting");
-		var data = {
-			"index": index,
-		};
-		$.ajax({
-			type: 'POST',
-			url: "/store/index.json",
-			data: data,
-			dataType: "json",
-			success: function(data) {
-				console.log(data);
-				alert("posting");
-			}
-		});
-	}
-
 	function getNext3Items() {
 		var data = {
 			"index": index,
@@ -247,30 +230,17 @@ $(document).ready(function() {
 			dataType: "json",
 			success: function(data) {
 				items = data;
-				alert("data "+data);
+				alert("data "+items);
 
-				var url1 = items[0];
-				var url2 = items[1];
-				var url3 = items[2];
+				var url1 = items[index];
+				var url2 = items[index+1];
+				var url3 = items[index+2];
 				$("#main_iframe").attr({"src": url1}); 
 				$("#next_main_iframe").attr({"src": url2}); 
 				$("#next_next_main_iframe").attr({"src": url3}); 
 			}
 		});
 	}
-
-	function setIframeSrcs() {
-		alert(items);
-
-		var url1 = items[0];
-		var url2 = items[1];
-		var url3 = items[2];
-		$("#main_iframe").attr({"src": url1}); 
-		$("#next_main_iframe").attr({"src": url2}); 
-		$("#next_next_main_iframe").attr({"src": url3}); 
-	}
-
-	
 
 	function iframeTransition() {
 		var main = $("#main_iframe");
@@ -289,33 +259,31 @@ $(document).ready(function() {
 		next_next.attr({"id": "next_main_iframe"}); 			
 	}
 
-	function timeForNewContent() {
-		//postIndexToController();
-	    getNext3Items();
-    	//setIframeSrcs();
-		
-	}
-	
-	$("#next_icon").on("click", function(event) {
-		alert(index);
-		counter+=1;
+	function next() {
+ 		counter+=1;
 		index+=1;
 
 		if (counter == 3) {
-			timeForNewContent();
+			alert(counter);
+			getNext3Items();
 			counter = 0;
 		}
 
 		iframeTransition();
-		
-	});
+ 	}
 
-	function setSrcsOnLoad() {
-    	timeForNewContent();
+ 	function setSrcsOnLoad() {
+    	getNext3Items();
  	}
 
 
+	$("#next_icon").on("click", function(event) {
+		next();
+	});
 
+ 	key('right', function() {
+		next();
+	});
 
 
 
