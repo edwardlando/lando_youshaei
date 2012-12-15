@@ -213,9 +213,11 @@ $(document).ready(function() {
 
 	// Paginating
 
+	window.onload = setSrcsOnLoad();
+
 	var index; 
 	var counter;
-	var items = new Array();
+	var items = new Array(3);
 
 	function postIndexToController() {
 		var data = {
@@ -238,21 +240,30 @@ $(document).ready(function() {
 			url: "/store/index.json",
 			dataType: "json",
 			success: function(data) {
-				items.push(data[0], data[1], data[2]);
+				items = data;
+
+				var url1 = items[0];
+				var url2 = items[1];
+				var url3 = items[2];
+				$("#main_iframe").attr({"src": url1}); 
+				$("#next_main_iframe").attr({"src": url2}); 
+				$("#next_next_main_iframe").attr({"src": url3}); 
 			}
 		});
 	}
 
-	function setIframeSrcs(items) {
-		alert("urls");
+	function setIframeSrcs() {
+		alert(items);
+
 		var url1 = items[0];
 		var url2 = items[1];
 		var url3 = items[2];
-		alert(url);
 		$("#main_iframe").attr({"src": url1}); 
 		$("#next_main_iframe").attr({"src": url2}); 
 		$("#next_next_main_iframe").attr({"src": url3}); 
 	}
+
+	
 
 	function iframeTransition() {
 		var main = $("#main_iframe");
@@ -271,8 +282,8 @@ $(document).ready(function() {
 
 	function timeForNewContent() {
 	    getNext3Items();
-    	setIframeSrcs(items);
-		postIndexToController();
+    	//setIframeSrcs();
+		//postIndexToController();
 	}
 
 	
@@ -291,13 +302,13 @@ $(document).ready(function() {
 		
 	});
 
-	window.onload = setSrcsOnLoad();
-
-    function setSrcsOnLoad() {
+	function setSrcsOnLoad() {
     	if (counter == null) {
     		timeForNewContent();
  	    }
  	}
+
+
 
 
 
