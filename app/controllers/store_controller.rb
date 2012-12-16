@@ -25,7 +25,6 @@ class StoreController < ApplicationController
 =end
     
       ###### CHANGE SWITCHING LATER
-=begin
       if @user
         if params[:current_channel] && params[:switch]
            @old_channel = @user.current_channel
@@ -41,7 +40,7 @@ class StoreController < ApplicationController
       elsif @guest_user
         @guest_channel = @guest_user.current_channel
       end
-=end
+
       @channel = @user.current_channel
     
       if @channel 
