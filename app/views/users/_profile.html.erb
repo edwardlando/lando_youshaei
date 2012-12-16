@@ -6,13 +6,13 @@
 			<%= current_or_guest_user.username ||= current_or_guest_user.email %>
 		</li>
 		<li class="my_profile">
-			<p class="profile_subtitle"> My channels </p>
+			<p class="profile_subtitle"> My Paths </p>
 			<% current_or_guest_user.channels.each do |channel| %>
 		        <%= link_to "#{channel.name}", { :controller => "store", :action => "index",  :switch => "true", :current_channel => "#{channel.id}" } %> <br />
 	        <% end %>
 		</li>
 		<li class="my_profile">
-			<p class="profile_subtitle"> My wishlist <br/> <span class="help_notice">(upvote to add to wishlist)</span> </p>
+			<p class="profile_subtitle"> My Wishlist <br/> <span class="help_notice">(upvote to add to wishlist)</span> </p>
 			<% unless current_or_guest_user.wishlist.nil? || current_or_guest_user.wishlist.items.nil? %>
 			    <% current_or_guest_user.wishlist.items.each do |item| %>
 					<%= link_to "#{item.title}", "#{item.url}" %> <br />

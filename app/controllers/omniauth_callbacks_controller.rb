@@ -10,7 +10,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 		    
 		    # Initial channel for the user
 		    @channel = Channel.new(:color => "All", :style => "All", :price => "All", :gender => "All",
-	    :user_id => user.id, :item_index => 0, :name => "My first channel")
+	    :user_id => user.id, :item_index => 0, :name => "My first path")
 		    @channel.current_channel = true
 		    @channel.save
 	    end

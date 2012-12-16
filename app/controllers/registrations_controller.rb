@@ -25,7 +25,7 @@ class RegistrationsController < Devise::RegistrationsController
 		    :color => "All", :style => "All",
 		    :price => "All", :gender => "All",
 	        :user_id => resource.id, :item_index => 0,
-	        :name => "My first channel")
+	        :name => "My first path")
 		    @channel.current_channel = true
 		    @channel.save
         end  
