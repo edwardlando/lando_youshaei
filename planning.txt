@@ -247,7 +247,7 @@ Which living room design do you prefer?
 			Collaborative filtering
 
 		Mat - 
-			New reliq add on (go intot the availability monitoring section -a sk it to ping the app every minute)
+			New reliq add on (go intot the availability monitoring section -ask it to ping the app every minute)
 			treat it like a pagination (with 3 items per page)
 			as soon as you hit one before the last one, go back and ask the controller for the next pags
 			kaminari gem
