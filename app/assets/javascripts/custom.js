@@ -230,11 +230,11 @@ $(document).ready(function() {
 			dataType: "json",
 			success: function(data) {
 				items = data;
-				alert("data "+items);
+				//alert("data "+items);
 
-				var url1 = items[index];
-				var url2 = items[index+1];
-				var url3 = items[index+2];
+				var url1 = items[0];
+				var url2 = items[1];
+				var url3 = items[2];
 				$("#main_iframe").attr({"src": url1}); 
 				$("#next_main_iframe").attr({"src": url2}); 
 				$("#next_next_main_iframe").attr({"src": url3}); 
@@ -264,7 +264,6 @@ $(document).ready(function() {
 		index+=1;
 
 		if (counter == 3) {
-			alert(counter);
 			getNext3Items();
 			counter = 0;
 		}

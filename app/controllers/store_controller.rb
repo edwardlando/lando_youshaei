@@ -7,7 +7,7 @@ class StoreController < ApplicationController
       @guest_user = guest_user
       @channels = @user.channels unless @user.nil?
       #@items = Item.page(params[:page]).per(5)   ##### starting kaminari change here
-      @index = params["index"] ||= 0
+      @index = params["index"].to_i ||= 0
       ### need to add params page
 =begin
       @orders = Order.all.sort_by(&:updated_at) # will want to sort by paid and unpaid
@@ -47,9 +47,11 @@ class StoreController < ApplicationController
       if @channel 
         @items = @channel.channel_items # send index in json too let's see if just sending the url works
         @items = @items[@index..@index+2]
+        @channel.item_index = @index unless @channel.channel_items[@index.to_i].nil?
         @channel.save unless @channel.channel_items[@index.to_i].nil?
       elsif @guest_channel 
-        @items = @guest_channel.channel_items[@index..index+2]
+        @items = @guest_channel.channel_items
+        @items = @items[@index..index+2]
         @guest_channel.item_index = @index unless @guest_channel.channel_items[@index.to_i].nil?
         @guest_channel.save
       end
@@ -60,10 +62,15 @@ class StoreController < ApplicationController
       end
 
       
+      p " PARAMS     ******************************************"
+      p  params
+      p "******************************************"
+      
 
       p "******************************************"
       p @item_urls
       p "******************************************"
+
 
     end
     respond_to do |format|
