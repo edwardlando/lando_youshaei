@@ -213,11 +213,13 @@ $(document).ready(function() {
 
 	// Paginating
 
-	window.onload = setSrcsOnLoad();
-
 	var index = 0; 
 	var counter = 0;
 	var items = new Array(3);
+	items.push("x");
+
+
+	window.onload = setSrcsOnLoad();
 
 	function getNext3Items() {
 		var data = {
@@ -230,16 +232,25 @@ $(document).ready(function() {
 			dataType: "json",
 			success: function(data) {
 				items = data;
+				//alert("INSIDE SUCCESS"+items.toString());
+				setMainIframeSrc();
+		    	set2IframesInAdvance();
 				//alert("data "+items);
-
-				var url1 = items[0];
-				var url2 = items[1];
-				var url3 = items[2];
-				$("#main_iframe").attr({"src": url1}); 
-				$("#next_main_iframe").attr({"src": url2}); 
-				$("#next_next_main_iframe").attr({"src": url3}); 
 			}
 		});
+	}
+
+	function set2IframesInAdvance() {
+		var url2 = items[1];
+		var url3 = items[2];
+		$("#next_main_iframe").attr({"src": url2}); 
+		$("#next_next_main_iframe").attr({"src": url3}); 
+	}
+
+	function setMainIframeSrc() {
+		//alert("SET MAIN"+items.toString());
+        var url1 = items[0];
+	    $("#main_iframe").attr({"src": url1});
 	}
 
 	function iframeTransition() {
@@ -263,9 +274,13 @@ $(document).ready(function() {
  		counter+=1;
 		index+=1;
 
-		if (counter == 3) {
+		if (counter == 2) {
 			getNext3Items();
-			counter = 0;
+			set2IframesInAdvance();
+		}
+		if (counter == 3) {
+			setMainIframeSrc();
+			counter = 0; 
 		}
 
 		iframeTransition();
@@ -273,6 +288,7 @@ $(document).ready(function() {
 
  	function setSrcsOnLoad() {
     	getNext3Items();
+    	//alert("setSrcsOnLoad"+items.toString());
  	}
 
 
