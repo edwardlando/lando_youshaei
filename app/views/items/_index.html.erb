@@ -15,7 +15,7 @@
     <th>TASTEMAKER</th>
   </tr>
 
-<% @items.each do |item| %>
+<% Item.all.each do |item| %>
   <tr>
     <td><%= item.id %></td>
     <td><%= item.title %></td>
