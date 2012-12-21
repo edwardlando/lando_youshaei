@@ -1,5 +1,10 @@
 class StaticPagesController < ApplicationController
+	layout "no_header_footer"
+
 	def about
+	end
+
+	def tastemakers
 	end
 
 	def terms

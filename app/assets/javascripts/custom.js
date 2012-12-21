@@ -208,6 +208,13 @@ $(document).ready(function() {
 //https://plus.google.com/share?url=http%3A%2F%2Fexample.com
 
 
+    // Tastemaker page
+
+    $("#first").hover(function () {
+		this.tastemaker_photo_text.attr({"display": "block"})
+	});
+
+
 
 
 

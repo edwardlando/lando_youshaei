@@ -59,6 +59,7 @@ LandoYoushaei::Application.routes.draw do
   get "confirmations/show"
 
   get "static_pages/about"
+  get "static_pages/tastemakers"
   get "static_pages/terms"
   get "static_pages/privacy"
   get "static_pages/jobs"
