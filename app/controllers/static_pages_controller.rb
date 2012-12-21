@@ -7,6 +7,9 @@ class StaticPagesController < ApplicationController
 	def tastemakers
 	end
 
+	def contact
+	end
+
 	def terms
     end
 

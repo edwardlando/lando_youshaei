@@ -20,6 +20,11 @@ vevey/vevey-webfont.eot: vevey/vevey-webfont-cc5e9d7c8009928f26212c8c2e0918de.eo
 vevey/vevey-webfont.svg: vevey/vevey-webfont-b850ad04ffdda003b1a9dd4963a4f8cb.svg
 vevey/vevey-webfont.ttf: vevey/vevey-webfont-6ff32661b8d89e458a56f4b185e9e0eb.ttf
 vevey/vevey-webfont.woff: vevey/vevey-webfont-f925953fbd801c55681a4f4fbad66e1a.woff
+Arjan.png: Arjan-6cdd1e38fc175c20b92c4bbb05eb7a24.png
+Chloe.jpeg: Chloe-7680571148a261df238ec9d3c96cfa75.jpeg
+Daniel.jpeg: Daniel-fe29b9753dc02546797f6c1e59e2aafb.jpeg
+EdwardLando.jpeg: EdwardLando-199d98a998800abdb59ccd232bca6f6c.jpeg
+JonathonYoushaei.png: JonathonYoushaei-f6309c638ef2452c8cca514bfac9237a.png
 all.png: all-a1d9e80c2b06f3b19bd23354cbc2b587.png
 bar_light_verticaldivider.png: bar_light_verticaldivider-46367d3319fb942a72681267e5f19212.png
 bar_next_icon.png: bar_next_icon-024be8d0295c31f00b16fd774345b7d3.png
@@ -55,5 +60,5 @@ twitter.png: twitter-d96259e0bc432a8a9b82297c3d8e46ab.png
 twitter_footer.png: twitter_footer-f6107a2db84b45765404fcb20f54484c.png
 txture.png: txture-900a4e6de1be9cc65aab31cc1ebc0c9a.png
 youtube_footer.png: youtube_footer-40be6fc4bbd03f15d624d96c1b70bfe2.png
-application.js: application-bd75c5004843fb935fa7f4d6297e09d0.js
-application.css: application-97d372ae4d9100be55197b60ba1bb691.css
+application.js: application-09690966366a3ca13af4dd2e252c6289.js
+application.css: application-704ef1b58d05423dfec50fdc6c2df6c9.css
