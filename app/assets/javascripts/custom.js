@@ -2,12 +2,6 @@
 
 $(document).ready(function() {
 
-
-    /*                                                                  TEMPORARY COMMENT
-
-
-
-
 	// The actual form
 	$(".picker .option").on("click", function(event){
 		// this = option clicked
@@ -113,14 +107,6 @@ $(document).ready(function() {
 		};
 	})
 
-
-
-
-
-
-
-
-    */                                                           ////// TEMMPORARY COMMENT
 	
 	// CART
 
@@ -156,8 +142,7 @@ $(document).ready(function() {
 	})
     */
 
-    /*                                                                          TEMPORARY
-
+  
     function closeComingSoonDiv(){
 		document.getElementById("coming_soon").style.visibility="hidden";
     }
@@ -309,13 +294,6 @@ $(document).ready(function() {
  	key('right', function() {
 		next();
 	});
-
-
-
-
-
-
-*/  // COMMENTING OUT FOR NOW
 
 
 
