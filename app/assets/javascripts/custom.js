@@ -1,6 +1,13 @@
 
 
 $(document).ready(function() {
+
+
+    /*                                                                  TEMPORARY COMMENT
+
+
+
+
 	// The actual form
 	$(".picker .option").on("click", function(event){
 		// this = option clicked
@@ -106,6 +113,14 @@ $(document).ready(function() {
 		};
 	})
 
+
+
+
+
+
+
+
+    */                                                           ////// TEMMPORARY COMMENT
 	
 	// CART
 
@@ -120,7 +135,8 @@ $(document).ready(function() {
 		};
 	})
     */
-    
+
+
     $("#my_cart").on("click", function(event) {
 		$("#coming_soon").show(400);
     	$("#coming_soon").delay(1200).hide(400);
@@ -139,6 +155,8 @@ $(document).ready(function() {
 		};
 	})
     */
+
+    /*                                                                          TEMPORARY
 
     function closeComingSoonDiv(){
 		document.getElementById("coming_soon").style.visibility="hidden";
@@ -162,16 +180,6 @@ $(document).ready(function() {
 	});
 
 	// SOCIAL SHARING
-	function toggle(item) {
-	    if (item.style.visibility == 'hidden') { item.style.visibility = 'visible'; }
-    };   
-    
-    /*
-	$("#share_icon").hover(function () {
-		var icons = document.getElementById('social_icons');
-        toggle(icons);
-	});
-    */
 
     $("#share_icon").click(function () {
     	$("#social_icons").show(400);
@@ -209,11 +217,6 @@ $(document).ready(function() {
 
 
     // Tastemaker page
-
-    $("#first").hover(function () {
-		this.tastemaker_photo_text.attr({"display": "block"})
-	});
-
 
 
 
@@ -312,9 +315,27 @@ $(document).ready(function() {
 
 
 
+*/  // COMMENTING OUT FOR NOW
 
 
 
+    $("#edwardlando").hover(
+      function() {
+       $("#edward_info").css({"visibility":"visible"});
+      }, 
+      function() {
+       $("#edward_info").css({"visibility":"hidden"});
+      }
+    );
+
+    $("#jonathonyoushaei").hover(
+      function() {
+       $("#jon_info").css({"visibility":"visible"});
+      }, 
+      function() {
+       $("#jon_info").css({"visibility":"hidden"});
+      }
+    );
 
 
 

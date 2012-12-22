@@ -1495,27 +1495,28 @@ a:hover {
 	font-size: 18px;
 }
 
-.founder_photo img{
+.founder_photo img {
 	width: 190px;
 	height: 190px;
-	opacity: 0.6;
-}
-
-.founder_photo img:hover {
 	opacity: 1;
 }
 
-#edwardlando img {
+.founder_photo img:hover {
+	opacity: 0.2;
+}
+
+#edward_pic {
 	border-bottom: 8px solid lightgreen;
 }
 
-#jonathonyoushaei img {
+#jon_pic {
 	border-bottom: 8px solid orange;
 }
 
-.founder h2 {
+.founder h2, .founder_bio {
 	position: absolute;
 	width: 100%;
+	color: white;
 }
 
 #edwardlando.founder h2 {
@@ -1523,11 +1524,43 @@ a:hover {
 	right: 90px; 
 }
 
+#edward_bio {
+	top: 300px;
+	right: 90px;
+}
+
+#jon_bio {
+	top: 300px;
+	left: 90px;
+}
+
 #jonathonyoushaei.founder h2 {
 	top: 390px;
 	left: 90px; 
 }
 
+#edward_info {
+	visibility: hidden;
+}
+
+#jon_info {
+	visibility: hidden;
+}
+
+.profile_icon {
+	width: 25px;
+	height: 25px;
+}
+
+.profile_icon:hover {
+	border-bottom: 2px solid lightpink;
+}
+
+
+
+.footer a {
+	cursor: pointer;
+}
 
 
 
