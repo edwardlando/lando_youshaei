@@ -98,16 +98,21 @@ class ItemsController < ApplicationController
     @user = current_or_guest_user
     @channel = @user.current_channel
     @item = @channel.current_item
+    @tastemaker = @item.user unless @item.user.nil?
     @index = @channel.item_index
 
     # adding to wishlist or skipping to next item
     if params[:value] == '1'
       @user.add_to_wishlist(@item)
+      @tastemaker.rating += 1 unless @tastemaker.nil?
       @user.save
     elsif params[:value] == '-1'
       @index+=1
+      @tastemaker.rating -= 1 unless @tastemaker.nil?
       # maybe can't redirect to back then
     end
+
+    @tastemaker.save
 
     if vote.save
       redirect_to :controller => "store", :action => "index", :index => @index
