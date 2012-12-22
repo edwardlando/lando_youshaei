@@ -6,7 +6,7 @@
                 <h2 class="black">Top 5 most active tastemakers</h2>
                 <% unless @top_contributors.nil? %>
                     <% @top_contributors[0..9].each do |t| %>
-                        <p class="black"><%= t.email ||= t.username %> | <%= t.items.count %> items</p>
+                        <p class="black"><%= t.username ||= t.email %> | <%= t.items.count %> items</p>
                     <% end %>
                 <% end %>
             </div>
@@ -14,7 +14,7 @@
                 <h2 class="black">Top 5 highest rated tastemakers</h2>
                 <% unless @top_rated.nil? %>
                     <% @top_rated[0..9].each do |t| %>
-                        <p class="black"><%= t.email ||= t.username %> | Votes: <%= t.rating %> </p>
+                        <p class="black"><%= t.username ||= t.email %> | Votes: <%= t.rating %> </p>
                     <% end %>
                 <% end %>
             </div>

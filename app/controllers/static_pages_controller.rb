@@ -6,8 +6,8 @@ class StaticPagesController < ApplicationController
 
 	def tastemakers
 		@tastemakers = User.find_all_by_role("tastemaker") 
-		@top_contributors = @tastemakers.sort_by { |t| t.items.count } 
-		@top_rated = @tastemakers.sort_by { |t| t.rating } 
+		@top_contributors = @tastemakers.sort_by { |a, b| b.items.count <=> a.items.count } 
+		@top_rated = @tastemakers.sort_by { |a, b| b.rating <=> a.rating} 
 	end
 
 	def contact
