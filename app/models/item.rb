@@ -1,5 +1,5 @@
 class Item < ActiveRecord::Base
-  attr_accessible :title, :url, :color, :style, :price, :gender
+  attr_accessible :title, :url, :gender, :price, :vibe, :apparel
 
   belongs_to :user #tastemaker
   has_and_belongs_to_many :wishlists
@@ -7,19 +7,30 @@ class Item < ActiveRecord::Base
   has_many :orders, :through => :line_items
   has_many :item_votes
 
-  validates_presence_of :title, :url, :color, :style, :price, :gender,
+  validates_presence_of :title, :url, :apparel, :vibe, :price, :gender,
   :message => "Please make sure to fill in all fields"
 
   before_destroy :ensure_not_referenced_by_any_line_item
 
-  COLOR_OPTIONS = ["White", "Black", "Red", "Green", "Blue", "Yellow",
-                   "Pink", "Grey", "Brown", "Purple", "Orange"]
+  GENDER_OPTIONS = ["Female", "Male", "All"]
 
-  STYLE_OPTIONS = ["Elegant", "Casual", "Preppy", "Hipster"]
+  PRICE_OPTIONS = ["$", "$$", "$$$", "All"]
 
-  PRICE_OPTIONS = ["50", "100", "200"]
+  VIBE_OPTIONS = ["Elegant", "Casual", "Preppy", "Flashy", "All"]
 
-  GENDER_OPTIONS = ["Female", "Male"]
+  FEMALE_APPAREL_OPTIONS = ["Tees, Polos & Shirts",
+                            "Pants, Skirts & Shorts",
+                            "Sweaters, Jackets & Outerwear",
+                            "Dresses & Formalwear",
+                            "Shoes, Accessories & Miscellaneous",
+                            "All"]
+
+  MALE_APPAREL_OPTIONS = ["Tees, Polos & Shirts",
+                          "Sweaters, Jackets & Outerwear",
+                          "Pants & Shorts",
+                          "Suits & Formalwear",
+                          "Shoes, Accessories & Miscellaneous",
+                          "All"]
 
   SIZE_OPTIONS = ["Extra Small", "Small", "Medium", "Large", "Extra Large"]
 

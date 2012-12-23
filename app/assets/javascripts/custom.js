@@ -41,10 +41,9 @@ $(document).ready(function() {
  
     // Highlighting selected option
 
-    var colorOptions = ["ColorWhite", "ColorGrey", "ColorBlack", "ColorRed", "ColorGreen", "ColorBlue",
-    "ColorPink", "ColorBrown", "ColorYellow", "ColorOrange", "ColorPurple", "ColorAll"]
+    var apparelOptions = ["TPS", "PS","SJO", "DS", "SAM"]
 
-    var styleOptions = ["StyleElegant", "StyleCasual", "StylePreppy", "StyleHipster", "StyleAll"]
+    var vibeOptions = ["VibeElegant", "VibeCasual", "VibePreppy", "VibeFlashy", "StyleAll"]
 
     var priceOptions = ["Under50", "Under100", "Under200", "UnderAll"]
 
@@ -73,13 +72,13 @@ $(document).ready(function() {
 		});
     }
 
-    lightSwitch("#channel_color", true);
-    lightSwitch("#channel_style");
+    lightSwitch("#channel_apparel", true);
+    lightSwitch("#channel_vibe");
     lightSwitch("#channel_price");
     lightSwitch("#channel_gender");
 
-    lightSwitch("#item_color", true);
-    lightSwitch("#item_style");
+    lightSwitch("#item_apparel", true);
+    lightSwitch("#item_vibe");
     lightSwitch("#item_gender");
    
 
