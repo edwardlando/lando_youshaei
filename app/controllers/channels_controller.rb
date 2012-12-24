@@ -52,10 +52,10 @@ class ChannelsController < ApplicationController
   # POST /channels
   # POST /channels.json
   def create
-
-    @channel = Channel.new(:name => params[:channel][:name], :color => params[:channel][:color], 
-      :style => params[:channel][:style], :price => params[:channel][:price],
-      :gender => params[:channel][:gender])
+    @channel = Channel.new(:gender => params[:channel][:gender],
+                           :price => params[:channel][:price],
+                           :vibe => params[:channel][:vibe],
+                           :apparel => params[:channel][:apparel])
 
     if guest_user
       @channels = Channel.find_all_by_guest_user_id(guest_user.lazy_id)
@@ -66,10 +66,7 @@ class ChannelsController < ApplicationController
     end
 
     @channel.item_index = 0
-    
-    p '************************************'
-    p @channels
-    
+     
     @channels.each do |c|
       if c.current_channel == true
         @old_channel = c

@@ -46,9 +46,13 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
-    @item = Item.new(:title => params["item"]["title"], :url => params["item"][:url], :color => params["item"]["color"], 
-      :style => params["item"]["style"], :price => params["item"]["price"], :gender => params["item"]["gender"])
-
+    @item = Item.new(:title => params[:item][:title],
+                     :url => params[:item][:url],
+                     :gender => params[:item][:gender],
+                     :price => params[:item][:price],
+                     :vibe => params[:item][:vibe],
+                     :apparel => params[:item][:apparel])
+                          
     @item.user_id = current_user.id
 
     respond_to do |format|
@@ -92,8 +96,6 @@ class ItemsController < ApplicationController
   end
 
   def vote
-    p params
-    p "************************************"
     vote = current_user.item_votes.new(value: params[:value], item_id: params[:id])
     @user = current_or_guest_user
     @channel = @user.current_channel
@@ -112,7 +114,7 @@ class ItemsController < ApplicationController
       # maybe can't redirect to back then
     end
 
-    @tastemaker.save
+    @tastemaker.save unless @tastemaker.nil?
 
     if vote.save
       redirect_to :controller => "store", :action => "index", :index => @index

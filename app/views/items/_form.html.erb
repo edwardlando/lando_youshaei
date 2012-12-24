@@ -1,4 +1,4 @@
-  <%= form_for(Item.new, :remote => true) do |f| %>
+  <%= form_for(Item.new) do |f| %>
    <div class="item_parameters">
       <ul id="item_form">
         <li class="field" id="item_title">
@@ -9,22 +9,23 @@
           <%= f.label :url %><br />
           <%= f.url_field :url, :placeholder => "Link to where item can be purchased", :id => "item_url_input" %>   
         </li>
-        <li class="field" id="item_price">
-          <%= f.label :price %><br />
-          <%= f.text_field :price, :placeholder => "i.e. 49.99 (no $ needed)", :id => "item_price_input" %>  
-        </li>
-        <li class="field" id="item_color">
-          <%= f.label :color %><br />
-          <%= f.select(:color, Item::COLOR_OPTIONS) %>
-        </li> 
-        <li class="field" id="item_style">
-          <%= f.label :style %><br />
-          <%= f.select(:style, Item::STYLE_OPTIONS) %>   
-        </li>
         <li class="field" id="item_gender">
           <%= f.label :gender %><br />
           <%= f.select(:gender, Item::GENDER_OPTIONS) %>  
         </li>
+        <li class="field" id="item_price">
+          <%= f.label :price %><br />
+          <%= f.text_field :price, :placeholder => "i.e. 49.99 (no $ needed)", :id => "item_price_input" %>  
+        </li>
+        <li class="field" id="item_vibe">
+          <%= f.label :vibe %><br />
+          <%= f.select(:vibe, Item::VIBE_OPTIONS) %>   
+        </li>
+        <li class="field" id="item_apparel">
+          <%= f.label :apparel %><br />
+          <%= f.select(:apparel, Item::APPAREL_OPTIONS) %>
+        </li> 
+        
      </ul>
      <div class="actions">
         <%= f.submit "Add this item to Aveece", :id => "make_item" %>

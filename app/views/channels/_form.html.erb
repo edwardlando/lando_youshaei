@@ -1,5 +1,5 @@
 
-<%= form_for(Channel.new, :validate => true) do |f| %>
+<%= form_for(Channel.new) do |f| %>
   <ul id="channel_form">
     <div class="channel_parameters">
       <div class="style_inner">
@@ -35,24 +35,16 @@
           </div> 
         </li>
       </div>
-      <div class="color_name">
-        <div class="color_inner">
-          <li class="field">
-            <%= f.label :color %><br />
-            <%= f.select(:color, Channel::COLOR_OPTIONS) %>
-            <div class="picker">
-                <% Channel::COLOR_OPTIONS.each do |color| %>
-               <div class="option" id="Color<%=color%>"><%= color%></div>
-              <% end %>
-            </div>
-          </li> 
-        </div>
-        <div class="name_inner">
-          <li class="field">
-            <%= f.label :name, "Name" %><br />
-            <%= f.text_field :name, :placeholder => "Uber cool preppy" %>    
-          </li>
-        </div>
+      <div class="color_inner">
+        <li class="field">
+          <%= f.label :color %><br />
+          <%= f.select(:color, Channel::COLOR_OPTIONS) %>
+          <div class="picker">
+              <% Channel::COLOR_OPTIONS.each do |color| %>
+             <div class="option" id="Color<%=color%>"><%= color%></div>
+            <% end %>
+          </div>
+        </li> 
       </div>
     </div>
   </ul>
