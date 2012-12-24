@@ -22,8 +22,8 @@ class RegistrationsController < Devise::RegistrationsController
         else
 		    @channel = Channel.new(:gender => "All",
 							       :price => "All",
+							       :vibe => "All",
 							       :apparel => "All",
-		    	                   :vibe => "All",
 							       :user_id => resource.id,
 							       :item_index => 0)
 

@@ -54,8 +54,10 @@ class StoreController < ApplicationController
       end
 
       @item_urls = []
-      @items.each do |item|
-        @item_urls << item.url
+        unless @items.nil?
+        @items.each do |item|
+          @item_urls << item.url
+        end
       end
 
       

@@ -15,24 +15,23 @@ class Channel < ActiveRecord::Base
 
   APPAREL_OPTIONS = ["Tops","Bottoms", "All"]
 
-  def gender_match(item, channel_gender)
-    item.gender == channel_gender || channel_gender == "All" || channel_gender == "Unisex"
+  def gender_match(item_gender, channel_gender)
+    item_gender == channel_gender || channel_gender == "All" || channel_gender == "Unisex"
   end
 
-  def price_match(item, channel_price)
-    (item.price <= channel_price || channel_price.to_s == "0.0" || channel_price.to_s == "0") ||
-    (item.price < 51 && channel.price == "$") || 
-    (item.price < 101 && channel.price == "$$") ||
-    channel.price == "$$$" ||
-    channel.price == "All" 
+  def price_match(item_price, channel_price)
+    (item_price < 51.0 && channel_price == "$") || 
+    (item_price < 101.0 && channel_price == "$$") ||
+    channel_price == "$$$" ||
+    channel_price == "All" 
   end
 
-  def vibe_match(item, channel_vibe)
-    item.vibe == channel_vibe || channel_vibe == "All"
+  def vibe_match(item_vibe, channel_vibe)
+    item_vibe == channel_vibe || channel_vibe == "All"
   end
 
-  def apparel_match(item, channel_apparel)
-    item.apparel == channel_apparel || channel_apparel == "All"
+  def apparel_match(item_apparel, channel_apparel)
+    item_apparel == channel_apparel || channel_apparel == "All"
   end
                    
   
@@ -42,14 +41,13 @@ class Channel < ActiveRecord::Base
     channel_vibe = self.vibe
     channel_apparel = self.apparel
     
-  
     items = []
 
     Item.all.each do |item|
-      if gender_match(item, channel_gender) && 
-         price_match(item, channel_price) &&
-         vibe_match(item, channel_vibe) &&
-         apparel_match(item, channel_apparel)
+      if gender_match(item.gender, channel_gender) && 
+         price_match(item.price, channel_price) &&
+         vibe_match(item.vibe, channel_vibe) &&
+         apparel_match(item.apparel, channel_apparel)
            items << item
       end
     end
