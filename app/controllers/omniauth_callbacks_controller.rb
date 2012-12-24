@@ -13,7 +13,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 							       :price => "All",
 							       :apparel => "All",
 		    	                   :vibe => "All",
-							       :user_id => resource.id,
+							       :user_id => user.id,
 							       :item_index => 0)
 		    @channel.current_channel = true
 		    @channel.save
