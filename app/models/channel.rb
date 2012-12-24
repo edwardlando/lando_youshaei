@@ -1,11 +1,8 @@
 class Channel < ActiveRecord::Base
-  attr_accessible :color, :gender, :price, :style, :item_index, :current_channel, :name, :user_id
+  attr_accessible :gender, :price, :vibe, :apparel, :item_index, :current_channel, :user_id
   belongs_to :user # should be unique, even if the mix is the same  ## maybe belong_to as current_channel
-  validates_presence_of :name, :apparel, :vibe, :price, :gender
-
-  extend FriendlyId
-  friendly_id :name
-
+  validates_presence_of :gender, :price, :vibe, :apparel
+  
   # due to votes, and products already seen
 
   # we'll also sort by best rating
@@ -16,41 +13,49 @@ class Channel < ActiveRecord::Base
 
   VIBE_OPTIONS = ["Elegant", "Casual", "Preppy", "Flashy", "All"]
 
-  FEMALE_APPAREL_OPTIONS = ["Tees, Polos & Shirts",
-                            "Pants, Skirts & Shorts",
-                            "Sweaters, Jackets & Outerwear",
-                            "Dresses & Formalwear",
-                            "Shoes, Accessories & Miscellaneous",
-                            "All"]
+  APPAREL_OPTIONS = ["Tops","Bottoms", "All"]
 
-  MALE_APPAREL_OPTIONS = ["Tees, Polos & Shirts",
-                          "Sweaters, Jackets & Outerwear",
-                          "Pants & Shorts",
-                          "Suits & Formalwear",
-                          "Shoes, Accessories & Miscellaneous",
-                          "All"]
+  def gender_match(item, channel_gender)
+    item.gender == channel_gender || channel_gender == "All" || channel_gender == "Unisex"
+  end
+
+  def price_match(item, channel_price)
+    (item.price <= channel_price || channel_price.to_s == "0.0" || channel_price.to_s == "0") ||
+    (item.price < 51 && channel.price == "$") || 
+    (item.price < 101 && channel.price == "$$") ||
+    channel.price == "$$$" ||
+    channel.price == "All" 
+  end
+
+  def vibe_match(item, channel_vibe)
+    item.vibe == channel_vibe || channel_vibe == "All"
+  end
+
+  def apparel_match(item, channel_apparel)
+    item.apparel == channel_apparel || channel_apparel == "All"
+  end
                    
   
-
-
   def channel_items
-    channel_apparel = self.apparel
-    channel_vibe = self.vibe
-    channel_price = self.price
     channel_gender = self.gender
-
+    channel_price = self.price
+    channel_vibe = self.vibe
+    channel_apparel = self.apparel
+    
+  
     items = []
+
     Item.all.each do |item|
-    	if (item.gender == channel_gender || channel_gender == "All" || channel_gender == "Unisex") &&
-         (item.price <= channel_price || channel_price.to_s == "0.0" || channel_price.to_s == "0") &&
-         (item.vibe == channel_vibe || channel_vibe == "All") &&
-         (item.apparel == channel_apparel || channel_apparel == "All") 
-    	      items << item
-    	end
+      if gender_match(item, channel_gender) && 
+         price_match(item, channel_price) &&
+         vibe_match(item, channel_vibe) &&
+         apparel_match(item, channel_apparel)
+           items << item
+      end
     end
-    #items = items.shuffle
-    items 
+    items
   end
+
 
   def current_item
     channel_items[self.item_index] unless channel_items[self.item_index].nil?

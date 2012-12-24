@@ -95,9 +95,6 @@ class UsersController < ApplicationController
     end
   end
 
-  ########################################################################################
-  ########################################################################################
-
   def add_to_wishlist
     @user = current_user
     @channel = current_user.current_channel

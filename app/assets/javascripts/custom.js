@@ -41,11 +41,11 @@ $(document).ready(function() {
  
     // Highlighting selected option
 
-    var apparelOptions = ["TPS", "PS","SJO", "DS", "SAM"]
+    var apparelOptions = ["ApparelTops", "ApparelBottoms", "ApparelAll"]
 
-    var vibeOptions = ["VibeElegant", "VibeCasual", "VibePreppy", "VibeFlashy", "StyleAll"]
+    var vibeOptions = ["VibeElegant", "VibeCasual", "VibePreppy", "VibeFlashy", "VibeAll"]
 
-    var priceOptions = ["Under50", "Under100", "Under200", "UnderAll"]
+    var priceOptions = ["$", "$$", "$$$", "All"]
 
     var genderOptions = ["Female", "Male", "All"]
 
@@ -72,12 +72,12 @@ $(document).ready(function() {
 		});
     }
 
-    lightSwitch("#channel_apparel", true);
+    lightSwitch("#channel_apparel"); // used to be true
     lightSwitch("#channel_vibe");
     lightSwitch("#channel_price");
     lightSwitch("#channel_gender");
 
-    lightSwitch("#item_apparel", true);
+    lightSwitch("#item_apparel");
     lightSwitch("#item_vibe");
     lightSwitch("#item_gender");
    

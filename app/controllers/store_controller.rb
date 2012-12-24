@@ -23,8 +23,6 @@ class StoreController < ApplicationController
         end
       end 
 =end
-    
-      ###### CHANGE SWITCHING LATER
       if @user
         if params[:current_channel] && params[:switch]
            @old_channel = @user.current_channel
@@ -61,16 +59,6 @@ class StoreController < ApplicationController
       end
 
       
-      p " PARAMS     ******************************************"
-      p  params
-      p "******************************************"
-      
-
-      p "******************************************"
-      p @item_urls
-      p "******************************************"
-
-
     end
     respond_to do |format|
         format.html { } # index.html.erb

@@ -2,28 +2,6 @@
 <%= form_for(Channel.new) do |f| %>
   <ul id="channel_form">
     <div class="channel_parameters">
-      <div class="style_inner">
-        <li class="field">
-          <%= f.label :style %><br />
-          <%= f.select(:style, Channel::STYLE_OPTIONS) %>   
-          <div class="picker" id="style_picker">
-              <% Channel::STYLE_OPTIONS.each do |style| %>
-             <div class="option" id="Style<%=style%>"><span><%= style %></span></div>
-            <% end %>
-          </div>
-        </li>
-      </div>
-      <div class="price_inner">
-        <li class="field">
-          <%= f.label :price, "Price limit" %><br />
-          <%= f.select(:price, Channel::PRICE_OPTIONS) %>  
-          <div class="picker">
-              <% Channel::PRICE_OPTIONS.each do |price| %>
-             <div class="option" id="Under<%=price%>"><span><%= price %></span></div>
-            <% end %>
-          </div> 
-        </li>
-      </div>
       <div class="gender_inner">
         <li class="field">
           <%= f.label :gender %><br />
@@ -35,13 +13,35 @@
           </div> 
         </li>
       </div>
-      <div class="color_inner">
+      <div class="price_inner">
         <li class="field">
-          <%= f.label :color %><br />
-          <%= f.select(:color, Channel::COLOR_OPTIONS) %>
+          <%= f.label :price %><br />
+          <%= f.select(:price, Channel::PRICE_OPTIONS) %>  
           <div class="picker">
-              <% Channel::COLOR_OPTIONS.each do |color| %>
-             <div class="option" id="Color<%=color%>"><%= color%></div>
+              <% Channel::PRICE_OPTIONS.each do |price| %>
+             <div class="option" id="Under<%=price%>"><span><%= price %></span></div>
+            <% end %>
+          </div> 
+        </li>
+      </div>
+      <div class="vibe_inner">
+        <li class="field">
+          <%= f.label :vibe %><br />
+          <%= f.select(:vibe, Channel::VIBE_OPTIONS) %>   
+          <div class="picker" id="vibe_picker">
+              <% Channel::VIBE_OPTIONS.each do |vibe| %>
+             <div class="option" id="Vibe<%=vibe%>"><span><%= vibe %></span></div>
+            <% end %>
+          </div>
+        </li>
+      </div>
+      <div class="apparel_inner">
+        <li class="field">
+          <%= f.label :apparel %><br />
+          <%= f.select(:apparel, Channel::APPAREL_OPTIONS) %>
+          <div class="picker">
+              <% Channel::APPAREL_OPTIONS.each do |apparel| %>
+             <div class="option" id="Apparel<%=apparel%>"><span><%= apparel %></span></div>
             <% end %>
           </div>
         </li> 

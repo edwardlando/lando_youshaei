@@ -20,12 +20,13 @@ class RegistrationsController < Devise::RegistrationsController
 				c.save
 			end
         else
-	        # Initial channel for the new user
-		    @channel = Channel.new(
-		    :color => "All", :style => "All",
-		    :price => "All", :gender => "All",
-	        :user_id => resource.id, :item_index => 0,
-	        :name => "My first path")
+		    @channel = Channel.new(:gender => "All",
+							       :price => "All",
+							       :apparel => "All",
+		    	                   :vibe => "All",
+							       :user_id => resource.id,
+							       :item_index => 0)
+
 		    @channel.current_channel = true
 		    @channel.save
         end  

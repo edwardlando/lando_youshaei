@@ -18,20 +18,8 @@ class Item < ActiveRecord::Base
 
   VIBE_OPTIONS = ["Elegant", "Casual", "Preppy", "Flashy", "All"]
 
-  FEMALE_APPAREL_OPTIONS = ["Tees, Polos & Shirts",
-                            "Pants, Skirts & Shorts",
-                            "Sweaters, Jackets & Outerwear",
-                            "Dresses & Formalwear",
-                            "Shoes, Accessories & Miscellaneous",
-                            "All"]
-
-  MALE_APPAREL_OPTIONS = ["Tees, Polos & Shirts",
-                          "Sweaters, Jackets & Outerwear",
-                          "Pants & Shorts",
-                          "Suits & Formalwear",
-                          "Shoes, Accessories & Miscellaneous",
-                          "All"]
-
+  APPAREL_OPTIONS = ["Tops","Bottoms", "All"]
+                
   SIZE_OPTIONS = ["Extra Small", "Small", "Medium", "Large", "Extra Large"]
 
   def self.by_votes

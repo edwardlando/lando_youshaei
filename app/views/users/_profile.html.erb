@@ -8,7 +8,11 @@
 		<li class="my_profile">
 			<p class="profile_subtitle"> My Paths </p>
 			<% current_or_guest_user.channels.each do |channel| %>
-		        <%= link_to "#{channel.name}", { :controller => "store", :action => "index",  :switch => "true", :current_channel => "#{channel.id}" } %> <br />
+		        <%= link_to "#{channel.gender}, #{channel.price},
+		                     #{channel.vibe}, #{channel.apparel}",
+		                     {:controller => "store", :action => "index", :switch => "true",
+		                      :current_channel => "#{channel.id}" }
+		        %><br/>
 	        <% end %>
 		</li>
 		<li class="my_profile">

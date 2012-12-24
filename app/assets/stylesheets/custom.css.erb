@@ -515,70 +515,16 @@ p .notice {
 	text-align: center;
 }
 
-
-#ColorAll {
-	width: 60px;
-	height: 60px;
-	color: white !important;
-	text-align: center;
-	line-height: 30px;
-	font-size: 20px;
-}
-
-#ColorWhite {
-	background: white;
-}
-
-#ColorBlack {
-	background: black;
-}
-
-#ColorRed {
-	background: #F63E62;
-}
-
-#ColorGreen {
-	background: #006F48;
-}
-
-#ColorBlue {
-	background: #52A2D9;
-}
-
-#ColorYellow {
-	background: #FFD200;
-}
-
-#ColorPink {
-	background: #E439A1;
-}
-
-#ColorGrey {
-	background: #777;
-}
-
-#ColorBrown {
-	background: #563416;
-}
-
-#ColorPurple {
-	background: #8106A9;
-}
-
-#ColorOrange {
-	background: #FF7400;
-}
-
 #channel_name {
 	width: 180px;
 	height: 35px;
 }
 
-#channel_color {
+#channel_apparel {
 	display: none;
 }
 
-#channel_style  {
+#channel_vibe  {
 	display: none;
 }
 
@@ -704,7 +650,7 @@ p .notice {
 	width: 18%;
 }
 
-#item_color, #item_style, #item_gender {
+#item_apparel, #item_vibe, #item_gender {
 	width: 9%;
 }
 
@@ -932,10 +878,6 @@ p .notice {
 	width: 200px;
 }
 
-#item_apparel + .picker, #channel_apparel + .picker {
-	width: 600px;
-}
-
 .option span {
 	font-size: 18px;
 	font-weight: bold;
@@ -960,31 +902,6 @@ p .notice {
    	cursor: pointer;
 }
 
-#item_apparel + .picker > .option,
-#channel_apprel + .picker > .option, .selected {
-	width: 25px !important;
-	min-width: 25px !important;
-	border: 1px solid black;
-	height: 25px;
-	border-radius: 14px;
-	padding: 0;
-	overflow: hidden;
-	cursor: pointer;
-	display: block !important;
-	float: left;
-	color: transparent;
-
-}
-
-.style_price_gender {
-	width: 100%;
-	height: 150px;
-	margin-top: 60px !important;
-	display: block !important;
-	margin-bottom: 0;
-	cursor: pointer;
-}
-
 .vibe {
 	width: 150px;
 	height: 100px;
@@ -1006,7 +923,14 @@ p .notice {
 	text-align: left;
 }
 
-.style_price_gender_and_color_name {
+.apparel {
+    width: 150px;
+	height: 100px;
+	float: left;
+	text-align: left;
+}
+
+.vibe_price_gender_apparel {
 	width: 100%;
 	height: 150px;
 	margin-top: 20px;
@@ -1027,17 +951,10 @@ p .notice {
 }
 
 
-.vibe_inner, .price_inner, .gender_inner {
+.vibe_inner, .price_inner, .gender_inner, .apparel_inner {
 	width: 150px;
 	height: 100px;
 	float: left;
-	text-align: left;
-}
-
-.apparel_inner {
-	width: 300px;
-	height: 50%;
-	display: block !important;
 	text-align: left;
 }
 
@@ -1049,37 +966,9 @@ p .notice {
 	text-align: left;
 }
 
-.apparel {
-	width: 100%;
-	height: 40px;
-	float:left;
-	text-align: left;
-}
-
-.name {
-	width: 50%;
-	height: 50px;
-	margin-top: 0;
-	float: left;
-}
-
 .master_channel {
 	text-align: center;
 }
-
-
-.style_price_gender li {
-	width: 120px !important;
-	padding: 0;
-	margin: 0;
-}
-
-
-#channel_apparel + .picker > .option:hover,
-#item_apparel + .picker > .option:hover {
-	border: 2px solid #4CBFFF;;
-}
-
 
 /* Allowing user to make new channel on the landing page */
 
