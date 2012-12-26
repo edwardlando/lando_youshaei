@@ -1,6 +1,7 @@
   <%= form_for(@item) do |f| %>
    <div class="edit_item_parameters">
-      <ul id="item_form">
+      <ul id="edit_item_form">
+        <h1>Editing item</h1>
         <li class="field" id="edit_item_title">
           <%= f.label :title %><br />
           <%= f.text_field :title, :placeholder => "Uber cool preppy", :id => "item_title_input" %> 
@@ -25,10 +26,10 @@
           <%= f.label :apparel %><br />
           <%= f.select(:apparel, Item::APPAREL_OPTIONS) %>
         </li> 
-     </ul>
-     <div class="actions" id="edit_item_button_wrapper">
+        <div class="actions" id="edit_item_button_wrapper">
         <%= f.submit "Save changes made to this item", :id => "edit_make_item" %>
-     </div>
+       </div>
+     </ul>
     </div>
   <% end %>
 
