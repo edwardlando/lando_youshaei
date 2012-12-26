@@ -3,28 +3,28 @@
       <ul id="item_form">
         <li class="field" id="edit_item_title">
           <%= f.label :title %><br />
-          <%= f.text_field :title, :placeholder => "Uber cool preppy", :id => "edit_item_title_input" %> 
+          <%= f.text_field :title, :placeholder => "Uber cool preppy", :id => "item_title_input" %> 
         </li>
         <li class="field" id="edit_item_url">
           <%= f.label :url %><br />
-          <%= f.url_field :url, :placeholder => "Link to where item can be purchased", :id => "edit_item_url_input" %>   
+          <%= f.url_field :url, :placeholder => "Link to where item can be purchased", :id => "item_url_input" %>   
         </li>
-        <li class="field" id="edit_item_price">
-          <%= f.label :price %><br />
-          <%= f.text_field :price, :placeholder => "i.e. 49.99 (no $ needed)", :id => "edit_item_price_input" %>  
-        </li>
-        <li class="field" id="edit_item_color">
-          <%= f.label :color %><br />
-          <%= f.select(:color, Item::COLOR_OPTIONS) %>
-        </li> 
-        <li class="field" id="edit_item_style">
-          <%= f.label :style %><br />
-          <%= f.select(:style, Item::STYLE_OPTIONS) %>   
-        </li>
-        <li class="field" id="edot_item_gender">
+        <li class="field" id="edit_item_gender">
           <%= f.label :gender %><br />
           <%= f.select(:gender, Item::GENDER_OPTIONS) %>  
         </li>
+        <li class="field" id="edit_item_price">
+          <%= f.label :price %><br />
+          <%= f.text_field :price, :placeholder => "i.e. 49.99 (no $ needed)", :id => "item_price_input" %>  
+        </li>
+        <li class="field" id="edit_item_vibe">
+          <%= f.label :vibe %><br />
+          <%= f.select(:vibe, Item::VIBE_OPTIONS) %>   
+        </li>
+        <li class="field" id="edit_item_apparel">
+          <%= f.label :apparel %><br />
+          <%= f.select(:apparel, Item::APPAREL_OPTIONS) %>
+        </li> 
      </ul>
      <div class="actions" id="edit_item_button_wrapper">
         <%= f.submit "Save changes made to this item", :id => "edit_make_item" %>
