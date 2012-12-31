@@ -20,6 +20,8 @@ LandoYoushaei::Application.routes.draw do
   match "/application/create_guest_user" =>
   "application#create_guest_user", :via => :post
 
+  resources :users
+
   get "users/index"
   get "users/show"
   get "users/add_to_wishlist"

@@ -1,0 +1,41 @@
+  
+<!-- Need to allow for editing of channels -->
+<!-- fix this up -->
+
+
+  <%= form_for(@user) do |f| %>
+   <div class="edit_item_parameters">
+      <ul id="edit_item_form">
+        <h1>Editing user</h1>
+        <li class="field" id="edit_item_title">
+          <%= f.label :username %><br />
+          <%= f.text_field :username, :id => "item_title_input" %> 
+        </li>
+        <li class="field" id="edit_item_url">
+          <%= f.label :email %><br />
+          <%= f.url_field :url, :placeholder => "Link to where item can be purchased", :id => "item_url_input" %>   
+        </li>
+        <li class="field" id="edit_item_gender">
+          <%= f.label :gender %><br />
+          <%= f.select(:gender, Item::GENDER_OPTIONS) %>  
+        </li>
+        <li class="field" id="edit_item_price">
+          <%= f.label :price %><br />
+          <%= f.text_field :price, :placeholder => "i.e. 49.99 (no $ needed)", :id => "item_price_input" %>  
+        </li>
+        <li class="field" id="edit_item_vibe">
+          <%= f.label :vibe %><br />
+          <%= f.select(:vibe, Item::VIBE_OPTIONS) %>   
+        </li>
+        <li class="field" id="edit_item_apparel">
+          <%= f.label :apparel %><br />
+          <%= f.select(:apparel, Item::APPAREL_OPTIONS) %>
+        </li> 
+        <div class="actions" id="edit_item_button_wrapper">
+        <%= f.submit "Save changes made to this user", :id => "edit_make_item" %>
+       </div>
+     </ul>
+    </div>
+  <% end %>
+
+

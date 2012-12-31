@@ -1,21 +1,37 @@
-<h1>Listing users</h1>
+<div class="items_index">
 
-<table>
+<h1>Listing All <%= User.count %> Users</h1>
+
+<table class="items_table">
   <tr>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>USER ID</th>
+    <th>USER NAME OR EMAIL</th>
+    <!--<th></th>-->
+    <!--<th></th>-->
+    <% if current_or_guest_user.role == "super_admin" %>
+      <th></th>
+    <% end %>
+    <th>USER SINCE</th>
   </tr>
 
-<% @users.each do |user| %>
+<% User.all.each do |user| %>
   <tr>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= user.id %></td>
+    <td><%= user.username ||= user.email %></td>
+    <!--<td> link_to 'Show', user </td>-->
+    <!-- <td> link_to 'Edit', edit_user_path(user) </td>-->
+    <% if current_or_guest_user.role == "super_admin" %>
+      <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
+    <td><%= user.created_at.in_time_zone("Eastern Time (US & Canada)") %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
+<div id="admin_new_user" style="visibility:hidden;">
 <%= link_to 'New User', new_user_path %>
+</div>
+
+</div>

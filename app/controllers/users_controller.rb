@@ -1,4 +1,10 @@
 class UsersController < ApplicationController
+
+  layout "no_header_footer", :only => :index
+
+  before_filter :authenticate_user!
+  before_filter :user_is_admin, :only => [:index]
+
   # GET /users
   # GET /users.json
   def index
@@ -107,6 +113,12 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to root_path, :notice => "Item successfully added to your wishlist" } 
       format.json {}
+    end
+  end
+
+  def user_is_admin
+    unless current_user.role == "admin"
+      redirect_to :controller => "store", :action => "index"
     end
   end
 
