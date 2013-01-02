@@ -254,8 +254,8 @@ $(document).ready(function() {
 		var next = $("#next_main_iframe");
 		var next_next = $("#next_next_main_iframe");
 
-		$("#main_iframe").animate({"left": "-100%"});
-		$("#next_main_iframe").animate({"left": "0"});
+		$("#main_iframe").animate({"left": "-100%"}, 1000);
+		$("#next_main_iframe").animate({"left": "0"}, 1000);
 		$("#next_next_main_iframe").css({"left": "100%"});
 		$("#main_iframe").css({"visibility": "hidden"});
 		$("#main_iframe").css({"left": "200%"});
