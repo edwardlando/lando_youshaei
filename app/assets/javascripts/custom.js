@@ -210,6 +210,7 @@ $(document).ready(function() {
 	// Paginating
 
 	var index = 0; 
+	var id = 0;
 	var counter = 0;
 	var items = new Array(3);
 	items.push("x");
@@ -287,6 +288,39 @@ $(document).ready(function() {
     	//alert("setSrcsOnLoad"+items.toString());
  	}
 
+ 	function downVote() {
+ 		id = $("#downvote").attr("item");
+ 		alert(id);
+        var data = {
+        	"id": id,
+			"value": "-1",
+		};
+		$.ajax({
+			type: 'POST',
+			url: "/items/"+id+"/vote.json",
+			data: data,
+			dataType: "json",
+			success: function(data) {
+				next();
+			}
+		});
+ 	}
+
+ 	function upVote() {
+        var data = {
+			"value": "1",
+		};
+		$.ajax({
+			type: 'POST',
+			url: "/items/vote.json",
+			data: data,
+			dataType: "json",
+			success: function(data) {
+				next();
+			}
+		});
+ 	}
+
 
 	$("#next_icon").on("click", function(event) {
 		next();
@@ -295,6 +329,12 @@ $(document).ready(function() {
  	key('right', function() {
 		next();
 	});
+
+	$("#downvote").on("click", function(event) {
+		downVote();
+	});
+
+
 
 
 

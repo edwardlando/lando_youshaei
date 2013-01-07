@@ -96,7 +96,7 @@ class ItemsController < ApplicationController
   end
 
   def vote
-    vote = current_user.item_votes.new(value: params[:value], item_id: params[:id])
+    vote = current_user.item_votes.new(value: params["value"], item_id: params["id"])
     @user = current_or_guest_user
     @channel = @user.current_channel
     @item = @channel.current_item
@@ -104,11 +104,11 @@ class ItemsController < ApplicationController
     @index = @channel.item_index
 
     # adding to wishlist or skipping to next item
-    if params[:value] == '1'
+    if params["value"] == '1'
       @user.add_to_wishlist(@item)
       @tastemaker.rating += 1 unless @tastemaker.nil?
       @user.save
-    elsif params[:value] == '-1'
+    elsif params["value"] == '-1'
       @index+=1
       @tastemaker.rating -= 1 unless @tastemaker.nil?
       # maybe can't redirect to back then
@@ -117,10 +117,10 @@ class ItemsController < ApplicationController
     @tastemaker.save unless @tastemaker.nil?
 
     if vote.save
-      redirect_to :controller => "store", :action => "index", :index => @index
+      # redirect_to :controller => "store", :action => "index", :index => @index
       flash[:notice] =  "Thanks for voting. Your feedback allows us to show you things you'll love."
     else
-      redirect_to :controller => "store", :action => "index"
+      # redirect_to :controller => "store", :action => "index"
       flash[:notice] =  "Unable to vote, perhaps you already did."
     end
   end

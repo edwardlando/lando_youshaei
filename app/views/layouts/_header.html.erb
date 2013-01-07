@@ -33,7 +33,7 @@
 							<% end %>
 						<% end %>
 						<% if current_or_guest_user.can_vote_for?(display_channel.current_item) && !(display_channel.current_item.nil?) %>
-						    <div class="bottom_bar_action" id="downvote"><%= link_to image_tag("bar_thumbsdown_icon.png"), vote_item_path(display_channel.current_item.id, value: -1), method: "post" %>
+						    <div class="bottom_bar_action" id="downvote" data-item="<%=display_channel.current_item.id %>"><%= image_tag("bar_thumbsdown_icon.png") %><!-- link_to image_tag("bar_thumbsdown_icon.png"), vote_item_path(display_channel.current_item.id, value: -1), method: "post" -->
 						    </div>
 							<div class="bottom_bar_action"id="upvote"><%= link_to image_tag("bar_thumbsup_icon.png"), vote_item_path(display_channel.current_item.id, value: 1), method: "post" %>
 							</div>
