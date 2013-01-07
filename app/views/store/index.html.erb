@@ -38,7 +38,7 @@
         <div class="guest_user">
             <h2 class="landing_greeting"> Not quite seduced? <br/><br/> Go on a test shopping spree </h2>
             <div class="channel_landing_partial">
-                <!-- render :partial => "channels/landing_page_form" -->
+                <%= render :partial => "channels/landing_page_form" %>
             </div>
         </div>
     <% elsif @user && @user.role == "admin" %>
