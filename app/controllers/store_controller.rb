@@ -35,11 +35,12 @@ class StoreController < ApplicationController
         else 
            @channel = @user.current_channel 
         end
+        @channel = @user.current_channel
       elsif @guest_user
         @guest_channel = @guest_user.current_channel
       end
 
-      @channel = @user.current_channel
+     
     
       if @channel 
         @items = @channel.channel_items # send index in json too let's see if just sending the url works
