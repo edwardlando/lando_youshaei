@@ -49,14 +49,16 @@ class ApplicationController < ActionController::Base
     # matching current_user's uuid cookie... then associate them with current_user
   end    
 
+  ####### CHANGE GUEST USER HERE ######
 
 	def create_guest_user
     uuid = rand(36**64).to_s(36)
     temp_email = "guest_#{uuid}@email_address.com"
     u = User.create(:email => temp_email, :lazy_id => uuid)
-    c = Channel.new(:name => "My test channel", :color => params[:channel][:color], 
-      :style => params[:channel][:style], :price => params[:channel][:price],
-      :gender => params[:channel][:gender])
+    c = Channel.new(:gender => params[:channel][:gender],
+                    :price => params[:channel][:price],
+                    :vibe => params[:channel][:vibe],
+                    :apparel => params[:channel][:apparel])
     c.current_channel = true
     c.guest_user_id = u.lazy_id
     c.item_index = 0
