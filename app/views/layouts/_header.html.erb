@@ -50,21 +50,22 @@
 					    <!-- END OF NEXT -->
 					</div>
 					<div class="action bottom_bar_right">
-						<div class="bottom_bar_action" id="share_icon">Share
+						<div class="bottom_bar_action" id="share_icon">
+							<img src="/assets/share.png"/>
 						</div>
 						<div id="social_icons">
 							<a href="" id="facebook_share">
-								<img src="/assets/facebook.png" id="facebook_icon" alt="Like"/>
+								<img src="/assets/f.png" id="facebook_icon" alt="Like"/>
 							</a>
 							<a href="" id="twitter_share" data-via="aveece" data-hashtags="aveece" >
-								<img src="/assets/twitter.png" id="twitter_icon" alt="Tweet"/>
+								<img src="/assets/t.png" id="twitter_icon" alt="Tweet"/>
 							</a>
 							<a href="" id="pinterest_share" target="_blank">
-								<img src="/assets/pinterest.png" id="pinterest_icon" alt="Pin It"/>
+								<img src="/assets/p.png" id="pinterest_icon" alt="Pin It"/>
 							</a>
 							<a href="https://plus.google.com/share?url={URL}" id ="googleplus_share" onclick="javascript:window.open(this.href,
 							'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
-							<img src="/assets/googleplus.png" id="googleplus_icon" alt="Share on G+"/>
+							<img src="/assets/g.png" id="googleplus_icon" alt="Share on G+"/>
 							</a>
 
                             <!-- as on penfm -->
@@ -73,11 +74,11 @@
  
 						</div>
 						<% if current_user %>
-					    <div class="bottom_bar_action" id="my_cart"><%= image_tag("bar_shoppingbag_icon.png")%>
+					    <div class="bottom_bar_action" id="my_cart"><%= image_tag("bag.png")%>
 					    </div>
 					    <% unless current_or_guest_user.nil? %>
 							<div class="bottom_bar_action top_header_icon" id="my_profile">
-								<img src="/assets/bar_profile_icon.png") id="profile_icon"/>
+								<img src="/assets/profile.png") id="profile_icon"/>
 							</div>
 						<% end %>
 						<% end %>
