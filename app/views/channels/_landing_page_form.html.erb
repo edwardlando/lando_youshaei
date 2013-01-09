@@ -1,5 +1,5 @@
 <%= form_for Channel.new, :url => "/application/create_guest_user", :html => {:method => :post } do |f| %>
-   <ul id="channel_form"> <!-- make id landing_channel_form -->
+   <ul id="landing_channel_form"> <!-- make id landing_channel_form -->
     <div class="channel_parameters">
       <div class="gender_inner" id="channel_gender_div">
         <li class="field">
@@ -48,7 +48,7 @@
     </div>
   </ul>
   <div class="actions" align=center>
-      <%= f.submit "Create this Path", :id => "make_channel" %> <!-- make id landing_create and class create channel -->
+      <%= f.submit "Create this Path", :id => "landing_make_channel" %> <!-- make id landing_create and class create channel -->
     </div>
 <% end %>
    

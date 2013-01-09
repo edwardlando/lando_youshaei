@@ -20,13 +20,13 @@ body {
 	margin:0;
 	padding:0;
 	padding-bottom: 60px;
-	background-color: #202020 !important;
+	background-color: #5D5D5D !important;
 	overflow-x:hidden;
 	overflow-y:scroll;
 }
 
 .subtle_background, .order_form {
-	background-color: #202020 !important;
+	background-color: #5D5D5D !important; /* used to be #202020 */
 }
 
 
@@ -221,7 +221,9 @@ a {
 }
 
 #header, .footer {
-	background-color: #202020;
+	background-color: #5D5D5D;
+	/* background-image: -moz-linear-gradient(top, #CCCCCC 0%, #F2F2F2 100%); */ /* FIREFOX COMPATIBILITY */
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #CCCCCC), color-stop(1, #F2F2F2));
 	/*background-image: url("classy_fabric.png");*/
 	background-repeat: repeat-x repeat-y;
 }
@@ -682,7 +684,6 @@ p .notice {
 #landing_channel_form {
 	color: white;
 	border-top: none;
-	border: 1px solid white;
 	border-radius: 3px;
 	padding-top: 20px;  /* FIX CENTERING */
 	width: 500px;
@@ -724,7 +725,7 @@ p .notice {
 	width: 100%;
 }
 
-#make_channel {
+#make_channel, #landing_make_channel {
 	width: 442px;
 	height: 30px;
 	background-color: #4CBFFF;
