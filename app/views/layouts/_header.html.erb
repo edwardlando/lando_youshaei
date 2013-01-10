@@ -4,12 +4,11 @@
 
 	<div class="navbar">
 	    <div class="navbar-inner">
-		    <a class="brand" href="#"></a>
 		    <ul class="nav pull-left">
-		    	<li><img src="/assets/bar.png" class="vertical-bar"/></li>
+		    	<li><img src="/assets/bar.png" class="bar"/></li>
 			    <li><%= link_to image_tag("logo.png", :id => "logo"),
 			    	{ :controller => "store", :action => "index" } %></li>
-			    <li><img src="/assets/bar.png", class="vertical-bar"/></li>
+			    <li><img src="/assets/bar.png", class="bar"/></li>
 			    <li><img src="/assets/path.png" id="path" /></li>
 			    <li><a href="#">Link</a></li>
 		    </ul>
@@ -18,13 +17,30 @@
 			    	<%= image_tag("down.png", :id => "down") %></li>
 			    <li data-item="<%=display_channel.current_item.id %>">
 			    	<%= image_tag("up.png", :id => "up") %></li>
-			    <li></li>
-			    <li></li>
+			    <li id="add"><img src="/assets/add.png"/></li>
+			    <li data-channel="<%=display_channel%>" data-index="<%=display_channel.item_index+1%>" data-next="true">
+			    	<img src="/assets/next.png" id="next"/></li>
 		    </ul>
 		    <ul class="nav pull-right">
-			    <li class="active"><a href="#">Home</a></li>
-			    <li><a href="#">Link</a></li>
-			    <li><a href="#">Link</a></li>
+			    <li class="dropdown">
+			    	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					    <img src="/assets/share.png" id="share"/>
+					    <b class="caret"></b>
+					</a>
+				    <ul class="dropdown-menu">
+				        <li><a href="" id="facebook_share">
+				        <img src="/assets/f.png" id="facebook_icon" alt="Like"/></a></li>
+					    <li><a href="" id="twitter_share" data-via="aveece" data-hashtags="aveece">
+						<img src="/assets/t.png" id="twitter_icon" alt="Tweet"/></a></li>
+					    <li><a href="" id="pinterest_share" target="_blank">
+						<img src="/assets/p.png" id="pinterest_icon" alt="Pin It"/></a></li>
+						<li><a href="https://plus.google.com/share?url={URL}" id ="googleplus_share" onclick="javascript:window.open(this.href,
+						'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+						<img src="/assets/g.png" id="googleplus_icon" alt="Share on G+"/></a></li>
+				    </ul>
+			    </li>
+			    <li><%= image_tag("bag.png", :id => "bag")%></li>
+			    <li><img src="/assets/profile.png") id="profile"/></li>
 		    </ul>
 	    </div>
 	</div>

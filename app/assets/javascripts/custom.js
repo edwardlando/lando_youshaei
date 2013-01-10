@@ -85,7 +85,7 @@ $(document).ready(function() {
 	// USER PROFILE
 
     var wantToSeeProfile = false;
-	$("#my_profile").on("click", function(event) {
+	$("#profile").on("click", function(event) {
 		wantToSeeProfile = !wantToSeeProfile;
 		if (wantToSeeProfile == true) {
 			$(".inner_user").slideDown(500);
@@ -165,7 +165,7 @@ $(document).ready(function() {
 
 	// SOCIAL SHARING
 
-    $("#share_icon").click(function () {
+    $("#share").click(function () {
     	$("#social_icons").show(400);
     	$("#social_icons").delay(4500).hide(400);
     });
@@ -322,7 +322,7 @@ $(document).ready(function() {
  	}
 
 
-	$("#next_icon").on("click", function(event) {
+	$("#next").on("click", function(event) {
 		next();
 	});
 
