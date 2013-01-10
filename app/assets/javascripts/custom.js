@@ -29,7 +29,7 @@ $(document).ready(function() {
 
     // Allows us to make top disappear
 	var wantToCreate = false;
-	$("#new_channel_button").on("click", function(event) {
+	$("#path").on("click", function(event) {
 		wantToCreate = !wantToCreate;
 		if (wantToCreate == true) {
 			$(".inner").slideDown(500);

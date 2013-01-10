@@ -1,16 +1,41 @@
 
 
 <!-- where are we getting channel from? -->
-<div class="top" style="padding-top:0px; margin-top:0px;">
+
+	<div class="navbar">
+	    <div class="navbar-inner">
+		    <a class="brand" href="#"></a>
+		    <ul class="nav pull-left">
+		    	<li><img src="/assets/bar.png" class="vertical-bar"/></li>
+			    <li><%= link_to image_tag("logo.png", :id => "logo"),
+			    	{ :controller => "store", :action => "index" } %></li>
+			    <li><img src="/assets/bar.png", class="vertical-bar"/></li>
+			    <li><img src="/assets/path.png" id="path" /></li>
+			    <li><a href="#">Link</a></li>
+		    </ul>
+		    <ul class="nav">
+			    <li class="active"><a href="#">Home</a></li>
+			    <li><a href="#">Link</a></li>
+			    <li><a href="#">Link</a></li>
+		    </ul>
+		    <ul class="nav pull-right">
+			    <li class="active"><a href="#">Home</a></li>
+			    <li><a href="#">Link</a></li>
+			    <li><a href="#">Link</a></li>
+		    </ul>
+	    </div>
+	</div>
+
+
+
+    <!-- rewriting design with Bootstrap above -->
+
 	<div class="nav">
 	<% if current_or_guest_user %>
 		<div class="top_bar">
 			<div class="title">
 				<div class="bar_left">
 					<img src="/assets/bar.png"/>
-				</div>
-				<div class="logo">
-					<%= link_to image_tag("logo.png"), {:controller => "store", :action => "index" } %>
 				</div>
 				<div class="bar_right">
 					<img src="/assets/bar.png"/>
@@ -94,4 +119,3 @@
 		</div>
 	<% end %>
 	</div>
-</div>
