@@ -14,9 +14,12 @@
 			    <li><a href="#">Link</a></li>
 		    </ul>
 		    <ul class="nav">
-			    <li class="active"><a href="#">Home</a></li>
-			    <li><a href="#">Link</a></li>
-			    <li><a href="#">Link</a></li>
+			    <li data-item="<%=display_channel.current_item.id %>">
+			    	<%= image_tag("down.png", :id => "down") %></li>
+			    <li data-item="<%=display_channel.current_item.id %>">
+			    	<%= image_tag("up.png", :id => "up") %></li>
+			    <li></li>
+			    <li></li>
 		    </ul>
 		    <ul class="nav pull-right">
 			    <li class="active"><a href="#">Home</a></li>
