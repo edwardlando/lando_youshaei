@@ -163,13 +163,12 @@ a {
 }
 
 .bottom_bar_left, .bottom_bar_center, .bottom_bar_right {
-	/* display: inline-block; */
 }
 
 .bottom_bar_left {
 	position: absolute;
 	top: 0px;
-	left: 0px;
+	left: 50px;
 	line-height: 25px;
 }
 
@@ -191,10 +190,10 @@ a {
 .bottom_bar_right {
 	position: absolute;
 	top: 0px;
-	right: 0px;
+	right: -100px;
 }
 
-.bottom_bar_right .bottom_bar_action {
+.bottom_bar_right .bottom_bar_action, .bottom_bar_left .bottom_bar_action  {
 	display: inline-block;
 	vertical-align: top;
 	width: auto;
@@ -236,23 +235,32 @@ a {
 	background-color: white !important;
 }
 
-
 .title {
 	float:left;
-	padding-right:30px;
-	color: white;
-	font-size: 20px;
-	line-height: 25px;
 	text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.4);
-	font-weight:bold;
-	padding-top: 8px;
-	margin-top:0px;
-	margin-left: 10px;
-	
+	margin-right: 20px;
 }
 
-.title img {
+.logo {
 	width: 200px;
+	height: 100px;
+	display: inline-block;
+}
+
+.logo img {
+	width: 250px;
+}
+
+.bar_right {
+	width: 10px;
+	height: 100px;
+	display: inline-block;
+}
+
+.bar_left {
+	width: 10px;
+	height: 100px;
+	display: inline-block;
 }
 
 .title a, .title a:visited{
@@ -279,9 +287,19 @@ form label {
 	font-weight: 600;
 }
 
-#my_cart img, #share_icon img {
-	width: 25px;
-	height: 30px;
+#my_cart img, #share_icon img, #my_profile img {
+	width: 70px;
+	height: 70px;
+}
+
+#new_item_button {
+	width: 100px;
+	height: 90px;
+}
+
+#new_channel_button img {
+	width: 100px;
+	height: 90px;
 }
 
 #downvote img, #upvote img, #next_icon img {
@@ -293,7 +311,6 @@ form label {
 	width: 80px;
 	height: 80px;
 }
-
 
 .my_profile li a{
 	color: #4CBFFF;
@@ -323,7 +340,7 @@ p .notice {
 	margin: 0;
 	padding: 0;
 	padding: 3px;
-	color: lightgrey;
+	color: black;
 	text-align: center;
 	padding-top: 8px;
 	text-shadow: none;
@@ -338,7 +355,7 @@ p .notice {
 
 
 #add_to_cart_link, #upvote, #downvote, #next_icon,
-#share_icon, #sign_up_button  {
+#share_icon, #sign_up_button, #new_channel_button {
 	display: inline-block;
 	vertical-align: top;
 	line-height: 25px;
@@ -1196,11 +1213,16 @@ a:hover {
 	background-color: white;
 }
 
-#like_aveece, #tweet_aveece, #tumblr_aveece {
-	height: 33px;
-	width: 33px;
+#like_aveece, #tweet_aveece {
+	height: 100px;
+	width: 40px;
 	display: inline-block;
 	vertical-align: top;
+}
+
+#like_aveece img, #tweet_aveece img {
+	height: 100px;
+	width: 100px;
 }
 
 

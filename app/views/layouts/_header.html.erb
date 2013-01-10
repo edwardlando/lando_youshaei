@@ -6,7 +6,15 @@
 	<% if current_or_guest_user %>
 		<div class="top_bar">
 			<div class="title">
-				<%= link_to image_tag("logo.png"), {:controller => "store", :action => "index" } %>
+				<div class="bar_left">
+					<img src="/assets/bar.png"/>
+				</div>
+				<div class="logo">
+					<%= link_to image_tag("logo.png"), {:controller => "store", :action => "index" } %>
+				</div>
+				<div class="bar_right">
+					<img src="/assets/bar.png"/>
+				</div>
 			</div>
 			<% unless display_channel.current_item.nil? || current_or_guest_user.role == "admin" || display_channel.current_item.user.nil? %>
 			    <!--<div id="contributed_by">Contributed by: <a href src="#">
@@ -16,14 +24,15 @@
 			<% unless current_or_guest_user.nil? %>
 				<div id="actions">
 				    <div class="action bottom_bar_left">
+				    	<div class="bottom_bar_action" id="new_channel_button">
+								<img src="/assets/path.png"/>
+						</div>
 						<% if current_user %>
 							<% if current_user.role == "tastemaker" || current_user.role == "admin" %>
 								<div class="bottom_bar_action" id="new_item_button">+item
 								</div>
 							<% end %>
 						<% end %>
-							<div class="bottom_bar_action" id="new_channel_button">+path
-							</div>
 					</div>
 					<div class="action bottom_bar_center">
 						<% if current_or_guest_user.can_vote_for?(display_channel.current_item) && !(display_channel.current_item.nil?) %>
@@ -44,7 +53,7 @@
 					</div>
 					<div class="action bottom_bar_right">
 						<div class="bottom_bar_action" id="share_icon">
-							<img src="/assets/share.png"/>
+							<img src="/assets/share.png" id="share"/>
 						</div>
 						<div id="social_icons">
 							<a href="" id="facebook_share">
@@ -60,11 +69,6 @@
 							'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
 							<img src="/assets/g.png" id="googleplus_icon" alt="Share on G+"/>
 							</a>
-
-                            <!-- as on penfm -->
-							<a href="http://pinterest.com/pin/create/button/?url=http://www.pen.fm/read/Mr-Clean-Cleans-Up-City-Crime-PN78c1dc593cdbec54&amp;media=http://www.pen.fm/images/logo_pub.png&amp;description=Mr Clean Cleans Up City Crime: &quot;Horns blared in the busy intersections of Manhattan as the city bussled with activity. Several alleyways lay scene to victim-filled crimes of burglary and old ladies being mugged. &quot;Hand it over!&quot; shouted McJohn, the city's least notorious and least-known criminal, who had made his living snatching purses and selling them on Craigslist. The old lady complied, and held out her Prada satche...&quot;&quot;" target="_blank" class="sM pin"></a>
-							 <!-- as on penfm -->
- 
 						</div>
 						<% if current_user %>
 					    <div class="bottom_bar_action" id="my_cart"><%= image_tag("bag.png")%>
