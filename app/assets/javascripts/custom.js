@@ -293,24 +293,29 @@ $(document).ready(function() {
  	}
 
  	function downVote() {
- 		id = $("#downvote").attr("item");
- 		alert(id);
+ 		item_id = $("#downvote").data("item");   /* NEED TO GET THE MOTHERFUCKING INDEX - we're keeping track of the id */
+ 		alert(item_id);
         var data = {
-        	"id": id,
+        	"id": item_id,
 			"value": "-1",
 		};
 		$.ajax({
 			type: 'POST',
-			url: "/items/"+id+"/vote.json", 
+			url: "/items/"+item_id+"/vote.json", 
 			data: data,
 			dataType: "json",
 			success: function(data) {
+				alert("EHHHEHEHEHEHHE");
+				console.log(data);
 				next();
 			}
 		});
  	}
 
+ 	/* index is also different from item id */
+
  	function upVote() {
+ 		item_id = $("#upvote").data("item"); /* should not have to do that id is supposed to be updated */
         var data = {
         	"id": id,
 			"value": "1",
@@ -321,6 +326,7 @@ $(document).ready(function() {
 			data: data,
 			dataType: "json",
 			success: function(data) {
+				alert("SOMETHING");
 				console.log(data);
 			}
 		});
@@ -329,6 +335,7 @@ $(document).ready(function() {
 
 	$("#next").on("click", function(event) {
 		next();
+		alert(id);
 	});
 
  	key('right', function() {

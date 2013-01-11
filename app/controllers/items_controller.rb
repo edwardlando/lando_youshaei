@@ -117,10 +117,11 @@ class ItemsController < ApplicationController
     @tastemaker.save unless @tastemaker.nil?
 
     vote.save
-
     respond_to do |format|
-      format.json { render :json => @item }
-    end
+    redirect_to :controller => "store", :action => "index"
+  end
+      #format.json { render :json => @item }
+
   end
 
   private 
