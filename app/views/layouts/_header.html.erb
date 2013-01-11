@@ -9,6 +9,9 @@
 			    	{ :controller => "store", :action => "index" } %></li>
 			    <li><img src="/assets/bar.png", class="bar"/></li>
 			    <li><img src="/assets/path.png" id="path" /></li>
+			    <% if current_user.role == "tastemaker" || current_user.role == "admin" %>
+				    <li><img src="/assets/item.png" id="item" /></li>
+			    <% end %>
 		    </ul>
 		    <ul class="nav" id="middle">
 			    <li data-item="<%=display_channel.current_item.id %>">

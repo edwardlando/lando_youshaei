@@ -32,9 +32,9 @@ $(document).ready(function() {
 	$("#path").on("click", function(event) {
 		wantToCreate = !wantToCreate;
 		if (wantToCreate == true) {
-			$(".inner").slideDown(500);
+			$(".inner").slideDown(200);
 		} else {
-			$(".inner").slideUp(500);
+			$(".inner").slideUp(200);
 		};
 	})
 
@@ -65,9 +65,9 @@ $(document).ready(function() {
 			}
 			selected = this;
 			if (border) {
-				this.style.border = "2px solid #4CBFFF";
+				this.style.border = "2px solid #11A1F4";
 			} else {
-				this.style.color = '#4CBFFF';
+				this.style.color = '#11A1F4';
 			}
 		});
     }
@@ -88,9 +88,9 @@ $(document).ready(function() {
 	$("#profile").on("click", function(event) {
 		wantToSeeProfile = !wantToSeeProfile;
 		if (wantToSeeProfile == true) {
-			$(".inner_user").slideDown(500);
+			$(".inner_user").slideDown(200);
 		} else {
-			$(".inner_user").slideUp(500);
+			$(".inner_user").slideUp(200);
 		};
 	})
 
@@ -100,9 +100,9 @@ $(document).ready(function() {
 	$("#new_item_button").on("click", function(event) {
 		wantToCreateItem = !wantToCreateItem;
 		if (wantToCreateItem == true) {
-			$(".inner_item").slideDown(500);
+			$(".inner_item").slideDown(200);
 		} else {
-			$(".inner_item").slideUp(500);
+			$(".inner_item").slideUp(200);
 		};
 	})
 
@@ -157,9 +157,9 @@ $(document).ready(function() {
 	$("#landing_sign_in").on("click", function(event) {
 		wantToSignIn = !wantToSignIn;
 		if (wantToSignIn == true) {
-			$(".sign_in_partial").slideDown(500);
+			$(".sign_in_partial").slideDown(200);
 		} else {
-			$(".sign_in_partial").slideUp(500);
+			$(".sign_in_partial").slideUp(200);
 		};
 	});
 
