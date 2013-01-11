@@ -6,6 +6,7 @@
   <%= csrf_meta_tags %>
   <%= tag :meta, :name => "stripe-key", :content => STRIPE_PUBLIC_KEY %>
   <%= favicon_link_tag "/assets/favicon.ico" %>
+  <meta charset="utf-8" />
 
   <!-- Google analytics -->
 <script type="text/javascript">
@@ -45,45 +46,38 @@
 <!-- Google plus sharing -->
 
 <!-- flash messages -->
-<div class="wrapper">
-      <% if current_or_guest_user.nil? %>
-          <div id="header">
-            <div id="header-container">
-              <%= render 'layouts/header' %>
-            </div>
-          </div>
-      <% else %>
-      	<div id="header">
-          <div id="header-container">
-            <div class="inner_cart">
-              <%= render 'carts/cart' %>
-            </div>
-            <div class="inner">
-              <%= render 'channels/form' %>
-            </div>
-            <div class="inner_item">
-              <%= render 'items/form' %>
-            </div>
-            <div class="inner_add_to_cart">
-              <%= render 'line_items/form' %>
-            </div>
-            <div class="inner_user">
-              <%= render 'users/profile' %>
-            </div>
-        <%= render 'layouts/header' %>
-        <% end %>
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-        </div>
-    	</div>
-	    <div class="container" id="iframe">
-          <div id="coming_soon">Coming (very) soon :-)</div>
-	        <%= yield %>
-		  </div>
-      <div class="push"></div>
+<div id="wrap">
+  <div class="container">
+    <% unless current_or_guest_user.nil? %>
+    <div id="header">
+      <div class="inner_cart">
+        <%= render 'carts/cart' %>
+      </div>
+      <div class="inner">
+        <%= render 'channels/form' %>
+      </div>
+      <div class="inner_item">
+        <%= render 'items/form' %>
+      </div>
+      <div class="inner_add_to_cart">
+        <%= render 'line_items/form' %>
+      </div>
+      <div class="inner_user">
+        <%= render 'users/profile' %>
+      </div>
+      <%= render 'layouts/header' %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+  	</div>
+    <% end %>
+    <div id="iframe">
+        <%= yield %>
+	  </div>
+  </div>
+  <div id="push"></div>
 </div>
 <% unless current_or_guest_user && current_or_guest_user.role == "admin" %>
-<div class="footer">
+<div id="footer">
 	<%= render 'layouts/footer' %>
 </div>
 <% end %>

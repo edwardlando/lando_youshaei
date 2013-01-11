@@ -1,7 +1,6 @@
 
 
 <!-- where are we getting channel from? -->
-
 	<div class="navbar">
 	    <div class="navbar-inner">
 		    <ul class="nav pull-left">
@@ -10,9 +9,8 @@
 			    	{ :controller => "store", :action => "index" } %></li>
 			    <li><img src="/assets/bar.png", class="bar"/></li>
 			    <li><img src="/assets/path.png" id="path" /></li>
-			    <li><a href="#">Link</a></li>
 		    </ul>
-		    <ul class="nav">
+		    <ul class="nav" id="middle">
 			    <li data-item="<%=display_channel.current_item.id %>">
 			    	<%= image_tag("down.png", :id => "down") %></li>
 			    <li data-item="<%=display_channel.current_item.id %>">
@@ -45,96 +43,3 @@
 	    </div>
 	</div>
 
-
-
-    <!-- rewriting design with Bootstrap above -->
-
-	<div class="nav">
-	<% if current_or_guest_user %>
-		<div class="top_bar">
-			<div class="title">
-				<div class="bar_left">
-					<img src="/assets/bar.png"/>
-				</div>
-				<div class="bar_right">
-					<img src="/assets/bar.png"/>
-				</div>
-			</div>
-			<% unless display_channel.current_item.nil? || current_or_guest_user.role == "admin" || display_channel.current_item.user.nil? %>
-			    <!--<div id="contributed_by">Contributed by: <a href src="#">
-			    	 display_channel.current_item.user.username ||= display_channel.current_item.user.email </a><br/><span>(Official Aveece Tastemaker)</span>
-			    </div>-->
-		    <% end %> 
-			<% unless current_or_guest_user.nil? %>
-				<div id="actions">
-				    <div class="action bottom_bar_left">
-				    	<div class="bottom_bar_action" id="new_channel_button">
-								<img src="/assets/path.png"/>
-						</div>
-						<% if current_user %>
-							<% if current_user.role == "tastemaker" || current_user.role == "admin" %>
-								<div class="bottom_bar_action" id="new_item_button">+item
-								</div>
-							<% end %>
-						<% end %>
-					</div>
-					<div class="action bottom_bar_center">
-						<% if current_or_guest_user.can_vote_for?(display_channel.current_item) && !(display_channel.current_item.nil?) %>
-						    <div class="bottom_bar_action" id="downvote" data-item="<%=display_channel.current_item.id %>"><%= image_tag("down.png") %><!-- link_to image_tag("bar_thumbsdown_icon.png"), vote_item_path(display_channel.current_item.id, value: -1), method: "post" -->
-						    </div>
-							<div class="bottom_bar_action"id="upvote"><%= link_to image_tag("up.png"), vote_item_path(display_channel.current_item.id, value: 1), method: "post" %>
-							</div>
-						<% end %>
-						<% unless display_channel.channel_items.empty? %>
-						    <% if current_user %>
-							<div class="bottom_bar_action" id="add_to_cart_link"><img src="/assets/add.png"/>
-							</div>  
-							<% end %>
-						<% end %>
-						    <div class="bottom_bar_action" id="next_icon" data-channel="<%=display_channel%>" data-index="<%=display_channel.item_index+1%>" data-next="true">
-						    	<img src="/assets/next.png"/>
-						    </div>
-					</div>
-					<div class="action bottom_bar_right">
-						<div class="bottom_bar_action" id="share_icon">
-							<img src="/assets/share.png" id="share"/>
-						</div>
-						<div id="social_icons">
-							<a href="" id="facebook_share">
-								<img src="/assets/f.png" id="facebook_icon" alt="Like"/>
-							</a>
-							<a href="" id="twitter_share" data-via="aveece" data-hashtags="aveece" >
-								<img src="/assets/t.png" id="twitter_icon" alt="Tweet"/>
-							</a>
-							<a href="" id="pinterest_share" target="_blank">
-								<img src="/assets/p.png" id="pinterest_icon" alt="Pin It"/>
-							</a>
-							<a href="https://plus.google.com/share?url={URL}" id ="googleplus_share" onclick="javascript:window.open(this.href,
-							'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
-							<img src="/assets/g.png" id="googleplus_icon" alt="Share on G+"/>
-							</a>
-						</div>
-						<% if current_user %>
-					    <div class="bottom_bar_action" id="my_cart"><%= image_tag("bag.png")%>
-					    </div>
-					    <% unless current_or_guest_user.nil? %>
-							<div class="bottom_bar_action top_header_icon" id="my_profile">
-								<img src="/assets/profile.png") id="profile_icon"/>
-							</div>
-						<% end %>
-						<% end %>
-						<% if !current_user %>
-							<div class="bottom_bar_action" id="sign_up_button" >
-								<%= link_to "Sign Up!", :controller => "registrations", :action => "new" %>
-							</div>
-						<% end %>
-					</div>
-				</div>
-			<% end %>
-	<% else %>
-			<div id="landing_sign_in">
-				<h1><%= link_to "Sign in", :controller => "sessions", :action => "new" %></h1>
-	    	</div>
-		</div>
-	<% end %>
-	</div>
