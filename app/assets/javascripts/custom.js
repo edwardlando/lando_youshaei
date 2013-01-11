@@ -216,7 +216,7 @@ $(document).ready(function() {
 	var index = 0; 
 	var counter = 0;
 	var items = new Array(3);
-	items.push("x");
+	//items.push("x");
 
 
 	window.onload = setSrcsOnLoad();
@@ -295,6 +295,7 @@ $(document).ready(function() {
  	}
 
  	function downVote() {
+ 		var item_id = $("#main_iframe").attr("item-id");
         var data = {
         	"id": item_id,
 			"value": "-1",
@@ -315,7 +316,8 @@ $(document).ready(function() {
  	/* index is also different from item id */
 
  	function upVote() {
- 		item_id = $("#upvote").data("item"); /* should not have to do that id is supposed to be updated */
+ 		var item_id = $("#main_iframe").attr("item-id");
+        alert(item_id);
         var data = {
         	"id": id,
 			"value": "1",
