@@ -317,14 +317,13 @@ $(document).ready(function() {
 
  	function upVote() {
  		var item_id = $("#main_iframe").attr("item-id");
-        alert(item_id);
         var data = {
-        	"id": id,
+        	"id": item_id,
 			"value": "1",
 		};
 		$.ajax({
 			type: 'POST',
-			url: "/items/"+id+"/vote.json",
+			url: "/items/"+item_id+"/vote.json",   /******* FOR SOME REASON NEVER REACH THE SUCCESS FUNCTION ******/
 			data: data,
 			dataType: "json",
 			success: function(data) {
@@ -337,7 +336,6 @@ $(document).ready(function() {
 
 	$("#next").on("click", function(event) {
 		next();
-		alert(id);
 	});
 
  	key('right', function() {
