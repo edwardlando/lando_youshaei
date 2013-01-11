@@ -45,6 +45,7 @@ LandoYoushaei::Application.routes.draw do
       post :vote
     end
   end
+
   
   resources :wishlists
 

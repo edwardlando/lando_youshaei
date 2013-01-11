@@ -95,7 +95,7 @@ class ItemsController < ApplicationController
     end
   end
 
-  def vote
+  def vote # in the route, give item id
     vote = current_user.item_votes.new(value: params["value"], item_id: params["id"])
     @user = current_or_guest_user
     @channel = @user.current_channel
@@ -116,12 +116,10 @@ class ItemsController < ApplicationController
 
     @tastemaker.save unless @tastemaker.nil?
 
-    if vote.save
-      # redirect_to :controller => "store", :action => "index", :index => @index
-      flash[:notice] =  "Thanks for voting. Your feedback allows us to show you things you'll love."
-    else
-      # redirect_to :controller => "store", :action => "index"
-      flash[:notice] =  "Unable to vote, perhaps you already did."
+    vote.save
+
+    respond_to do |format|
+      format.json { render :json => @item }
     end
   end
 

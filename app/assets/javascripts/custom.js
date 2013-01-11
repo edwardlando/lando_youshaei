@@ -25,6 +25,10 @@ $(document).ready(function() {
 	    }
     });
 
+    jQuery.ajaxSetup({ 
+		'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")} 
+	})
+
     // CHANNELS
 
     // Allows us to make top disappear
@@ -297,7 +301,7 @@ $(document).ready(function() {
 		};
 		$.ajax({
 			type: 'POST',
-			url: "/items/"+id+"/vote.json",
+			url: "/items/"+id+"/vote.json", 
 			data: data,
 			dataType: "json",
 			success: function(data) {
@@ -308,15 +312,16 @@ $(document).ready(function() {
 
  	function upVote() {
         var data = {
+        	"id": id,
 			"value": "1",
 		};
 		$.ajax({
 			type: 'POST',
-			url: "/items/vote.json",
+			url: "/items/"+id+"/vote.json",
 			data: data,
 			dataType: "json",
 			success: function(data) {
-				next();
+				console.log(data);
 			}
 		});
  	}
@@ -328,6 +333,10 @@ $(document).ready(function() {
 
  	key('right', function() {
 		next();
+	});
+
+	$("#upvote").on("click", function(event) {
+		upVote();
 	});
 
 	$("#downvote").on("click", function(event) {
