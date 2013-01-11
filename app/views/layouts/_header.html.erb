@@ -15,9 +15,9 @@
 		    </ul>
 		    <% unless display_channel.current_item.nil? %>
 			    <ul class="nav" id="middle">
-				    <li data-item="<%=display_channel.current_item.id %>" id="downvote">
+				    <li id="downvote">
 				    	<%= image_tag("down.png", :id => "down") %></li>
-				    <li data-item="<%=display_channel.current_item.id %>" id="upvote">
+				    <li id="upvote">
 				    	<%= image_tag("up.png", :id => "up") %></li>
 				    <li id="add"><img src="/assets/add.png"/></li>
 				    <li data-channel="<%=display_channel%>" data-index="<%=display_channel.item_index+1%>" data-next="true">

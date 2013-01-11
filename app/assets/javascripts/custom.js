@@ -214,7 +214,6 @@ $(document).ready(function() {
 	// Paginating
 
 	var index = 0; 
-	var id = 0;
 	var counter = 0;
 	var items = new Array(3);
 	items.push("x");
@@ -242,16 +241,19 @@ $(document).ready(function() {
 	}
 
 	function set2IframesInAdvance() {
-		var url2 = items[1];
-		var url3 = items[2];
-		$("#next_main_iframe").attr({"src": url2}); 
-		$("#next_next_main_iframe").attr({"src": url3}); 
+		var url2 = items[1].url;
+		var id2 = items[1].id;
+		var url3 = items[2].url;
+		var id3 = items[2].id;
+		$("#next_main_iframe").attr({"src": url2, "item-id": id2}); 
+		$("#next_next_main_iframe").attr({"src": url3, "item-id": id3}); 
 	}
 
 	function setMainIframeSrc() {
 		//alert("SET MAIN"+items.toString());
-        var url1 = items[0];
-	    $("#main_iframe").attr({"src": url1});
+        var url1 = items[0].url;
+        var id1 = items[0].id;
+	    $("#main_iframe").attr({"src": url1, "item-id": id1});
 	}
 
 	function iframeTransition() {
@@ -293,8 +295,6 @@ $(document).ready(function() {
  	}
 
  	function downVote() {
- 		item_id = $("#downvote").data("item");   /* NEED TO GET THE MOTHERFUCKING INDEX - we're keeping track of the id */
- 		alert(item_id);
         var data = {
         	"id": item_id,
 			"value": "-1",
@@ -349,6 +349,10 @@ $(document).ready(function() {
 	$("#downvote").on("click", function(event) {
 		downVote();
 	});
+
+
+
+
 
 
 

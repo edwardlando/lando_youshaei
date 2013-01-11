@@ -45,7 +45,7 @@ class StoreController < ApplicationController
     end
     respond_to do |format|
         format.html # index.html.erb
-        format.json { render :json => @item_urls } # send index too
+        format.json { render :json => @items }#@item_urls } # send index too
     end
   end
 end
