@@ -1,14 +1,14 @@
 <% if current_or_guest_user.nil? %>
-<div class="subtle_background">
-    <h1><%= link_to "Sign in", :controller => "sessions", :action => "new" %></h1>
+    <h1><%= link_to "Sign in", :controller => "sessions", :action => "new" %> | 
+        <%= link_to "Sign up", :controller => "registrations", :action => "new" %></h1>
     <div class="welcome_message">
-    	<h1><%= link_to "AVEECE", root_path %></h1>
-    	<h2> the best way to discover and buy clothes </h2>
+    	<%= link_to image_tag("logo.png", :class => "logo"),
+                    { :controller => "store", :action => "index" } %>
+    	<h2> A PRODUCT OF THE APPAREL GENOME PROJECT </h2>
     	<br/> 
     </div>
-    
     <div class="guest_user">
-        <h2 class="landing_greeting"> Not quite seduced? <br/><br/> Go on a test shopping spree </h2>
+        <h2 class="landing_greeting">Start your shopping adventure</h2>
         <div class="channel_landing_partial">
             <%= render :partial => "channels/landing_page_form" %>
         </div>
@@ -27,7 +27,6 @@
         <% if (@confirmation.status == "sent_to_customer") || (@confirmation.status == "payed") %>
             <%= render :partial => "confirmations/show" %>
         <% end %>
-</div>
 <% else %>
     <div class="iframe_div">
         <iframe src="" alt="product" class="aveece_iframe" id="main_iframe"></iframe>

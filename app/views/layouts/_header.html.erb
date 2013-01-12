@@ -4,8 +4,7 @@
 	<div class="navbar">
 	    <div class="navbar-inner">
 		    <ul class="nav pull-left">
-		    	<li><img src="/assets/bar.png" class="bar"/></li>
-			    <li><%= link_to image_tag("logo.png", :id => "logo"),
+			    <li><%= link_to image_tag("logo.png", :class => "logo"),
 			    	{ :controller => "store", :action => "index" } %></li>
 			    <li><img src="/assets/bar.png", class="bar"/></li>
 			    <li><img src="/assets/path.png" id="path" /></li>
@@ -14,15 +13,17 @@
 			    <% end %>
 		    </ul>
 		    <% unless display_channel.current_item.nil? %>
-			    <ul class="nav" id="middle">
-				    <li id="downvote">
-				    	<%= image_tag("down.png", :id => "down") %></li>
-				    <li id="upvote">
-				    	<%= image_tag("up.png", :id => "up") %></li>
-				    <li id="add"><img src="/assets/add.png"/></li>
-				    <li data-channel="<%=display_channel%>" data-index="<%=display_channel.item_index+1%>" data-next="true">
-				    	<img src="/assets/next.png" id="next"/></li>
-			    </ul>
+			    <div id="middle">
+			    	<ul class="nav middle-inner">
+					    <li id="downvote">
+					    	<%= image_tag("down.png", :id => "down") %></li>
+					    <li id="upvote">
+					    	<%= image_tag("up.png", :id => "up") %></li>
+					    <li id="add"><img src="/assets/add.png"/></li>
+					    <li data-channel="<%=display_channel%>" data-index="<%=display_channel.item_index+1%>" data-next="true">
+					    	<img src="/assets/next.png" id="next"/></li>
+				    </ul>
+			    </div>
 		    <% end %>
 		    <ul class="nav pull-right">
 			    <li class="dropdown">

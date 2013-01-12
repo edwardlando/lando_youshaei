@@ -29,13 +29,13 @@ body {
 	margin:0;
 	padding:0;
 	padding-bottom: 60px;
-	background-color: #5D5D5D !important;
+	background-color: #F2F2F2 !important;
 	overflow-x:hidden;
 	overflow-y:scroll;
 }
 
-.subtle_background, .order_form {
-	background-color: #5D5D5D !important; /* used to be #202020 */
+.order_form {
+	background-color: white !important; /* used to be #202020 */
 }
 
 
@@ -46,7 +46,7 @@ body, p, ol, ul, input {
 
 p { font-size:12px;
 	line-height:1.4em;
-	color: black;
+	color: #777;
 }
 
 a {
@@ -71,8 +71,7 @@ a {
 }
 
 .welcome_message h1, .welcome_message h1 a  {
-	color: #11A1F4;
-	color: #11A1F4; /* Pulse */
+	color: #777;
 	font-family: 'Futura';
 	text-align: center;
 	font-size: 48px;
@@ -80,7 +79,7 @@ a {
 }
 
 #landing_sign_in h1, #landing_sign_in h1 a {
-	color: white !important;
+	color: #777 !important;
 	font-size: 24px;
 	padding: 0px;
 	text-align: right;
@@ -123,15 +122,15 @@ a {
 }
 
 .welcome_message h2 {
-	color: white;
-	font-family: 'poiret_oneregular' !important;
+	color: #777;
+	font-family: 'Futura Medium' !important;
 	font-weight: italic;
 	text-align: center;
 	font-size: 24px;
 }
 
 .welcome_message h3 {
-	color: white;
+	color: #777;
 	font-weight: normal;
 	font-family: "proxima-nova","Helvetica-neue",helvetica,sans-serif;
 	text-align: center;
@@ -140,7 +139,7 @@ a {
 }
 
 .no_more_items {
-	color: white;
+	color: #777;
 	font-size: 16px;
 	padding: 200px 100px;
 	text-align: center;
@@ -149,9 +148,10 @@ a {
 .notice, .alert {
 	margin: 0;
 	padding: 0;
-	color: black;
+	color: #777;
 	text-align: center;
 	font-size: 18px;
+	border: none;
 }
 
 
@@ -225,10 +225,11 @@ form label {
 	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #CCCCCC), color-stop(1, #F2F2F2)) !important;
 }
 
-#logo {
+.logo {
 	width: 180px;
 	height: 60px;
 	margin-top: 20px;
+	cursor: pointer;
 }
 
 .bar {
@@ -242,6 +243,7 @@ form label {
 	height: 60px;
 	margin-top: 34px;
 	margin-left: 22px;
+	cursor: pointer;
 }
 
 #item {
@@ -249,40 +251,53 @@ form label {
 	height: 60px;
 	margin-top: 34px;
 	margin-left: 22px;
+	cursor: pointer;
 }
 
 #down, #up {
 	width: 70px;
 	height: 70px;
 	margin-top: 20px;
+	cursor: pointer;
 }
 
 #add {
 	width: 90px;
 	height: 90px;
 	margin-top: 10px;
+	cursor: pointer;
 }
 
 #next {
 	width: 70px;
 	height: 70px;
 	margin-top: 20px;
+	cursor: pointer;
 }
 
 #middle {
 	text-align: center;
 }
 
+#middle > .middle-inner {
+	float: none;
+	margin: 0 auto;
+	width: 300px;
+}
+
 #share {
 	margin-top: 23px;
 	width: 55px;
 	height: 55px;
+	cursor: pointer;
 }
 
 #profile {
 	width: 55px;
 	height: 55px;
 	margin-top: 34px;
+	margin-right: 30px;
+	cursor: pointer;
 }
 
 #bag {
@@ -291,10 +306,7 @@ form label {
 	margin-top: 34px;
 	margin-left: 8px;
 	margin-right: 20px;
-}
-
-#profile {
-	margin-right: 30px;
+	cursor: pointer;
 }
 
 .dropdown-menu a:hover {
@@ -459,7 +471,7 @@ p .notice {
 }
 
 .devise_links {
-	color: white;
+	color: black;
 }
 
 .remember_me {
@@ -642,7 +654,7 @@ p .notice {
 }
 
 #landing_channel_form {
-	color: white;
+	color: #777;
 	border-top: none;
 	border-radius: 3px;
 	padding-top: 20px;  /* FIX CENTERING */
@@ -937,19 +949,23 @@ p .notice {
 
 /* Allowing user to make new channel on the landing page */
 
+#landing_channel_form .channel_parameters .option {
+	color: #777;
+}
 
 .welcome_message {
+	margin-top: 120px;
 	width: 100%;
 	height: 250px;
 }
 
 .welcome_message p {
-	color: white;
+	color: #777;
 	text-align: center;
 }
 
 .landing_greeting {
-	color: white;
+	color: #777;
 	font-weight: bold;
 	text-align: center;
 }
@@ -1009,14 +1025,6 @@ p .notice {
 	font-size: 100%;
 }
 
-#footer a {
-    color: lightgrey !important;
-}
-
-#footer a:hover {
-	color: #11A1F4;
-	color: #11A1F4 !important;
-}
 
 a:hover {
 	color: #11A1F4;
@@ -1033,16 +1041,6 @@ a:hover {
 	text-align: center;
 }
 
-.splashpage_flourish {
-	margin-top: 50px;
-	margin: 0 auto;
-	text-align: center;
-}
-
-.splashpage_flourish img {
-	width: 230px;
-}
-
 #actions {
 	width: 70%;
 	margin: 0 auto;
@@ -1055,17 +1053,8 @@ a:hover {
 	text-align: center;
 }
 
-.verticalLine {
-	height: 80px;
-	width: 2px;
-    border-left: thin solid white;
-    float: left;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
 .new_session {
-	color: white;
+	color: #777;
 	margin: 0 auto;
 	width: 520px;
 	margin-bottom: 50px;
@@ -1124,7 +1113,7 @@ a:hover {
 }
 
 .new_registration {
-	color: white;
+	color: #777;
 	margin: 0 auto;
 	width: 100%;
 	margin-bottom: 50px;
@@ -1157,15 +1146,10 @@ a:hover {
 }
 
 #like_aveece, #tweet_aveece {
-	height: 100px;
-	width: 40px;
+	height: 20px;
+	width: 50px;
 	display: inline-block;
 	vertical-align: top;
-}
-
-#like_aveece img, #tweet_aveece img {
-	height: 100px;
-	width: 100px;
 }
 
 
@@ -1179,13 +1163,14 @@ a:hover {
 	text-align: center;
 }
 
-.footer_links {
+.footer_links, .footer_links a, .footer_links a:visited {
 	display: inline-block;
+	color: #777 !important;
 }
 
 .footer_icon {
-	width: 32px;
-	height: 32px;
+	width: 40px;
+	height: 40px;
 }
 
 .items_table, .items_table a {
@@ -1246,20 +1231,6 @@ a:hover {
 }
 
 
-#coming_soon {
-	background-color: #333;
-	border-radius: 8px;
-	left: 40%;
-	top: 80px;
-	position: absolute;
-	width: 200px;
-	height: 24px;
-	display: none;
-	color: white;
-	font-size: 16px;
-	font-weight: bold;
-	z-index: 2;
-}
 
 #social_icons {
 	display: none;
@@ -1502,17 +1473,6 @@ a:hover {
 	color: white;
 	list-style: none;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 #footer a {
