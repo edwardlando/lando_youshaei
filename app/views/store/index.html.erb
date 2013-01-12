@@ -6,36 +6,7 @@
     	<h2> the best way to discover and buy clothes </h2>
     	<br/> 
     </div>
-    <div class="new_session">
-        <h2>Sign up</h2>
-        <div class="authentication_options">
-            <div class="oauth">
-                 <%= button_to "Sign up with Facebook", user_omniauth_authorize_path(:facebook), :class => "facebook_button_auth" %>
-                 <%= button_to "Sign up with Twitter", user_omniauth_authorize_path(:twitter), :class => "twitter_button_auth" %>
-            </div>
-            <div class="verticalLine"></div>
-            <div class="email">
-                <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-                  <%= devise_error_messages! %>
-                    <div>
-                        <%= f.email_field :email, :class => "registration_field", :placeholder => "Email" %>
-                    </div>
-                    <div>
-                        <%= f.password_field :password, :class => "registration_field", :placeholder => "Password" %>
-                    </div>
-                    <div>
-                        <%= f.password_field :password_confirmation, :class => "registration_field", :placeholder => "Confirm Password"%>
-                    </div>
-                    <div>
-                        <%= f.submit "Sign up", :class => "registration_button" %>
-                    </div>
-                    <div class="agree_to_terms">
-                        By signing up, you agree to our terms and privacy policy
-                    </div>
-                <% end %>
-            </div>
-        </div>
-    </div>
+    
     <div class="guest_user">
         <h2 class="landing_greeting"> Not quite seduced? <br/><br/> Go on a test shopping spree </h2>
         <div class="channel_landing_partial">
