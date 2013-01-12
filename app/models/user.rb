@@ -110,5 +110,12 @@ class User < ActiveRecord::Base
     end
   end
 
+  def to_hash
+    {
+      username: self.username,
+      email: self.email,
+      role: self.role
+    }
+  end
   
 end

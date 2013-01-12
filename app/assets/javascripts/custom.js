@@ -110,6 +110,16 @@ $(document).ready(function() {
 		};
 	})
 
+	  /* Add item to site */
+
+    $("#item").on("click", function(event) {
+    	if (AVDATA.user.role === "standard") {
+    		alert("email us to become tastemaker");
+    	} else {
+    		$(".inner_item").slideDown(200);
+    	}
+    });
+
 	
 	// CART
 
@@ -142,8 +152,9 @@ $(document).ready(function() {
 		} else {
 			$(".inner_add_to_cart").slideUp(500);
 		};
-	})
     */
+
+
 
   
     function closeComingSoonDiv(){

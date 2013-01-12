@@ -87,6 +87,12 @@
 <!-- Skimlinks -->
 
 </body>
+  <script>
+    window.AVDATA = {};
+    <% if current_or_guest_user %>
+      AVDATA.user = <%= raw current_or_guest_user.to_hash.to_json %>;
+    <% end %>
+  </script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
   <script src="/assets/keymaster.min.js"></script>
