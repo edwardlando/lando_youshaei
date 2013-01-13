@@ -1,7 +1,7 @@
 <%= form_for Channel.new, :url => "/application/create_guest_user", :html => {:method => :post } do |f| %>
     <ul id="channel_form">
     <div class="landing_channel_parameters">
-      <div class="gender_inner" id="channel_gender_div">
+      <div class="gender_inner" id="landing_channel_gender_div">
         <li class="field">
           <%= f.label :gender %><br />
           <%= f.select(:gender, Channel::GENDER_OPTIONS) %>  
@@ -12,7 +12,7 @@
           </div> 
         </li>
       </div>
-      <div class="price_inner" id="channel_price_div">
+      <div class="price_inner" id="landing_channel_price_div">
         <li class="field">
           <%= f.label :price %><br />
           <%= f.select(:price, Channel::PRICE_OPTIONS) %>  
@@ -23,7 +23,7 @@
           </div> 
         </li>
       </div>
-      <div class="vibe_inner" id="channel_vibe_div">
+      <div class="vibe_inner" id="landing_channel_vibe_div">
         <li class="field">
           <%= f.label :vibe %><br />
           <%= f.select(:vibe, Channel::VIBE_OPTIONS) %>   
@@ -34,7 +34,7 @@
           </div>
         </li>
       </div>
-      <div class="apparel_inner" id="channel_apparel_div">
+      <div class="apparel_inner" id="landing_channel_apparel_div">
         <li class="field">
           <%= f.label :apparel %><br />
           <%= f.select(:apparel, Channel::APPAREL_OPTIONS) %>

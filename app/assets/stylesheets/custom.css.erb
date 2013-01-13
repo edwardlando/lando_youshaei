@@ -22,19 +22,17 @@ html, body {
          url('<%= asset_path('poiretone-regular-webfont.svg#poiret_oneregular') %>') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
 
 @font-face {
-    font-family: 'webfontregular';
-    src: url('futuram-webfont.eot');
-    src: url('futuram-webfont.eot?#iefix') format('embedded-opentype'),
-         url('futuram-webfont.woff') format('woff'),
-         url('futuram-webfont.ttf') format('truetype'),
-         url('futuram-webfont.svg#webfontregular') format('svg');
+    font-family: 'futuram-webfont';
+    src: url('<%= asset_path('futuram-webfont.eot') %>');
+    src: url('<%= asset_path('futuram-webfont.eot?#iefix') %>') format('embedded-opentype'),
+         url('<%= asset_path('futuram-webfont.woff') %>') format('woff'),
+         url('<%= asset_path('futuram-webfont.ttf') %>') format('truetype'),
+         url('<%= asset_path('futuram-webfont.svg#webfontregular') %>') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
 
 body {
@@ -84,7 +82,7 @@ a {
 
 .welcome_message h1, .welcome_message h1 a  {
 	color: #777;
-	font-family: 'webfontregular';
+	font-family: 'futuram-webfont';
 	text-align: center;
 	font-size: 48px;
 	padding-top: 100px;
@@ -135,7 +133,7 @@ a {
 
 .welcome_message h2 {
 	color: #777;
-	font-family: 'Futura Medium' !important;
+	font-family: 'futuram-webfont' !important;
 	font-weight: italic;
 	text-align: center;
 	font-size: 24px;
@@ -665,6 +663,10 @@ p .notice {
 	width: 25%;
 }
 
+#landing_channel_gender_div, #landing_channel_price_div, #landing_channel_vibe_div, #landing_channel_apparel_div {
+	width: 25%;
+}
+
 #item_form li input {
 	display: inline-block;
 }
@@ -964,6 +966,10 @@ p .notice {
 
 .landing_channel_parameters .option {
 	color: #777;
+}
+
+.landing_channel_parameters .option  span {
+	font-size: 22px;
 }
 
 
