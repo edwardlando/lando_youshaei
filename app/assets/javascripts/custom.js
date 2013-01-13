@@ -100,23 +100,18 @@ $(document).ready(function() {
 
 	// ITEMS
 
-	var wantToCreateItem = false;
-	$("#new_item_button").on("click", function(event) {
-		wantToCreateItem = !wantToCreateItem;
-		if (wantToCreateItem == true) {
-			$(".inner_item").slideDown(200);
-		} else {
-			$(".inner_item").slideUp(200);
-		};
-	})
 
-	  /* Add item to site */
-
+    var makeItem = false;
     $("#item").on("click", function(event) {
     	if (AVDATA.user.role === "standard") {
-    		alert("email us to become tastemaker");
+    		alert("email hello@aveece.com to become a tastemaker");
     	} else {
-    		$(".inner_item").slideDown(200);
+    		makeItem = !makeItem;
+    		if (makeItem == true) {
+				$(".inner_item").slideDown(200);
+			} else {
+				$(".inner_item").slideUp(200);
+			};
     	}
     });
 
