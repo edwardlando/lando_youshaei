@@ -65,6 +65,9 @@
       <div class="inner_user">
         <%= render 'users/profile' %>
       </div>
+      <div class="more">
+        <%= render 'static_pages/more' %>
+      </div>
       <%= render 'layouts/header' %>
   	</div>
     <% end %>
@@ -74,11 +77,6 @@
   </div>
   <div id="push"></div>
 </div>
-<% unless current_or_guest_user && current_or_guest_user.role == "admin" %>
-<div id="footer">
-	<%= render 'layouts/footer' %>
-</div>
-<% end %>
 
 <!-- Skimlinks -->
 <script type="text/javascript" src="http://s.skimresources.com/js/41891X1089278.skimlinks.js"></script>

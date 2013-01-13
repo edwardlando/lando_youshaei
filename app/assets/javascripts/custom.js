@@ -98,6 +98,16 @@ $(document).ready(function() {
 		};
 	})
 
+	var more = false;
+	$("#more").on("click", function(event) {
+		more = !more;
+		if (more == true) {
+			$(".more").slideDown(200);
+		} else {
+			$(".more").slideUp(200);
+		};
+	})
+
 	// ITEMS
 
 
