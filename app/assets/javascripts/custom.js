@@ -312,7 +312,7 @@ $(document).ready(function() {
 			data: data,
 			dataType: "json",
 			success: function(data) {
-				alert("EHHHEHEHEHEHHE");
+				humane.log("Thanks for your feedback! We're improving your experience.", {timeout: 10000 });
 				console.log(data);
 				next();
 			}
@@ -333,7 +333,7 @@ $(document).ready(function() {
 			data: data,
 			dataType: "json",
 			success: function(data) {
-				alert("SOMETHING");
+				humane.log("Glad you liked this! Your feedback helps us improve your experience.");
 				console.log(data);
 			}
 		});
