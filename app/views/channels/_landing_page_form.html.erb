@@ -3,7 +3,7 @@
     <div class="landing_channel_parameters">
       <div class="gender_inner" id="landing_channel_gender_div">
         <li class="field">
-          <%= f.label :gender %><br />
+          <%= f.label :gender, "GENDER" %><br />
           <%= f.select(:gender, Channel::GENDER_OPTIONS) %>  
           <div class="picker">
               <% Channel::GENDER_OPTIONS.each do |gender| %>
@@ -14,7 +14,7 @@
       </div>
       <div class="price_inner" id="landing_channel_price_div">
         <li class="field">
-          <%= f.label :price %><br />
+          <%= f.label :price, "PRICE" %><br />
           <%= f.select(:price, Channel::PRICE_OPTIONS) %>  
           <div class="picker">
               <% Channel::PRICE_OPTIONS.each do |price| %>
@@ -25,7 +25,7 @@
       </div>
       <div class="vibe_inner" id="landing_channel_vibe_div">
         <li class="field">
-          <%= f.label :vibe %><br />
+          <%= f.label :vibe, "VIBE" %><br />
           <%= f.select(:vibe, Channel::VIBE_OPTIONS) %>   
           <div class="picker" id="vibe_picker">
               <% Channel::VIBE_OPTIONS.each do |vibe| %>
@@ -36,7 +36,7 @@
       </div>
       <div class="apparel_inner" id="landing_channel_apparel_div">
         <li class="field">
-          <%= f.label :apparel %><br />
+          <%= f.label :apparel, "APPAREL" %><br />
           <%= f.select(:apparel, Channel::APPAREL_OPTIONS) %>
           <div class="picker">
               <% Channel::APPAREL_OPTIONS.each do |apparel| %>
