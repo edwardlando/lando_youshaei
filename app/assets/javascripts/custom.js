@@ -104,8 +104,9 @@ $(document).ready(function() {
     var makeItem = false;
     $("#item").on("click", function(event) {
     	if (AVDATA.user.role === "standard") {
-    		alert("email hello@aveece.com to become a tastemaker");
+    		humane.log("Email hello@aveece.com to become an official tastemaker");
     	} else {
+    		humane.log("Email hello@aveece.com to become an official tastemaker");
     		makeItem = !makeItem;
     		if (makeItem == true) {
 				$(".inner_item").slideDown(200);
