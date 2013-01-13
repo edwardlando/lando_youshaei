@@ -1,6 +1,6 @@
 <%= form_for Channel.new, :url => "/application/create_guest_user", :html => {:method => :post } do |f| %>
-   <ul id="landing_channel_form"> <!-- make id landing_channel_form -->
-    <div class="channel_parameters">
+    <ul id="channel_form">
+    <div class="landing_channel_parameters">
       <div class="gender_inner" id="channel_gender_div">
         <li class="field">
           <%= f.label :gender %><br />
