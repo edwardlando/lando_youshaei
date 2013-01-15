@@ -49,7 +49,6 @@ class ApplicationController < ActionController::Base
     # matching current_user's uuid cookie... then associate them with current_user
   end    
 
-  ####### CHANGE GUEST USER HERE ######
 
 	def create_guest_user
     uuid = rand(36**64).to_s(36)
