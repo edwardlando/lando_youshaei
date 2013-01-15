@@ -1,5 +1,5 @@
 <% if current_or_guest_user.nil? %>
-    <div class"sign"><%= link_to "Sign in", :controller => "sessions", :action => "new" %> | 
+    <div class="sign"><%= link_to "Sign in", :controller => "sessions", :action => "new" %> | 
         <%= link_to "Sign up", :controller => "registrations", :action => "new" %></div>
     <div class="welcome_message">
     	<%= link_to image_tag("logo.png", :class => "logo"),
