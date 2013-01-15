@@ -472,18 +472,14 @@ p .notice {
 }
 
 .registration_button, .authentication_button {
-	width: 100%;
-	background-color: rgba(204,204,204,0.8);
-	color: black;
+	width: 100% !important;
+	background-color: #777;
+	color: white;
 	font-size: 14px;
 	font-weight: bold;
 	margin-top: 10px;
 	border: none;
 	cursor: pointer;
-}
-
-.registration_button:hover, .authentication_button:hover {
-	background-color: rgba(238,238,238,0.8);
 }
 
 .devise_links {
@@ -1109,7 +1105,9 @@ a:hover {
 
 .oauth {
 	height: 100px;
+	width: 230px;
 	float: left;
+	margin-right: 30px;
 }
 
 
@@ -1118,6 +1116,7 @@ a:hover {
 	margin: 0 auto;
 	text-align: center;
 	height: 200px;
+	width: 500px;
 }
 
 .facebook_button_auth, .twitter_button_auth {
@@ -1125,7 +1124,7 @@ a:hover {
 	font-size: 16px;
 	font-weight: bold;
 	border: none;
-	width: 250px;
+	width: 250px !important;
 	height: 30px;
 	border-radius: 3px;
 	cursor: pointer;
@@ -1133,7 +1132,6 @@ a:hover {
 
 .facebook_button_auth {
 	background-color: #475E8E;
-	margin-bottom: 15px;
 }
 
 .facebook_button_auth:hover {

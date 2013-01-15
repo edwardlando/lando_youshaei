@@ -6,9 +6,10 @@
 </div>
 
 <div class="new_session">
-	<h2>Sign in</h2>
+	
 
 	<div class="authentication_options">
+		<h2>Sign in</h2>
 
 		<div class="oauth">
 			<%= button_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), :class => "facebook_button_auth" %>
@@ -20,9 +21,6 @@
 			  <div><%= f.email_field :email, :class => "authentication_field", :placeholder => "Email" %></div>
 			  <div><%= f.password_field :password, :class => "authentication_field", :placeholder => "Password" %></div>
 
-			  <% if devise_mapping.rememberable? -%>
-			    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-			  <% end -%>
 
 			  <div><%= f.submit "Sign in", :class => "authentication_button" %></div>
 			<% end %>

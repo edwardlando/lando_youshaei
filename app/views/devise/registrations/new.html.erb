@@ -28,7 +28,8 @@
                         <%= f.submit "Sign up", :class => "registration_button" %>
                     </div>
                     <div class="agree_to_terms">
-                        By signing up, you agree to our terms and privacy policy
+                        By signing up, you agree to our <%= link_to "terms", :controller => "static_pages", :action => "terms" %>
+                         and <%= link_to "privacy policy", :controller => "static_pages", :action => "privacy" %>
                     </div>
                 <% end %>
             </div>

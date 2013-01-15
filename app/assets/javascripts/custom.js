@@ -369,11 +369,6 @@ $(document).ready(function() {
 
 
 
-
-
-
-
-
     $("#edwardlando").hover(
       function() {
        $("#edward_info").css({"visibility":"visible"});
