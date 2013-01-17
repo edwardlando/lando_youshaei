@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true, :on => :create, :if => :no_provider
 
   validates_uniqueness_of :email
-  validates_uniqueness_of :username
+  # validates_uniqueness_of :username
 
   has_many :items #, :dependent => :destroy
   has_many :channels, :dependent => :destroy

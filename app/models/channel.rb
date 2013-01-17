@@ -1,5 +1,5 @@
 class Channel < ActiveRecord::Base
-  attr_accessible :gender, :price, :vibe, :apparel, :item_index, :current_channel, :user_id
+  attr_accessible :gender, :price, :vibe, :apparel, :item_index, :current_channel, :user_id, :guest_user_id
   belongs_to :user # should be unique, even if the mix is the same  ## maybe belong_to as current_channel
   validates_presence_of :gender, :price, :vibe, :apparel
   
