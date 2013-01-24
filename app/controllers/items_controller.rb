@@ -46,12 +46,15 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
-    @item = Item.new(:title => params[:item][:title],
-                     :url => params[:item][:url],
-                     :gender => params[:item][:gender],
-                     :price => params[:item][:price],
-                     :vibe => params[:item][:vibe],
-                     :apparel => params[:item][:apparel])
+    
+
+
+    @item = Item.new(:title => params[:item][:title] ||= params["title"],
+                     :url => params[:item][:url] ||= params["url"],
+                     :gender => params[:item][:gender] ||= params["gender"],
+                     :price => params[:item][:price] ||= params["price"],
+                     :vibe => params[:item][:vibe] ||= params["vibe"],
+                     :apparel => params[:item][:apparel] ||= params["apparel"])
                           
     @item.user_id = current_user.id
 
