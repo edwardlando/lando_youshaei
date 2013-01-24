@@ -371,7 +371,7 @@ $(document).ready(function() {
 	window.onload = greetNewUser();
 
     function greetNewUser() {
-    	alert(AVDATA.user.signincount); // Need to access signin count in some way
+    // Need to access signin count in some way
     	if (AVDATA.user.sign_in_count === 1) {
 			humane.log("Welcome. Use the right arrow key to move forward.");
 		} else {

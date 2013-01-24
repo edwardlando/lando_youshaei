@@ -7,12 +7,6 @@
     	<h2> A PRODUCT OF THE APPAREL GENOME PROJECT </h2>
     	<br/> 
     </div>
-    <div class="guest_user">
-        <h2 class="landing_greeting">Choose your parameters. Start your adventure. </h2>
-        <div class="channel_landing_partial">
-            <%= render :partial => "channels/landing_page_form" %>
-        </div>
-    </div>
 <% elsif @user && @user.role == "admin" %>
        <%= render :partial => "items/index" %>
 <% elsif @channel && @channel.channel_items.empty? %>
