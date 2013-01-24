@@ -30,7 +30,24 @@ class ItemsController < ApplicationController
   # GET /items/new
   # GET /items/new.json
   def new
+
+    if params["title"]
+
+    @item = Item.new(
+                     :title => params["title"],
+                     :url => params["url"]
+                     :gender => params["gender"]
+                     :price => params["price"]
+                     :vibe => params["vibe"],
+                     :apparel => params["apparel"]
+                     )
+    @item.user_id = params["user_id"]
+    @item.save
+
+    else
     @item = Item.new
+
+    end
 
     respond_to do |format|
       format.html # new.html.erb
@@ -46,16 +63,13 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
-    
-
-
-    @item = Item.new(:title => params[:item][:title] ||= params["title"],
-                     :url => params[:item][:url] ||= params["url"],
-                     :gender => params[:item][:gender] ||= params["gender"],
-                     :price => params[:item][:price] ||= params["price"],
-                     :vibe => params[:item][:vibe] ||= params["vibe"],
-                     :apparel => params[:item][:apparel] ||= params["apparel"])
-                          
+    @item = Item.new(:title => params[:item][:title],
+                     :url => params[:item][:url],
+                     :gender => params[:item][:gender],
+                     :price => params[:item][:price],
+                     :vibe => params[:item][:vibe],
+                     :apparel => params[:item][:apparel])
+                        
     @item.user_id = current_user.id
 
     respond_to do |format|
