@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   layout "no_header_footer", :only => :index
   # GET /items
   # GET /items.json
-  before_filter :authenticate_user!, :except => :create
+  before_filter :authenticate_user!, :except => [:new, :create]
   before_filter :user_is_admin, :only => [:index]
 
   def index
