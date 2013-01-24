@@ -3,8 +3,12 @@ class StoreController < ApplicationController
 
   def index
     if current_or_guest_user #should check if a current or guest user exists
-    	@user = current_user unless current_user.nil?
-      @guest_user = guest_user unless guest_user.nil?
+      if current_user
+        @user = current_user
+      elsif guest_user
+        @guest_user = guest_user
+      end
+
       @index = params["index"].to_i ||= 0
 
       if @user

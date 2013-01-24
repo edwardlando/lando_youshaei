@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
 
-  layout "no_header_footer", :only => :index
 
   before_filter :authenticate_user!
   before_filter :user_is_admin, :only => [:index]
@@ -45,29 +44,6 @@ class UsersController < ApplicationController
   # This is not being used because of devise so the logic is the same in store#index
   # USER CREATED IN REGISTRATIONS CONTROLLER
   def create
-=begin
-    super
-    @user = User.new(params[:user])
-    @user.role = "standard"
-    # Create wishlist when create user
-    @user.wishlist = Wishlist.new(:user_id => @user.id)
-    
-    # Initial chanel for the user
-    @channel = Channel.new(:color => "All_colors", :style => "All_prices", :price => "All_prices", :gender => "All",
-    :user_id => @user.id, :item_index => 0)
-    @channel.current_channel = true
-    @channel.save
-
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to root_path }#redirect_to root_path, :notice => 'User was successfully created.' }
-        format.json { render :json => @user, :status => :created, :location => @user }
-      else
-        format.html { render :action => "new" }
-        format.json { render :json => @user.errors, :status => :unprocessable_entity }
-      end
-    end
-=end
   end
 
   # PUT /users/1
