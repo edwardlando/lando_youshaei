@@ -33,19 +33,19 @@ class ItemsController < ApplicationController
 
     if params["title"]
 
-    @item = Item.new(
-                     :title => params["title"],
-                     :url => params["url"]
-                     :gender => params["gender"]
-                     :price => params["price"]
-                     :vibe => params["vibe"],
-                     :apparel => params["apparel"]
-                     )
-    @item.user_id = params["user_id"]
-    @item.save
+      @item = Item.new(
+                       :title => params["title"],
+                       :url => params["url"],
+                       :gender => params["gender"],
+                       :price => params["price"],
+                       :vibe => params["vibe"],
+                       :apparel => params["apparel"]
+                       )
+      @item.user_id = params["user_id"]
+      @item.save
 
     else
-    @item = Item.new
+      @item = Item.new
 
     end
 
