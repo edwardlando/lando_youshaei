@@ -47,7 +47,8 @@
 <!-- flash messages -->
 <div class="wrapper">
       <div class="title">
-        <%= link_to "AVEECE", {:controller => "store", :action => "index" } %>
+        <%= link_to image_tag("logo.png", :class => "logo"),
+            { :controller => "store", :action => "index" } %>
       </div><br/><br/><br/>
 	    <div class="container" id="iframe">
 	        <%= yield %>
