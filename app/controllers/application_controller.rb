@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_or_guest_user 
   helper_method :guest_user 
 
+
   # if user is logged in, return current_user, else return guest_user
 =begin
   def current_or_guest_user

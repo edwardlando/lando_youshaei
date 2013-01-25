@@ -5,6 +5,7 @@ class StoreController < ApplicationController
     if current_or_guest_user #should check if a current or guest user exists
       if current_user
         @user = current_user
+        cookies[:aveece_user_id] = current_user.id
       elsif guest_user
         @guest_user = guest_user
       end
