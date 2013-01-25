@@ -2,6 +2,7 @@ class SessionsController < Devise::SessionsController
 
   def new
   	super
+    cookies[:aveece_user_id] = current_user.id unless current_user.nil?
   end
 
   def create
