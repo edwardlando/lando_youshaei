@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  layout "no_header_footer", :only => :index
+  layout "no_header_footer", :only => [:index, :new]
   # GET /items
   # GET /items.json
   before_filter :authenticate_user!, :except => [:new, :create]

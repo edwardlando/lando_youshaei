@@ -21,13 +21,19 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :production do 
+	gem 'pg'
+end
+
+group :development do 
+	gem 'sqlite3'
+end
+
 gem 'jquery-rails'
 
 gem 'devise', '>= 1.3.4'
 
 gem 'stripe'
-
-gem 'pg'
 
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
