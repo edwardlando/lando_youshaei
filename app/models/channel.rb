@@ -1,5 +1,7 @@
 class Channel < ActiveRecord::Base
-  attr_accessible :gender, :price, :vibe, :apparel, :item_index, :current_channel, :user_id, :guest_user_id
+  attr_accessible :gender, :price, :vibe, :apparel, :item_index, :current_channel, :user_id, :guest_user_id,
+                  :genes, :seen, :mean_gene_distance 
+
   belongs_to :user # should be unique, even if the mix is the same  ## maybe belong_to as current_channel
   validates_presence_of :gender, :price, :vibe, :apparel
   
@@ -14,6 +16,8 @@ class Channel < ActiveRecord::Base
   VIBE_OPTIONS = ["Elegant", "Casual", "Preppy", "Flashy", "All"]
 
   APPAREL_OPTIONS = ["Tops","Bottoms", "All"]
+
+  seen = {}
 
   def gender_match(item_gender, channel_gender)
     item_gender == channel_gender || channel_gender == "All" || channel_gender == "Unisex"
@@ -33,6 +37,8 @@ class Channel < ActiveRecord::Base
   def apparel_match(item_apparel, channel_apparel)
     item_apparel == channel_apparel || channel_apparel == "All"
   end
+
+
                    
   
   def channel_items
@@ -70,6 +76,39 @@ class Channel < ActiveRecord::Base
     channel_items[self.item_index+2].url unless channel_items[self.item_index+2].nil?
   end
 
+
+  def calculate_mean_gene_distance(items)
+    mean_dist = 0
+    num_items = items.size
+    items.each do |item|
+      mean_dist+=item.gene_distance(self)/num_items
+    end
+    return mean_dist
+  end
+
+  def seen?(item)
+    seen = self.seen.split(",")
+    seen.each do |val|
+      if item == val
+        return true
+      end
+    end
+    return false
+  end
+
+
+
+  def get_next_items(items)
+    basket = []
+    items.each do |item| # arbitrary and should be changed later
+      if item.gene_distance(self) < self.mean_gene_distance/1.25 && !seen?(item)
+        self.seen+=(item.id.to_s+",")
+        basket << item
+      end
+    end
+    self.save
+    return basket
+  end
 
  
 end

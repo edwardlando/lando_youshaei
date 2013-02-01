@@ -33,6 +33,7 @@ class RegistrationsController < Devise::RegistrationsController
 	    resource.role = "standard"
 	    resource.cart = Cart.new(:user_id => resource.id)
 	    resource.wishlist = Wishlist.new(:user_id => resource.id)
+	    cookies[:aveece_user_id] = resource.id 
 	    resource.save
     end
 

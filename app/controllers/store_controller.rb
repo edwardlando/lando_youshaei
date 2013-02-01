@@ -5,8 +5,7 @@ class StoreController < ApplicationController
     if current_or_guest_user #should check if a current or guest user exists
       if current_user
         @user = current_user
-      elsif guest_user
-        @guest_user = guest_user
+        cookies[:aveece_user_id] = current_user.id
       end
 
       @index = params["index"].to_i ||= 0
@@ -24,20 +23,14 @@ class StoreController < ApplicationController
         else 
            @channel = @user.current_channel 
         end
-      elsif @guest_user
-        @guest_channel = @guest_user.current_channel
       end
     
       if @channel 
         @items = @channel.channel_items # send index in json too let's see if just sending the url works
+        @items = @channel.get_next_items(@items) # machine learning
         @items = @items[@index..@index+2]
         @channel.item_index = @index unless @channel.channel_items[@index.to_i].nil?
         @channel.save unless @channel.channel_items[@index.to_i].nil?
-      elsif @guest_channel 
-        @items = @guest_channel.channel_items
-        @items = @items[@index..index+2]
-        @guest_channel.item_index = @index unless @guest_channel.channel_items[@index.to_i].nil?
-        @guest_channel.save
       end
 
       @item_urls = []
