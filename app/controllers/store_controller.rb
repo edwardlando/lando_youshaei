@@ -29,6 +29,7 @@ class StoreController < ApplicationController
         @items = @channel.channel_items # send index in json too let's see if just sending the url works
         @items = @channel.get_next_items(@items) # machine learning
         @items = @items[@index..@index+2]
+        @items.each { |ite| @channel.seen+=(ite.id.to_s+",")}
         @channel.item_index = @index unless @channel.channel_items[@index.to_i].nil?
         @channel.save unless @channel.channel_items[@index.to_i].nil?
       end

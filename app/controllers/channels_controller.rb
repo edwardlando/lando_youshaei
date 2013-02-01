@@ -52,6 +52,9 @@ class ChannelsController < ApplicationController
   # POST /channels
   # POST /channels.json
   def create
+    genes_str = "2.5,2.5,2.5,2.5,2.5,"
+    genes_str += genes_str
+    genes_str += genes_str
     @channel = Channel.new(:gender => params[:channel][:gender],
                            :price => params[:channel][:price],
                            :vibe => params[:channel][:vibe],
