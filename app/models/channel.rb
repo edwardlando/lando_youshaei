@@ -17,7 +17,6 @@ class Channel < ActiveRecord::Base
 
   APPAREL_OPTIONS = ["Tops","Bottoms", "All"]
 
-  seen = {}
 
   def gender_match(item_gender, channel_gender)
     item_gender == channel_gender || channel_gender == "All" || channel_gender == "Unisex"
@@ -89,7 +88,7 @@ class Channel < ActiveRecord::Base
   def seen?(item)
     seen = self.seen.split(",")
     seen.each do |val|
-      if item == val
+      if item.id.to_s == val
         return true
       end
     end
@@ -102,7 +101,7 @@ class Channel < ActiveRecord::Base
     basket = []
     items.each do |item| # arbitrary and should be changed later
       if item.gene_distance(self) < self.mean_gene_distance/1.25 && !seen?(item)
-        self.seen+=(item.id.to_s+",")
+#        self.seen+=(item.id.to_s+",")
         basket << item
       end
     end

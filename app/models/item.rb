@@ -37,14 +37,11 @@ class Item < ActiveRecord::Base
   end
 
   # Begining of machine learning code
-  def vote(style,value)
-    puts "Item genes were #{self.genes}"
-    self.genes = update_gene_values(self,style,value*ALPHA)
-    puts "And now they are #{self.genes}"
-    puts "Style genes were #{style.genes}"
-    style.genes = update_gene_values(style,self,value*BETA)
-
-    return style.genes
+  def vote(channel,value)
+    puts "voting in channel"
+    self.genes = update_gene_values(self,channel,value*ALPHA)
+    channel.genes = update_gene_values(channel,self,value*BETA)
+    return channel.genes
   end
 
   def update_gene_values(item1,item2,greek)
