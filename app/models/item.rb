@@ -16,7 +16,7 @@ class Item < ActiveRecord::Base
 
   PRICE_OPTIONS = ["$", "$$", "$$$", "All"]
 
-  VIBE_OPTIONS = ["Elegant", "Casual", "Preppy", "Flashy", "All"]
+  VIBE_OPTIONS = ["Gatsby Glassic", "Sunday Brunch", "Boston Ivy", "Sunset Riviera", "All"]
 
   APPAREL_OPTIONS = ["Tops","Bottoms", "All"]
                 
