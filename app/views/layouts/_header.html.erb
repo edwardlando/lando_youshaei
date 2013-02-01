@@ -1,8 +1,8 @@
 
 
 <!-- where are we getting channel from? -->
-	<div class="navbar">
-	    <div class="navbar-inner">
+	<div class="navbar" id="aveece_navbar">
+	    <div class="navbar-inner" id="aveece_navbar_inner">
 		    <ul class="nav pull-left">
 			    <li><%= link_to image_tag("logo.png", :class => "logo"),
 			    	{ :controller => "store", :action => "index" } %></li>
@@ -19,7 +19,7 @@
 					    	<%= image_tag("down.png", :id => "down") %></li>
 					    <li id="upvote">
 					    	<%= image_tag("up.png", :id => "up") %></li>
-					    <li id="add"><img src="/assets/add.png"/></li>
+					    <!--<li id="add"><img src="/assets/add.png"/></li>-->
 					    <li data-channel="<%=display_channel%>" data-index="<%=display_channel.item_index+1%>" data-next="true">
 					    	<img src="/assets/next.png" id="next"/></li>
 				    </ul>
@@ -43,7 +43,7 @@
 						<img src="/assets/g.png" id="googleplus_icon" alt="Share on G+"/></a></li>
 				    </ul>
 			    </li>
-			    <li><%= image_tag("bag.png", :id => "bag")%></li>
+			    <!--<li>image_tag("bag.png", :id => "bag")</li>-->
 			    <li><img src="/assets/profile.png") id="profile"/></li>
 			    <li/><img src="/assets/more.png") id="more"/></li>
 		    </ul>

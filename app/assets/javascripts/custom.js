@@ -367,9 +367,11 @@ $(document).ready(function() {
 	});
 
 	/* Notifications based on sign in count */
+	/*
 
 	window.onload = greetNewUser();
 
+    
     function greetNewUser() {
     // Need to access signin count in some way
     	if (AVDATA.user.sign_in_count === 1) {
@@ -378,7 +380,7 @@ $(document).ready(function() {
 			humane.log("Welcome back.");
 		}
     }
-	
+	*/
 
 
 
