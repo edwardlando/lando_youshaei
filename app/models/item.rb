@@ -22,9 +22,8 @@ class Item < ActiveRecord::Base
                 
   SIZE_OPTIONS = ["Extra Small", "Small", "Medium", "Large", "Extra Large"]
 
-  ALPHA = 0.1
-
-  BETA = 0.01
+  ALPHA = 0.2
+  BETA = 0.5
 
   def self.by_votes
     select('items.*, coalesce(value, 0) as votes').
@@ -41,7 +40,8 @@ class Item < ActiveRecord::Base
     puts "voting in channel"
     self.genes = update_gene_values(self,channel,value*ALPHA)
     channel.genes = update_gene_values(channel,self,value*BETA)
-    return channel.genes
+    self.save
+    channel.save
   end
 
   def update_gene_values(item1,item2,greek)

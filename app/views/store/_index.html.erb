@@ -22,11 +22,11 @@
          <% if (@confirmation.status == "sent_to_customer") || (@confirmation.status == "payed") %>
                <%= render :partial => "confirmations/show" %>
          <% end %>
- </div>
-     <% else %>
-    	 <div class="iframe_div">
-    	    <iframe src=<%= @item_url %> alt="product" id="main_iframe"></iframe>
-    	 </div>
-     <% end %>
+    </div>
+<% else %>
+	 <div class="iframe_div">
+	    <iframe src=<%= @item_url %> alt="product" id="main_iframe"></iframe>
+	 </div>
+ <% end %>
 
 
