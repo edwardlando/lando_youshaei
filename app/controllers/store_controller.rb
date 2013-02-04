@@ -31,10 +31,8 @@ class StoreController < ApplicationController
     
       if @channel 
         @items = @channel.channel_items # send index in json too let's see if just sending the url works
-        @items.each {|item| puts item.url}
         @items = @channel.get_next_items(@items) # machine learning
-        @items.each {|item| puts item.url}
-        @items = @items[@index..@index+2]
+        @items = @items[@index..@index+1] 
 
         puts "old items were #{@items}"
 

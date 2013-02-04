@@ -230,12 +230,12 @@ $(document).ready(function() {
 	// Paginating
 
 	var index = 0; 
-	var counter = 0;
+	var counter = 0; // counter keeps track of when we have to make the next call
 	var items = new Array(3);
 
-	window.onload = getNextItem();
+	window.onload = onLoad();
 	
-	function getNextItem() {
+	function getNextTwoItems() {
 		var data = {
 			"index": index,
 		};
@@ -246,28 +246,25 @@ $(document).ready(function() {
 			dataType: "json",
 			success: function(data) {
 				items = data;
-				setNextIFrame();
+				counter = 0; 
 			}
 		});
 	}
 
-	function setNextIFrame() {
-		if (counter == 0) {
-			var url1 = items[0].url;
-	        var id1 = items[0].id;
-		    $("#main_iframe").attr({"src": url1, "item-id": id1});
-		} else {
-			var url2 = items[1].url;
-			var id2 = items[1].id;
-			$("#next_main_iframe").attr({"src": url2, "item-id": id2}); 
-		}
+	function onLoad() { 
+		var url1 = items[0].url;
+        var id1 = items[0].id;
+        var url2 = items[1].url;
+        var id2 = items[1].id;
+	    $("#main_iframe").attr({"src": url1, "item-id": id1});
+	    $("#next_main_iframe").attr({"src": url1, "item-id": id1});
 	}
 
-	 function processAjaxData(response, urlPath){
-	     document.getElementById("main_iframe").innerHTML = response.html;
-	     document.title = response.pageTitle;
-	     window.history.pushState({"html":response.html,"pageTitle":response.pageTitle},"", urlPath);
- 	}
+	function setNextIFrame() {
+			var url1 = items[counter].url;
+	        var id1 = items[counter].id;
+		    $("#next_main_iframe").attr({"src": url1, "item-id": id1});
+	}
 
 	function iframeTransition() {
 		var main = $("#main_iframe");
@@ -282,8 +279,12 @@ $(document).ready(function() {
 	}
 
 	function next() {
-		iframeTransition();
-		setNextIframe();
+		counter +=1;
+		if (counter == 1) {
+			getNextTwoItems();
+		}
+		iframeTransition(); // the next item should be ready already
+		setNextIframe(); // in advance of the following next
  	}
 
 
@@ -322,7 +323,7 @@ $(document).ready(function() {
 		};
 		$.ajax({
 			type: 'POST',
-			url: "/items/"+item_id+"/vote.json",   /******* FOR SOME REASON NEVER REACH THE SUCCESS FUNCTION ******/
+			url: "/items/"+item_id+"/vote.json",   
 			data: data,
 			dataType: "json",
 			success: function(data) {
