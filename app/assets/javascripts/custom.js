@@ -233,7 +233,7 @@ $(document).ready(function() {
 	var counter = 0; // counter keeps track of when we have to make the next call
 	var items = new Array(3);
 
-	window.onload = onLoad();
+	window.onload = getNextTwoItems();
 	
 	function getNextTwoItems() {
 		var data = {
@@ -246,6 +246,11 @@ $(document).ready(function() {
 			dataType: "json",
 			success: function(data) {
 				items = data;
+				if (counter == 0) {
+					onLoad();
+				} else {
+					setNextIframe();
+				}
 				counter = 0; 
 			}
 		});
@@ -257,10 +262,10 @@ $(document).ready(function() {
         var url2 = items[1].url;
         var id2 = items[1].id;
 	    $("#main_iframe").attr({"src": url1, "item-id": id1});
-	    $("#next_main_iframe").attr({"src": url1, "item-id": id1});
+	    $("#next_main_iframe").attr({"src": url2, "item-id": id2});
 	}
 
-	function setNextIFrame() {
+	function setNextIframe() {
 			var url1 = items[counter].url;
 	        var id1 = items[counter].id;
 		    $("#next_main_iframe").attr({"src": url1, "item-id": id1});
@@ -365,64 +370,6 @@ $(document).ready(function() {
 		}
     }
 	*/
-
-
-
-
-    $("#edwardlando").hover(
-      function() {
-       $("#edward_info").css({"visibility":"visible"});
-       $("#edward_pic").css({"opacity":"0.2"});
-      }, 
-      function() {
-       $("#edward_info").css({"visibility":"hidden"});
-       $("#edward_pic").css({"opacity":"1"});
-      }
-    );
-
-    $("#jonathonyoushaei").hover(
-      function() {
-       $("#jon_info").css({"visibility":"visible"});
-       $("#jon_pic").css({"opacity":"0.2"});
-      }, 
-      function() {
-       $("#jon_info").css({"visibility":"hidden"});
-       $("#jon_pic").css({"opacity":"1"});
-      }
-    );
-
-    $("#first").hover(
-      function() {
-       $("#first_info").css({"visibility":"visible"});
-       $("#first_pic").css({"opacity":"0.2"});
-      }, 
-      function() {
-       $("#first_info").css({"visibility":"hidden"});
-       $("#first_pic").css({"opacity":"1"});
-      }
-    );
-
-    $("#second").hover(
-      function() {
-       $("#second_info").css({"visibility":"visible"});
-       $("#second_pic").css({"opacity":"0.2"});
-      }, 
-      function() {
-       $("#second_info").css({"visibility":"hidden"});
-       $("#second_pic").css({"opacity":"1"});
-      }
-    );
-
-    $("#third").hover(
-      function() {
-       $("#third_info").css({"visibility":"visible"});
-       $("#third_pic").css({"opacity":"0.2"});
-      }, 
-      function() {
-       $("#third_info").css({"visibility":"hidden"});
-       $("#third_pic").css({"opacity":"1"});
-      }
-    );
 
 
    
