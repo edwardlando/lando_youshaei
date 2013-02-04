@@ -124,11 +124,10 @@ class ItemsController < ApplicationController
       @user.add_to_wishlist(@item)
       @tastemaker.rating += 1 unless @tastemaker.nil?
       @item.vote(@channel,1)
-      @user.save
     elsif params["value"] == '-1'
       @index+=1
-      @item.vote(@channel,-1)
       @tastemaker.rating -= 1 unless @tastemaker.nil?
+      @item.vote(@channel,-1)
       # maybe can't redirect to back then
     end
 

@@ -32,6 +32,7 @@ LandoYoushaei::Application.routes.draw do
  
   match '/channels' => 'channels#create', :via => :post
   match '/channels' => 'channels#index', :via => :get
+  match '/threads/:id' => 'store#index'
 
   get "channels/show"
 

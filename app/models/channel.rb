@@ -100,7 +100,7 @@ class Channel < ActiveRecord::Base
   def get_next_items(items)
     basket = []
     items.each do |item| # arbitrary and should be changed later
-      if item.gene_distance(self) < self.mean_gene_distance/1.25 && !seen?(item)
+      if item.gene_distance(self) < self.mean_gene_distance/1.25 #&& !seen?(item)
 #        self.seen+=(item.id.to_s+",")
         basket << item
       end

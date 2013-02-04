@@ -2,6 +2,10 @@ class StoreController < ApplicationController
   before_filter :authenticate_user!, :except => :index
 
   def index
+
+    p "params are #{params}"
+
+
     if current_or_guest_user #should check if a current or guest user exists
       if current_user
         @user = current_user
@@ -27,23 +31,38 @@ class StoreController < ApplicationController
     
       if @channel 
         @items = @channel.channel_items # send index in json too let's see if just sending the url works
+        @items.each {|item| puts item.url}
         @items = @channel.get_next_items(@items) # machine learning
+        @items.each {|item| puts item.url}
         @items = @items[@index..@index+2]
+
+        puts "old items were #{@items}"
+
+         if params[:id]
+          puts "got param id!"
+          id_no = params[:id].to_i
+          request = Item.find(id_no)
+          if request
+            puts "adding new item!"
+            @items.unshift(request)
+            @items = @items[0..-2]
+          end
+        else
+          puts "culdnt find param id"
+        end
+        puts "new urls are #{@items}"
+
         @items.each { |ite| @channel.seen+=(ite.id.to_s+",")}
         @channel.item_index = @index unless @channel.channel_items[@index.to_i].nil?
         @channel.save unless @channel.channel_items[@index.to_i].nil?
       end
 
-      @item_urls = []
-        unless @items.nil?
-          @items.each do |item|
-            @item_urls << item.url
-          end
-        end    
+  #    render :json => @items
+       
     end
     respond_to do |format|
-        format.html # index.html.erb
-        format.json { render :json => @items }#@item_urls } # send index too
+        format.html 
+        format.json { render :json => @items, :params => { :id => params[:id]} }#@item_urls } # send index too
     end
   end
 end

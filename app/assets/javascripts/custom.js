@@ -263,6 +263,12 @@ $(document).ready(function() {
 		}
 	}
 
+	 function processAjaxData(response, urlPath){
+	     document.getElementById("main_iframe").innerHTML = response.html;
+	     document.title = response.pageTitle;
+	     window.history.pushState({"html":response.html,"pageTitle":response.pageTitle},"", urlPath);
+ 	}
+
 	function iframeTransition() {
 		var main = $("#main_iframe");
 		var next = $("#next_main_iframe");
@@ -299,7 +305,7 @@ $(document).ready(function() {
 			data: data,
 			dataType: "json",
 			success: function(data) {
-				humane.log("Thanks for your feedback! We're improving your experience.", {timeout: 10000 });
+				humane.log("Thanks for your feedback! We're improving your experience.", {timeout: 1000 });
 				console.log(data);
 				next();
 			}
@@ -320,7 +326,7 @@ $(document).ready(function() {
 			data: data,
 			dataType: "json",
 			success: function(data) {
-				humane.log("Glad you liked this! Your feedback helps us improve your experience.");
+				humane.log("Glad you liked this! Your feedback helps us improve your experience.", {timeout: 1000 });
 				console.log(data);
 			}
 		});
