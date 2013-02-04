@@ -272,6 +272,12 @@ $(document).ready(function() {
 	    $("#main_iframe").attr({"src": url1, "item-id": id1});
 	}
 
+	 function processAjaxData(response, urlPath){
+	     document.getElementById("main_iframe").innerHTML = response.html;
+	     document.title = response.pageTitle;
+	     window.history.pushState({"html":response.html,"pageTitle":response.pageTitle},"", urlPath);
+ 	}
+
 	function iframeTransition() {
 		var main = $("#main_iframe");
 		var next = $("#next_main_iframe");
@@ -301,7 +307,7 @@ $(document).ready(function() {
 			setMainIframeSrc();
 			counter = 0; 
 		}
-
+		window.history.pushState('','','/threads/'+items[3-counter].id);
 		iframeTransition();
  	}
 
