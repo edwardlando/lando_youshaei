@@ -232,12 +232,10 @@ $(document).ready(function() {
 	var index = 0; 
 	var counter = 0;
 	var items = new Array(3);
-	//items.push("x");
 
-
-	window.onload = setSrcsOnLoad();
-
-	function getNext3Items() {
+	window.onload = getNextItem();
+	
+	function getNextItem() {
 		var data = {
 			"index": index,
 		};
@@ -248,67 +246,46 @@ $(document).ready(function() {
 			dataType: "json",
 			success: function(data) {
 				items = data;
-				//alert("INSIDE SUCCESS"+items.toString());
-				setMainIframeSrc();
-		    	set2IframesInAdvance();
-				//alert("data "+items);
+				setNextIFrame();
 			}
 		});
 	}
 
-	function set2IframesInAdvance() {
-		var url2 = items[1].url;
-		var id2 = items[1].id;
-		var url3 = items[2].url;
-		var id3 = items[2].id;
-		$("#next_main_iframe").attr({"src": url2, "item-id": id2}); 
-		$("#next_next_main_iframe").attr({"src": url3, "item-id": id3}); 
-	}
-
-	function setMainIframeSrc() {
-		//alert("SET MAIN"+items.toString());
-        var url1 = items[0].url;
-        var id1 = items[0].id;
-	    $("#main_iframe").attr({"src": url1, "item-id": id1});
+	function setNextIFrame() {
+		if (counter == 0) {
+			var url1 = items[0].url;
+	        var id1 = items[0].id;
+		    $("#main_iframe").attr({"src": url1, "item-id": id1});
+		} else {
+			var url2 = items[1].url;
+			var id2 = items[1].id;
+			$("#next_main_iframe").attr({"src": url2, "item-id": id2}); 
+		}
 	}
 
 	function iframeTransition() {
 		var main = $("#main_iframe");
 		var next = $("#next_main_iframe");
-		var next_next = $("#next_next_main_iframe");
-
-		$("#main_iframe").animate({"left": "-100%"}, 1000);
-		$("#next_main_iframe").animate({"left": "0"}, 1000);
-		$("#next_next_main_iframe").css({"left": "100%"});
+		$("#next_main_iframe").animate({"left": "-100"}, 1000);
+		$("#main_iframe").animate({"left": "0"}, 1000);
 		$("#main_iframe").css({"visibility": "hidden"});
-		$("#main_iframe").css({"left": "200%"});
-		$("#main_iframe").css({"visibility": "visible"});
-	
-		main.attr({"id": "next_next_main_iframe"}); 
-		next.attr({"id": "main_iframe"});
-		next_next.attr({"id": "next_main_iframe"}); 			
+		$("#main_iframe").css({"left": "100"});
+		main.attr({"id": "next_main_iframe"}); 
+		next.attr({"id": "main_iframe"});	
+
 	}
 
 	function next() {
- 		counter+=1;
-		index+=1;
-
-		if (counter == 2) {
-			getNext3Items();
-			set2IframesInAdvance();
-		}
-		if (counter == 3) {
-			setMainIframeSrc();
-			counter = 0; 
-		}
-
 		iframeTransition();
+		setNextIframe();
  	}
 
- 	function setSrcsOnLoad() {
-    	getNext3Items();
-    	//alert("setSrcsOnLoad"+items.toString());
- 	}
+
+
+
+
+
+
 
  	function downVote() {
  		var item_id = $("#main_iframe").attr("item-id");

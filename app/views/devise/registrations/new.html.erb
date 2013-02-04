@@ -8,8 +8,8 @@
         <h2>Sign up</h2>
         <div class="authentication_options">
             <div class="oauth">
-                 <%= button_to "Sign up with Facebook", user_omniauth_authorize_path(:facebook), :class => "btn btn-large btn-primary facebook_button_auth", :id => "facebook" %>
-                 <%= button_to "Sign up with Twitter", user_omniauth_authorize_path(:twitter), :class => "btn btn-large btn-primary twitter_button_auth", :id => "twitter" %>
+                 <%= link_to image_tag("Facebook_button.png"), user_omniauth_authorize_path(:facebook), :class => "facebook_button_auth" %>
+                 <%= link_to image_tag("Twitter_button.png"), user_omniauth_authorize_path(:twitter), :class => "twitter_button_auth.png" %>
             </div>
             <div class="verticalLine"></div>
             <div class="email">
