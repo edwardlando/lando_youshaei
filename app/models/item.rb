@@ -16,7 +16,7 @@ class Item < ActiveRecord::Base
 
   PRICE_OPTIONS = ["$", "$$", "$$$", "All"]
 
-  VIBE_OPTIONS = ["Gatsby Glassic", "Sunday Brunch", "Boston Ivy", "Sunset Riviera", "All"]
+  VIBE_OPTIONS = ["Gatsby Classic", "Sunday Brunch", "Boston Ivy", "Sunset Riviera", "All"]
 
   APPAREL_OPTIONS = ["Tops","Bottoms", "All"]
                 
@@ -63,7 +63,7 @@ class Item < ActiveRecord::Base
     channel_array = channel.genes.split(",")
     item_array = self.genes.split(",")
     for ind in (0..channel_array.length-1)
-      sqr+=((channel_array[ind].to_f-item_array[ind].to_f)**2)
+      sqr+=((channel_array[ind].to_f-item_array[ind].to_f)**2)   # could be done by inject
     end
     Math.sqrt(sqr)
   end

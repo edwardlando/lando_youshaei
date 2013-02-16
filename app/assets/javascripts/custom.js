@@ -125,7 +125,7 @@ $(document).ready(function() {
     	}
     });
 
-	
+
 	// CART
 
 	/*
@@ -195,20 +195,20 @@ $(document).ready(function() {
     if ($("#facebook_share").length>0) {
 		//Facebook
 		var facebook_url_to_share = window.location.href;
-		var facebook_text = "OMG found this on Aveece";
-		var facebook = "https://www.facebook.com/sharer.php?u="+facebook_url_to_share+"&t="+facebook_text;
-		document.getElementById("facebook_share").setAttribute("href", facebook);
-		
+		var facebook_text = "OMG found this on Aveece"; // fix facebook plz
+		var facebook = "https://www.facebook.com/dialog/feed?"+facebook_url_to_share+"&t="+facebook_text;
+		document.getElementById("facebook_share").setAttribute("href", window.location.href);
+
 
 		//Twitter   
 		var twitter_data_url = window.location.href;
-		var twitter_data_text = "OMG! Look at what I found on Aveece"
+		var twitter_data_text = ("OMG! Look at what I found on Aveece" + window.location.href);
 		document.getElementById("twitter_share").setAttribute("href",
 			"https://twitter.com/intent/tweet?url="+twitter_data_url);
 		//Pinterest
 		var pinterest_url = "http://pinterest.com/pin/create/button/?url=" + window.location.href
 		document.getElementById("pinterest_share").setAttribute("href", pinterest_url);
-	 
+
 	    // Google Plus
 		var google_plus_url = "https://plus.google.com/share?url=" + window.location.href; 
 		document.getElementById("googleplus_share").setAttribute("href", google_plus_url);
@@ -230,14 +230,22 @@ $(document).ready(function() {
 	// Paginating
 
 	var index = 0; 
-	var counter = 0; // counter keeps track of when we have to make the next call
+	var counter = 0;
 	var items = new Array(3);
+	//items.push("x");
 
-	window.onload = getNextTwoItems();
-	
-	function getNextTwoItems() {
+
+	window.onload = setSrcsOnLoad();
+
+	function getNext3Items() {
+		var id = -1;
+		var url_str = window.location.href.split("/");
+		if (url_str.length > 4)
+			id = parseInt(url_str[4]); 
+		//alert(url_str[4]);
 		var data = {
 			"index": index,
+			"id": id,
 		};
 		$.ajax({
 			type: 'GET',
@@ -246,58 +254,69 @@ $(document).ready(function() {
 			dataType: "json",
 			success: function(data) {
 				items = data;
-				if (counter == 0) {
-					onLoad();
-				} else {
-					setNextIframe();
-				}
-				counter = 0; 
+				//alert("INSIDE SUCCESS"+items.toString());
+				setMainIframeSrc();
+		    	set2IframesInAdvance();
+				//alert("data "+items);
 			}
 		});
 	}
 
-	function onLoad() { 
-		var url1 = items[0].url;
-        var id1 = items[0].id;
-        var url2 = items[1].url;
-        var id2 = items[1].id;
-	    $("#main_iframe").attr({"src": url1, "item-id": id1});
-	    $("#next_main_iframe").attr({"src": url2, "item-id": id2});
+	function set2IframesInAdvance() {
+		var url2 = items[1].url;
+		var id2 = items[1].id;
+		var url3 = items[2].url;
+		var id3 = items[2].id;
+		$("#next_main_iframe").attr({"src": url2, "item-id": id2}); 
+		$("#next_next_main_iframe").attr({"src": url3, "item-id": id3}); 
 	}
 
-	function setNextIframe() {
-			var url1 = items[counter].url;
-	        var id1 = items[counter].id;
-		    $("#next_main_iframe").attr({"src": url1, "item-id": id1});
+	function setMainIframeSrc() {
+		//alert("SET MAIN"+items.toString());
+        var url1 = items[0].url;
+        var id1 = items[0].id;
+	    $("#main_iframe").attr({"src": url1, "item-id": id1});
 	}
 
 	function iframeTransition() {
 		var main = $("#main_iframe");
 		var next = $("#next_main_iframe");
-		$("#next_main_iframe").animate({"left": "-100"}, 1000);
-		$("#main_iframe").animate({"left": "0"}, 1000);
-		$("#main_iframe").css({"visibility": "hidden"});
-		$("#main_iframe").css({"left": "100"});
-		main.attr({"id": "next_main_iframe"}); 
-		next.attr({"id": "main_iframe"});	
+		var next_next = $("#next_next_main_iframe");
 
+		$("#main_iframe").animate({"left": "-100%"}, 1000);
+		$("#next_main_iframe").animate({"left": "0"}, 1000);
+		$("#next_next_main_iframe").css({"left": "100%"});
+		$("#main_iframe").css({"visibility": "hidden"});
+		$("#main_iframe").css({"left": "200%"});
+		$("#main_iframe").css({"visibility": "visible"});
+
+		main.attr({"id": "next_next_main_iframe"}); 
+		next.attr({"id": "main_iframe"});
+		next_next.attr({"id": "next_main_iframe"}); 			
 	}
 
 	function next() {
-		counter +=1;
-		if (counter == 1) {
-			getNextTwoItems();
+ 		counter+=1;
+		index+=1;
+
+		history.pushState("", "", ("/threads/"+$("#main_iframe").attr("item-id")));
+
+		if (counter == 2) {
+			getNext3Items();
+			set2IframesInAdvance();
 		}
-		iframeTransition(); // the next item should be ready already
-		setNextIframe(); // in advance of the following next
+		if (counter == 3) {
+			setMainIframeSrc();
+			counter = 0; 
+		}
+
+		iframeTransition();
  	}
 
-
-
-
-
-
-
+ 	function setSrcsOnLoad() {
+    	getNext3Items();
+    	//alert("setSrcsOnLoad"+items.toString());
+ 	}
 
  	function downVote() {
  		var item_id = $("#main_iframe").attr("item-id");
@@ -311,7 +330,7 @@ $(document).ready(function() {
 			data: data,
 			dataType: "json",
 			success: function(data) {
-				humane.log("Thanks for your feedback! We're improving your experience.", {timeout: 1000 });
+				humane.log("Thanks for your feedback! We're improving your experience.", {timeout: 10000 });
 				console.log(data);
 				next();
 			}
@@ -328,11 +347,11 @@ $(document).ready(function() {
 		};
 		$.ajax({
 			type: 'POST',
-			url: "/items/"+item_id+"/vote.json",   
+			url: "/items/"+item_id+"/vote.json",   /******* FOR SOME REASON NEVER REACH THE SUCCESS FUNCTION ******/
 			data: data,
 			dataType: "json",
 			success: function(data) {
-				humane.log("Glad you liked this! Your feedback helps us improve your experience.", {timeout: 1000 });
+				humane.log("Glad you liked this! Your feedback helps us improve your experience.");
 				console.log(data);
 			}
 		});
@@ -356,11 +375,9 @@ $(document).ready(function() {
 	});
 
 	/* Notifications based on sign in count */
-	/*
 
 	window.onload = greetNewUser();
 
-    
     function greetNewUser() {
     // Need to access signin count in some way
     	if (AVDATA.user.sign_in_count === 1) {
@@ -369,7 +386,65 @@ $(document).ready(function() {
 			humane.log("Welcome back.");
 		}
     }
-	*/
+
+
+
+
+
+    $("#edwardlando").hover(
+      function() {
+       $("#edward_info").css({"visibility":"visible"});
+       $("#edward_pic").css({"opacity":"0.2"});
+      }, 
+      function() {
+       $("#edward_info").css({"visibility":"hidden"});
+       $("#edward_pic").css({"opacity":"1"});
+      }
+    );
+
+    $("#jonathonyoushaei").hover(
+      function() {
+       $("#jon_info").css({"visibility":"visible"});
+       $("#jon_pic").css({"opacity":"0.2"});
+      }, 
+      function() {
+       $("#jon_info").css({"visibility":"hidden"});
+       $("#jon_pic").css({"opacity":"1"});
+      }
+    );
+
+    $("#first").hover(
+      function() {
+       $("#first_info").css({"visibility":"visible"});
+       $("#first_pic").css({"opacity":"0.2"});
+      }, 
+      function() {
+       $("#first_info").css({"visibility":"hidden"});
+       $("#first_pic").css({"opacity":"1"});
+      }
+    );
+
+    $("#second").hover(
+      function() {
+       $("#second_info").css({"visibility":"visible"});
+       $("#second_pic").css({"opacity":"0.2"});
+      }, 
+      function() {
+       $("#second_info").css({"visibility":"hidden"});
+       $("#second_pic").css({"opacity":"1"});
+      }
+    );
+
+    $("#third").hover(
+      function() {
+       $("#third_info").css({"visibility":"visible"});
+       $("#third_pic").css({"opacity":"0.2"});
+      }, 
+      function() {
+       $("#third_info").css({"visibility":"hidden"});
+       $("#third_pic").css({"opacity":"1"});
+      }
+    );
 
 
    

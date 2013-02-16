@@ -13,7 +13,7 @@ class Channel < ActiveRecord::Base
 
   PRICE_OPTIONS = ["$", "$$", "$$$", "All"]
 
-  VIBE_OPTIONS = ["Gatsby Glassic", "Sunday Brunch", "Boston Ivy", "Sunset Riviera", "All"]
+  VIBE_OPTIONS = ["Gatsby Classic", "Sunday Brunch", "Boston Ivy", "Sunset Riviera", "All"]
 
   APPAREL_OPTIONS = ["Tops","Bottoms", "All"]
 
@@ -30,8 +30,10 @@ class Channel < ActiveRecord::Base
   end
 
   def vibe_match(item_vibe, channel_vibe)
-    item_vibe == channel_vibe || channel_vibe == "All"
+    ((item_vibe == channel_vibe)|| (channel_vibe == "Gatsby Classic" && item_vibe == "Elegant") || 
+    (channel_vibe == "Sunday Brunch" && item_vibe == "Casual") || (channel_vibe == "Boston Ivy" && item_vibe == "Preppy") || (channel_vibe == "Sunset Riviera" && item_vibe == "Flashy") || (channel_vibe == "All"))
   end
+
 
   def apparel_match(item_apparel, channel_apparel)
     item_apparel == channel_apparel || channel_apparel == "All"
@@ -58,6 +60,8 @@ class Channel < ActiveRecord::Base
     end
     items
   end
+
+
 
   def current_item
     channel_items[self.item_index] unless channel_items[self.item_index].nil?

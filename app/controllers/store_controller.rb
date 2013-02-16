@@ -32,18 +32,16 @@ class StoreController < ApplicationController
       if @channel 
         @items = @channel.channel_items # send index in json too let's see if just sending the url works
         @items = @channel.get_next_items(@items) # machine learning
-        @items = @items[@index..@index+1] 
+        @items = @items[@index..@index+2] 
 
         puts "old items were #{@items}"
 
-         if params[:id]
+         if params[:id].to_i > 0
           puts "got param id!"
           id_no = params[:id].to_i
           request = Item.find(id_no)
           if request
-            puts "adding new item!"
-            @items.unshift(request)
-            @items = @items[0..-2]
+            @items[0] = request
           end
         else
           puts "culdnt find param id"
