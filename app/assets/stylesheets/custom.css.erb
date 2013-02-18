@@ -86,15 +86,33 @@ a {
 }
 
 
-.facebook_button, .twitter_button {
+.facebook_login, .twitter_login {
 	color: white;
 	font-size: 16px;
 	font-weight: bold;
 	border: none;
 	width: 250px;
-	height: 30px;
+	height: 70px;
+	border-bottom: 50px;
 	border-radius: 3px;
 }
+
+.twitter_login {
+	padding-left: 4px;
+}
+
+.oauth {
+	border-bottom: 30px;
+}
+
+.facebook_login img, .twitter_login img {
+	color: white;
+	font-size: 16px;
+	font-weight: bold;
+	
+	text-align: left;
+}
+
 
 
 
@@ -475,7 +493,8 @@ p .notice {
 }
 
 .registration_button, .authentication_button {
-	width: 100% !important;
+	/* width: 100% !important; */
+	width: 213px !important;
 	background-color: #777;
 	color: white;
 	font-size: 14px;
@@ -1102,15 +1121,17 @@ a:hover {
 }
 
 .email {
-	height: 100px;
+	height: 150px;
 	float: left;
+	margin-top: 14px;
 }
 
 .oauth {
-	height: 100px;
+	height: 150px;
 	width: 230px;
 	float: left;
 	margin-right: 30px;
+	margin-bottom: 30px;
 }
 
 
