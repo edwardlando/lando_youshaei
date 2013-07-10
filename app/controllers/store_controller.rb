@@ -61,6 +61,10 @@ class StoreController < ApplicationController
         format.json { render :json => @items, :params => { :id => params[:id]} }#@item_urls } # send index too
     end
   end
+
+  def make_first_channel
+    @user = current_user
+  end
 end
 
 =begin

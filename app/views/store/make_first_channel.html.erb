@@ -1,0 +1,58 @@
+<h1>Welcome to Aveece</h1>
+
+<h2>Make your first path</h2>
+
+
+<%= form_for(Channel.new) do |f| %>
+  <ul id="channel_form">
+    <div class="channel_parameters">
+      <div class="gender_inner" id="channel_gender_div">
+        <li class="field">
+          <%= f.label :gender %><br />
+          <%= f.select(:gender, Channel::GENDER_OPTIONS) %>  
+          <div class="picker">
+              <% Channel::GENDER_OPTIONS.each do |gender| %>
+             <div class="option" id="<%=gender%>"><span><%= gender %></span></div>
+            <% end %>
+          </div> 
+        </li>
+      </div>
+      <div class="price_inner" id="channel_price_div">
+        <li class="field">
+          <%= f.label :price %><br />
+          <%= f.select(:price, Channel::PRICE_OPTIONS) %>  
+          <div class="picker">
+              <% Channel::PRICE_OPTIONS.each do |price| %>
+             <div class="option" id="Under<%=price%>"><span><%= price %></span></div>
+            <% end %>
+          </div> 
+        </li>
+      </div>
+      <div class="vibe_inner" id="channel_vibe_div">
+        <li class="field">
+          <%= f.label :vibe %><br />
+          <%= f.select(:vibe, Channel::VIBE_OPTIONS) %>   
+          <div class="picker" id="vibe_picker">
+              <% Channel::VIBE_OPTIONS.each do |vibe| %>
+             <div class="option" id="Vibe<%=vibe%>"><span><%= vibe %></span></div>
+            <% end %>
+          </div>
+        </li>
+      </div>
+      <div class="apparel_inner" id="channel_apparel_div">
+        <li class="field">
+          <%= f.label :apparel %><br />
+          <%= f.select(:apparel, Channel::APPAREL_OPTIONS) %>
+          <div class="picker">
+              <% Channel::APPAREL_OPTIONS.each do |apparel| %>
+             <div class="option" id="Apparel<%=apparel%>"><span><%= apparel %></span></div>
+            <% end %>
+          </div>
+        </li> 
+      </div>
+    </div>
+  </ul>
+  <div class="actions" align=center>
+      <%= f.submit "Create this Path", :id => "make_channel" %>
+    </div>
+<% end %>

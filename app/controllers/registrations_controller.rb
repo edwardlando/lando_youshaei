@@ -35,6 +35,8 @@ class RegistrationsController < Devise::RegistrationsController
 	    resource.wishlist = Wishlist.new(:user_id => resource.id)
 	    cookies[:aveece_user_id] = resource.id 
 	    resource.save
+
+	    redirect_to :controller => "store", :action => "make_first_channel"
     end
 
     def destroy
